@@ -4,22 +4,42 @@ import React from "react";
 import HeroSection from "./components/HeroSection";
 import TrustedBySection from "./components/TrustedBySection";
 import MissionSection from "./components/MissionSection";
-import LightSection from "./components/LightSection";
-
+import ServicesSection from "./components/ServicesSection";
+import WhyKaelixoSection from "./components/WhyKaelixoSection";
+import ProcessSection from "./components/ProcessSection";
+import FAQSection from "./components/FAQSection";
+import TestimonialsSection from "./components/TestimonialsSection";
+import ProductsSection from "./components/ProductsSection";
+import SuccessStoriesSection from "./components/SuccessStoriesSection";
+import EnquirySection from "./components/EnquirySection";
+import CTASection from "./components/CTASection";
 export default function HomeMain() {
   return (
     <div className="relative bg-[#020205] text-white selection:bg-[#FF0055] selection:text-white">
-      {/* 1. Hero Section with 3D Monolith artwork, Tagline, CTAs & Docked Stats Bar */}
       <HeroSection />
 
-      {/* 2. Trusted By Companies (Microsoft, Google, AWS, Meta, etc.) */}
       <TrustedBySection />
 
-      {/* 3. THINK. BUILD. GROW. Statement Section */}
       <MissionSection />
 
-      {/* 4. Clean Transition to White Section (Services, Capabilities, Consultation Banner) */}
-      <LightSection />
+      <ServicesSection />
+
+      <WhyKaelixoSection />
+
+      <ProcessSection />
+
+      <TestimonialsSection />
+
+      <ProductsSection />
+
+      <SuccessStoriesSection />
+
+      <FAQSection />
+
+      <EnquirySection/>
+
+      <CTASection />
+
     </div>
   );
 }

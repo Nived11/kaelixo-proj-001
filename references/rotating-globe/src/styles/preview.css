@@ -1,0 +1,23 @@
+:root { font-family: 'Segoe UI', system-ui, sans-serif; color: #eeeaf6; background: #080911; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.globe-studio { max-width: 1180px; padding: 0 40px 40px; margin: auto; }
+header { height: 80px; border-bottom: 1px solid #ffffff12; display: flex; justify-content: space-between; align-items: center; }
+.brand { color: #f7f4fc; font-size: 28px; font-weight: 600; letter-spacing: -1px; text-decoration: none; }
+.brand span { color: #ff5dcc; }
+.edition, .eyebrow, .stage-label, .stage-bottom { font-size: 9px; letter-spacing: 2px; color: #a798b9; }
+.intro { padding: 28px 0 23px; }
+.eyebrow { color: #ed99d7; }
+h1 { font-size: clamp(28px, 4vw, 38px); font-weight: 500; letter-spacing: -1.3px; margin: 9px 0; }
+.intro p { margin: 0; font-size: 13px; color: #a196b2; }
+.globe-stage { position: relative; display: grid; place-items: center; border: 1px solid #272131; border-radius: 14px; background: #05060d; padding: 40px; }
+.globe-art { width: min(100%, 575px); }
+.globe-stage--clear { background-color: #1a1724; background-image: conic-gradient(#252030 25%, transparent 0 50%, #252030 0 75%, transparent 0); background-size: 24px 24px; }
+.stage-label { position: absolute; top: 24px; left: 26px; }
+.stage-bottom { position: absolute; bottom: 22px; left: 26px; right: 26px; display: flex; justify-content: space-between; font-size: 8px; }
+.toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 17px; }
+button { padding: 10px 16px; border: 1px solid #42334c; border-radius: 7px; background: #17121e; color: #e8cbe6; font: inherit; font-size: 11px; cursor: pointer; }
+button:hover, button[aria-pressed='true'] { border-color: #df7dc3; background: #29192b; }
+button:focus-visible { outline: 2px solid #ffb2e4; outline-offset: 4px; }
+.toolbar > span { margin-left: auto; font-size: 10px; color: #97829f; }
+@media (max-width: 600px) { .globe-studio { padding: 0 18px 26px; } header { height: 68px; } .edition { font-size: 7px; } .globe-stage { padding: 47px 5px; } .stage-label { font-size: 8px; left: 17px; } .stage-bottom { left: 17px; right: 17px; font-size: 6px; letter-spacing: 1px; } .toolbar > span { width: 100%; margin: 6px 0 0; } }

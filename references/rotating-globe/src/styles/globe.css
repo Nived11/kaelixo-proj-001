@@ -1,0 +1,15 @@
+.rotating-globe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  overflow: visible;
+}
+
+.rotating-globe .globe-atmosphere {
+  opacity: .5;
+}
+
+/* Motion is a spherical SVG texture projection managed by sphere.js.
+   The outer artwork never rotates as a flat image. The renderer honors pause,
+   reduced motion, document visibility, and off-screen suspension. */
