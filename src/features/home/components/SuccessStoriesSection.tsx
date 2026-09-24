@@ -35,7 +35,7 @@ export default function SuccessStoriesSection() {
   ];
 
   return (
-    <section className="relative bg-[#FAFBFF] py-24 lg:py-32 overflow-hidden font-sans">
+    <section className="relative bg-[#FAFBFF] py-16 lg:py-20 overflow-hidden font-sans">
       
       {/* Soft Background Gradients */}
       <div className="absolute -bottom-[10%] -left-[10%] w-[50%] h-[50%] bg-purple-200/50 rounded-full blur-[120px] pointer-events-none" />
@@ -56,22 +56,25 @@ export default function SuccessStoriesSection() {
             </h2>
           </div>
           
-          <div className="flex flex-col items-start md:items-end gap-3 max-w-[320px]">
-            <a href="#" className="text-[#FF0055] font-bold text-[15px] flex items-center gap-2 hover:gap-3 transition-all">
-              See All Case Studies <ArrowRight className="w-4 h-4" />
-            </a>
-            <p className="text-slate-500 text-sm md:text-[15px] leading-relaxed md:text-right">
-              Different businesses. Unique challenges. Real growth with Kaelixo.
-            </p>
+          <div className="flex flex-col items-start md:items-end gap-3">
+            <div className="flex flex-col items-end">
+              <a href="#" className="text-[#FF0055] font-bold text-[15px] flex items-center gap-2 hover:gap-3 transition-all mb-3">
+                See All Case Studies <ArrowRight className="w-4 h-4" />
+              </a>
+              <p className="text-slate-500 text-sm md:text-[15px] leading-relaxed text-left">
+                Different businesses. Unique challenges.<br />
+                Real growth with Kaelixo.
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {cases.map((item) => (
             <div 
               key={item.id} 
-              className="bg-white rounded-[24px] border border-slate-100 overflow-hidden shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.1)] transition-all duration-300 group flex flex-col"
+              className="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.1)] transition-all duration-300 group flex flex-col"
             >
               {/* Image Header */}
               <div className="relative h-[220px] w-full overflow-hidden bg-slate-100">
@@ -80,34 +83,35 @@ export default function SuccessStoriesSection() {
                   alt={item.title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm">
-                  <span className="text-slate-800 font-bold text-[10px] tracking-wider uppercase">
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm">
+                  <span className="text-slate-800 font-bold text-[9px] tracking-wider uppercase">
                     {item.category}
                   </span>
                 </div>
               </div>
               
               {/* Content Body */}
-              <div className="p-8 flex flex-col flex-1">
-                <h3 className="text-[#020205] text-[22px] font-extrabold mb-3 group-hover:text-[#FF0055] transition-colors">
+              <div className="relative -mt-8 p-6 bg-white rounded-t-3xl flex flex-col flex-1 z-10">
+                <h3 className="text-[#020205] text-lg font-extrabold mb-2 group-hover:text-[#FF0055] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-slate-500 text-[14px] leading-relaxed mb-8 flex-1">
+                <p className="text-slate-500 text-[13px] leading-relaxed mb-6 flex-1">
                   {item.desc}
                 </p>
                 
                 {/* Footer Stats & Link */}
-                <div className="flex items-center justify-between pt-6 border-t border-slate-100">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-[#FF0055] text-3xl font-extrabold tracking-tight">
+                <div className="flex items-center gap-3 mt-auto">
+                  <div className="flex items-baseline gap-1.5 shrink-0">
+                    <span className="text-[#FF0055] text-[26px] font-extrabold tracking-tight">
                       {item.stat}
                     </span>
-                    <span className="text-slate-400 text-[11px] font-semibold uppercase tracking-wider">
+                    <span className="text-slate-400 text-[11px] font-medium">
                       {item.statLabel}
                     </span>
                   </div>
-                  <a href="#" className="text-[#FF0055] font-semibold text-[13px] flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-                    Read Case Study <ArrowRight className="w-3.5 h-3.5" />
+                  <div className="w-px h-4 bg-slate-200 shrink-0"></div>
+                  <a href="#" className="text-[#FF0055] font-bold text-[13px] flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    Read Case Study <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
               </div>
@@ -116,34 +120,27 @@ export default function SuccessStoriesSection() {
         </div>
 
         {/* Bottom Call to Action Banner */}
-        <div className="relative w-full rounded-[32px] bg-white border border-slate-100 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.03)] z-10 overflow-hidden">
+        <div className="relative w-full rounded-[24px] bg-white border border-slate-100 p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.03)] z-10 overflow-hidden">
           
           <div className="flex items-center gap-6 z-10">
-            <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#FF0055]/10 flex items-center justify-center">
-              <BarChart2 className="w-7 h-7 text-[#FF0055]" />
+            <div className="w-12 h-12 shrink-0 rounded-xl bg-[#FF0055]/10 flex items-center justify-center">
+              <BarChart2 className="w-6 h-6 text-[#FF0055]" />
             </div>
             <div>
-              <p className="text-[#020205] text-lg font-semibold leading-tight">
+              <p className="text-[#020205] text-base font-semibold leading-tight">
                 More success stories are on the way.
               </p>
-              <p className="text-[#020205] text-lg font-extrabold leading-tight mt-0.5">
+              <p className="text-[#020205] text-base font-extrabold leading-tight mt-0.5">
                 Let's create yours.
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-8 z-10 w-full md:w-auto">
-            <button className="w-full md:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#FF0055] to-[#D90048] text-white font-bold text-[15px] flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,0,85,0.3)] hover:shadow-[0_0_30px_rgba(255,0,85,0.5)] transition-all hover:scale-105 active:scale-95">
+            <button className="w-full md:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-[#FF0055] to-[#D90048] text-white font-bold text-[14px] flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,0,85,0.3)] hover:shadow-[0_0_30px_rgba(255,0,85,0.5)] transition-all hover:scale-105 active:scale-95">
               Start a Conversation
               <ArrowRight className="w-4 h-4" />
             </button>
-            
-            {/* Watermark text hidden on small screens */}
-            <div className="hidden xl:flex flex-col text-[10px] font-bold text-slate-300 tracking-[0.2em] leading-loose uppercase">
-              <span>Businesses</span>
-              <span>People</span>
-              <span>Progress</span>
-            </div>
           </div>
           
           {/* Subtle decoration inside banner */}

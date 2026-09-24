@@ -56,6 +56,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/services/web-development/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/services/web-development">> = Specific
+  const handler = {} as typeof import("../../src/app/services/web-development/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/api/import-neon/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/import-neon">> = Specific

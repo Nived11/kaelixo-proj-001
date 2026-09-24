@@ -94,9 +94,10 @@ export default function ServicesSection() {
         {/* 4 Service Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((item, idx) => (
-            <div
+            <Link
               key={idx}
-              className="group relative bg-white rounded-[26px] p-8 border border-slate-200/60 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              href={item.href}
+              className="group relative bg-white rounded-[26px] p-8 border border-slate-200/60 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer block"
             >
               <div>
                 {/* Dual-layer Squircle Icon with Ambient Aura */}
@@ -123,15 +124,14 @@ export default function ServicesSection() {
 
               {/* Bottom Learn More link */}
               <div className="mt-8 pt-4">
-                <Link
-                  href={item.href}
+                <div
                   className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#FF0055] group-hover:text-[#E6004C] transition-colors"
                 >
                   <span>Learn More</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </Link>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

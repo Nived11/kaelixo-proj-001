@@ -37,13 +37,13 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Products", href: "#products" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Careers", href: "#careers" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/#about" },
+    { name: "Services", href: "/#services" },
+    { name: "Products", href: "/#products" },
+    { name: "Portfolio", href: "/#portfolio" },
+    { name: "Careers", href: "/#careers" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -225,7 +225,7 @@ export default function Header() {
                 <p className="text-slate-400 text-sm leading-relaxed mb-8">
                   Strategy, design, technology and marketing — all working together to move your business forward.
                 </p>
-                <Link href="#overview" className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:text-[#FF0055] transition-colors border-b border-[#FF0055] pb-1 group">
+                <Link href="/#overview" onClick={() => setIsServicesHovered(false)} className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:text-[#FF0055] transition-colors border-b border-[#FF0055] pb-1 group">
                   Go to overview
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -236,7 +236,7 @@ export default function Header() {
                 
                 {/* Branding */}
                 <div>
-                  <Link href="#branding" className="flex items-center gap-2 text-white font-semibold text-[15px] mb-6 group hover:text-[#FF0055] transition-colors">
+                  <Link href="/#branding" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[15px] mb-6 group hover:text-[#FF0055] transition-colors">
                     <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#FF0055]">
                       <Layers className="w-4 h-4" />
                     </div>
@@ -246,7 +246,7 @@ export default function Header() {
                   <ul className="space-y-3.5">
                     {["Brand Strategy", "Logo Design", "Visual Identity", "Brand Guidelines", "Marketing Collateral"].map((item) => (
                       <li key={item}>
-                        <Link href={`#${item.toLowerCase().replace(" ", "-")}`} className="text-slate-400 text-[13px] hover:text-white transition-colors">
+                        <Link href={`/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`} onClick={() => setIsServicesHovered(false)} className="text-slate-400 text-[13px] hover:text-white transition-colors">
                           {item}
                         </Link>
                       </li>
@@ -256,7 +256,7 @@ export default function Header() {
 
                 {/* Experience Design */}
                 <div>
-                  <Link href="#experience" className="flex items-center gap-2 text-white font-semibold text-[15px] mb-6 group hover:text-[#FF0055] transition-colors">
+                  <Link href="/#experience" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[15px] mb-6 group hover:text-[#FF0055] transition-colors">
                     <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#FF0055]">
                       <UserCircle className="w-4 h-4" />
                     </div>
@@ -266,7 +266,7 @@ export default function Header() {
                   <ul className="space-y-3.5">
                     {["UI/UX Design", "Website Design", "Landing Pages", "Mobile Experience", "Commerce Experience"].map((item) => (
                       <li key={item}>
-                        <Link href={`#${item.toLowerCase().replace(" ", "-")}`} className="text-slate-400 text-[13px] hover:text-white transition-colors">
+                        <Link href={`/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`} onClick={() => setIsServicesHovered(false)} className="text-slate-400 text-[13px] hover:text-white transition-colors">
                           {item}
                         </Link>
                       </li>
@@ -276,7 +276,7 @@ export default function Header() {
 
                 {/* Technology */}
                 <div>
-                  <Link href="#technology" className="flex items-center gap-2 text-white font-semibold text-[15px] mb-6 group hover:text-[#FF0055] transition-colors">
+                  <Link href="/#technology" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[15px] mb-6 group hover:text-[#FF0055] transition-colors">
                     <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#FF0055]">
                       <Code className="w-4 h-4" />
                     </div>
@@ -286,7 +286,11 @@ export default function Header() {
                   <ul className="space-y-3.5">
                     {["Web Development", "Mobile App Development", "Custom Software", "Cloud Services", "Cyber Security", "AI & Automation", "Data & Analytics"].map((item) => (
                       <li key={item}>
-                        <Link href={`#${item.toLowerCase().replace(" ", "-")}`} className="text-slate-400 text-[13px] hover:text-white transition-colors">
+                        <Link 
+                          href={item === "Web Development" ? "/services/web-development" : `/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`} 
+                          onClick={() => setIsServicesHovered(false)}
+                          className="text-slate-400 text-[13px] hover:text-white transition-colors"
+                        >
                           {item}
                         </Link>
                       </li>
@@ -296,7 +300,7 @@ export default function Header() {
 
                 {/* Digital Marketing */}
                 <div>
-                  <Link href="#marketing" className="flex items-center gap-2 text-white font-semibold text-[15px] mb-6 group hover:text-[#FF0055] transition-colors">
+                  <Link href="/#marketing" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[15px] mb-6 group hover:text-[#FF0055] transition-colors">
                     <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#FF0055]">
                       <BarChart className="w-4 h-4" />
                     </div>
@@ -306,7 +310,7 @@ export default function Header() {
                   <ul className="space-y-3.5">
                     {["SEO", "Social Media Marketing", "Performance Marketing", "Content Marketing", "Marketing Automation", "Analytics"].map((item) => (
                       <li key={item}>
-                        <Link href={`#${item.toLowerCase().replace(" ", "-")}`} className="text-slate-400 text-[13px] hover:text-white transition-colors">
+                        <Link href={`/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`} onClick={() => setIsServicesHovered(false)} className="text-slate-400 text-[13px] hover:text-white transition-colors">
                           {item}
                         </Link>
                       </li>

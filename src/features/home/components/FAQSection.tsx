@@ -57,7 +57,7 @@ export default function FAQSection() {
   ];
 
   return (
-    <div className="relative bg-[#ffffff] text-[#030C25] py-24 overflow-hidden border-t border-gray-100">
+    <div className="relative bg-[#ffffff] text-[#030C25] py-16 overflow-hidden border-t border-gray-100">
       
       {/* Background Soft Blobs */}
       <div className="absolute top-0 left-[-5%] w-[30%] h-[400px] bg-rose-50 blur-[100px] rounded-full pointer-events-none"></div>
@@ -70,35 +70,35 @@ export default function FAQSection() {
           <div className="lg:col-span-5 flex flex-col items-start">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-[2px] bg-[#FF0055]"></div>
-              <span className="text-gray-500 font-bold text-[11px] tracking-widest uppercase">FREQUENTLY ASKED QUESTIONS</span>
+              <span className="text-gray-500 font-bold text-[10px] tracking-widest uppercase">FREQUENTLY ASKED QUESTIONS</span>
             </div>
             
-            <h2 className="text-[40px] md:text-[52px] font-black leading-[1.1] tracking-tight mb-6">
+            <h2 className="text-4xl md:text-[44px] font-black leading-[1.1] tracking-tight mb-5">
               Got Questions? <br />
               <span className="text-[#FF0055]">We've Got Answers.</span>
             </h2>
             
-            <p className="text-[#475569] text-[17px] font-medium leading-relaxed max-w-md mb-12">
+            <p className="text-[#475569] text-[15px] font-medium leading-relaxed max-w-md mb-10">
               Find answers to common questions about our web development services, process, and support.
             </p>
 
             {/* Features Row */}
-            <div className="flex flex-col sm:flex-row gap-8 sm:gap-6 mb-16">
+            <div className="flex flex-col sm:flex-row gap-6 mb-12">
               {features.map((feature, idx) => (
-                <div key={idx} className="flex flex-col gap-3 max-w-[140px]">
-                  <div className="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-[#FF0055]">
-                    <feature.icon size={22} strokeWidth={2.5} />
+                <div key={idx} className="flex flex-col gap-2.5 max-w-[130px]">
+                  <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center text-[#FF0055]">
+                    <feature.icon size={18} strokeWidth={2.5} />
                   </div>
                   <div>
-                    <h4 className="text-[14px] font-bold text-[#030C25] mb-1 leading-tight">{feature.title}</h4>
-                    <p className="text-[12px] text-gray-500 font-medium leading-relaxed">{feature.desc}</p>
+                    <h4 className="text-[13px] font-bold text-[#030C25] mb-1 leading-tight">{feature.title}</h4>
+                    <p className="text-[11px] text-gray-500 font-medium leading-relaxed">{feature.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Bottom Footer Line */}
-            <div className="flex items-center gap-3 text-[10px] font-bold tracking-widest text-gray-400 uppercase">
+            <div className="flex items-center gap-2.5 text-[9px] font-bold tracking-widest text-gray-400 uppercase">
               IDEAS <span className="text-[#FF0055]">—</span> DESIGN <span className="text-[#FF0055]">—</span> DEVELOP <span className="text-[#FF0055]">—</span> GROW
             </div>
           </div>
@@ -119,34 +119,34 @@ export default function FAQSection() {
                       : 'border-gray-100 bg-white hover:border-gray-200 hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)]'
                   }`}
                 >
-                  <div className="p-5 flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-4">
+                  <div className="p-4 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
                       {/* Number Badge */}
-                      <div className={`w-9 h-9 rounded-full flex items-center justify-center text-[13px] font-bold shrink-0 transition-colors ${
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-bold shrink-0 transition-colors ${
                         isOpen ? 'bg-[#FF0055] text-white shadow-md shadow-pink-200' : 'bg-gray-100 text-gray-500'
                       }`}>
                         {formattedNumber}
                       </div>
                       
                       {/* Question Text */}
-                      <h3 className={`text-[15px] font-bold transition-colors ${isOpen ? 'text-[#030C25]' : 'text-[#030C25]'}`}>
+                      <h3 className={`text-[14px] font-bold transition-colors ${isOpen ? 'text-[#030C25]' : 'text-[#030C25]'}`}>
                         {faq.question}
                       </h3>
                     </div>
 
                     {/* Chevron Icon */}
                     <div className={`shrink-0 transition-transform duration-300 ${isOpen ? 'text-[#FF0055]' : 'text-gray-400'}`}>
-                      {isOpen ? <ChevronUp size={20} strokeWidth={2.5} /> : <ChevronDown size={20} strokeWidth={2.5} />}
+                      {isOpen ? <ChevronUp size={18} strokeWidth={2.5} /> : <ChevronDown size={18} strokeWidth={2.5} />}
                     </div>
                   </div>
 
                   {/* Expandable Answer */}
                   <div 
                     className={`transition-all duration-300 ease-in-out ${
-                      isOpen ? 'max-h-[200px] opacity-100 pb-6 pt-0' : 'max-h-0 opacity-0 py-0'
+                      isOpen ? 'max-h-[200px] opacity-100 pb-5 pt-0' : 'max-h-0 opacity-0 py-0'
                     }`}
                   >
-                    <p className="text-[14px] text-[#475569] font-medium leading-relaxed pl-[72px] pr-6">
+                    <p className="text-[13px] text-[#475569] font-medium leading-relaxed pl-[60px] pr-5">
                       {faq.answer}
                     </p>
                   </div>

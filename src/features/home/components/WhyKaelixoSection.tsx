@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Heart, Lightbulb, Users, BarChart2, Play } from "lucide-react";
+import { ArrowRight, Heart, Lightbulb, Users, BarChart3, Play } from "lucide-react";
 
 export default function WhyKaelixoSection() {
   const features = [
@@ -9,145 +9,134 @@ export default function WhyKaelixoSection() {
       desc: "Your goals, our priority.",
       icon: Heart,
       iconColor: "text-[#FF0055]",
-      iconBg: "bg-[#FF0055]/10",
+      iconBg: "bg-[#3a0a1f]", // Dark vivid pink background
     },
     {
       title: "Innovative Solutions",
       desc: "Always one step ahead.",
       icon: Lightbulb,
-      iconColor: "text-[#a855f7]",
-      iconBg: "bg-[#a855f7]/10",
+      iconColor: "text-[#c084fc]", // Brighter purple
+      iconBg: "bg-[#21163b]", // Dark vivid purple background
     },
     {
       title: "Experienced Team",
       desc: "Passionate experts.",
       icon: Users,
-      iconColor: "text-[#3b82f6]",
-      iconBg: "bg-[#3b82f6]/10",
+      iconColor: "text-[#38bdf8]", // Brighter blue
+      iconBg: "bg-[#0b2440]", // Dark vivid blue background
     },
     {
       title: "Long-Term Partnership",
       desc: "We grow together.",
-      icon: BarChart2,
+      icon: BarChart3,
       iconColor: "text-[#FF0055]",
-      iconBg: "bg-[#FF0055]/10",
+      iconBg: "bg-[#3a0a1f]", // Dark vivid pink background
     },
   ];
 
   return (
-    <div className="relative bg-[#020205] text-white py-24 lg:py-32 overflow-hidden border-t border-white/5">
+    <section className="relative bg-[#020205] text-white py-16 lg:py-40 overflow-hidden border-t border-white/5">
       
-      {/* Abstract Neon Glow Background Effects */}
-      <div className="absolute top-0 left-[-20%] w-[60%] h-[600px] bg-[#FF0055]/20 blur-[150px] rounded-full pointer-events-none opacity-50"></div>
-      <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[500px] bg-[#FF0055]/15 blur-[120px] rounded-full pointer-events-none opacity-50"></div>
+      {/* Background Graphics */}
+      <img 
+        src="/service-left.png" 
+        alt="" 
+        className="absolute left-0 top-0 w-[35%] h-full object-cover object-left pointer-events-none z-0 mix-blend-screen opacity-60" 
+      />
+      <img 
+        src="/service-right.png" 
+        alt="" 
+        className="absolute right-0 bottom-0 w-[35%] h-full object-cover object-right pointer-events-none z-0 mix-blend-screen opacity-60" 
+      />
 
-      {/* Decorative Wavy Lines (Simplified SVG representation) */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30 mix-blend-screen" preserveAspectRatio="none">
-        <path d="M-100 200 C 300 0, 600 500, 1500 200" fill="none" stroke="url(#pinkGlow)" strokeWidth="2" />
-        <path d="M-100 800 C 400 900, 800 200, 1600 800" fill="none" stroke="url(#pinkGlow)" strokeWidth="1.5" />
-        <defs>
-          <linearGradient id="pinkGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#FF0055" stopOpacity="0" />
-            <stop offset="50%" stopColor="#FF0055" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#FF0055" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-      </svg>
-
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10 flex flex-col">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* LEFT COLUMN: Content & CTAs (4 Cols) */}
-          <div className="lg:col-span-4 flex flex-col items-start">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-gray-400 font-bold text-[11px] tracking-[0.2em] uppercase">WHY KAELIXO</span>
-              <div className="w-12 h-[2px] bg-[#FF0055]"></div>
+          <div className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-4">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="text-slate-300 font-bold text-[10px] tracking-[0.2em] uppercase">WHY KAELIXO</span>
+              <div className="w-10 h-[2px] bg-[#FF0055]"></div>
             </div>
             
-            <h2 className="text-[40px] xl:text-[48px] font-black leading-[1.1] tracking-tight mb-6">
+            <h2 className="text-[36px] xl:text-[44px] font-extrabold leading-[1.1] tracking-tight mb-5">
               More Than a <br /> Tech Company — <br />
               <span className="text-[#FF0055]">A Growth Partner.</span>
             </h2>
             
-            <p className="text-gray-400 text-[16px] leading-relaxed mb-10 font-medium">
+            <p className="text-slate-400 text-[14px] leading-relaxed mb-8 font-normal max-w-[340px]">
               We combine technology, creativity, strategy and AI thinking to build digital experiences that create real business impact.
             </p>
             
-            <button className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#FF0055] to-[#ff2a6d] text-white font-bold hover:shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:scale-105 transition-all duration-300 flex items-center gap-2 cursor-pointer">
-              Our Story <ArrowRight size={18} strokeWidth={2.5} />
+            <button className="px-7 py-3 rounded-full bg-[#FF0055] text-white font-bold text-[14px] hover:shadow-[0_0_20px_rgba(255,0,85,0.4)] transition-all duration-300 flex items-center gap-2 cursor-pointer mb-10 lg:mb-0">
+              Our Story <ArrowRight className="w-4 h-4" />
             </button>
-          </div>
 
-          {/* CENTER COLUMN: Image & Video Card (4 Cols) */}
-          <div className="lg:col-span-4 relative flex justify-center mt-10 lg:mt-0">
-            <div className="relative w-full max-w-[380px] aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,0,85,0.15)] group">
-              
-              {/* Fallback dark gradient placeholder instead of actual image */}
-              <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a24] to-[#0a0a0f]"></div>
-              
-              {/* Subtle grid pattern inside image box */}
-              <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-              
-              {/* Kaelixo Signage Mockup */}
-              <div className="absolute right-6 top-1/3 flex items-center gap-2">
-                <span className="text-[#FF0055] font-black text-2xl tracking-tighter">{"<"}</span>
-                <h3 className="text-white font-bold text-2xl tracking-tight">Kaelixo</h3>
+            {/* BOTTOM ROW: Footer Stats / Philosophy */}
+            <div className="flex flex-col xl:flex-row gap-6 sm:gap-8 w-full mt-auto relative top-10">
+              <div className="relative pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
+                <h4 className="text-[14px] font-bold text-white mb-1 leading-tight">Strategy-Led</h4>
+                <p className="text-[12px] text-slate-400 font-medium whitespace-nowrap">Not just execution</p>
               </div>
-
-              <div className="absolute right-6 top-1/2 mt-4 text-right">
-                <p className="text-[10px] font-black text-gray-400 tracking-[0.2em] leading-relaxed">
-                  GREAT<br/>BUSINESSES<br/>BUILD A<br/>BRIGHTER<br/>TOMORROW
-                </p>
+              <div className="relative pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
+                <h4 className="text-[14px] font-bold text-white mb-1 leading-tight">People-First</h4>
+                <p className="text-[12px] text-slate-400 font-medium whitespace-nowrap">Relationships matter</p>
               </div>
-
-              {/* Overlapping Play Button Card */}
-              <div className="absolute -bottom-6 -right-6 lg:-right-10 bg-[#0a0f1c] border border-white/10 rounded-2xl p-4 flex items-center gap-4 shadow-2xl z-20 w-[240px] cursor-pointer hover:border-white/20 transition-colors group/play">
-                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center shrink-0 group-hover/play:bg-white/5 transition-colors">
-                  <Play size={18} className="text-white ml-1" fill="currentColor" />
-                </div>
-                <div>
-                  <h4 className="text-[13px] font-bold text-white mb-0.5">See Our Workspace</h4>
-                  <p className="text-[11px] text-gray-400 font-medium">A peek into our world</p>
-                </div>
+              <div className="relative pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
+                <h4 className="text-[14px] font-bold text-white mb-1 leading-tight">Impact-Driven</h4>
+                <p className="text-[12px] text-slate-400 font-medium whitespace-nowrap">Your growth is our success</p>
               </div>
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Feature List (4 Cols) */}
-          <div className="lg:col-span-4 flex flex-col justify-center gap-6 lg:pl-10 mt-16 lg:mt-0">
-            {features.map((feature, idx) => (
-              <div key={idx} className="flex items-center gap-5 group cursor-pointer">
-                <div className={`w-[52px] h-[52px] rounded-[18px] flex items-center justify-center shrink-0 ${feature.iconBg} transition-transform duration-300 group-hover:scale-110`}>
-                  <feature.icon size={22} className={feature.iconColor} strokeWidth={2.5} />
+          {/* CENTER COLUMN: Image & Video Card (5 Cols) */}
+          <div className="lg:col-span-5 relative flex justify-center mt-6 lg:mt-0 lg:-ml-2">
+            <div className="relative w-full max-w-[600px]">
+              
+              {/* Image Container with overflow hidden */}
+              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,0,85,0.1)] group">
+                {/* Actual Image */}
+                <img 
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" 
+                  alt="Workspace" 
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                />
+                {/* Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020205] via-transparent to-transparent opacity-60"></div>
+              </div>
+              
+              {/* Overlapping Play Button Card (Outside overflow-hidden) */}
+              <div className="absolute -bottom-6 right-0 sm:-right-8 bg-[#0a0f1c]/95 backdrop-blur-md border border-white/10 rounded-2xl p-3 sm:p-4 flex items-center gap-3 sm:gap-4 shadow-2xl z-20 w-[220px] sm:w-[240px] cursor-pointer hover:border-white/20 transition-colors group/play">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 flex items-center justify-center shrink-0 group-hover/play:bg-white/10 transition-colors">
+                  <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white ml-1" fill="currentColor" />
                 </div>
                 <div>
-                  <h4 className="text-[15px] font-bold text-white mb-1 group-hover:text-[#FF0055] transition-colors">{feature.title}</h4>
-                  <p className="text-[13px] text-gray-400 font-medium">{feature.desc}</p>
+                  <h4 className="text-[12px] sm:text-[13px] font-bold text-white mb-0.5 leading-tight">See Our Workspace</h4>
+                  <p className="text-[10px] sm:text-[11px] text-slate-400 font-medium">A peek into our world</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: Feature List (3 Cols) */}
+          <div className="lg:col-span-3 flex flex-col justify-center gap-5 sm:gap-6 lg:pl-6 mt-12 lg:mt-0">
+            {features.map((feature, idx) => (
+              <div key={idx} className="flex items-center gap-4 sm:gap-5 group cursor-pointer">
+                <div className={`w-[60px] h-[60px] rounded-2xl flex items-center justify-center shrink-0 ${feature.iconBg} transition-transform duration-300 group-hover:scale-105`}>
+                  <feature.icon className={`w-6 h-6 ${feature.iconColor}`} strokeWidth={2.5} />
+                </div>
+                <div>
+                  <h4 className="text-[14px] sm:text-[15px] font-bold text-white mb-0.5 group-hover:text-white transition-colors">{feature.title}</h4>
+                  <p className="text-[12px] sm:text-[13px] text-slate-400 font-medium leading-tight">{feature.desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
         </div>
-
-        {/* BOTTOM ROW: Footer Stats / Philosophy */}
-        <div className="mt-24 pt-10 border-t border-white/10 flex flex-col md:flex-row gap-8 md:gap-16">
-          <div className="relative pl-5 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
-            <h4 className="text-[15px] font-bold text-white mb-1">Strategy-Led</h4>
-            <p className="text-[13px] text-gray-400 font-medium">Not just execution</p>
-          </div>
-          <div className="relative pl-5 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
-            <h4 className="text-[15px] font-bold text-white mb-1">People-First</h4>
-            <p className="text-[13px] text-gray-400 font-medium">Relationships matter</p>
-          </div>
-          <div className="relative pl-5 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
-            <h4 className="text-[15px] font-bold text-white mb-1">Impact-Driven</h4>
-            <p className="text-[13px] text-gray-400 font-medium">Your growth is our success</p>
-          </div>
-        </div>
-
       </div>
-    </div>
+    </section>
   );
 }
