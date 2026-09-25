@@ -136,7 +136,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   height: 100%; 
   overflow: visible; 
   isolation: isolate; 
-  animation: logoFloat 8s ease-in-out infinite;
+  /* Floating animation removed as per user request */
   will-change: transform;
 }
 .animated-neon-logo .mesh-lines { stroke: #FFD0DF; stroke-width: 0.85; opacity: .28; }

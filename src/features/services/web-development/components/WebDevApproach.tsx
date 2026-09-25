@@ -42,39 +42,39 @@ export default function WebDevApproach() {
 
           {/* Left Column */}
           <div className="flex flex-col items-start pr-0 lg:pr-10 relative z-20">
-            <div className="flex flex-col items-start mb-6 gap-2">
-              <span className="text-slate-500 font-bold text-[11px] tracking-widest uppercase">
+            <div className="flex flex-col items-start mb-5 gap-2">
+              <span className="text-slate-500 font-bold text-[10px] sm:text-[11px] tracking-widest uppercase">
                 OUR APPROACH
               </span>
-              <div className="w-10 h-[2px] bg-[#FF0055]" />
+              <div className="w-8 h-[2px] bg-[#FF0055]" />
             </div>
 
-            <h2 className="text-[#020205] text-[42px] lg:text-[50px] font-black leading-[1.05] tracking-tight mb-5">
+            <h2 className="text-[#020205] text-[34px] lg:text-[42px] font-black leading-[1.08] tracking-tight mb-4">
               From Ideas to <br />
               <span className="text-[#FF0055]">Impactful Websites</span>
             </h2>
 
-            <p className="text-slate-500 text-[16px] leading-relaxed mb-10 max-w-[480px]">
+            <p className="text-slate-500 text-[14px] lg:text-[15px] leading-relaxed mb-8 max-w-[480px]">
               We combine strategy, design and technology to build websites that look great, perform exceptionally and help your business grow.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-8 mb-10 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-7 mb-8 w-full">
               {steps.map((step, idx) => (
-                <div key={idx} className="flex items-start gap-4">
-                  <div className="w-12 h-12 shrink-0 rounded-full bg-pink-50 flex items-center justify-center shadow-sm">
-                    {step.icon}
+                <div key={idx} className="flex items-start gap-3.5">
+                  <div className="w-10 h-10 shrink-0 rounded-full bg-pink-50 flex items-center justify-center shadow-sm">
+                    <div className="scale-90">{step.icon}</div>
                   </div>
-                  <div className="pt-1">
-                    <h4 className="text-[#020205] text-[15px] font-bold mb-1 leading-tight">{step.title}</h4>
-                    <p className="text-slate-500 text-[13px] leading-relaxed pr-2">{step.desc}</p>
+                  <div className="pt-0.5">
+                    <h4 className="text-[#020205] text-[14px] font-bold mb-1 leading-tight">{step.title}</h4>
+                    <p className="text-slate-500 text-[12px] leading-relaxed pr-2">{step.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <button className="px-8 py-3.5 rounded-full bg-[#FF0055] text-white font-bold text-[15px] flex items-center gap-2 shadow-[0_10px_20px_rgba(255,0,85,0.2)] hover:shadow-[0_10px_30px_rgba(255,0,85,0.4)] transition-all hover:-translate-y-1 active:translate-y-0 group">
+            <button className="px-7 py-3 rounded-full bg-[#FF0055] text-white font-bold text-[14px] flex items-center gap-2 shadow-[0_10px_20px_rgba(255,0,85,0.2)] hover:shadow-[0_10px_30px_rgba(255,0,85,0.4)] transition-all hover:-translate-y-1 active:translate-y-0 group">
               Let's Build Your Website
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
@@ -112,11 +112,11 @@ export default function WebDevApproach() {
               `}} />
 
               {/* Plant Image (Background Right, partially off-screen) */}
-              <img 
+              {/* <img 
                 src="/images/webdevplant.png" 
                 alt="Decorative Plant" 
                 className="absolute right-[-15%] sm:right-[-25%] lg:right-[-38%] top-[10%] sm:top-[15%] w-[140px] sm:w-[180px] object-contain z-0 blur-[1px] opacity-90"
-              />
+              /> */}
 
               {/* Code editor side panel peek (Behind Laptop, Left) */}
               <div className="absolute left-[-5%] sm:left-[8%] top-[15%] sm:top-[20%] z-10 animate-float-2">

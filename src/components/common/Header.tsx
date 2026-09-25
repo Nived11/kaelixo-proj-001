@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Search, ArrowRight, Menu, X, Layers, UserCircle, Code, BarChart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -10,6 +11,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [isServicesHovered, setIsServicesHovered] = useState(false);
+  const pathname = usePathname();
   
   // Use a ref for timeout to prevent memory leaks or clearing wrong timeouts
   const hoverTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
@@ -27,6 +29,25 @@ export default function Header() {
   
   // State to track the currently active link
   const [activeLink, setActiveLink] = useState("Home");
+
+  // Sync active link with current pathname
+  useEffect(() => {
+    if (pathname === "/") {
+      setActiveLink("Home");
+    } else if (pathname.startsWith("/services")) {
+      setActiveLink("Services");
+    } else if (pathname.startsWith("/about")) {
+      setActiveLink("About");
+    } else if (pathname.startsWith("/products")) {
+      setActiveLink("Products");
+    } else if (pathname.startsWith("/portfolio")) {
+      setActiveLink("Portfolio");
+    } else if (pathname.startsWith("/careers")) {
+      setActiveLink("Careers");
+    } else if (pathname.startsWith("/contact")) {
+      setActiveLink("Contact");
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
