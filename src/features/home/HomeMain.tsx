@@ -11,6 +11,7 @@ import FAQSection from "../services/web-development/components/FAQSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import ProductsSection from "./components/ProductsSection";
 import SuccessStoriesSection from "./components/SuccessStoriesSection";
+import AiSolutionsSection from "./components/AiSolutionsSection";
 import EnquirySection from "../services/web-development/components/EnquirySection";
 import CTASection from "../services/web-development/components/CTASection";
 export default function HomeMain() {
@@ -34,11 +35,13 @@ export default function HomeMain() {
 
       <SuccessStoriesSection />
 
-      <FAQSection />
+      <AiSolutionsSection />
 
-      <EnquirySection/>
+      {/* <FAQSection /> */}
 
-      <CTASection />
+      {/* <EnquirySection/> */}
+
+      {/* <CTASection /> */}
 
     </div>
   );
