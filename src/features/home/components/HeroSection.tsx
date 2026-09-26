@@ -86,11 +86,11 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* Layer 4: Animated Neon Crystal Logo (Fixed / Static position) */}
+        {/* Layer 4: Animated Neon Crystal Logo (Anchored to bottom to scale properly with screen height) */}
         <div
-          className="absolute top-[6%] sm:top-[8%] md:top-[10%] lg:top-[30%] left-[30%] sm:left-[34%] md:left-[36%] lg:left-[38%] xl:left-[40%] w-[350px] sm:w-[460px] md:w-[540px] lg:w-[400px] xl:w-[400px] aspect-[7/6] pointer-events-none z-[5]
-            2xl:top-[40%] 2xl:left-[650px] 2xl:w-[350px]
-            [@media(min-width:1920px)]:top-[48%] [@media(min-width:1920px)]:left-[48%] [@media(min-width:1920px)]:w-[450px]"
+          className="absolute bottom-[60%] sm:bottom-[55%] md:bottom-[50%] lg:bottom-[35%] left-[30%] sm:left-[34%] md:left-[36%] lg:left-[38%] xl:left-[40%] w-[350px] sm:w-[460px] md:w-[540px] lg:w-[400px] xl:w-[400px] aspect-[7/6] pointer-events-none z-[5]
+            2xl:bottom-[19%] 2xl:left-[650px] 2xl:w-[350px]
+            [@media(min-width:1920px)]:bottom-[19%] [@media(min-width:1920px)]:left-[48%] [@media(min-width:1920px)]:w-[450px]"
         >
           <AnimatedNeonLogo glow={true} animated={true} />
         </div>
@@ -117,7 +117,7 @@ export default function HeroSection() {
         <div
           className="absolute bottom-0 left-10 sm:left-10 lg:left-90 w-[50%] sm:w-[42%] max-w-[620px] aspect-[4/3] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[8]
             2xl:-bottom-15 2xl:left-[450px] 2xl:w-[42%] 2xl:max-w-[500px]
-            [@media(min-width:1920px)]:bottom-0 [@media(min-width:1920px)]:left-[520px] [@media(min-width:1920px)]:w-[42%] [@media(min-width:1920px)]:max-w-[700px]"
+            [@media(min-width:1920px)]:-bottom-[10px] [@media(min-width:1920px)]:left-[520px] [@media(min-width:1920px)]:w-[42%] [@media(min-width:1920px)]:max-w-[700px]"
           style={{
             transform: `translate3d(${mousePos.x * 12}px, ${mousePos.y * 8}px, 0)`,
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0.5) 8%, rgba(0,0,0,0.85) 12%, #000000 16%, #000000 100%)",

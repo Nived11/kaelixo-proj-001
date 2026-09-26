@@ -71,7 +71,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#020205]/80 backdrop-blur-xl py-4 shadow-lg" // Removed the border classes completely
+          ? "bg-black/90 backdrop-blur-xl py-4 shadow-lg" // Darker black glass effect
           : "bg-transparent py-6"
       }`}
     >

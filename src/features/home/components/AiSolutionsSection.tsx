@@ -19,24 +19,24 @@ export default function AiSolutionsSection() {
   }, []);
 
   return (
-    <section className="relative w-full py-12 lg:py-16 bg-[#020205] overflow-hidden flex items-center min-h-0 lg:min-h-[600px]">
+    <section className="relative w-full py-16 lg:py-20 bg-[#020205] overflow-hidden flex items-center min-h-0 lg:min-h-[650px] xl:min-h-[700px] 2xl:min-h-[750px] [@media(min-width:1920px)]:min-h-[900px]">
 
       {/* Background Image Container */}
       <div className="absolute inset-0 w-full h-full z-0 flex justify-end">
 
         {/* Gradients for blending the image into the dark background and masking the hard edge */}
         {/* This gradient covers the left 50%, being solid black where the image cuts off at 30% */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020205] via-[#020205] to-transparent z-10 w-[60%] lg:w-[50%]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020205] via-[#020205]/95 to-transparent z-10 w-[60%] lg:w-[50%]" />
 
         {/* Top and bottom vignettes to blend with adjacent sections */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#020205] to-transparent z-10" />
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#020205] to-transparent z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#020205] to-transparent z-10" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#020205] to-transparent z-10" />
 
-        {/* Image layer */}
+        {/* Image layer - Added object-right-top to ensure the head doesn't get cut off */}
         <img
           src="/heroaibg.png"
           alt="AI Solutions Background"
-          className="w-full lg:w-[70%] h-full object-cover object-right opacity-100"
+          className="w-full lg:w-[70%] h-full object-cover object-[right_top] lg:object-right opacity-100"
           onError={(e) => {
             // Fallback to .jpg if .png is not found
             if (!e.currentTarget.src.endsWith('.jpg')) {
@@ -131,7 +131,7 @@ export default function AiSolutionsSection() {
               md:top-[30%] md:right-[15%] 
               lg:top-[30%] lg:right-[22%] 
               xl:top-[35%] xl:right-[25%] 
-              2xl:top-[23%] 2xl:right-[15%]
+              2xl:top-[23%] 2xl:right-[17%]
               [@media(min-width:1920px)]:top-[17%] [@media(min-width:1920px)]:-right-[19px]
             ">
               {/* Spinning Gradient for Border */}

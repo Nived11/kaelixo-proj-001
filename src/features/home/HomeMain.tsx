@@ -12,6 +12,7 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import ProductsSection from "./components/ProductsSection";
 import SuccessStoriesSection from "./components/SuccessStoriesSection";
 import AiSolutionsSection from "./components/AiSolutionsSection";
+import ReadyToBuildSection from "./components/ReadyToBuildSection";
 import EnquirySection from "../services/web-development/components/EnquirySection";
 import CTASection from "../services/web-development/components/CTASection";
 export default function HomeMain() {
@@ -36,6 +37,8 @@ export default function HomeMain() {
       <SuccessStoriesSection />
 
       <AiSolutionsSection />
+
+      <ReadyToBuildSection />
 
       {/* <FAQSection /> */}
 
