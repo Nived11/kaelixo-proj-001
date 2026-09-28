@@ -61,9 +61,8 @@ export default function SuccessStoriesSection() {
               <a href="#" className="text-[#FF0055] font-bold text-[15px] flex items-center gap-2 hover:gap-3 transition-all mb-3">
                 See All Case Studies <ArrowRight className="w-4 h-4" />
               </a>
-              <p className="text-slate-500 text-sm md:text-[15px] leading-relaxed text-left">
-                Different businesses. Unique challenges.<br />
-                Real growth with Kaelixo.
+              <p className="text-slate-500 text-sm md:text-[15px] leading-relaxed text-left max-w-xs md:max-w-sm">
+                Different businesses. Unique challenges. Real growth, delivered by a growth marketing agency that stays on after launch.
               </p>
             </div>
           </div>

@@ -62,11 +62,11 @@ export default function WhyKaelixoSection() {
             
             <h2 className="text-[36px] xl:text-[44px] font-extrabold leading-[1.1] tracking-tight mb-5">
               More Than a <br /> Tech Company — <br />
-              <span className="text-[#FF0055]">A Growth Partner.</span>
+              <span className="text-[#FF0055]">A Growth Marketing Agency.</span>
             </h2>
             
             <p className="text-slate-400 text-[14px] leading-relaxed mb-8 font-normal max-w-[340px]">
-              We combine technology, creativity, strategy and AI thinking to build digital experiences that create real business impact.
+              We combine technology, creativity, strategy and AI thinking to build digital experiences that create real business impact. It's what makes us a growth marketing agency businesses stay with, not just hire once.
             </p>
             
             <button className="px-7 py-3 rounded-full bg-[#FF0055] text-white font-bold text-[14px] hover:shadow-[0_0_20px_rgba(255,0,85,0.4)] transition-all duration-300 flex items-center gap-2 cursor-pointer mb-10 lg:mb-0">

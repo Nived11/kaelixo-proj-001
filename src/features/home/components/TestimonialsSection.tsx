@@ -58,7 +58,7 @@ export default function TestimonialsSection() {
             </h2>
             
             <p className="text-[#4A5568] text-base md:text-[17px] max-w-[420px] leading-relaxed mt-6">
-              Real stories from real partners who trust us to bring their vision to life. Their success inspires us to go further every day.
+              Real stories from real partners who trust us as their growth marketing agency to bring their vision to life. Their success inspires us to go further every day.
             </p>
 
             <button className="flex items-center gap-4 mt-8 group cursor-pointer">

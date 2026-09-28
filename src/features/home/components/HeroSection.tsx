@@ -88,7 +88,7 @@ export default function HeroSection() {
 
         {/* Layer 4: Animated Neon Crystal Logo (Anchored to bottom to scale properly with screen height) */}
         <div
-          className="absolute bottom-[60%] sm:bottom-[55%] md:bottom-[50%] lg:bottom-[35%] left-[30%] sm:left-[34%] md:left-[36%] lg:left-[38%] xl:left-[40%] w-[350px] sm:w-[460px] md:w-[540px] lg:w-[400px] xl:w-[400px] aspect-[7/6] pointer-events-none z-[5]
+          className="absolute top-[5%] sm:top-auto sm:bottom-[55%] md:bottom-[50%] lg:bottom-[35%] right-[-15%] sm:right-auto sm:left-[34%] md:left-[36%] lg:left-[38%] xl:left-[40%] w-[260px] sm:w-[460px] md:w-[540px] lg:w-[400px] xl:w-[400px] aspect-[7/6] pointer-events-none z-[5]
             2xl:bottom-[19%] 2xl:left-[650px] 2xl:w-[350px]
             [@media(min-width:1920px)]:bottom-[19%] [@media(min-width:1920px)]:left-[48%] [@media(min-width:1920px)]:w-[450px]"
         >
@@ -97,7 +97,7 @@ export default function HeroSection() {
 
         {/* Layer 5: Center Mountain Ridge (Misty Midground - behind Left Rock) */}
         <div
-          className="absolute bottom-0  sm:bottom-10  left-[12%] sm:left-[20%] lg:left-[30%] w-[58%] sm:w-[50%] max-w-[700px] aspect-[17/10] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[6]
+          className="absolute bottom-[5%] sm:bottom-10 left-[5%] sm:left-[20%] lg:left-[30%] w-[85%] sm:w-[50%] max-w-[700px] aspect-[17/10] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[6]
             2xl:bottom-[40px] 2xl:left-[35%] 2xl:w-[50%] 2xl:max-w-[600px]
             [@media(min-width:1920px)]:bottom-10 [@media(min-width:1920px)]:left-[40%] [@media(min-width:1920px)]:w-[50%] [@media(min-width:1920px)]:max-w-[800px]"
           style={{
@@ -115,7 +115,7 @@ export default function HeroSection() {
 
         {/* Layer 6: Left Mountain Ridge (Perfect soft blend on left edge) */}
         <div
-          className="absolute bottom-0 left-10 sm:left-10 lg:left-90 w-[50%] sm:w-[42%] max-w-[620px] aspect-[4/3] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[8]
+          className="absolute bottom-0 left-0 sm:left-10 lg:left-90 w-[60%] sm:w-[42%] max-w-[620px] aspect-[4/3] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[8]
             2xl:-bottom-15 2xl:left-[450px] 2xl:w-[42%] 2xl:max-w-[500px]
             [@media(min-width:1920px)]:-bottom-[10px] [@media(min-width:1920px)]:left-[520px] [@media(min-width:1920px)]:w-[42%] [@media(min-width:1920px)]:max-w-[700px]"
           style={{
@@ -135,7 +135,7 @@ export default function HeroSection() {
 
         {/* Layer 7: Right Foreground Rock & Person Overlooking City Lights */}
         <div
-          className="absolute bottom-0 right-0 sm:right-[4%] lg:right-[2%] w-[46%] sm:w-[38%] max-w-[540px] aspect-[4/3] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[8]
+          className="absolute bottom-[8%] sm:bottom-0 right-[-10%] sm:right-[4%] lg:right-[2%] w-[75%] sm:w-[38%] max-w-[540px] aspect-[4/3] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[8]
             2xl:bottom-0 2xl:right-[2%] 2xl:w-[38%] 2xl:max-w-[540px]
             [@media(min-width:1920px)]:bottom-0 [@media(min-width:1920px)]:right-[4%] [@media(min-width:1920px)]:w-[38%] [@media(min-width:1920px)]:max-w-[700px]"
           style={{
@@ -152,7 +152,7 @@ export default function HeroSection() {
         </div>
 
         {/* Text Readability Gradients (Left fade for text, top/bottom vignettes) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020205] via-[#020205]/75 to-transparent w-full md:w-[48%] [@media(min-width:1920px)]:w-[55%] [@media(min-width:1920px)]:from-[0%] [@media(min-width:1920px)]:via-[#020205]/80 [@media(min-width:1920px)]:via-[30%] z-[9]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020205] via-[#020205]/60 sm:via-[#020205]/75 to-transparent w-[85%] sm:w-full md:w-[48%] [@media(min-width:1920px)]:w-[55%] [@media(min-width:1920px)]:from-[0%] [@media(min-width:1920px)]:via-[#020205]/80 [@media(min-width:1920px)]:via-[30%] z-[9]" />
         <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#020205] via-[#020205]/30 to-transparent z-[9]" />
         <div className="absolute bottom-0 left-0 right-0 h-28 2xl:h-48 [@media(min-width:1920px)]:h-64 bg-gradient-to-t from-[#020205] via-[#020205]/30 2xl:via-[#020205]/50 [@media(min-width:1920px)]:via-[#020205]/60 to-transparent z-[9]" />
       </div>
@@ -176,18 +176,17 @@ export default function HeroSection() {
             <h1 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[45px] xl:text-[48px] font-extrabold text-white tracking-tight leading-[1.14] font-heading
               [@media(min-width:1920px)]:text-[60px]
             ">
-              Technology That <br />
-              Helps Businesses <br />
-              Think Bigger, Build <br />
-              Smarter and <span className="text-[#FF0055]">Grow</span> <br />
-              <span className="text-[#FF0055]">Faster.</span>
+              The Growth Marketing <br />
+              Agency Behind <br />
+              Businesses That <br />
+              <span className="text-[#FF0055]">Think Bigger.</span>
             </h1>
 
             {/* Sub-paragraph */}
             <p className="text-xs sm:text-[13px] md:text-sm text-slate-300 max-w-lg leading-relaxed font-normal font-sans
               [@media(min-width:1920px)]:text-[18px] [@media(min-width:1920px)]:max-w-xl
             ">
-              We design intelligent websites, build powerful software, create custom CRM solutions, develop AI-driven tools and deliver digital growth strategies for ambitious businesses worldwide.
+              We design intelligent websites, build powerful software, create custom CRM solutions, and run growth marketing agency strategies that turn ambitious businesses into market leaders — worldwide.
             </p>
 
             {/* Dual Pill CTA Buttons */}

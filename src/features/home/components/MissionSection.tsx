@@ -7,20 +7,20 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 export default function MissionSection() {
   const textRef = useRef<HTMLParagraphElement>(null);
   const containerRef = useRef<HTMLElement>(null);
-  
+
   const lines = [
-    "At Kaelixo, we help businesses think clearly, build intelligently, and grow confidently",
-    "through the power of technology, creativity, AI and digital strategy.",
-    "From bold ideas to real impact — we turn what's next into what's possible."
+    "At Kaelixo, we help businesses think clearly, build intelligently, and grow confidently —",
+    "as a growth marketing agency built on technology, creativity, AI and digital strategy.",
+    "From bold ideas to real impact, we turn what's next into what's possible."
   ];
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    
+
     if (!textRef.current || !containerRef.current) return;
 
     const wordsElements = textRef.current.querySelectorAll(".word-reveal");
-    
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         wordsElements,
@@ -43,7 +43,7 @@ export default function MissionSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative bg-[#020205] pt-16 pb-20 overflow-hidden flex flex-col justify-center min-h-[40vh]">
+    <section ref={containerRef} className="relative bg-transparent pt-16 pb-20 flex flex-col justify-center min-h-[40vh]">
       {/* Subtle cosmic magenta aura in background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#FF0055]/10 rounded-full blur-[150px] pointer-events-none -z-10" />
 

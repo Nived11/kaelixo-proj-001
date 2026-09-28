@@ -67,7 +67,7 @@ export default function AiSolutionsSection() {
             </h2>
 
             <p className="text-slate-300/90 text-[13px] md:text-[14px] leading-[1.6] mb-8 max-w-[480px]">
-              We integrate artificial intelligence into real business solutions — helping you automate, predict, personalize and grow without limits.
+              We integrate artificial intelligence into real business solutions — helping you automate, predict, personalize and grow without limits, the same intelligence-first approach that runs through every growth marketing agency service we offer.
             </p>
 
             {/* Feature List */}
@@ -80,18 +80,18 @@ export default function AiSolutionsSection() {
               <FeatureItem
                 icon={User}
                 title="Intelligent Customer Experiences"
-                desc="Create personalized journeys that build loyalty."
+                desc="Create personalized interactions that build loyalty."
               />
               <FeatureItem
                 icon={BarChart2}
                 title="Data-Driven Decision Making"
-                desc="Turn data into actionable insights."
+                desc="Turn raw data into actionable insight."
                 theme="pink"
               />
               <FeatureItem
                 icon={BrainCircuit}
                 title="Custom AI Solutions"
-                desc="Tailored AI models for your unique business needs."
+                desc="Tailored to your business logic, not generic tools."
               />
             </div>
 

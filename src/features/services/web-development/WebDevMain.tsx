@@ -16,12 +16,10 @@ import FAQSection from "./components/FAQSection";
 
 export default function WebDevMain() {
   return (
-    <div className="relative w-full overflow-hidden font-sans pt-[96px] bg-[#020205]">
+    <div className="relative w-full font-sans pt-[96px] bg-[#020205]">
       <WebDevHero />
-      <div className="bg-white">
-        <WebDevOverview />
-        <WebDevApproach />
-      </div>
+      <WebDevOverview />
+      <WebDevApproach />
       <WebDevWhyChooseUs />
       <WebDevTechStack />
       <WebDevProjects />

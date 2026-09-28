@@ -19,7 +19,7 @@ export default function ServicesSection() {
     {
       title: "Digital Marketing",
       description:
-        "Data-driven strategies to increase visibility and accelerate growth.",
+        "The growth marketing agency arm of Kaelixo — data-driven strategies to increase visibility and accelerate growth.",
       href: "/services/digital-marketing",
       icon: <Megaphone className="w-6 h-6 text-white stroke-[2.2]" />,
       auraBg: "bg-[#7C3AED]/15",
@@ -78,8 +78,8 @@ export default function ServicesSection() {
           {/* Right: Description paragraph + View All Services Button */}
           <div className="flex flex-col sm:flex-row sm:items-center lg:items-end justify-between gap-6 max-w-xl">
             <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed font-normal">
-              From idea to impact — we help businesses leverage technology,
-              design and data to create meaningful growth.
+              From idea to impact — as a growth marketing agency, we help businesses leverage technology,
+              design and data to create meaningful, measurable growth.
             </p>
             <Link
               href="/services"

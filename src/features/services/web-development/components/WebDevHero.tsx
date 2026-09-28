@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function WebDevHero() {
   return (
-    <section className="relative w-full py-24 md:py-32 lg:py-40 flex items-center justify-center overflow-hidden">
+    <section className="sticky top-[96px] z-0 w-full py-24 md:py-32 lg:py-40 flex items-center justify-center overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[#020205] z-0" />
       

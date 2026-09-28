@@ -162,7 +162,7 @@ export default function TrustedBySection() {
   const [isPaused, setIsPaused] = React.useState(false);
 
   return (
-    <section className="relative bg-[#020205] py-20 lg:py-24 overflow-hidden select-none border-t border-white/[0.04]">
+    <section className="relative bg-transparent py-20 lg:py-24 overflow-hidden select-none border-t border-white/[0.04]">
       {/* Section Subtitle */}
       <div className="max-w-[1400px] mx-auto px-6 mb-12 text-center">
         <p className="text-xs sm:text-[14px] font-bold tracking-[0.28em] text-white/60 uppercase font-sans">
@@ -171,7 +171,7 @@ export default function TrustedBySection() {
       </div>
 
       {/* Marquee Wrapper with Smooth Left & Right Fade Gradients */}
-      <div 
+      <div
         className="pause-marquee-hover relative w-full overflow-hidden cursor-pointer"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -183,7 +183,7 @@ export default function TrustedBySection() {
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-[#020205] via-[#020205]/80 to-transparent z-10" />
 
         {/* Moving Marquee Track */}
-        <div 
+        <div
           className="animate-marquee-infinite flex w-max items-center"
           style={{
             animationPlayState: isPaused ? "paused" : "running",

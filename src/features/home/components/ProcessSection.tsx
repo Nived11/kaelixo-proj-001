@@ -74,8 +74,8 @@ export default function ProcessSection() {
           <h2 className="text-[42px] md:text-[54px] font-black leading-[1.1] tracking-tight text-[#030C25] mb-5">
             From Idea to Impact.
           </h2>
-          <p className="text-[#475569] text-[17px] font-medium leading-relaxed max-w-md">
-            A clear, collaborative process that keeps you involved at every step.
+          <p className="text-[#475569] text-[17px] font-medium leading-relaxed max-w-2xl">
+            A clear, collaborative process that keeps you involved at every step — the same process that makes us a growth marketing agency worth trusting with the full journey, not just one campaign.
           </p>
         </div>
 
