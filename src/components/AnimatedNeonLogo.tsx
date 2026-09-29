@@ -91,6 +91,20 @@ export default function AnimatedNeonLogo({
       data-glow={glow}
       data-animated={animated}
     >
+      <style>{`
+        @media (max-width: 768px) {
+          #${id('traveling-lights')},
+          .crystal-mesh {
+            display: none !important;
+          }
+          .mesh-node {
+            animation: none !important;
+          }
+          /* Keep the edge blooms on mobile, but reduce their intensity if needed.
+             Removing filter completely caused harsh jagged edges, so we let the browser handle it
+             now that the heavy crystal-mesh is hidden. */
+        }
+      `}</style>
       <title id={id('title')}>{title}</title>
       <defs>
         <linearGradient id={id('frontGlass')} x1="430" y1="20" x2="1110" y2="1160" gradientUnits="userSpaceOnUse">
@@ -256,12 +270,11 @@ export default function AnimatedNeonLogo({
           </g>
           <use href={`#${id('ridgePath')}`} stroke="#FFF6F9" strokeWidth="2.2" opacity=".4" />
           <use href={`#${id('ridgePath')}`} className="edge-bloom" stroke="#FF78A3" strokeWidth="4" opacity=".25" filter={url('neonGlow')} />
-          <path d="M437 36 1248 407 M389 1075 1250 1159 M1254 543 1254 912" stroke="#FFD9E5" strokeWidth="1.3" opacity=".8" />
         </g>
 
         {/* ====== TRAVELING SPARKLES WITH TAIL ====== */}
         <g id={id('traveling-lights')}>
-          
+
           {/* --- FRONT PATH (Big Face) --- */}
           <g>
             {/* Tails synced to 14s */}

@@ -1,15 +1,23 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, BookOpen, Box, LayoutDashboard, Bell, Search, Users, FileText, TrendingUp, BarChart2 } from "lucide-react";
+import { ArrowRight, BookOpen, Box, LayoutDashboard, Bell, Search, Users, FileText, TrendingUp, BarChart2, Home } from "lucide-react";
 
 const TiltCard = ({ children, className }: { children: React.ReactNode, className?: string }) => {
   const cardRef = React.useRef<HTMLDivElement>(null);
   const [rotation, setRotation] = React.useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = React.useState(false);
+  const [isDesktop, setIsDesktop] = React.useState(true);
+
+  React.useEffect(() => {
+    const checkSize = () => setIsDesktop(window.innerWidth >= 768);
+    checkSize();
+    window.addEventListener('resize', checkSize);
+    return () => window.removeEventListener('resize', checkSize);
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (!cardRef.current || !isDesktop) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -24,25 +32,29 @@ const TiltCard = ({ children, className }: { children: React.ReactNode, classNam
     setRotation({ x: rotateX, y: rotateY });
   };
 
-  const handleMouseEnter = () => setIsHovering(true);
+  const handleMouseEnter = () => {
+    if (isDesktop) setIsHovering(true);
+  };
+  
   const handleMouseLeave = () => {
+    if (!isDesktop) return;
     setIsHovering(false);
     setRotation({ x: 0, y: 0 });
   };
 
   return (
-    <div className={className} style={{ perspective: '1200px' }}>
+    <div className={className} style={{ perspective: isDesktop ? '1200px' : 'none' }}>
       <div
         ref={cardRef}
         className="w-full h-full relative"
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        style={{
+        style={isDesktop ? {
           transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
           transition: isHovering ? 'transform 0.1s ease-out' : 'transform 0.5s ease-out',
           willChange: 'transform',
-        }}
+        } : {}}
       >
         {children}
       </div>
@@ -54,13 +66,17 @@ export default function ProductsSection() {
   return (
     <section className="relative bg-[#040914] py-12 lg:py-16 overflow-hidden font-sans">
       
-      {/* Background Ambient Glows */}
-      <div className="absolute top-0 left-[-10%] w-[50%] h-[50%] bg-blue-600/30 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 right-[-10%] w-[50%] h-[50%] bg-pink-600/30 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute top-[30%] left-[20%] w-[40%] h-[40%] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none" />
-
-      {/* Grid Pattern overlay (optional subtle texture) */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+      {/* Background Image - Mobile */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none md:hidden opacity-80"
+        style={{ backgroundImage: "url('/ourproductmobilebg.png')" }}
+      />
+      
+      {/* Background Image - Desktop */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none hidden md:block"
+        style={{ backgroundImage: "url('/ourproductbg.png')" }}
+      />
 
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
@@ -99,7 +115,7 @@ export default function ProductsSection() {
               </div>
             </button>
 
-            <div className="mt-16 flex items-center gap-4 text-[10px] sm:text-xs font-semibold tracking-[0.3em] text-slate-500 uppercase">
+            <div className="mt-16 flex items-center gap-4 text-[10px] sm:text-xs font-semibold tracking-[0.3em] text-slate-300 uppercase">
               <span>Simple</span>
               <span className="text-slate-700">/</span>
               <span>Powerful</span>
@@ -118,11 +134,11 @@ export default function ProductsSection() {
              <div className="flex flex-col gap-6 w-full">
                 
                 {/* TOP ROW: Way We Go (Spans full width) */}
-                <div className="relative rounded-[20px] shadow-[0_0_30px_rgba(255,0,85,0.05)] group">
+                <div className="relative rounded-[14px] sm:rounded-[20px] shadow-[0_0_30px_rgba(255,0,85,0.05)] group">
                    
                    {/* Animated Border Mask */}
                    <div 
-                     className="absolute inset-0 rounded-[20px] overflow-hidden pointer-events-none z-10"
+                     className="absolute inset-0 rounded-[14px] sm:rounded-[20px] overflow-hidden pointer-events-none z-10"
                      style={{
                         padding: '1px',
                         WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -130,11 +146,11 @@ export default function ProductsSection() {
                         maskComposite: 'exclude',
                      }}
                    >
-                      <div className="absolute inset-[-100%] animate-[spin_5s_linear_infinite] opacity-50 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,#FF0055_30%,#8b3dff_50%,transparent_80%)]" />
+                      <div className="absolute inset-[-100%] animate-[spin_5s_linear_infinite] opacity-80 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,#FF0055_30%,#8b3dff_50%,transparent_80%)]" />
                    </div>
                    
-                   {/* Static Glass Background - Pink Tint */}
-                   <div className="absolute inset-0 bg-gradient-to-br from-[#FF0055]/[0.06] to-transparent backdrop-blur-[32px] z-0 rounded-[20px] border border-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
+                   {/* Static Glass Background */}
+                   <div className="absolute inset-0 bg-gradient-to-br from-[#FF0055]/[0.06] to-transparent backdrop-blur-[32px] transform-gpu z-0 rounded-[14px] sm:rounded-[20px] border border-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
                    
                    <div className="relative z-20 p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-center justify-between h-full">
                       
@@ -169,7 +185,7 @@ export default function ProductsSection() {
                       </div>
 
                       {/* Right: Mock UI Dashboard */}
-                      <TiltCard className="w-full md:w-[50%] p-2 sm:p-4 mt-6 md:mt-0 z-20 flex justify-center items-center relative">
+                      <TiltCard className="w-full md:w-[50%] p-1 sm:p-6 md:p-4 mt-8 md:mt-0 z-20 flex justify-center items-center relative">
                          {/* Style block for seamless graph animation and floating badge */}
                          <style>{`
                            @keyframes drawLine {
@@ -204,22 +220,39 @@ export default function ProductsSection() {
                          `}</style>
 
                          {/* Dashboard Container */}
-                         <div className="w-full aspect-[1.3/1] rounded-[20px] bg-[#0A101E]/95 border border-white/5 shadow-2xl overflow-hidden flex flex-col relative z-10">
-                            {/* Topbar */}
-                            <div className="h-12 border-b border-white/5 flex items-center justify-between px-4 sm:px-5 shrink-0">
-                               <div className="flex items-center gap-2.5">
-                                  <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shrink-0">
-                                     <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-white fill-current"><path d="M12 2L2 22h20L12 2zm0 3.8l6.3 12.7H5.7L12 5.8z"/></svg>
+                         <div className="w-full aspect-[1.4/1] rounded-[10px] sm:rounded-[20px] shadow-2xl flex flex-col relative z-10 group/dash">
+                            {/* Animated Border Mask (Dashboard) */}
+                            <div 
+                              className="absolute inset-0 rounded-[10px] sm:rounded-[20px] overflow-hidden pointer-events-none z-10"
+                              style={{
+                                 padding: '1px',
+                                 WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                                 WebkitMaskComposite: 'xor',
+                                 maskComposite: 'exclude',
+                              }}
+                            >
+                               <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite_reverse] opacity-60 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,#3b82f6_30%,#8b3dff_50%,transparent_80%)]" />
+                            </div>
+
+                            {/* Dashboard Glass Background */}
+                            <div className="absolute inset-0 bg-[#0A101E]/60 backdrop-blur-[20px] transform-gpu z-0 rounded-[10px] sm:rounded-[20px] border border-white/[0.08]" />
+
+                            <div className="relative z-20 flex flex-col w-full h-full overflow-hidden rounded-[10px] sm:rounded-[20px]">
+                               {/* Topbar */}
+                               <div className="h-8 sm:h-12 border-b border-white/5 flex items-center justify-between px-3 sm:px-5 shrink-0">
+                               <div className="flex items-center gap-1.5 sm:gap-2.5">
+                                  <div className="w-4 h-4 sm:w-6 sm:h-6 rounded-[4px] sm:rounded-lg bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shrink-0">
+                                     <svg viewBox="0 0 24 24" className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-white fill-current"><path d="M12 2L2 22h20L12 2zm0 3.8l6.3 12.7H5.7L12 5.8z"/></svg>
                                   </div>
-                                  <span className="text-white text-xs font-bold tracking-wide">Way We Go</span>
+                                  <span className="text-white text-[8px] sm:text-xs font-bold tracking-wide">Way We Go</span>
                                </div>
-                               <div className="flex items-center gap-4">
-                                  <div className="w-32 h-7 rounded-lg bg-white/5 border border-white/5 flex items-center px-2.5 gap-2 hidden sm:flex">
-                                     <Search className="w-3.5 h-3.5 text-slate-400" />
-                                     <span className="text-[10px] text-slate-500 font-medium">Search...</span>
+                               <div className="flex items-center gap-2 sm:gap-4">
+                                  <div className="w-24 sm:w-32 h-5 sm:h-7 rounded-lg bg-white/5 border border-white/5 flex items-center px-1.5 sm:px-2.5 gap-1 sm:gap-2 hidden sm:flex">
+                                     <Search className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-slate-400" />
+                                     <span className="text-[8px] sm:text-[10px] text-slate-500 font-medium">Search...</span>
                                   </div>
-                                  <Bell className="w-4 h-4 text-slate-400" />
-                                  <div className="w-6 h-6 rounded-full overflow-hidden border border-white/10 shrink-0">
+                                  <Bell className="w-3 h-3 sm:w-4 sm:h-4 text-slate-400" />
+                                  <div className="w-4 h-4 sm:w-6 sm:h-6 rounded-full overflow-hidden border border-white/10 shrink-0">
                                      <img src="https://i.pravatar.cc/100?img=33" alt="avatar" className="w-full h-full object-cover" />
                                   </div>
                                </div>
@@ -228,62 +261,62 @@ export default function ProductsSection() {
                             {/* Main Content */}
                             <div className="flex flex-1 h-full overflow-hidden">
                                {/* Sidebar */}
-                               <div className="w-[90px] h-full border-r border-white/5 flex flex-col gap-2 pt-4 px-2 shrink-0">
-                                  <div className="w-full py-2 px-2.5 rounded-lg bg-[#FF0055]/15 text-[#FF0055] border border-[#FF0055]/20 flex items-center justify-center">
-                                     <span className="text-[9px] font-semibold">Dashboard</span>
+                               <div className="w-[65px] sm:w-[90px] h-full border-r border-white/5 flex flex-col gap-1 sm:gap-2 pt-2 sm:pt-4 px-1 sm:px-2 shrink-0">
+                                  <div className="w-full py-1 sm:py-2 px-1 sm:px-2.5 rounded-[4px] sm:rounded-lg bg-[#FF0055]/15 text-[#FF0055] border border-[#FF0055]/20 flex items-center gap-1 sm:gap-2 cursor-default">
+                                     <Home className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 shrink-0" />
+                                     <span className="text-[5px] sm:text-[9px] font-semibold">Dashboard</span>
                                   </div>
-                                  <div className="w-full py-2 px-2.5 rounded-lg text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-2 cursor-default">
-                                     <Users className="w-3.5 h-3.5" />
-                                     <span className="text-[9px] font-medium">Leads</span>
+                                  <div className="w-full py-1 sm:py-2 px-1 sm:px-2.5 rounded-[4px] sm:rounded-lg text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-1 sm:gap-2 cursor-default">
+                                     <Users className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 shrink-0" />
+                                     <span className="text-[5px] sm:text-[9px] font-medium">Leads</span>
                                   </div>
-                                  <div className="w-full py-2 px-2.5 rounded-lg text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-2 cursor-default">
-                                     <FileText className="w-3.5 h-3.5" />
-                                     <span className="text-[9px] font-medium">Projects</span>
+                                  <div className="w-full py-1 sm:py-2 px-1 sm:px-2.5 rounded-[4px] sm:rounded-lg text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-1 sm:gap-2 cursor-default">
+                                     <FileText className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 shrink-0" />
+                                     <span className="text-[5px] sm:text-[9px] font-medium">Projects</span>
                                   </div>
-                                  <div className="w-full py-2 px-2.5 rounded-lg text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-2 cursor-default">
-                                     <Users className="w-3.5 h-3.5" />
-                                     <span className="text-[9px] font-medium">Teams</span>
+                                  <div className="w-full py-1 sm:py-2 px-1 sm:px-2.5 rounded-[4px] sm:rounded-lg text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-1 sm:gap-2 cursor-default">
+                                     <Users className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 shrink-0" />
+                                     <span className="text-[5px] sm:text-[9px] font-medium">Teams</span>
                                   </div>
-                                  <div className="w-full py-2 px-2.5 rounded-lg text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-2 cursor-default">
-                                     <BarChart2 className="w-3.5 h-3.5" />
-                                     <span className="text-[9px] font-medium">Reports</span>
+                                  <div className="w-full py-1 sm:py-2 px-1 sm:px-2.5 rounded-[4px] sm:rounded-lg text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-1 sm:gap-2 cursor-default">
+                                     <BarChart2 className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 shrink-0" />
+                                     <span className="text-[5px] sm:text-[9px] font-medium">Reports</span>
                                   </div>
                                </div>
-                               
-                               {/* Dashboard Body */}
-                               <div className="flex-1 p-4 flex flex-col gap-4 overflow-hidden">
+                                                             {/* Dashboard Body */}
+                               <div className="flex-1 p-1.5 sm:p-4 flex flex-col gap-1.5 sm:gap-4 overflow-hidden">
                                   <div>
-                                     <h4 className="text-white text-sm font-bold tracking-tight">Good morning!</h4>
-                                     <p className="text-slate-400 text-[9px] mt-0.5">Here's what's happening today.</p>
+                                     <h4 className="text-white text-[10px] sm:text-sm font-bold tracking-tight leading-tight">Good morning!</h4>
+                                     <p className="text-slate-400 text-[6px] sm:text-[9px] mt-0.5">Here's what's happening today.</p>
                                   </div>
-
+ 
                                   {/* Stats Grid */}
-                                  <div className="grid grid-cols-3 gap-3">
-                                     <div className="bg-[#111726] rounded-xl p-3 border border-white/5 relative overflow-hidden">
-                                        <h5 className="text-white font-bold text-[15px] mb-1">128</h5>
-                                        <div className="flex justify-between items-end">
-                                           <p className="text-slate-400 text-[8px] font-medium">Leads</p>
-                                           <p className="text-emerald-400 text-[8px] font-bold flex items-center gap-0.5"><TrendingUp className="w-2.5 h-2.5"/> 12%</p>
+                                  <div className="grid grid-cols-3 gap-1 sm:gap-3">
+                                     <div className="bg-[#111726] rounded-[6px] sm:rounded-xl p-1 sm:p-3 border border-white/5 relative overflow-hidden">
+                                        <h5 className="text-white font-bold text-[9px] sm:text-[15px] mb-0.5 sm:mb-1">128</h5>
+                                        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-end gap-0 sm:gap-0.5">
+                                           <p className="text-slate-400 text-[5px] sm:text-[8px] font-medium">Leads</p>
+                                           <p className="text-emerald-400 text-[5px] sm:text-[8px] font-bold flex items-center gap-0.5"><TrendingUp className="w-1.5 sm:w-2.5 h-1.5 sm:h-2.5"/> 12%</p>
                                         </div>
                                      </div>
-                                     <div className="bg-[#111726] rounded-xl p-3 border border-white/5 relative overflow-hidden">
-                                        <h5 className="text-white font-bold text-[15px] mb-1">$24.5K</h5>
-                                        <div className="flex justify-between items-end">
-                                           <p className="text-slate-400 text-[8px] font-medium">Revenue</p>
-                                           <p className="text-emerald-400 text-[8px] font-bold flex items-center gap-0.5"><TrendingUp className="w-2.5 h-2.5"/> 18%</p>
+                                     <div className="bg-[#111726] rounded-[6px] sm:rounded-xl p-1 sm:p-3 border border-white/5 relative overflow-hidden">
+                                        <h5 className="text-white font-bold text-[9px] sm:text-[15px] mb-0.5 sm:mb-1">$24.5K</h5>
+                                        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-end gap-0 sm:gap-0.5">
+                                           <p className="text-slate-400 text-[5px] sm:text-[8px] font-medium">Revenue</p>
+                                           <p className="text-emerald-400 text-[5px] sm:text-[8px] font-bold flex items-center gap-0.5"><TrendingUp className="w-1.5 sm:w-2.5 h-1.5 sm:h-2.5"/> 18%</p>
                                         </div>
                                      </div>
-                                     <div className="bg-[#111726] rounded-xl p-3 border border-white/5 relative overflow-hidden">
-                                        <h5 className="text-white font-bold text-[15px] mb-1">12</h5>
-                                        <div className="flex justify-between items-end">
-                                           <p className="text-slate-400 text-[8px] font-medium">Projects</p>
-                                           <p className="text-emerald-400 text-[8px] font-bold flex items-center gap-0.5"><TrendingUp className="w-2.5 h-2.5"/> 8%</p>
+                                     <div className="bg-[#111726] rounded-[6px] sm:rounded-xl p-1 sm:p-3 border border-white/5 relative overflow-hidden">
+                                        <h5 className="text-white font-bold text-[9px] sm:text-[15px] mb-0.5 sm:mb-1">12</h5>
+                                        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-end gap-0 sm:gap-0.5">
+                                           <p className="text-slate-400 text-[5px] sm:text-[8px] font-medium">Projects</p>
+                                           <p className="text-emerald-400 text-[5px] sm:text-[8px] font-bold flex items-center gap-0.5"><TrendingUp className="w-1.5 sm:w-2.5 h-1.5 sm:h-2.5"/> 8%</p>
                                         </div>
                                      </div>
                                   </div>
-
+ 
                                   {/* Graph Area */}
-                                  <div className="flex-1 w-full bg-[#0D121E] rounded-xl border border-white/5 relative overflow-hidden flex flex-col p-3">
+                                  <div className="flex-1 w-full bg-[#0D121E] rounded-[6px] sm:rounded-xl border border-white/5 relative overflow-hidden flex flex-col p-1.5 sm:p-3">
                                      <div className="flex-1 w-full relative">
                                         {/* Grid lines */}
                                         <div className="absolute inset-0 flex flex-col justify-between">
@@ -319,9 +352,10 @@ export default function ProductsSection() {
                                </div>
                             </div>
                          </div>
+                      </div>
 
                          {/* Floating Growth Badge - Overlapping Bottom Right */}
-                         <div className="absolute right-[-12px] sm:right-[-20px] bottom-[-8px] sm:bottom-[-12px] bg-[#0C1220] border border-white/10 rounded-xl p-3 shadow-2xl flex flex-col z-30 animate-float-right">
+                         <div className="absolute right-[-12px] sm:right-[-20px] bottom-[-8px] sm:bottom-[-12px] bg-[#0C1220] border border-white/10 rounded-xl p-3 shadow-2xl flex flex-col z-30 animate-float-right transform-gpu">
                             <span className="text-slate-300 text-[9px] font-medium">Growth</span>
                             <span className="text-[#FF0055] font-extrabold text-[18px] leading-tight mt-1 drop-shadow-[0_0_8px_rgba(255,0,85,0.8)]">+42%</span>
                             
@@ -353,7 +387,7 @@ export default function ProductsSection() {
                            maskComposite: 'exclude',
                         }}
                       >
-                         <div className="absolute inset-[-100%] animate-[spin_5s_linear_infinite] opacity-50 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,#3b82f6_30%,#60a5fa_50%,transparent_80%)]" />
+                         <div className="absolute inset-[-100%] animate-[spin_5s_linear_infinite] opacity-80 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,#3b82f6_30%,#60a5fa_50%,transparent_80%)]" />
                       </div>
                       
                       {/* Static Glass Background - Blue Tint */}
@@ -391,7 +425,7 @@ export default function ProductsSection() {
                            maskComposite: 'exclude',
                         }}
                       >
-                         <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite_reverse] opacity-50 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,#a855f7_30%,#ec4899_50%,transparent_80%)]" />
+                         <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite_reverse] opacity-80 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,#a855f7_30%,#ec4899_50%,transparent_80%)]" />
                       </div>
                       
                       {/* Static Glass Background - Purple Tint */}

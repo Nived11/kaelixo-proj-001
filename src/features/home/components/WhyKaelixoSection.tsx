@@ -1,8 +1,23 @@
 "use client";
 
-import { ArrowRight, Heart, Lightbulb, Users, BarChart3, Play } from "lucide-react";
+import React, { useState, useRef } from "react";
+import { ArrowRight, Heart, Lightbulb, Users, BarChart3, Play, Pause } from "lucide-react";
 
 export default function WhyKaelixoSection() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   const features = [
     {
       title: "Client-Centric Approach",
@@ -38,15 +53,36 @@ export default function WhyKaelixoSection() {
     <section className="relative bg-[#020205] text-white py-16 lg:py-40 overflow-hidden border-t border-white/5">
       
       {/* Background Graphics */}
+      
+      {/* Left Background Image */}
       <img 
-        src="/service-left.png" 
+        src="/why-left.png" 
         alt="" 
-        className="absolute left-0 top-0 w-[35%] h-full object-cover object-left pointer-events-none z-0 mix-blend-screen opacity-60" 
+        className="absolute pointer-events-none z-0 mix-blend-screen opacity-30 sm:opacity-60 object-cover object-left [mask-image:linear-gradient(to_right,white_20%,transparent_100%)]
+          /* Mobile */
+          -left-15 -top-30 w-[75%] h-[50%] 
+          /* Tablet (sm/md) */
+          sm:left-0 sm:top-0 sm:w-[60%] sm:h-full
+          /* Desktop (lg/xl) */
+          lg:-left-[12%] lg:-top-[10%] lg:w-[60%] lg:h-[120%]
+          /* 1920px+ Display */
+          [@media(min-width:1920px)]:-left-[5%] [@media(min-width:1920px)]:-top-[5%] [@media(min-width:1920px)]:w-[45%] [@media(min-width:1920px)]:h-[120%]
+        " 
       />
+
       <img 
-        src="/service-right.png" 
+        src="/why-left.png" 
         alt="" 
-        className="absolute right-0 bottom-0 w-[35%] h-full object-cover object-right pointer-events-none z-0 mix-blend-screen opacity-60" 
+        className="absolute pointer-events-none z-0 mix-blend-screen opacity-30 sm:opacity-60 object-cover object-left [mask-image:linear-gradient(to_right,white_20%,transparent_100%)] -scale-x-100
+          /* Mobile */
+          -right-5 bottom-130 w-[75%] h-[50%]
+          /* Tablet (sm/md) */
+          sm:right-0 sm:bottom-0 sm:w-[60%] sm:h-full
+          /* Desktop (lg/xl) */
+          lg:-right-[12%] lg:-bottom-[10%] lg:w-[60%] lg:h-[120%]
+          /* 1920px+ Display */
+          [@media(min-width:1920px)]:-right-[5%] [@media(min-width:1920px)]:-bottom-[20%] [@media(min-width:1920px)]:w-[45%] [@media(min-width:1920px)]:h-[120%]
+        " 
       />
 
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10 flex flex-col">
@@ -56,16 +92,16 @@ export default function WhyKaelixoSection() {
           {/* LEFT COLUMN: Content & CTAs (4 Cols) */}
           <div className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-4">
             <div className="flex items-center gap-3 mb-5">
-              <span className="text-slate-300 font-bold text-[10px] tracking-[0.2em] uppercase">WHY KAELIXO</span>
+              <span className="text-slate-200 font-bold text-[11px] tracking-[0.2em] uppercase">WHY KAELIXO</span>
               <div className="w-10 h-[2px] bg-[#FF0055]"></div>
             </div>
             
             <h2 className="text-[36px] xl:text-[44px] font-extrabold leading-[1.1] tracking-tight mb-5">
               More Than a <br /> Tech Company — <br />
-              <span className="text-[#FF0055]">A Growth Marketing Agency.</span>
+              <span className="text-[#FF0055]">A Growth Marketing Agency</span>
             </h2>
             
-            <p className="text-slate-400 text-[14px] leading-relaxed mb-8 font-normal max-w-[340px]">
+            <p className="text-slate-300 text-[14px] leading-relaxed mb-8 font-normal max-w-[340px]">
               We combine technology, creativity, strategy and AI thinking to build digital experiences that create real business impact. It's what makes us a growth marketing agency businesses stay with, not just hire once.
             </p>
             
@@ -77,15 +113,15 @@ export default function WhyKaelixoSection() {
             <div className="flex flex-col xl:flex-row gap-6 sm:gap-8 w-full mt-auto relative top-10">
               <div className="relative pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
                 <h4 className="text-[14px] font-bold text-white mb-1 leading-tight">Strategy-Led</h4>
-                <p className="text-[12px] text-slate-400 font-medium whitespace-nowrap">Not just execution</p>
+                <p className="text-[12px] text-slate-300 font-medium whitespace-nowrap">Not just execution</p>
               </div>
               <div className="relative pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
                 <h4 className="text-[14px] font-bold text-white mb-1 leading-tight">People-First</h4>
-                <p className="text-[12px] text-slate-400 font-medium whitespace-nowrap">Relationships matter</p>
+                <p className="text-[12px] text-slate-300 font-medium whitespace-nowrap">Relationships matter</p>
               </div>
               <div className="relative pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
                 <h4 className="text-[14px] font-bold text-white mb-1 leading-tight">Impact-Driven</h4>
-                <p className="text-[12px] text-slate-400 font-medium whitespace-nowrap">Your growth is our success</p>
+                <p className="text-[12px] text-slate-300 font-medium whitespace-nowrap">Your growth is our success</p>
               </div>
             </div>
           </div>
@@ -96,24 +132,39 @@ export default function WhyKaelixoSection() {
               
               {/* Image Container with overflow hidden */}
               <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,0,85,0.1)] group">
-                {/* Actual Image */}
-                <img 
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" 
-                  alt="Workspace" 
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                {/* Actual Video instead of Image */}
+                <video
+                  ref={videoRef}
+                  src="/workspace.mp4"
+                  poster="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700"
+                  loop
+                  muted
+                  playsInline
                 />
-                {/* Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020205] via-transparent to-transparent opacity-60"></div>
+                {/* Dark Gradient Overlay (hide when playing for better view) */}
+                <div className={`absolute inset-0 bg-gradient-to-t from-[#020205] via-transparent to-transparent transition-opacity duration-300 ${isPlaying ? 'opacity-0' : 'opacity-60'}`}></div>
               </div>
               
               {/* Overlapping Play Button Card (Outside overflow-hidden) */}
-              <div className="absolute -bottom-6 right-0 sm:-right-8 bg-[#0a0f1c]/95 backdrop-blur-md border border-white/10 rounded-2xl p-3 sm:p-4 flex items-center gap-3 sm:gap-4 shadow-2xl z-20 w-[220px] sm:w-[240px] cursor-pointer hover:border-white/20 transition-colors group/play">
+              <div 
+                onClick={togglePlay}
+                className="absolute -bottom-6 right-0 sm:-right-8 bg-[#0a0f1c]/95 backdrop-blur-md border border-white/10 rounded-2xl p-3 sm:p-4 flex items-center gap-3 sm:gap-4 shadow-2xl z-20 w-[220px] sm:w-[240px] cursor-pointer hover:border-white/20 transition-colors group/play"
+              >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 flex items-center justify-center shrink-0 group-hover/play:bg-white/10 transition-colors">
-                  <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white ml-1" fill="currentColor" />
+                  {isPlaying ? (
+                    <Pause className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="currentColor" />
+                  ) : (
+                    <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white ml-1" fill="currentColor" />
+                  )}
                 </div>
                 <div>
-                  <h4 className="text-[12px] sm:text-[13px] font-bold text-white mb-0.5 leading-tight">See Our Workspace</h4>
-                  <p className="text-[10px] sm:text-[11px] text-slate-400 font-medium">A peek into our world</p>
+                  <h4 className="text-[12px] sm:text-[13px] font-bold text-white mb-0.5 leading-tight">
+                    {isPlaying ? "Pause Video" : "See Our Workspace"}
+                  </h4>
+                  <p className="text-[10px] sm:text-[11px] text-slate-300 font-medium">
+                    {isPlaying ? "Currently playing" : "A peek into our world"}
+                  </p>
                 </div>
               </div>
 
@@ -129,7 +180,7 @@ export default function WhyKaelixoSection() {
                 </div>
                 <div>
                   <h4 className="text-[14px] sm:text-[15px] font-bold text-white mb-0.5 group-hover:text-white transition-colors">{feature.title}</h4>
-                  <p className="text-[12px] sm:text-[13px] text-slate-400 font-medium leading-tight">{feature.desc}</p>
+                  <p className="text-[12px] sm:text-[13px] text-slate-300 font-medium leading-tight">{feature.desc}</p>
                 </div>
               </div>
             ))}

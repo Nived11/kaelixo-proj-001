@@ -179,23 +179,33 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 /* CONTINUOUS LOGO MARQUEE TICKER (Right to Left + Hover Pause) */
 /* ========================================================= */
 @keyframes marqueeScroll {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes marqueeScrollReverse {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 .animate-marquee-infinite {
   display: flex;
   width: max-content;
-  animation: marqueeScroll 30s linear infinite;
+  animation: marqueeScroll 45s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-reverse-infinite {
+  display: flex;
+  width: max-content;
+  animation: marqueeScrollReverse 45s linear infinite;
   will-change: transform;
 }
 
 .pause-marquee-hover:hover .animate-marquee-infinite,
-.animate-marquee-infinite:hover {
+.pause-marquee-hover:hover .animate-marquee-reverse-infinite,
+.animate-marquee-infinite:hover,
+.animate-marquee-reverse-infinite:hover {
   animation-play-state: paused !important;
 }
 

@@ -162,7 +162,7 @@ export default function TrustedBySection() {
   const [isPaused, setIsPaused] = React.useState(false);
 
   return (
-    <section className="relative bg-transparent py-20 lg:py-24 overflow-hidden select-none border-t border-white/[0.04]">
+    <section className="relative bg-transparent pt-16 pb-6 lg:pt-24 lg:pb-10 overflow-hidden select-none border-t border-white/[0.04]">
       {/* Section Subtitle */}
       <div className="max-w-[1400px] mx-auto px-6 mb-12 text-center">
         <p className="text-xs sm:text-[14px] font-bold tracking-[0.28em] text-white/60 uppercase font-sans">
@@ -177,12 +177,12 @@ export default function TrustedBySection() {
         onMouseLeave={() => setIsPaused(false)}
       >
         {/* Left Fade Mask */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-[#020205] via-[#020205]/80 to-transparent z-10" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-44 bg-gradient-to-r from-[#020205] via-[#020205]/80 to-transparent z-10" />
 
         {/* Right Fade Mask */}
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-[#020205] via-[#020205]/80 to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-44 bg-gradient-to-l from-[#020205] via-[#020205]/80 to-transparent z-10" />
 
-        {/* Moving Marquee Track */}
+        {/* Row 1: Moving Marquee Track (Right to Left) */}
         <div
           className="animate-marquee-infinite flex w-max items-center"
           style={{
@@ -198,6 +198,32 @@ export default function TrustedBySection() {
               {logos.map((logo, idx) => (
                 <div
                   key={`${loopIdx}-${idx}`}
+                  className="flex items-center shrink-0 hover:text-white transition-colors duration-200 cursor-pointer"
+                >
+                  {logo.render()}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2: Moving Marquee Track (Left to Right) - MOBILE ONLY */}
+        <div
+          className="animate-marquee-reverse-infinite flex w-max items-center mt-8 sm:hidden"
+          style={{
+            animationPlayState: isPaused ? "paused" : "running",
+          }}
+        >
+          {/* Repeat 4 times for Seamless Infinite Loop */}
+          {[...Array(4)].map((_, loopIdx) => (
+            <div
+              key={loopIdx}
+              className="flex items-center gap-12 sm:gap-16 lg:gap-20 pr-12 sm:pr-16 lg:pr-20 text-white/75"
+            >
+              {/* Reverse the logos for visual variety on the second row */}
+              {[...logos].reverse().map((logo, idx) => (
+                <div
+                  key={`rev-${loopIdx}-${idx}`}
                   className="flex items-center shrink-0 hover:text-white transition-colors duration-200 cursor-pointer"
                 >
                   {logo.render()}

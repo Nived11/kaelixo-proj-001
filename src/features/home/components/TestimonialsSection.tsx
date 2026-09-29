@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight, ArrowLeft, Star } from "lucide-react";
 
 const testimonials = [
@@ -29,6 +29,15 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(1);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -47,17 +56,18 @@ export default function TestimonialsSection() {
           {/* LEFT CONTENT (Text & Stats)               */}
           {/* ========================================= */}
           <div className="lg:col-span-5 flex flex-col items-start lg:pr-8">
-            <span className="text-[#FF0055] font-bold text-[13px] tracking-[0.25em] uppercase mb-6 block">
-              Clients Speak
-            </span>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-[#FF0055] font-bold text-sm tracking-widest uppercase">CLIENTS SPEAK</span>
+              <div className="w-10 h-[2px] bg-[#FF0055]"></div>
+            </div>
             
-            <h2 className="text-[40px] sm:text-5xl lg:text-[56px] font-extrabold text-[#020205] leading-[1.05] tracking-tight">
+            <h2 className="text-[32px] sm:text-[42px] lg:text-[52px] font-extrabold text-[#020205] leading-[1.1] tracking-tight">
               Trusted by <br />
               Businesses That <br />
-              <span className="text-[#FF0055]">Dream Bigger.</span>
+              <span className="text-[#FF0055]">Dream Bigger</span>
             </h2>
             
-            <p className="text-[#4A5568] text-base md:text-[17px] max-w-[420px] leading-relaxed mt-6">
+            <p className="text-[#4A5568] text-[14px] sm:text-[16px] max-w-[420px] leading-relaxed mt-4 sm:mt-6">
               Real stories from real partners who trust us as their growth marketing agency to bring their vision to life. Their success inspires us to go further every day.
             </p>
 
@@ -71,20 +81,20 @@ export default function TestimonialsSection() {
             </button>
 
             {/* Stats */}
-            <div className="flex items-center gap-6 md:gap-10 mt-16 pt-8 border-t border-slate-100 relative z-20 w-full lg:w-[120%]">
-              <div>
-                <h4 className="text-[#020205] text-[24px] font-extrabold">4.9/5</h4>
-                <p className="text-[#64748B] text-[13px] mt-1 font-medium">Client Satisfaction</p>
+            <div className="flex flex-row items-start sm:items-center justify-between sm:justify-start gap-1 sm:gap-6 md:gap-10 mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-slate-100 relative z-20 w-full lg:w-[120%]">
+              <div className="flex-1 sm:flex-none text-center sm:text-left pr-1 sm:pr-0">
+                <h4 className="text-[#020205] text-[16px] sm:text-[24px] font-extrabold whitespace-nowrap">4.9/5</h4>
+                <p className="text-[#64748B] text-[10px] sm:text-[13px] mt-1 font-medium leading-tight">Client Satisfaction</p>
               </div>
-              <div className="w-px h-10 bg-slate-200" />
-              <div>
-                <h4 className="text-[#020205] text-[24px] font-extrabold">200+</h4>
-                <p className="text-[#64748B] text-[13px] mt-1 font-medium">Happy Businesses</p>
+              <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0" />
+              <div className="flex-1 sm:flex-none text-center sm:text-left px-1 sm:px-0">
+                <h4 className="text-[#020205] text-[16px] sm:text-[24px] font-extrabold whitespace-nowrap">200+</h4>
+                <p className="text-[#64748B] text-[10px] sm:text-[13px] mt-1 font-medium leading-tight">Happy Businesses</p>
               </div>
-              <div className="w-px h-10 bg-slate-200" />
-              <div>
-                <h4 className="text-[#020205] text-[24px] font-extrabold">Long-Term</h4>
-                <p className="text-[#64748B] text-[13px] mt-1 font-medium">Partnerships</p>
+              <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0" />
+              <div className="flex-1 sm:flex-none text-center sm:text-left pl-1 sm:pl-0">
+                <h4 className="text-[#020205] text-[16px] sm:text-[24px] font-extrabold whitespace-nowrap">Long-Term</h4>
+                <p className="text-[#64748B] text-[10px] sm:text-[13px] mt-1 font-medium leading-tight">Partnerships</p>
               </div>
             </div>
           </div>
@@ -92,7 +102,13 @@ export default function TestimonialsSection() {
           {/* ========================================= */}
           {/* RIGHT CONTENT (Testimonials Carousel)     */}
           {/* ========================================= */}
-          <div className="lg:col-span-7 relative h-[500px] flex items-center justify-center mt-10 lg:mt-0">
+          <div 
+            className="lg:col-span-7 relative h-[320px] sm:h-[420px] lg:h-[500px] flex items-center justify-center mt-6 sm:mt-10 lg:mt-0 mb-16 lg:mb-0"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+          >
             
             {/* Cards Container */}
             <div className="relative w-full max-w-[800px] h-full flex items-center justify-center">
@@ -111,11 +127,11 @@ export default function TestimonialsSection() {
                   zIndex = 30;
                   opacity = 1;
                 } else if (isPrev) {
-                  transform = 'translateX(-95%) scale(0.9)';
+                  transform = 'translateX(-85%) scale(0.85)';
                   zIndex = 20;
                   opacity = 1;
                 } else if (isNext) {
-                  transform = 'translateX(95%) scale(0.9)';
+                  transform = 'translateX(85%) scale(0.85)';
                   zIndex = 10;
                   opacity = 1;
                 }
@@ -123,52 +139,82 @@ export default function TestimonialsSection() {
                 return (
                   <div 
                     key={t.id}
-                    className="absolute w-[320px] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                    className="absolute w-[250px] sm:w-[320px] transition-all duration-500 ease-out will-change-transform"
                     style={{ 
-                      transform, 
+                      transform: `${transform} translateZ(0)`, 
                       zIndex, 
-                      opacity
+                      opacity,
+                      WebkitBackfaceVisibility: 'hidden',
+                      backfaceVisibility: 'hidden'
                     }}
                   >
-                    {/* The Card Shape - Exact 3rd image look */}
+                    {/* Base Shadow (Inactive state) */}
+                    <div className="absolute inset-0 rounded-[20px] sm:rounded-[24px] shadow-[0_10px_40px_-10px_rgba(23,23,23,0.2)] pointer-events-none" />
+                    
+                    {/* Glowing Pink Shadow (Fades in on active state using opacity, which is 100x faster than animating box-shadow) */}
                     <div 
-                      className="bg-white h-full w-full relative flex flex-col p-8 pb-10 transition-all duration-700"
+                      className={`absolute inset-0 rounded-[20px] sm:rounded-[24px] shadow-[0_0_25px_2px_rgba(255,0,85,0.15),0_15px_35px_-5px_rgba(255,0,85,0.1)] pointer-events-none transition-opacity duration-500 ease-out ${isActive ? 'opacity-100' : 'opacity-0'}`} 
+                    />
+
+                    {/* The Card Shape */}
+                    <div 
+                      className="bg-white min-h-[290px] sm:min-h-[340px] h-full w-full relative flex flex-col p-5 sm:p-8 pb-6 sm:pb-10 rounded-[20px] sm:rounded-[24px] border border-black/[0.03]"
                       style={{ 
-                        borderRadius: '24px',
-                        border: isActive ? '1px solid rgba(255,0,85,0.1)' : '1px solid rgba(0,0,0,0.03)',
-                        boxShadow: isActive 
-                          ? '0 0 25px 2px rgba(255,0,85,0.15), 0 15px 35px -5px rgba(255,0,85,0.1)' 
-                          : '0 10px 40px -10px rgba(23, 23, 23, 0.2)',
-                        minHeight: '360px'
+                        transform: 'translateZ(0)',
+                        WebkitTransform: 'translateZ(0)'
                       }}
                     >
+                      {/* Animated Border Mask (Visible on Active Card) */}
+                      <div 
+                         className={`absolute inset-0 overflow-hidden pointer-events-none z-50 rounded-[20px] sm:rounded-[24px] transition-opacity duration-500 ease-out ${isActive ? 'opacity-100' : 'opacity-0'}`}
+                         style={{
+                            padding: '1.5px',
+                            WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                            WebkitMaskComposite: 'xor',
+                            maskComposite: 'exclude',
+                         }}
+                      >
+                         <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite] opacity-60 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,#FF0055_30%,transparent_60%)]" />
+                      </div>
+
                       {/* Standard Quote Icon */}
-                      <div className={`text-[48px] font-serif leading-none mt-2 ${isActive ? 'text-[#FF0055]' : 'text-[#8B98B4]'}`}>
+                      <div className={`text-[36px] sm:text-[48px] font-serif leading-none mt-1 sm:mt-2 ${isActive ? 'text-[#FF0055]' : 'text-[#8B98B4]'}`}>
                         “
                       </div>
                       
                       {/* Text is dark on all cards as per image */}
-                      <p className="mt-4 relative z-10 text-[15px] leading-[1.7] flex-1 text-[#1E293B]">
+                      <p className="mt-2 sm:mt-4 relative z-10 text-[13px] sm:text-[15px] leading-[1.6] sm:leading-[1.7] flex-1 text-[#1E293B]">
                         "{t.quote}"
                       </p>
                       
                       {/* Avatar and Name */}
-                      <div className="mt-8 flex items-center gap-4">
+                      <div className="mt-5 sm:mt-8 flex items-center gap-3 sm:gap-4">
                         <img 
                           src={t.avatar} 
                           alt={t.name} 
-                          className="w-13 h-13 rounded-full object-cover bg-slate-100 border-2 border-white shadow-sm" 
+                          className="w-10 h-10 sm:w-13 sm:h-13 rounded-full object-cover bg-slate-100 border-2 border-white shadow-sm" 
                         />
                         <div>
-                          <h5 className="text-[15px] font-bold text-[#020205]">{t.name}</h5>
-                          <p className="text-[13px] text-[#64748B] mt-0.5">{t.role}</p>
+                          <h5 className="text-[13px] sm:text-[15px] font-bold text-[#020205]">{t.name}</h5>
+                          <p className="text-[11px] sm:text-[13px] text-[#64748B] mt-0.5">{t.role}</p>
                         </div>
                       </div>
 
-                      {/* Star Rating - Same vibrant color on all cards */}
+                      {/* Star Rating - Realistic 2-Tone Star matching image */}
                       <div className="mt-6 flex items-center gap-1.5">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-[18px] h-[18px] fill-[#FFB800] text-[#FFB800]" />
+                          <svg key={i} viewBox="0 0 200 200" className="w-[20px] h-[20px] drop-shadow-sm" xmlns="http://www.w3.org/2000/svg">
+                            {/* Left Half - Light Gold */}
+                            <polygon 
+                              points="100,15 80,77 15,77 67,116 47,178 100,139" 
+                              fill="#FFC72C"
+                            />
+                            {/* Right Half - Dark Gold */}
+                            <polygon 
+                              points="100,15 120,77 185,77 133,116 153,178 100,139" 
+                              fill="#F59E0B"
+                            />
+                          </svg>
                         ))}
                       </div>
                     </div>
@@ -179,7 +225,7 @@ export default function TestimonialsSection() {
             </div>
 
             {/* Desktop & Mobile Navigation Controls (Placed bottom left of the right column, aligning with stats) */}
-            <div className="absolute -bottom-8 lg:-bottom-10 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-76 flex items-center gap-4 z-40">
+            <div className="absolute -bottom-16 sm:-bottom-12 lg:-bottom-10 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-76 flex items-center gap-4 z-40">
               <button 
                 onClick={handlePrev}
                 className="w-14 h-14 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-50 transition-all shadow-sm active:scale-95"

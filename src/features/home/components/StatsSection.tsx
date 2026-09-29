@@ -2,7 +2,11 @@
 
 import React from "react";
 
-export default function StatsSection() {
+interface StatsSectionProps {
+  children?: React.ReactNode;
+}
+
+export default function StatsSection({ children }: StatsSectionProps) {
   const stats = [
     {
       // 3-people silhouette icon matching image
@@ -57,8 +61,8 @@ export default function StatsSection() {
 
   return (
     <div className="w-full bg-gradient-to-t from-[#020205] via-[#020205]/40 to-transparent pt-6 pb-5 sm:pb-6 backdrop-blur-[2px]">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex flex-wrap items-center justify-start gap-y-4 gap-x-6 sm:gap-x-8 md:gap-x-10 lg:gap-x-12">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col xl:flex-row xl:items-center justify-between gap-6">
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-start gap-y-5 gap-x-2 sm:gap-x-8 md:gap-x-10 lg:gap-x-12">
           {stats.map((stat, idx) => (
             <div
               key={idx}
@@ -84,6 +88,13 @@ export default function StatsSection() {
             </div>
           ))}
         </div>
+        
+        {/* Optional Right Element (e.g. Carousel Dots) */}
+        {children && (
+          <div className="flex items-center justify-center xl:justify-end">
+            {children}
+          </div>
+        )}
       </div>
     </div>
   );

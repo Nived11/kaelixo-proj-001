@@ -51,7 +51,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative bg-[#FAFAFC] text-slate-900 py-20 sm:py-28 overflow-hidden select-none"
+      className="relative bg-[#FAFAFC] text-slate-900 pt-12 pb-20 sm:py-28 overflow-hidden select-none"
     >
       {/* Subtle Ethereal Ambient Glows (matching reference) */}
       <div className="absolute top-1/4 -left-20 w-[420px] h-[420px] bg-[#FF0055]/[0.04] rounded-full blur-[120px] pointer-events-none" />
@@ -71,15 +71,14 @@ export default function ServicesSection() {
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-black text-slate-900 tracking-tight leading-[1.12]">
               Digital Solutions <br />
-              for a Smarter Tomorrow.
+              for a Smarter Tomorrow
             </h2>
           </div>
 
           {/* Right: Description paragraph + View All Services Button */}
           <div className="flex flex-col sm:flex-row sm:items-center lg:items-end justify-between gap-6 max-w-xl">
             <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed font-normal">
-              From idea to impact — as a growth marketing agency, we help businesses leverage technology,
-              design and data to create meaningful, measurable growth.
+             Every step is clear and shared, guided by a growth marketing agency.
             </p>
             <Link
               href="/services"
@@ -92,40 +91,45 @@ export default function ServicesSection() {
         </div>
 
         {/* 4 Service Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {services.map((item, idx) => (
             <Link
               key={idx}
               href={item.href}
-              className="group relative bg-white rounded-[26px] p-8 border border-slate-200/60 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer block"
+              className="group relative bg-white rounded-[20px] sm:rounded-[26px] p-6 sm:p-8 border border-slate-200/60 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer block"
             >
               <div>
-                {/* Dual-layer Squircle Icon with Ambient Aura */}
-                <div
-                  className={`inline-flex items-center justify-center p-2.5 rounded-[22px] ${item.auraBg} transition-transform duration-300 group-hover:scale-105`}
-                >
+                {/* Header: Icon + Title side-by-side on mobile, stacked on desktop */}
+                <div className="flex flex-row items-center sm:items-start gap-4 sm:flex-col sm:gap-0">
+                  {/* Dual-layer Squircle Icon with Ambient Aura */}
                   <div
-                    className={`w-14 h-14 rounded-[16px] bg-gradient-to-br ${item.iconGradient} flex items-center justify-center shadow-lg ${item.shadow}`}
+                    className={`inline-flex items-center justify-center p-2 sm:p-2.5 rounded-[16px] sm:rounded-[22px] ${item.auraBg} transition-transform duration-300 group-hover:scale-105 shrink-0`}
                   >
-                    {item.icon}
+                    <div
+                      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-[14px] sm:rounded-[16px] bg-gradient-to-br ${item.iconGradient} flex items-center justify-center shadow-lg ${item.shadow}`}
+                    >
+                      <div className="scale-90 sm:scale-100 flex items-center justify-center">
+                        {item.icon}
+                      </div>
+                    </div>
                   </div>
+
+                  {/* Title */}
+                  <h3 className="text-[18px] sm:text-xl font-bold text-slate-900 tracking-tight sm:mt-7 sm:mb-3 leading-snug">
+                    {item.title}
+                  </h3>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-xl font-bold text-slate-900 tracking-tight mt-7 mb-3">
-                  {item.title}
-                </h3>
-
                 {/* Description */}
-                <p className="text-[13.5px] text-slate-500 leading-relaxed font-normal">
+                <p className="text-[14px] sm:text-[13.5px] text-slate-600 leading-relaxed font-normal mt-4 sm:mt-0">
                   {item.description}
                 </p>
               </div>
 
               {/* Bottom Learn More link */}
-              <div className="mt-8 pt-4">
+              <div className="mt-5 sm:mt-8 pt-3 sm:pt-4">
                 <div
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#FF0055] group-hover:text-[#E6004C] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-[13px] sm:text-sm font-semibold text-[#FF0055] group-hover:text-[#E6004C] transition-colors"
                 >
                   <span>Learn More</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
