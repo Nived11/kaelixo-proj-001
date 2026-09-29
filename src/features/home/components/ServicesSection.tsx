@@ -69,7 +69,7 @@ export default function ServicesSection() {
               </span>
               <span className="w-8 h-[2px] bg-[#FF0055] inline-block rounded-full" />
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-black text-slate-900 tracking-tight leading-[1.12]">
+            <h2 className="text-[32px] sm:text-4xl lg:text-[46px] font-black text-slate-900 tracking-tight leading-[1.12]">
               Digital Solutions <br />
               for a Smarter Tomorrow
             </h2>

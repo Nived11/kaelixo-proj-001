@@ -57,15 +57,13 @@ export default function SuccessStoriesSection() {
             </h2>
           </div>
 
-          <div className="flex flex-col items-start md:items-end gap-3 w-full md:w-auto">
-            <div className="flex flex-col items-start md:items-end gap-2 sm:gap-3">
-              <p className="text-slate-700 text-[13px] sm:text-[15px] leading-relaxed text-left md:text-right max-w-[280px] sm:max-w-sm md:max-w-sm">
-                A growth marketing agency that delivers real, lasting growth.
-              </p>
-              <a href="#" className="text-[#FF0055] font-bold text-[14px] sm:text-[15px] flex items-center gap-2 hover:gap-3 transition-all">
-                See All Case Studies <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 w-full md:w-auto">
+            <p className="text-slate-700 text-[13px] sm:text-[15px] leading-relaxed max-w-[280px] sm:max-w-sm">
+              A growth marketing agency that delivers real, lasting growth.
+            </p>
+            <a href="#" className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full border border-[#FF0055]/20 text-[#FF0055] font-bold text-[13px] sm:text-[14px] flex items-center justify-center gap-2 hover:bg-[#FF0055]/5 transition-all shrink-0">
+              See All Case Studies <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
 

@@ -207,31 +207,7 @@ export default function TrustedBySection() {
           ))}
         </div>
 
-        {/* Row 2: Moving Marquee Track (Left to Right) - MOBILE ONLY */}
-        <div
-          className="animate-marquee-reverse-infinite flex w-max items-center mt-8 sm:hidden"
-          style={{
-            animationPlayState: isPaused ? "paused" : "running",
-          }}
-        >
-          {/* Repeat 4 times for Seamless Infinite Loop */}
-          {[...Array(4)].map((_, loopIdx) => (
-            <div
-              key={loopIdx}
-              className="flex items-center gap-12 sm:gap-16 lg:gap-20 pr-12 sm:pr-16 lg:pr-20 text-white/75"
-            >
-              {/* Reverse the logos for visual variety on the second row */}
-              {[...logos].reverse().map((logo, idx) => (
-                <div
-                  key={`rev-${loopIdx}-${idx}`}
-                  className="flex items-center shrink-0 hover:text-white transition-colors duration-200 cursor-pointer"
-                >
-                  {logo.render()}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+
       </div>
     </section>
   );

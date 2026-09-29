@@ -195,7 +195,7 @@ export default function HeroSection() {
           {/* Text Readability Gradients (Same as Slide 1 to keep UI consistent) */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#020205] via-[#020205]/60 sm:via-[#020205]/75 to-transparent w-[85%] sm:w-full md:w-[48%] [@media(min-width:1920px)]:w-[55%] [@media(min-width:1920px)]:from-[0%] [@media(min-width:1920px)]:via-[#020205]/80 [@media(min-width:1920px)]:via-[30%] z-[9]" />
           <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#020205] via-[#020205]/30 to-transparent z-[9]" />
-          <div className="absolute bottom-0 left-0 right-0 h-[45vh] sm:h-28 2xl:h-48 [@media(min-width:1920px)]:h-64 bg-gradient-to-t from-[#020205] from-[50%] sm:from-0% via-[#020205]/80 via-[80%] sm:via-[#020205]/30 2xl:via-[#020205]/50 [@media(min-width:1920px)]:via-[#020205]/60 to-transparent z-[9]" />
+          <div className="absolute bottom-0 left-0 right-0 h-[35vh] sm:h-28 2xl:h-48 [@media(min-width:1920px)]:h-64 bg-gradient-to-t from-[#020205] from-[30%] sm:from-0% via-[#020205]/80 via-[70%] sm:via-[#020205]/30 2xl:via-[#020205]/50 [@media(min-width:1920px)]:via-[#020205]/60 to-transparent z-[9]" />
         </div>
       </div>
 
@@ -207,7 +207,7 @@ export default function HeroSection() {
           <div className="lg:col-span-8 max-w-2xl space-y-4 sm:space-y-5">
             {/* Tagline Eyebrow */}
             <div className="flex items-center gap-2">
-              <span className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-white/80 uppercase font-heading
+              <span className="text-[10px] sm:text-xs font-semibold tracking-[0.22em] text-white/80 uppercase font-heading
                 [@media(min-width:1920px)]:text-[16px]
               ">
                 THINK <span className="text-[#FF0055]">•</span> BUILD <span className="text-[#FF0055]">•</span> GROW
@@ -215,7 +215,7 @@ export default function HeroSection() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-[48px] leading-[0.95] sm:text-5xl md:text-[56px] lg:text-[64px] xl:text-[72px] font-extrabold text-white tracking-tight sm:leading-[1.05] font-heading
+            <h1 className="text-[34px] leading-[1.05] sm:text-5xl md:text-[56px] lg:text-[64px] xl:text-[72px] font-extrabold text-white tracking-tight sm:leading-[1.05] font-heading
               [@media(min-width:1920px)]:text-[84px]
             ">
               {/* Mobile: 4 lines */}
@@ -230,18 +230,18 @@ export default function HeroSection() {
             </h1>
 
             {/* Sub-paragraph */}
-            <p className="text-[13px] sm:text-[16px] md:text-[17px] text-slate-300 max-w-[480px] leading-relaxed font-normal font-sans
-              [@media(min-width:1920px)]:text-[22px] [@media(min-width:1920px)]:max-w-[600px] mt-3 sm:mt-4
+            <p className="text-[12px] sm:text-[14px] md:text-[16px] text-slate-300 max-w-[480px] leading-relaxed font-normal font-sans
+              [@media(min-width:1920px)]:text-[20px] [@media(min-width:1920px)]:max-w-[600px] mt-2 sm:mt-4
             ">
-              We study your business, build what it needs, and grow it with marketing that delivers.
+              We study your business, build what it needs, <br className="block sm:hidden" />and grow it with marketing that delivers.
             </p>
 
             {/* Dual Pill CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 sm:gap-3 pt-3 sm:pt-2 font-heading">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-3 pt-3 sm:pt-2 font-heading">
               <Link
                 href="#consultation"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#FF0055] hover:bg-[#E6004C] text-white text-[13px] sm:text-sm font-semibold tracking-normal shadow-lg shadow-[#FF0055]/30 hover:shadow-[#FF0055]/50 transition-all duration-200 active:scale-95 text-center cursor-pointer
-                  [@media(min-width:1920px)]:text-[18px] [@media(min-width:1920px)]:px-8 [@media(min-width:1920px)]:py-3.5
+                className="inline-flex items-center justify-center gap-2 w-[240px] py-2.5 rounded-full bg-[#FF0055] hover:bg-[#E6004C] text-white text-[13px] sm:text-sm font-semibold tracking-normal shadow-lg shadow-[#FF0055]/30 hover:shadow-[#FF0055]/50 transition-all duration-200 active:scale-95 text-center cursor-pointer
+                  [@media(min-width:1920px)]:text-[18px] [@media(min-width:1920px)]:w-[280px] [@media(min-width:1920px)]:py-3.5
                 "
               >
                 <span>Book Free Consultation</span>
@@ -250,8 +250,8 @@ export default function HeroSection() {
 
               <Link
                 href="#services"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-black/40 hover:bg-white/10 text-white text-[13px] sm:text-sm font-medium border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm text-center cursor-pointer
-                  [@media(min-width:1920px)]:text-[18px] [@media(min-width:1920px)]:px-8 [@media(min-width:1920px)]:py-3.5
+                className="inline-flex items-center justify-center gap-2 w-[240px] py-2.5 rounded-full bg-black/40 hover:bg-white/10 text-white text-[13px] sm:text-sm font-medium border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm text-center cursor-pointer
+                  [@media(min-width:1920px)]:text-[18px] [@media(min-width:1920px)]:w-[280px] [@media(min-width:1920px)]:py-3.5
                 "
               >
                 <span>Explore Our Services</span>
