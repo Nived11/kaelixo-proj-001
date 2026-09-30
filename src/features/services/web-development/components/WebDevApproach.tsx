@@ -113,7 +113,7 @@ export default function WebDevApproach() {
 
               {/* Plant Image (Background Right, partially off-screen) */}
               {/* <img 
-                src="/images/webdevplant.png" 
+                src="/images/services/web-dev/plant.webp" 
                 alt="Decorative Plant" 
                 className="absolute right-[-15%] sm:right-[-25%] lg:right-[-38%] top-[10%] sm:top-[15%] w-[140px] sm:w-[180px] object-contain z-0 blur-[1px] opacity-90"
               /> */}
@@ -150,7 +150,7 @@ export default function WebDevApproach() {
 
               {/* Main Laptop Image */}
               <img 
-                src="/images/webdevlaptop.png" 
+                src="/images/services/web-dev/laptop.webp" 
                 alt="Laptop Web Development" 
                 className="relative z-20 w-[100%] sm:w-[105%] max-w-none object-contain translate-x-[5%] lg:translate-x-[8%] animate-float-1"
               />
@@ -160,7 +160,7 @@ export default function WebDevApproach() {
 
               {/* Mobile Mockup Image (Foreground left) */}
               <img 
-                src="/images/webdevmobile.png" 
+                src="/images/services/web-dev/mobile.webp" 
                 alt="Mobile Web Development" 
                 className="absolute bottom-[-2%] sm:bottom-[2%] left-[2%] sm:left-[10%] w-[100px] sm:w-[180px] object-contain z-30 animate-float-2"
               />

@@ -28,26 +28,27 @@ function RotatingGlobeComponent({
 
   useEffect(() => {
     if (!svgRef.current) return;
-    const sphere = createSphere(svgRef.current, {
-      imageHref: '/globe-original.png',
-      id: `sphere-${titleId.replace(/[^a-zA-Z0-9_-]/g, '')}`,
-      duration: seconds,
-      animated,
-    });
-    sphereRef.current = sphere;
+    
+    // Defer the heavy SVG creation to unblock React's initial paint
+    const timer = setTimeout(() => {
+      if (!svgRef.current) return;
+      const sphere = createSphere(svgRef.current, {
+        imageHref: '/images/home/globe-original.webp',
+        id: `sphere-${titleId.replace(/[^a-zA-Z0-9_-]/g, '')}`,
+        duration: seconds,
+        animated,
+      });
+      sphereRef.current = sphere;
+    }, 100);
+
     return () => {
-      sphere.destroy();
-      sphereRef.current = null;
+      clearTimeout(timer);
+      if (sphereRef.current) {
+        sphereRef.current.destroy();
+        sphereRef.current = null;
+      }
     };
-  }, [titleId]);
-
-  useEffect(() => {
-    sphereRef.current?.setDuration(seconds);
-  }, [seconds]);
-
-  useEffect(() => {
-    sphereRef.current?.setAnimated(animated);
-  }, [animated]);
+  }, [titleId, seconds, animated]);
 
   return (
     <svg
@@ -57,7 +58,7 @@ function RotatingGlobeComponent({
       width="100%"
       height="100%"
       preserveAspectRatio="xMidYMid meet"
-      className={`rotating-globe ${className}`}
+      className={`rotating-globe animate-fade-in-up delay-700 ${className}`}
       role="img"
       aria-labelledby={titleId}
       data-animated={animated}

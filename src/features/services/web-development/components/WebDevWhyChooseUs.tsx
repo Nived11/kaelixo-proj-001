@@ -73,14 +73,14 @@ export default function WebDevWhyChooseUs() {
                
                {/* Background Arc */}
                <img 
-                 src="/bg-web.png" 
+                 src="/images/services/web-dev/hero-bg.webp" 
                  alt="Glowing Background Arc"
                  className="absolute left-[-5%] top-[25%] w-[115%] max-w-none object-contain z-0 opacity-90"
                />
                
                {/* Foreground Laptop on Rock */}
                <img 
-                 src="/web-lap.png" 
+                 src="/images/services/web-dev/hero-laptop.webp" 
                  alt="Why Choose Us Laptop"
                  className="absolute left-[-20%] top-[8%] w-[135%] max-w-none object-contain z-10"
                />

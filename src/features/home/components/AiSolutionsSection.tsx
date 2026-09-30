@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Settings, User, BarChart2, BrainCircuit, ArrowRight, Quote } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function AiSolutionsSection() {
   const [activeQuote, setActiveQuote] = useState(0);
@@ -34,7 +35,7 @@ export default function AiSolutionsSection() {
 
         {/* Image layer - Added object-right-top to ensure the head doesn't get cut off */}
         <img
-          src="/heroaibg.png"
+          src="/images/home/hero-bg-ai.webp"
           alt="AI Solutions Background"
           className="w-full lg:w-[70%] h-full object-cover object-[right_top] lg:object-right opacity-100"
           onError={(e) => {
@@ -51,27 +52,36 @@ export default function AiSolutionsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
           {/* Left Content */}
-          <div className="max-w-[550px]">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+            }}
+            className="max-w-[550px]"
+          >
             {/* Eyebrow */}
-            <div className="flex items-center gap-3 mb-4">
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="flex items-center gap-3 mb-4">
               <span className="text-[#FF0055] font-bold text-[10px] tracking-[0.25em] uppercase">
                 AI SOLUTIONS
               </span>
               <div className="w-8 h-[2px] bg-[#FF0055]" />
-            </div>
+            </motion.div>
 
             {/* Headline */}
-            <h2 className="text-white text-[34px] md:text-[40px] lg:text-[48px] font-extrabold leading-[1.05] tracking-tight mb-4 font-heading">
+            <motion.h2 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-white text-[34px] md:text-[40px] lg:text-[48px] font-extrabold leading-[1.05] tracking-tight mb-4 font-heading">
               AI Thinking for a<br />
               Smarter <span className="text-[#FF0066]">Tomorrow</span>
-            </h2>
+            </motion.h2>
 
-            <p className="text-slate-300/90 text-[13px] md:text-[14px] leading-[1.6] mb-8 max-w-[480px]">
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-slate-300/90 text-[13px] md:text-[14px] leading-[1.6] mb-8 max-w-[480px]">
               We integrate artificial intelligence into real business solutions — helping you automate, predict, personalize and grow without limits, the same intelligence-first approach that runs through every growth marketing agency service we offer.
-            </p>
+            </motion.p>
 
             {/* Feature List */}
-            <div className="space-y-4 mb-8">
+            <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }} className="space-y-4 mb-8">
               <FeatureItem
                 icon={Settings}
                 title="Process Automation"
@@ -93,10 +103,10 @@ export default function AiSolutionsSection() {
                 title="Custom AI Solutions"
                 desc="Tailored to your business logic, not generic tools."
               />
-            </div>
+            </motion.div>
 
             {/* CTA Area */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
               <Link
                 href="/services/ai-solutions"
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#FF0055] hover:bg-[#E6004C] text-white text-[13px] font-semibold tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300"
@@ -110,8 +120,8 @@ export default function AiSolutionsSection() {
               <p className="text-slate-300 text-[11px] leading-[1.4]">
                 From Possibilities<br />to Real Impact
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Content - Overlays */}
           <div className="relative h-full min-h-[400px] hidden lg:block">
@@ -214,7 +224,13 @@ function FeatureItem({ icon: Icon, title, desc, theme = "purple" }: { icon: any,
   const isPink = theme === "pink";
 
   return (
-    <div className="flex items-center gap-4 group">
+    <motion.div 
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+      }}
+      className="flex items-center gap-4 group"
+    >
       <div
         className={`w-11 h-11 rounded-[12px] border flex items-center justify-center shrink-0 transition-all duration-300
           ${isPink
@@ -229,6 +245,6 @@ function FeatureItem({ icon: Icon, title, desc, theme = "purple" }: { icon: any,
         <h4 className="text-white text-[14px] font-bold leading-tight mb-0.5">{title}</h4>
         <p className="text-slate-400 text-[11px] leading-[1.4]">{desc}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }

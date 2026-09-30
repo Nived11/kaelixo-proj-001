@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import {
@@ -14,6 +14,7 @@ import {
   BarChart2,
   Home,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const TiltCard = ({
   children,
@@ -90,18 +91,27 @@ const TiltCard = ({
 };
 
 export default function ProductsSection() {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <section className="relative bg-[#040914] py-12 lg:py-16 overflow-hidden font-sans">
       {/* Background Image - Mobile */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none md:hidden opacity-80"
-        style={{ backgroundImage: "url('/ourproductmobilebg.png')" }}
+        style={{ backgroundImage: "url('/images/home/products-bg-mobile.webp')" }}
       />
 
       {/* Background Image - Desktop */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none hidden md:block"
-        style={{ backgroundImage: "url('/ourproductbg.png')" }}
+        style={{ backgroundImage: "url('/images/home/products-bg-desktop.webp')" }}
       />
 
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
@@ -109,7 +119,13 @@ export default function ProductsSection() {
           {/* ========================================= */}
           {/* LEFT CONTENT                              */}
           {/* ========================================= */}
-          <div className="lg:col-span-4 flex flex-col items-start lg:pr-4 relative z-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2, margin: "0px 0px -50px 0px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="lg:col-span-4 flex flex-col items-start lg:pr-4 relative z-20"
+          >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-6 h-[2px] bg-[#FF0055]" />
               <span className="text-[#FF0055] font-bold text-xs tracking-[0.25em] uppercase">
@@ -143,24 +159,30 @@ export default function ProductsSection() {
             </button>
 
             <div className="mt-16 flex items-center gap-4 text-[10px] sm:text-xs font-semibold tracking-[0.3em] text-slate-300 uppercase">
-              <span>Simple</span>
+              <motion.span initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.3 }}>Simple</motion.span>
               <span className="text-slate-700">/</span>
-              <span>Powerful</span>
+              <motion.span initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.5 }}>Powerful</motion.span>
               <span className="text-slate-700">/</span>
-              <span>Scalable</span>
+              <motion.span initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.7 }}>Scalable</motion.span>
             </div>
-          </div>
+          </motion.div>
 
           {/* ========================================= */}
           {/* RIGHT CONTENT (Product Cards)             */}
           {/* ========================================= */}
-          <div className="lg:col-span-8 relative mt-12 lg:mt-0 z-10">
+          <div className="lg:col-span-8 relative mt-12 lg:mt-0 z-10 perspective-[1000px]">
             <div className="flex flex-col gap-6 w-full">
               {/* TOP ROW: Way We Go (Spans full width) */}
-              <div className="relative rounded-[14px] sm:rounded-[20px] shadow-[0_0_30px_rgba(255,0,85,0.05)] group">
+              <motion.div 
+                initial={isMobile ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: 50, y: 50 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
+                className="relative rounded-[14px] sm:rounded-[20px] shadow-[0_0_30px_rgba(255,0,85,0.05)] group"
+              >
                 {/* Animated Border Mask */}
                 <div
-                  className="absolute inset-0 rounded-[14px] sm:rounded-[20px] overflow-hidden pointer-events-none z-10"
+                  className="hidden md:block absolute inset-0 rounded-[14px] sm:rounded-[20px] overflow-hidden pointer-events-none z-10"
                   style={{
                     padding: "1px",
                     WebkitMask:
@@ -170,6 +192,11 @@ export default function ProductsSection() {
                   }}
                 >
                   <div className="absolute inset-[-100%] animate-[spin_5s_linear_infinite] opacity-80 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,#FF0055_30%,#8b3dff_50%,transparent_80%)]" />
+                </div>
+
+                {/* Sweeping Glass Shine Effect */}
+                <div className="absolute inset-0 pointer-events-none rounded-[inherit] overflow-hidden z-30">
+                  <div className="absolute top-0 bottom-0 w-[40%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-glass-shine" />
                 </div>
 
                 {/* Static Glass Background */}
@@ -219,27 +246,44 @@ export default function ProductsSection() {
                     {/* Style block for floating badge and bar animations */}
                     <style>{`
                            @keyframes floatBadgeRight {
-                             0%, 100% { transform: translateX(0px); }
-                             50% { transform: translateX(8px); }
+                             0%, 100% { transform: translateX(0px) translateZ(0); }
+                             50% { transform: translateX(8px) translateZ(0); }
                            }
                            .animate-float-right {
                              animation: floatBadgeRight 4s ease-in-out infinite;
+                             will-change: transform;
                            }
                            @keyframes growBarSlow {
-                             0%, 10% { transform: scaleY(0.2); opacity: 0.3; }
-                             30%, 70% { transform: scaleY(1); opacity: 1; }
-                             90%, 100% { transform: scaleY(0.2); opacity: 0.3; }
+                             0%, 10% { transform: scaleY(0.2) translateZ(0); opacity: 0.3; }
+                             30%, 70% { transform: scaleY(1) translateZ(0); opacity: 1; }
+                             90%, 100% { transform: scaleY(0.2) translateZ(0); opacity: 0.3; }
                            }
-                           .bar-anim-1 { transform-origin: bottom; animation: growBarSlow 3.5s ease-in-out infinite 0.0s; }
-                           .bar-anim-2 { transform-origin: bottom; animation: growBarSlow 3.5s ease-in-out infinite 0.2s; }
-                           .bar-anim-3 { transform-origin: bottom; animation: growBarSlow 3.5s ease-in-out infinite 0.4s; }
-                           .bar-anim-4 { transform-origin: bottom; animation: growBarSlow 3.5s ease-in-out infinite 0.6s; }
+                           .bar-anim-1 { transform-origin: bottom; animation: growBarSlow 3.5s ease-in-out infinite 0.0s; will-change: transform, opacity; }
+                           .bar-anim-2 { transform-origin: bottom; animation: growBarSlow 3.5s ease-in-out infinite 0.2s; will-change: transform, opacity; }
+                           .bar-anim-3 { transform-origin: bottom; animation: growBarSlow 3.5s ease-in-out infinite 0.4s; will-change: transform, opacity; }
+                           .bar-anim-4 { transform-origin: bottom; animation: growBarSlow 3.5s ease-in-out infinite 0.6s; will-change: transform, opacity; }
+                           @keyframes glassShine {
+                             0% { transform: translateX(-200%) skewX(-30deg) translateZ(0); opacity: 0; }
+                             5% { opacity: 1; }
+                             20% { transform: translateX(300%) skewX(-30deg) translateZ(0); opacity: 0; }
+                             100% { transform: translateX(300%) skewX(-30deg) translateZ(0); opacity: 0; }
+                           }
+                           .animate-glass-shine {
+                             animation: glassShine 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+                             will-change: transform, opacity;
+                           }
                          `}</style>
 
                     {/* Dashboard Image */}
-                    <img
-                      src="/dashboard.png"
+                    <motion.img
+                      initial={{ rotateY: -180, scale: 0.5, opacity: 0 }}
+                      whileInView={{ rotateY: 0, scale: 1, opacity: 1 }}
+                      viewport={{ once: false, amount: 0.2 }}
+                      transition={{ duration: 2, type: "spring", bounce: 0.3, delay: 0.2 }}
+                      src="/images/home/products-dashboard.webp"
                       alt="Way We Go Dashboard"
+                      width={1200}
+                      height={800}
                       className="w-full h-auto object-contain rounded-[10px] sm:rounded-[16px] shadow-2xl relative z-10"
                     />
 
@@ -278,15 +322,21 @@ export default function ProductsSection() {
                     </div>
                   </TiltCard>
                 </div>
-              </div>
+              </motion.div>
 
               {/* BOTTOM ROW: 3 columns */}
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 w-full">
                 {/* EduLoom */}
-                <div className="md:col-span-6 relative rounded-[20px] shadow-[0_0_30px_rgba(59,130,246,0.05)] group">
+                <motion.div 
+                  initial={isMobile ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: -50, y: 50 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                  transition={{ duration: 0.6, type: "spring", bounce: 0.3, delay: 0.1 }}
+                  className="md:col-span-6 relative rounded-[20px] shadow-[0_0_30px_rgba(59,130,246,0.05)] group"
+                >
                   {/* Animated Border Mask */}
                   <div
-                    className="absolute inset-0 rounded-[20px] overflow-hidden pointer-events-none z-10"
+                    className="hidden md:block absolute inset-0 rounded-[20px] overflow-hidden pointer-events-none z-10"
                     style={{
                       padding: "1px",
                       WebkitMask:
@@ -296,6 +346,11 @@ export default function ProductsSection() {
                     }}
                   >
                     <div className="absolute inset-[-100%] animate-[spin_5s_linear_infinite] opacity-80 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,#3b82f6_30%,#60a5fa_50%,transparent_80%)]" />
+                  </div>
+
+                  {/* Sweeping Glass Shine Effect */}
+                  <div className="absolute inset-0 pointer-events-none rounded-[inherit] overflow-hidden z-30" style={{ animationDelay: "1s" }}>
+                    <div className="absolute top-0 bottom-0 w-[40%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-glass-shine" />
                   </div>
 
                   {/* Static Glass Background - Blue Tint */}
@@ -323,13 +378,19 @@ export default function ProductsSection() {
                       Learn More <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Custom Solutions */}
-                <div className="md:col-span-6 relative rounded-[20px] shadow-[0_0_30px_rgba(168,85,247,0.05)] group">
+                <motion.div 
+                  initial={isMobile ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: 50, y: 50 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                  transition={{ duration: 0.6, type: "spring", bounce: 0.3, delay: 0.2 }}
+                  className="md:col-span-6 relative rounded-[20px] shadow-[0_0_30px_rgba(168,85,247,0.05)] group"
+                >
                   {/* Animated Border Mask */}
                   <div
-                    className="absolute inset-0 rounded-[20px] overflow-hidden pointer-events-none z-10"
+                    className="hidden md:block absolute inset-0 rounded-[20px] overflow-hidden pointer-events-none z-10"
                     style={{
                       padding: "1px",
                       WebkitMask:
@@ -339,6 +400,11 @@ export default function ProductsSection() {
                     }}
                   >
                     <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite_reverse] opacity-80 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,#a855f7_30%,#ec4899_50%,transparent_80%)]" />
+                  </div>
+
+                  {/* Sweeping Glass Shine Effect */}
+                  <div className="absolute inset-0 pointer-events-none rounded-[inherit] overflow-hidden z-30" style={{ animationDelay: "2s" }}>
+                    <div className="absolute top-0 bottom-0 w-[40%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-glass-shine" />
                   </div>
 
                   {/* Static Glass Background - Purple Tint */}
@@ -366,7 +432,7 @@ export default function ProductsSection() {
                       Let's Discuss <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>

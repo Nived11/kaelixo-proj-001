@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import { ArrowRight, Heart, Lightbulb, Users, BarChart3, Play, Pause } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function WhyKaelixoSection() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -56,7 +57,7 @@ export default function WhyKaelixoSection() {
       
       {/* Left Background Image */}
       <img 
-        src="/why-left.png" 
+        src="/images/home/why-kaelixo-left.webp" 
         alt="" 
         className="absolute pointer-events-none z-0 mix-blend-screen opacity-30 sm:opacity-60 object-cover object-left [mask-image:linear-gradient(to_right,white_20%,transparent_100%)]
           /* Mobile */
@@ -71,7 +72,7 @@ export default function WhyKaelixoSection() {
       />
 
       <img 
-        src="/why-left.png" 
+        src="/images/home/why-kaelixo-left.webp" 
         alt="" 
         className="absolute pointer-events-none z-0 mix-blend-screen opacity-30 sm:opacity-60 object-cover object-left [mask-image:linear-gradient(to_right,white_20%,transparent_100%)] -scale-x-100
           /* Mobile */
@@ -90,7 +91,14 @@ export default function WhyKaelixoSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* LEFT COLUMN: Content & CTAs (4 Cols) */}
-          <div className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            style={{ willChange: "opacity, transform" }}
+            className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-4"
+          >
             <div className="flex items-center gap-3 mb-5">
               <span className="text-slate-200 font-bold text-[11px] tracking-[0.2em] uppercase">WHY KAELIXO</span>
               <div className="w-10 h-[2px] bg-[#FF0055]"></div>
@@ -124,10 +132,17 @@ export default function WhyKaelixoSection() {
                 <p className="text-[12px] text-slate-300 font-medium whitespace-nowrap">Your growth is our success</p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* CENTER COLUMN: Image & Video Card (5 Cols) */}
-          <div className="lg:col-span-5 relative flex justify-center mt-6 lg:mt-0 lg:-ml-2">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+            style={{ willChange: "opacity, transform" }}
+            className="lg:col-span-5 relative flex justify-center mt-6 lg:mt-0 lg:-ml-2"
+          >
             <div className="relative w-full max-w-[600px]">
               
               {/* Image Container with overflow hidden */}
@@ -135,8 +150,8 @@ export default function WhyKaelixoSection() {
                 {/* Actual Video instead of Image */}
                 <video
                   ref={videoRef}
-                  src="/workspace.mp4"
-                  poster="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop"
+                  src="/videos/home/workspace.mp4"
+                  poster="/images/home/workspacethumbnail.webp"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700"
                   loop
                   muted
@@ -169,12 +184,20 @@ export default function WhyKaelixoSection() {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT COLUMN: Feature List (3 Cols) */}
           <div className="lg:col-span-3 flex flex-col justify-center gap-5 sm:gap-6 lg:pl-6 mt-12 lg:mt-0">
             {features.map((feature, idx) => (
-              <div key={idx} className="flex items-center gap-4 sm:gap-5 group cursor-pointer">
+              <motion.div 
+                key={idx} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                transition={{ duration: 0.4, delay: idx * 0.1, ease: "easeOut" }}
+                style={{ willChange: "opacity, transform" }}
+                className="flex items-center gap-4 sm:gap-5 group cursor-pointer"
+              >
                 <div className={`w-[60px] h-[60px] rounded-2xl flex items-center justify-center shrink-0 ${feature.iconBg} transition-transform duration-300 group-hover:scale-105`}>
                   <feature.icon className={`w-6 h-6 ${feature.iconColor}`} strokeWidth={2.5} />
                 </div>
@@ -182,7 +205,7 @@ export default function WhyKaelixoSection() {
                   <h4 className="text-[14px] sm:text-[15px] font-bold text-white mb-0.5 group-hover:text-white transition-colors">{feature.title}</h4>
                   <p className="text-[12px] sm:text-[13px] text-slate-300 font-medium leading-tight">{feature.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 

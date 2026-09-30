@@ -1,6 +1,40 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { motion, useInView, animate, useMotionValue, useTransform } from 'framer-motion';
+
+function AnimatedCounter({ to, suffix = "", duration = 2, trigger }: { to: number, suffix?: string, duration?: number, trigger: boolean }) {
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => Math.round(latest));
+
+  useEffect(() => {
+    let controls: any;
+    let interval: NodeJS.Timeout;
+
+    if (trigger) {
+      const startAnim = () => {
+        count.set(0);
+        controls = animate(count, to, { duration: duration, ease: "easeOut" });
+      };
+      startAnim();
+      interval = setInterval(startAnim, duration * 1000 + 4000);
+    } else {
+      count.set(0);
+    }
+
+    return () => {
+      if (controls) controls.stop();
+      if (interval) clearInterval(interval);
+    };
+  }, [trigger, to, duration, count]);
+
+  return (
+    <>
+      <motion.span>{rounded}</motion.span>
+      {suffix}
+    </>
+  );
+}
 
 interface StatsSectionProps {
   children?: React.ReactNode;
@@ -59,8 +93,11 @@ export default function StatsSection({ children }: StatsSectionProps) {
     },
   ];
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.2 });
+
   return (
-    <div className="w-full bg-gradient-to-t from-[#020205] via-[#020205]/40 to-transparent pt-6 pb-5 sm:pb-6 backdrop-blur-[2px]">
+    <div ref={ref} className="w-full bg-gradient-to-t from-[#020205] via-[#020205]/40 to-transparent pt-6 pb-5 sm:pb-6 backdrop-blur-[2px] animate-fade-in-up delay-900">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col xl:flex-row xl:items-center justify-between gap-6">
         <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-start gap-y-5 gap-x-2 sm:gap-x-8 md:gap-x-10 lg:gap-x-12">
           {stats.map((stat, idx) => (
@@ -77,7 +114,8 @@ export default function StatsSection({ children }: StatsSectionProps) {
                 <div className="text-xl sm:text-2xl font-bold text-white tracking-tight font-heading leading-tight
                   [@media(min-width:1920px)]:text-[32px]
                 ">
-                  {stat.number}
+                  {stat.number.includes("+") && <AnimatedCounter to={parseInt(stat.number)} suffix="+" trigger={isInView} />}
+                  {stat.number.includes("%") && <AnimatedCounter to={parseInt(stat.number)} suffix="%" trigger={isInView} />}
                 </div>
                 <div className="text-[11px] sm:text-xs text-slate-300 font-medium font-sans whitespace-nowrap
                   [@media(min-width:1920px)]:text-[16px]

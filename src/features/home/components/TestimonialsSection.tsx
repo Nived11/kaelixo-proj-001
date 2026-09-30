@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { ArrowRight, ArrowLeft, Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -9,21 +10,21 @@ const testimonials = [
     quote: "Kaelixo transformed our digital presence completely. Their team is professional, creative and truly understands business needs.",
     name: "Arjun Mathew",
     role: "CEO, RetailKart",
-    avatar: "https://i.pravatar.cc/150?u=arjun",
+    avatar: "/images/home/person1.jpg",
   },
   {
     id: 2,
     quote: "The Way We Go CRM has streamlined our operations and improved our productivity significantly. Highly recommended!",
     name: "Sneha R",
     role: "Operations Head, Probugh",
-    avatar: "https://i.pravatar.cc/150?u=sneha",
+    avatar: "/images/home/person2.jpg",
   },
   {
     id: 3,
     quote: "A reliable technology partner who delivers on time and beyond expectations. Great team to work with!",
     name: "Vishal Kumar",
     role: "Founder, EduLoom",
-    avatar: "https://i.pravatar.cc/150?u=vishal",
+    avatar: "/images/home/person3.jpg",
   }
 ];
 
@@ -55,7 +56,14 @@ export default function TestimonialsSection() {
           {/* ========================================= */}
           {/* LEFT CONTENT (Text & Stats)               */}
           {/* ========================================= */}
-          <div className="lg:col-span-5 flex flex-col items-start lg:pr-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2, margin: "0px 0px -50px 0px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            style={{ willChange: "opacity, transform" }}
+            className="lg:col-span-5 flex flex-col items-start lg:pr-8"
+          >
             <div className="flex items-center gap-3 mb-4">
               <span className="text-[#FF0055] font-bold text-sm tracking-widest uppercase">CLIENTS SPEAK</span>
               <div className="w-10 h-[2px] bg-[#FF0055]"></div>
@@ -81,23 +89,71 @@ export default function TestimonialsSection() {
             </button>
 
             {/* Stats */}
-            <div className="flex flex-row items-start sm:items-center justify-between sm:justify-start gap-1 sm:gap-6 md:gap-10 mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-slate-100 relative z-20 w-full lg:w-[120%]">
-              <div className="flex-1 sm:flex-none text-center sm:text-left pr-1 sm:pr-0">
-                <h4 className="text-[#020205] text-[16px] sm:text-[24px] font-extrabold whitespace-nowrap">4.9/5</h4>
+            <div className="flex flex-row items-start sm:items-center justify-between sm:justify-start gap-1 sm:gap-6 md:gap-10 mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-slate-100 relative z-20 w-full lg:w-[120%] perspective-[1000px]">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+                style={{ willChange: "opacity, transform" }}
+                className="flex-1 sm:flex-none text-center sm:text-left pr-1 sm:pr-0"
+              >
+                <motion.div 
+                  initial={{ rotateY: -360 }}
+                  whileInView={{ rotateY: 0 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                  className="inline-block"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <h4 className="text-[#020205] text-[16px] sm:text-[24px] font-extrabold whitespace-nowrap">4.9/5</h4>
+                </motion.div>
                 <p className="text-[#64748B] text-[10px] sm:text-[13px] mt-1 font-medium leading-tight">Client Satisfaction</p>
-              </div>
-              <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0" />
-              <div className="flex-1 sm:flex-none text-center sm:text-left px-1 sm:px-0">
-                <h4 className="text-[#020205] text-[16px] sm:text-[24px] font-extrabold whitespace-nowrap">200+</h4>
+              </motion.div>
+              <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0 mt-2" />
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+                style={{ willChange: "opacity, transform" }}
+                className="flex-1 sm:flex-none text-center sm:text-left px-1 sm:pr-0"
+              >
+                <motion.div 
+                  initial={{ rotateY: -360 }}
+                  whileInView={{ rotateY: 0 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+                  className="inline-block"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <h4 className="text-[#020205] text-[16px] sm:text-[24px] font-extrabold whitespace-nowrap">200+</h4>
+                </motion.div>
                 <p className="text-[#64748B] text-[10px] sm:text-[13px] mt-1 font-medium leading-tight">Happy Businesses</p>
-              </div>
-              <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0" />
-              <div className="flex-1 sm:flex-none text-center sm:text-left pl-1 sm:pl-0">
-                <h4 className="text-[#020205] text-[16px] sm:text-[24px] font-extrabold whitespace-nowrap">Long-Term</h4>
+              </motion.div>
+              <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0 mt-2" />
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+                style={{ willChange: "opacity, transform" }}
+                className="flex-1 sm:flex-none text-center sm:text-left pl-1 sm:pl-0"
+              >
+                <motion.div 
+                  initial={{ rotateY: -360 }}
+                  whileInView={{ rotateY: 0 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+                  className="inline-block"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <h4 className="text-[#020205] text-[16px] sm:text-[24px] font-extrabold whitespace-nowrap">Long-Term</h4>
+                </motion.div>
                 <p className="text-[#64748B] text-[10px] sm:text-[13px] mt-1 font-medium leading-tight">Partnerships</p>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           {/* ========================================= */}
           {/* RIGHT CONTENT (Testimonials Carousel)     */}

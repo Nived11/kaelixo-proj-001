@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Code2, Megaphone, Database, PenTool, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ServicesSection() {
   const services = [
@@ -62,7 +63,13 @@ export default function ServicesSection() {
         {/* Header Row */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14 sm:mb-16">
           {/* Left: Tag + Headline */}
-          <div className="max-w-xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="max-w-xl"
+          >
             <div className="inline-flex items-center gap-2.5 mb-4">
               <span className="text-[12px] font-bold text-[#FF0055] tracking-[0.2em] uppercase">
                 OUR SERVICES
@@ -73,10 +80,16 @@ export default function ServicesSection() {
               Digital Solutions <br />
               for a Smarter Tomorrow
             </h2>
-          </div>
+          </motion.div>
 
           {/* Right: Description paragraph + View All Services Button */}
-          <div className="flex flex-col sm:flex-row sm:items-center lg:items-end justify-between gap-6 max-w-xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row sm:items-center lg:items-end justify-between gap-6 max-w-xl"
+          >
             <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed font-normal">
              Every step is clear and shared, guided by a growth marketing agency.
             </p>
@@ -87,55 +100,63 @@ export default function ServicesSection() {
               <span>View All Services</span>
               <ArrowRight className="w-4 h-4 text-slate-700" />
             </Link>
-          </div>
+          </motion.div>
         </div>
 
         {/* 4 Service Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {services.map((item, idx) => (
-            <Link
+            <motion.div
               key={idx}
-              href={item.href}
-              className="group relative bg-white rounded-[20px] sm:rounded-[26px] p-6 sm:p-8 border border-slate-200/60 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer block"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+              transition={{ duration: 0.4, delay: idx * 0.08, ease: "easeOut" }}
+              style={{ willChange: "opacity, transform" }}
             >
-              <div>
-                {/* Header: Icon + Title side-by-side on mobile, stacked on desktop */}
-                <div className="flex flex-row items-center sm:items-start gap-4 sm:flex-col sm:gap-0">
-                  {/* Dual-layer Squircle Icon with Ambient Aura */}
-                  <div
-                    className={`inline-flex items-center justify-center p-2 sm:p-2.5 rounded-[16px] sm:rounded-[22px] ${item.auraBg} transition-transform duration-300 group-hover:scale-105 shrink-0`}
-                  >
+              <Link
+                href={item.href}
+                className="group relative bg-white rounded-[20px] sm:rounded-[26px] p-6 sm:p-8 border border-slate-200/60 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer block h-full"
+              >
+                <div>
+                  {/* Header: Icon + Title side-by-side on mobile, stacked on desktop */}
+                  <div className="flex flex-row items-center sm:items-start gap-4 sm:flex-col sm:gap-0">
+                    {/* Dual-layer Squircle Icon with Ambient Aura */}
                     <div
-                      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-[14px] sm:rounded-[16px] bg-gradient-to-br ${item.iconGradient} flex items-center justify-center shadow-lg ${item.shadow}`}
+                      className={`inline-flex items-center justify-center p-2 sm:p-2.5 rounded-[16px] sm:rounded-[22px] ${item.auraBg} transition-transform duration-300 group-hover:scale-105 shrink-0`}
                     >
-                      <div className="scale-90 sm:scale-100 flex items-center justify-center">
-                        {item.icon}
+                      <div
+                        className={`w-12 h-12 sm:w-14 sm:h-14 rounded-[14px] sm:rounded-[16px] bg-gradient-to-br ${item.iconGradient} flex items-center justify-center shadow-lg ${item.shadow}`}
+                      >
+                        <div className="scale-90 sm:scale-100 flex items-center justify-center">
+                          {item.icon}
+                        </div>
                       </div>
                     </div>
+
+                    {/* Title */}
+                    <h3 className="text-[18px] sm:text-xl font-bold text-slate-900 tracking-tight sm:mt-7 sm:mb-3 leading-snug">
+                      {item.title}
+                    </h3>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-[18px] sm:text-xl font-bold text-slate-900 tracking-tight sm:mt-7 sm:mb-3 leading-snug">
-                    {item.title}
-                  </h3>
+                  {/* Description */}
+                  <p className="text-[14px] sm:text-[13.5px] text-slate-600 leading-relaxed font-normal mt-4 sm:mt-0">
+                    {item.description}
+                  </p>
                 </div>
 
-                {/* Description */}
-                <p className="text-[14px] sm:text-[13.5px] text-slate-600 leading-relaxed font-normal mt-4 sm:mt-0">
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Bottom Learn More link */}
-              <div className="mt-5 sm:mt-8 pt-3 sm:pt-4">
-                <div
-                  className="inline-flex items-center gap-1.5 text-[13px] sm:text-sm font-semibold text-[#FF0055] group-hover:text-[#E6004C] transition-colors"
-                >
-                  <span>Learn More</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                {/* Bottom Learn More link */}
+                <div className="mt-5 sm:mt-8 pt-3 sm:pt-4">
+                  <div
+                    className="inline-flex items-center gap-1.5 text-[13px] sm:text-sm font-semibold text-[#FF0055] group-hover:text-[#E6004C] transition-colors"
+                  >
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>

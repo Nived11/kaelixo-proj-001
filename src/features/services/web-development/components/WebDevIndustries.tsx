@@ -118,7 +118,7 @@ export default function WebDevIndustries() {
           {/* Center Globe (Spans 2 Cols) */}
           <div className="col-span-1 lg:col-span-2 relative flex items-center justify-center min-h-[250px] lg:min-h-[auto]">
             <img 
-              src="/globe.png" 
+              src="/images/home/why-kaelixo-globe.webp" 
               alt="Industries We Empower" 
               className="w-full max-w-[280px] lg:max-w-[400px] object-contain mix-blend-multiply opacity-90 drop-shadow-2xl" 
               onError={(e) => {

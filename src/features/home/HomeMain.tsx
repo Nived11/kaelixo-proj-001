@@ -19,7 +19,7 @@ export default function HomeMain() {
 
       <div className="relative">
         <div
-          className="absolute inset-0 bg-[url('/content-rock.png')] bg-[length:300%_auto] sm:bg-[length:120%_auto] md:bg-[length:100%_auto] bg-[center_bottom_5%] sm:bg-bottom bg-no-repeat opacity-50 sm:opacity-20 pointer-events-none mix-blend-screen"
+          className="absolute inset-0 bg-[url('/images/home/content-rock.webp')] bg-[length:300%_auto] sm:bg-[length:120%_auto] md:bg-[length:100%_auto] bg-[center_bottom_5%] sm:bg-bottom bg-no-repeat opacity-50 sm:opacity-20 pointer-events-none mix-blend-screen"
         />
         {/* Only fade at the bottom to blend with the next section, less aggressive on mobile so image shows */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020205]/90 sm:to-[#020205] pointer-events-none" />

@@ -91,7 +91,7 @@ export default function WebDevCost() {
             - Left/Right position: lg:-right-10 (change to lg:right-0 or lg:right-[-50px] etc)
           */}
           <img 
-            src="/calculator.png" 
+            src="/images/home/calculator.webp" 
             alt="Web Development Cost Calculator" 
             className="w-full max-w-[450px] relative lg:absolute lg:w-[600px] lg:max-w-none lg:top-1/2 lg:-translate-y-[45%] lg:-right-12 object-contain z-10 drop-shadow-2xl" 
             onError={(e) => {

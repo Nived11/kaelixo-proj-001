@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { FaLinkedinIn, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 
@@ -16,9 +17,11 @@ export default function Footer() {
           {/* 1. Brand Logo & Tagline */}
           <div className="w-full lg:w-[22%] flex flex-col items-start gap-3.5">
             <Link href="/" className="block">
-              <img 
-                src="/Kaelixo-fulllogo.png" 
+              <Image 
+                src="/images/brand/kaelixo-logo.webp" 
                 alt="Kaelixo Logo" 
+                width={150}
+                height={41}
                 className="h-8 w-auto object-contain"
               />
             </Link>
@@ -66,16 +69,16 @@ export default function Footer() {
             <div className="hidden lg:block absolute left-0 w-[1px] h-[40px] bg-white/10"></div>
             
             <div className="flex items-center gap-2.5">
-              <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
+              <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
                 <FaLinkedinIn size={12} />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
+              <a href="#" aria-label="Twitter" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
                 <FaTwitter size={12} />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
+              <a href="#" aria-label="YouTube" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
                 <FaYoutube size={12} />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
+              <a href="#" aria-label="Instagram" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
                 <FaInstagram size={12} />
               </a>
             </div>
@@ -97,6 +100,7 @@ export default function Footer() {
               </div>
               <button 
                 type="submit" 
+                aria-label="Subscribe to newsletter"
                 className="w-10 h-10 rounded-lg bg-[#FF0055] hover:bg-[#e6004c] flex items-center justify-center text-white shrink-0 transition-colors cursor-pointer"
               >
                 <ArrowRight size={16} strokeWidth={2.5} />

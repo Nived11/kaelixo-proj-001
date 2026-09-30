@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Search, ArrowRight, Menu, X, Layers, UserCircle, Code, BarChart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -80,9 +81,11 @@ export default function Header() {
           
           {/* Brand Logo - Full Image */}
           <Link href="/" className="block group" onClick={() => setActiveLink("Home")}>
-            <img 
-              src="/Kaelixo-fulllogo.png" 
+            <Image 
+              src="/images/brand/kaelixo-logo.webp" 
               alt="Kaelixo Logo" 
+              width={150}
+              height={41}
               className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </Link>

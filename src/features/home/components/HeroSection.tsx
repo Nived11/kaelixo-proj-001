@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import StatsSection from "./StatsSection";
 import AnimatedNeonLogo from "@/components/AnimatedNeonLogo";
 import RotatingGlobe from "@/components/RotatingGlobe";
+import { motion } from "framer-motion";
 
 
 export default function HeroSection() {
@@ -43,17 +44,21 @@ export default function HeroSection() {
       {/* ============================================================ */}
       <div 
         className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
-          currentSlide === 0 ? "opacity-100" : "opacity-0 pointer-events-none"
+          currentSlide === 1 ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
+          {/* Preload Globe Image to prevent delay */}
+          <div className="hidden">
+            <Image src="/images/home/globe-original.webp" alt="preload globe" width={10} height={10} />
+          </div>
+
           {/* Layer 1: Distant Cosmic Sky & Background Nebula (Fixed / Static) */}
           <div className="absolute inset-0">
             <Image
-              src="/herobg1.png"
+              src="/images/home/hero-bg-space.webp"
               alt="Cosmic Background"
               fill
-              priority
               className="object-cover object-center"
             />
           </div>
@@ -90,10 +95,9 @@ export default function HeroSection() {
             }}
           >
             <Image
-              src="/herocloud.png"
+              src="/images/home/hero-clouds.webp"
               alt="Cosmic Cloud"
               fill
-              priority
               className="object-contain drop-shadow-[0_0_30px_rgba(255,0,85,0.25)]"
             />
           </div>
@@ -117,10 +121,10 @@ export default function HeroSection() {
             }}
           >
             <Image
-              src="/herocenterrock.png"
+              src="/images/home/hero-rock-center.webp"
               alt="Center Mountain Ridge"
               fill
-              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
               className="object-contain object-bottom"
             />
             <div className="absolute inset-x-0 bottom-[-2px] h-[30%] bg-gradient-to-t from-[#020205] via-[#020205]/90 to-transparent sm:hidden" />
@@ -138,10 +142,10 @@ export default function HeroSection() {
             }}
           >
             <Image
-              src="/heroleftrock.png"
+              src="/images/home/hero-rock-left.webp"
               alt="Left Mountain Ridge"
               fill
-              priority
+              sizes="(max-width: 768px) 60vw, (max-width: 1200px) 42vw, 42vw"
               className="object-contain object-bottom-left"
             />
             <div className="absolute inset-x-0 bottom-[-2px] h-[30%] bg-gradient-to-t from-[#020205] via-[#020205]/90 to-transparent sm:hidden" />
@@ -157,10 +161,10 @@ export default function HeroSection() {
             }}
           >
             <Image
-              src="/heroperson.png"
+              src="/images/home/hero-person.webp"
               alt="Person on Rocks Overlooking City"
               fill
-              priority
+              sizes="(max-width: 768px) 95vw, (max-width: 1200px) 38vw, 38vw"
               className="object-contain object-bottom-right"
             />
             <div className="absolute inset-x-0 bottom-[-2px] h-[30%] bg-gradient-to-t from-[#020205] via-[#020205]/90 to-transparent sm:hidden" />
@@ -178,7 +182,7 @@ export default function HeroSection() {
       {/* ============================================================ */}
       <div 
         className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
-          currentSlide === 1 ? "opacity-100" : "opacity-0 pointer-events-none"
+          currentSlide === 0 ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
@@ -190,7 +194,7 @@ export default function HeroSection() {
             className="absolute inset-0 w-full h-full object-cover opacity-60"
           >
             {/* Tech/AI Network Background Video */}
-            <source src="/herovideo.mp4" type="video/mp4" />
+            <source src="/videos/home/hero-video.mp4" type="video/mp4" />
           </video>
           {/* Text Readability Gradients (Same as Slide 1 to keep UI consistent) */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#020205] via-[#020205]/60 sm:via-[#020205]/75 to-transparent w-[85%] sm:w-full md:w-[48%] [@media(min-width:1920px)]:w-[55%] [@media(min-width:1920px)]:from-[0%] [@media(min-width:1920px)]:via-[#020205]/80 [@media(min-width:1920px)]:via-[30%] z-[9]" />
@@ -204,9 +208,12 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
 
           {/* Left Column: Headline, Description & CTAs */}
-          <div className="lg:col-span-8 max-w-2xl space-y-4 sm:space-y-5">
+          <div 
+            key={currentSlide}
+            className="lg:col-span-8 max-w-2xl space-y-4 sm:space-y-5"
+          >
             {/* Tagline Eyebrow */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 animate-fade-in-up">
               <span className="text-[10px] sm:text-xs font-semibold tracking-[0.22em] text-white/80 uppercase font-heading
                 [@media(min-width:1920px)]:text-[16px]
               ">
@@ -215,7 +222,7 @@ export default function HeroSection() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-[34px] leading-[1.05] sm:text-5xl md:text-[56px] lg:text-[64px] xl:text-[72px] font-extrabold text-white tracking-tight sm:leading-[1.05] font-heading
+            <h1 className="text-[34px] leading-[1.05] sm:text-5xl md:text-[56px] lg:text-[64px] xl:text-[72px] font-extrabold text-white tracking-tight sm:leading-[1.05] font-heading animate-fade-in-up
               [@media(min-width:1920px)]:text-[84px]
             ">
               {/* Mobile: 4 lines */}
@@ -230,14 +237,14 @@ export default function HeroSection() {
             </h1>
 
             {/* Sub-paragraph */}
-            <p className="text-[12px] sm:text-[14px] md:text-[16px] text-slate-300 max-w-[480px] leading-relaxed font-normal font-sans
+            <p className="text-[12px] sm:text-[14px] md:text-[16px] text-slate-300 max-w-[480px] leading-relaxed font-normal font-sans animate-fade-in-up
               [@media(min-width:1920px)]:text-[20px] [@media(min-width:1920px)]:max-w-[600px] mt-2 sm:mt-4
             ">
               We study your business, build what it needs, <br className="block sm:hidden" />and grow it with marketing that delivers.
             </p>
 
             {/* Dual Pill CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-3 pt-3 sm:pt-2 font-heading">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-3 pt-3 sm:pt-2 font-heading animate-fade-in-up">
               <Link
                 href="#consultation"
                 className="inline-flex items-center justify-center gap-2 w-[240px] py-2.5 rounded-full bg-[#FF0055] hover:bg-[#E6004C] text-white text-[13px] sm:text-sm font-semibold tracking-normal shadow-lg shadow-[#FF0055]/30 hover:shadow-[#FF0055]/50 transition-all duration-200 active:scale-95 text-center cursor-pointer

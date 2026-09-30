@@ -25,12 +25,12 @@ export default function WebDevTechStack() {
       
       {/* Background Shapes */}
       <img 
-        src="/shape.png" 
+        src="/images/home/why-kaelixo-shape.webp" 
         alt="glow shape" 
         className="absolute bottom-10 left-6 w-[500px] md:w-[600px] lg:w-[150px] opacity-40 pointer-events-none translate-y-[30%] -translate-x-[20%]"
       />
       <img 
-        src="/shape.png" 
+        src="/images/home/why-kaelixo-shape.webp" 
         alt="glow shape" 
         className="absolute top-10 right-6 w-[400px] md:w-[500px] lg:w-[150px] opacity-40 pointer-events-none rotate-180 -translate-y-[40%] translate-x-[20%]"
       />

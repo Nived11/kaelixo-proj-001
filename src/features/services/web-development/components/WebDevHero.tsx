@@ -8,12 +8,12 @@ export default function WebDevHero() {
       
       {/* Side Graphics from Public Folder */}
       <img 
-        src="/service-left.png" 
+        src="/images/home/service-left.webp" 
         alt="" 
         className="absolute left-0 top-0 w-1/2 h-full object-cover object-left pointer-events-none z-0 mix-blend-screen" 
       />
       <img 
-        src="/service-right.png" 
+        src="/images/home/service-right.webp" 
         alt="" 
         className="absolute right-0 top-0 w-1/2 h-full object-cover object-right pointer-events-none z-0 mix-blend-screen" 
       />

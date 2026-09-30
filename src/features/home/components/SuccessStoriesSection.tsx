@@ -2,13 +2,14 @@
 
 import React from "react";
 import { ArrowRight, BarChart2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function SuccessStoriesSection() {
   const cases = [
     {
       id: 1,
       category: "MEDIA & CONTENT",
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop",
+      image: "/images/home/stories1.avif",
       title: "Media Platform",
       desc: "AI-powered recommendation engine that increased user engagement and content discovery.",
       stat: "+40%",
@@ -17,7 +18,7 @@ export default function SuccessStoriesSection() {
     {
       id: 2,
       category: "RETAIL & ECOMMERCE",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop",
+      image: "/images/home/stories2.avif",
       title: "Retail Growth Brand",
       desc: "A unified CRM and automation system that reduced support tickets and improved customer satisfaction.",
       stat: "-60%",
@@ -26,7 +27,7 @@ export default function SuccessStoriesSection() {
     {
       id: 3,
       category: "DATA & ANALYTICS",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop",
+      image: "/images/home/stories3.avif",
       title: "Enterprise Analytics",
       desc: "A data analytics platform for faster, smarter decisions across global teams.",
       stat: "3x",
@@ -44,7 +45,14 @@ export default function SuccessStoriesSection() {
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
 
         {/* Header Row */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-12 sm:mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2, margin: "0px 0px -50px 0px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ willChange: "transform, opacity" }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-12 sm:mb-16"
+        >
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span className="text-[#FF0055] font-bold text-sm tracking-widest uppercase">
@@ -65,13 +73,18 @@ export default function SuccessStoriesSection() {
               See All Case Studies <ArrowRight className="w-4 h-4" />
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8">
-          {cases.map((item) => (
-            <div
+          {cases.map((item, index) => (
+            <motion.div
               key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+              style={{ willChange: "transform, opacity" }}
               className="bg-white rounded-[20px] sm:rounded-2xl border border-slate-100 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-300 group flex flex-col relative"
             >
               {/* Subtle Animated Top Line */}
@@ -98,7 +111,14 @@ export default function SuccessStoriesSection() {
               </div>
 
               {/* Content Body */}
-              <div className="relative -mt-6 sm:-mt-8 p-5 sm:p-6 bg-white rounded-t-2xl sm:rounded-t-3xl flex flex-col flex-1 z-10">
+              <motion.div 
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                transition={{ duration: 0.6, delay: 0.2 + (index * 0.1), type: "spring", bounce: 0.25 }}
+                style={{ willChange: "transform, opacity" }}
+                className="relative -mt-6 sm:-mt-8 p-5 sm:p-6 bg-white rounded-t-2xl sm:rounded-t-3xl flex flex-col flex-1 z-10"
+              >
                 <h3 className="text-[#020205] text-[16px] sm:text-lg font-extrabold mb-1.5 sm:mb-2 group-hover:text-[#FF0055] transition-colors">
                   {item.title}
                 </h3>
@@ -121,8 +141,8 @@ export default function SuccessStoriesSection() {
                     Read Case Study <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                   </a>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
 

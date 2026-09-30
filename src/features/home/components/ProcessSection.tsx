@@ -1,6 +1,7 @@
 "use client";
 
 import { Search, FileText, PenTool, Code2, Send } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ProcessSection() {
   const steps = [
@@ -66,7 +67,14 @@ export default function ProcessSection() {
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         {/* Header Section */}
-        <div className="max-w-2xl mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ willChange: "opacity, transform" }}
+          className="max-w-2xl mb-20"
+        >
           <div className="flex items-center gap-3 mb-4">
             <span className="text-[#FF0055] font-bold text-sm tracking-widest uppercase">OUR PROCESS</span>
             <div className="w-10 h-[2px] bg-[#FF0055]"></div>
@@ -77,12 +85,23 @@ export default function ProcessSection() {
           <p className="text-[#475569] text-[15px] sm:text-[17px] font-medium leading-relaxed max-w-2xl">
             A clear, collaborative process that keeps you involved at every step — the same process that makes us a growth marketing agency worth trusting with the full journey, not just one campaign.
           </p>
-        </div>
+        </motion.div>
 
           {/* Steps Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-24 relative">
             {steps.map((step, index) => (
-              <div key={index} className="flex flex-col items-center lg:items-start text-center lg:text-left relative group">
+              <motion.div 
+                key={index} 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.1, ease: "easeOut" } }
+                }}
+                style={{ willChange: "opacity, transform" }}
+                className="flex flex-col items-center lg:items-start text-center lg:text-left relative group"
+              >
                 
                 {/* Icon & Number Row */}
                 <div className="flex items-center justify-center lg:justify-start mb-4 lg:mb-6 relative z-10 w-full">
@@ -129,6 +148,18 @@ export default function ProcessSection() {
                           <stop offset="0%" stopColor={step.color} />
                           <stop offset="100%" stopColor={steps[index + 1].color} />
                         </linearGradient>
+                        <mask id={`mask-h-${index}`}>
+                          <motion.path 
+                            d="M 0,20 C 25,45 65,-25 100,20" 
+                            fill="none" 
+                            stroke="white" 
+                            strokeWidth="10"
+                            variants={{
+                              hidden: { pathLength: 0 },
+                              visible: { pathLength: 1, transition: { duration: 1, ease: "easeInOut", delay: 0.3 } }
+                            }}
+                          />
+                        </mask>
                       </defs>
                       <path 
                         d="M 0,20 C 25,45 65,-25 100,20" 
@@ -138,11 +169,16 @@ export default function ProcessSection() {
                         strokeLinecap="round"
                         strokeDasharray="0, 10" 
                         vectorEffect="non-scaling-stroke"
+                        mask={`url(#mask-h-${index})`}
                       />
                     </svg>
 
-                    {/* Perfect Solid HTML Dot at the end of the line (prevents SVG stretching) */}
-                    <div 
+                    {/* Perfect Solid HTML Dot at the end of the line */}
+                    <motion.div 
+                      variants={{
+                        hidden: { opacity: 0, scale: 0 },
+                        visible: { opacity: 1, scale: 1, transition: { duration: 0.3, delay: 1.2 } }
+                      }}
                       className="absolute rounded-full"
                       style={{ 
                         width: '10px', 
@@ -151,7 +187,7 @@ export default function ProcessSection() {
                         right: '-5px',
                         top: '-5px',
                       }}
-                    ></div>
+                    ></motion.div>
                   </div>
                 )}
 
@@ -173,6 +209,21 @@ export default function ProcessSection() {
                           <stop offset="0%" stopColor={step.color} />
                           <stop offset="100%" stopColor={steps[index + 1].color} />
                         </linearGradient>
+                        <mask id={`mask-v-${index}`}>
+                          <motion.path 
+                            d={index % 2 === 0 
+                              ? "M 50,0 C 105,25 105,75 50,100" // Curves Right
+                              : "M 50,0 C -5,25 -5,75 50,100" // Curves Left
+                            }
+                            fill="none" 
+                            stroke="white" 
+                            strokeWidth="10"
+                            variants={{
+                              hidden: { pathLength: 0 },
+                              visible: { pathLength: 1, transition: { duration: 1, ease: "easeInOut", delay: 0.2 } }
+                            }}
+                          />
+                        </mask>
                       </defs>
                       <path 
                         d={index % 2 === 0 
@@ -185,11 +236,16 @@ export default function ProcessSection() {
                         strokeLinecap="round"
                         strokeDasharray="0, 14" 
                         vectorEffect="non-scaling-stroke"
+                        mask={`url(#mask-v-${index})`}
                       />
                     </svg>
                     
                     {/* Dot at the end of vertical line */}
-                    <div 
+                    <motion.div 
+                      variants={{
+                        hidden: { opacity: 0, scale: 0 },
+                        visible: { opacity: 1, scale: 1, transition: { duration: 0.3, delay: 1.1 } }
+                      }}
                       className="absolute rounded-full"
                       style={{ 
                         width: '10px', 
@@ -199,11 +255,11 @@ export default function ProcessSection() {
                         left: '50%',
                         transform: 'translateX(-50%)'
                       }}
-                    ></div>
+                    ></motion.div>
                   </div>
                 )}
                 
-              </div>
+              </motion.div>
             ))}
           </div>
 
