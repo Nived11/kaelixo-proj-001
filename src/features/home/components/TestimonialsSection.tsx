@@ -106,9 +106,9 @@ export default function TestimonialsSection() {
                   className="inline-block"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <h4 className="text-[#020205] text-[16px] sm:text-[24px] font-extrabold whitespace-nowrap">4.9/5</h4>
+                  <h4 className="text-[#020205] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] font-extrabold whitespace-nowrap">4.9/5</h4>
                 </motion.div>
-                <p className="text-[#64748B] text-[10px] sm:text-[13px] mt-1 font-medium leading-tight">Client Satisfaction</p>
+                <p className="text-[#64748B] text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] mt-1 font-medium leading-tight">Client Satisfaction</p>
               </motion.div>
               <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0 mt-2" />
               <motion.div 
@@ -127,9 +127,9 @@ export default function TestimonialsSection() {
                   className="inline-block"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <h4 className="text-[#020205] text-[16px] sm:text-[24px] font-extrabold whitespace-nowrap">200+</h4>
+                  <h4 className="text-[#020205] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] font-extrabold whitespace-nowrap">200+</h4>
                 </motion.div>
-                <p className="text-[#64748B] text-[10px] sm:text-[13px] mt-1 font-medium leading-tight">Happy Businesses</p>
+                <p className="text-[#64748B] text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] mt-1 font-medium leading-tight">Happy Businesses</p>
               </motion.div>
               <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0 mt-2" />
               <motion.div 
@@ -148,9 +148,9 @@ export default function TestimonialsSection() {
                   className="inline-block"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <h4 className="text-[#020205] text-[16px] sm:text-[24px] font-extrabold whitespace-nowrap">Long-Term</h4>
+                  <h4 className="text-[#020205] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] font-extrabold whitespace-nowrap">Long-Term</h4>
                 </motion.div>
-                <p className="text-[#64748B] text-[10px] sm:text-[13px] mt-1 font-medium leading-tight">Partnerships</p>
+                <p className="text-[#64748B] text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] mt-1 font-medium leading-tight">Partnerships</p>
               </motion.div>
             </div>
           </motion.div>

@@ -88,7 +88,7 @@ export default function ProcessSection() {
         </motion.div>
 
           {/* Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-24 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-24 relative">
             {steps.map((step, index) => (
               <motion.div 
                 key={index} 

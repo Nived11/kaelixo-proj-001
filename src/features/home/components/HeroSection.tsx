@@ -42,10 +42,9 @@ export default function HeroSection() {
       {/* ============================================================ */}
       {/* SLIDE 1: MULTI-LAYER PARALLAX COSMIC SCENE                   */}
       {/* ============================================================ */}
-      <div 
-        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
-          currentSlide === 1 ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+      <div
+        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${currentSlide === 1 ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           {/* Preload Globe Image to prevent delay */}
@@ -65,8 +64,7 @@ export default function HeroSection() {
 
           {/* Layer 2: Cosmic Glowing Planet / Globe (Fixed position, rotating internally) */}
           <div
-            className="absolute top-[2%] sm:top-[0%] right-[1%] sm:right-[10%] lg:right-[8%] w-[240px] sm:w-[380px] md:w-[480px] lg:w-[500px] aspect-square pointer-events-none z-[2]
-              2xl:top-[0%] 2xl:right-[8%] 2xl:w-[500px]
+            className="absolute top-[2%] sm:top-[0%] md:-top-[5%] lg:top-[0%] xl:top-[0%] 2xl:top-[0%] right-[1%] sm:right-[10%] md:-right-[5%] lg:right-[8%] xl:right-[8%] 2xl:right-[8%] w-[240px] sm:w-[380px] md:w-[480px] lg:w-[500px] xl:w-[500px] 2xl:w-[500px] aspect-square pointer-events-none z-[2]
               [@media(min-width:1920px)]:top-[0%] [@media(min-width:1920px)]:right-[10%] [@media(min-width:1920px)]:w-[600px]"
             style={{
               maskImage: "radial-gradient(ellipse 90% 70% at 75% 15%, #000000 0%, #000000 30%, rgba(0,0,0,0.7) 48%, rgba(0,0,0,0.3) 62%, rgba(0,0,0,0.08) 76%, transparent 90%)",
@@ -86,8 +84,7 @@ export default function HeroSection() {
 
           {/* Layer 3: Floating Nebula Cloud (Full cloud visible, smoothly blended at bottom into sky) */}
           <div
-            className="absolute top-[0%] sm:-top-[18%] right-[-6%] sm:right-[2%] lg:-right-[6%] w-[300px] sm:w-[380px] md:w-[480px] lg:w-[700px] aspect-square pointer-events-none z-[3]
-              2xl:-top-[18%] 2xl:-right-[6%] 2xl:w-[700px]
+            className="absolute top-[0%] sm:-top-[18%] md:-top-[10%] lg:-top-[18%] xl:-top-[18%] 2xl:-top-[18%] right-[-6%] sm:right-[2%] md:-right-[10%] lg:-right-[6%] xl:-right-[6%] 2xl:-right-[6%] w-[300px] sm:w-[380px] md:w-[480px] lg:w-[700px] xl:w-[700px] 2xl:w-[700px] aspect-square pointer-events-none z-[3]
               [@media(min-width:1920px)]:-top-[20%] [@media(min-width:1920px)]:-right-[8%] [@media(min-width:1920px)]:w-[800px]"
             style={{
               maskImage: "linear-gradient(to bottom, #000000 0%, #000000 54%, rgba(0,0,0,0.75) 64%, rgba(0,0,0,0.25) 72%, transparent 77%)",
@@ -104,8 +101,7 @@ export default function HeroSection() {
 
           {/* Layer 4: Animated Neon Crystal Logo (Anchored to bottom to scale properly with screen height) */}
           <div
-            className="absolute bottom-[43%] sm:bottom-[55%] md:bottom-[50%] lg:bottom-[35%] left-[22%] sm:left-[34%] md:left-[36%] lg:left-[38%] xl:left-[40%] w-[210px] sm:w-[460px] md:w-[540px] lg:w-[400px] xl:w-[400px] aspect-[7/6] pointer-events-none z-[5]
-              2xl:bottom-[19%] 2xl:left-[650px] 2xl:w-[350px]
+            className="absolute bottom-[43%] sm:bottom-[20%] md:bottom-[15%] lg:bottom-[15%] xl:bottom-[22%] 2xl:bottom-[19%] left-[22%] sm:left-[34%] md:left-[36%] lg:left-[38%] xl:left-[40%] 2xl:left-[650px] w-[210px] sm:w-[460px] md:w-[300px] lg:w-[380px] xl:w-[400px] 2xl:w-[350px] aspect-[7/6] pointer-events-none z-[5]
               [@media(min-width:1920px)]:bottom-[19%] [@media(min-width:1920px)]:left-[48%] [@media(min-width:1920px)]:w-[450px]"
           >
             <AnimatedNeonLogo glow={true} animated={true} />
@@ -113,8 +109,7 @@ export default function HeroSection() {
 
           {/* Layer 5: Center Mountain Ridge (Misty Midground - behind Left Rock) */}
           <div
-            className="absolute bottom-[38%] sm:bottom-10 left-[6%] sm:left-[20%] lg:left-[30%] w-[80%] sm:w-[50%] max-w-[700px] aspect-[17/10] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[6]
-              2xl:bottom-[40px] 2xl:left-[35%] 2xl:w-[50%] 2xl:max-w-[600px]
+            className="absolute bottom-[38%] sm:-bottom-5 md:bottom-25 lg:bottom-10 xl:bottom-10 2xl:bottom-[40px] left-[6%] sm:left-[20%] md:left-[20%] lg:left-[30%] xl:left-[30%] 2xl:left-[35%] w-[80%] sm:w-[50%] md:w-[50%] lg:w-[50%] xl:w-[50%] 2xl:w-[50%] max-w-[700px] xl:max-w-[700px] 2xl:max-w-[600px] aspect-[17/10] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[6]
               [@media(min-width:1920px)]:bottom-10 [@media(min-width:1920px)]:left-[40%] [@media(min-width:1920px)]:w-[50%] [@media(min-width:1920px)]:max-w-[800px]"
             style={{
               transform: `translate3d(${mousePos.x * 18}px, ${mousePos.y * 12}px, 0)`,
@@ -132,8 +127,7 @@ export default function HeroSection() {
 
           {/* Layer 6: Left Mountain Ridge (Perfect soft blend on left edge) */}
           <div
-            className="absolute bottom-[35%] sm:bottom-0 left-0 sm:left-10 lg:left-90 w-[60%] sm:w-[42%] max-w-[620px] aspect-[4/3] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[8]
-              2xl:-bottom-15 2xl:left-[450px] 2xl:w-[42%] 2xl:max-w-[500px]
+            className="absolute bottom-[35%] sm:-bottom-10 md:bottom-12 lg:bottom-12 xl:bottom-12 2xl:-bottom-15 left-0 sm:left-10 md:left-10 lg:left-90 xl:left-90 2xl:left-[450px] w-[60%] sm:w-[42%] md:w-[42%] lg:w-[42%] xl:w-[42%] 2xl:w-[42%] max-w-[620px] 2xl:max-w-[500px] aspect-[4/3] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[8]
               [@media(min-width:1920px)]:-bottom-[10px] [@media(min-width:1920px)]:left-[520px] [@media(min-width:1920px)]:w-[42%] [@media(min-width:1920px)]:max-w-[700px]"
             style={{
               transform: `translate3d(${mousePos.x * 12}px, ${mousePos.y * 8}px, 0)`,
@@ -153,8 +147,7 @@ export default function HeroSection() {
 
           {/* Layer 7: Right Foreground Rock & Person Overlooking City Lights */}
           <div
-            className="absolute bottom-[30%] sm:bottom-0 right-[-24%] sm:right-[4%] lg:right-[2%] w-[95%] sm:w-[38%] max-w-[540px] aspect-[4/3] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[8]
-              2xl:bottom-0 2xl:right-[2%] 2xl:w-[38%] 2xl:max-w-[540px]
+            className="absolute bottom-[30%] sm:-bottom-10 md:bottom-12 lg:bottom-12 xl:bottom-12 2xl:bottom-0 right-[-24%] sm:right-[4%] md:-right-[3%] lg:right-[2%] xl:right-[2%] 2xl:right-[2%] w-[95%] sm:w-[38%] md:w-[50%] lg:w-[38%] xl:w-[38%] 2xl:w-[38%] max-w-[540px] 2xl:max-w-[540px] aspect-[4/3] transition-transform duration-300 ease-out will-change-transform pointer-events-none z-[8]
               [@media(min-width:1920px)]:bottom-0 [@media(min-width:1920px)]:right-[4%] [@media(min-width:1920px)]:w-[38%] [@media(min-width:1920px)]:max-w-[700px]"
             style={{
               transform: `translate3d(${mousePos.x * 26}px, ${mousePos.y * 16}px, 0)`,
@@ -180,17 +173,16 @@ export default function HeroSection() {
       {/* ============================================================ */}
       {/* SLIDE 2: VIDEO BACKGROUND                                    */}
       {/* ============================================================ */}
-      <div 
-        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
-          currentSlide === 0 ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+      <div
+        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${currentSlide === 0 ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline 
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-60"
           >
             {/* Tech/AI Network Background Video */}
@@ -208,10 +200,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
 
           {/* Left Column: Headline, Description & CTAs */}
-          <div 
-            key={currentSlide}
-            className="lg:col-span-8 max-w-2xl space-y-4 sm:space-y-5"
-          >
+          <div className="lg:col-span-8 max-w-2xl space-y-4 sm:space-y-5">
             {/* Tagline Eyebrow */}
             <div className="flex items-center gap-2 animate-fade-in-up">
               <span className="text-[10px] sm:text-xs font-semibold tracking-[0.22em] text-white/80 uppercase font-heading
@@ -279,11 +268,10 @@ export default function HeroSection() {
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-2 transition-all duration-300 rounded-full ${
-                  currentSlide === idx 
-                    ? "w-8 bg-[#FF0055]" 
+                className={`h-2 transition-all duration-300 rounded-full ${currentSlide === idx
+                    ? "w-8 bg-[#FF0055]"
                     : "w-2 bg-white/30 hover:bg-white/50"
-                }`}
+                  }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}

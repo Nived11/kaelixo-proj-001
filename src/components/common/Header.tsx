@@ -131,9 +131,9 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Right Action Area (Search Button + Book a Demo Pill Button) */}
-          <div className="hidden sm:flex items-center gap-4">
-            {/* Search Icon */}
+          {/* Right Action Area */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            {/* Search Icon (Visible on all screen sizes) */}
             <button
               onClick={() => setSearchOpen(!searchOpen)}
               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:text-white hover:border-white/40 transition-colors cursor-pointer"
@@ -142,21 +142,19 @@ export default function Header() {
               <Search className="w-4 h-4" />
             </button>
 
-            {/* Book a Demo Pill Button */}
+            {/* Book a Demo Pill Button (Desktop only) */}
             <Link
               href="#book-demo"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#FF0055] hover:bg-[#E6004C] text-white text-sm font-semibold tracking-normal shadow-[0_0_15px_rgba(255,0,85,0.4)] hover:shadow-[0_0_25px_rgba(255,0,85,0.6)] transition-all duration-200 active:scale-95 cursor-pointer"
+              className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#FF0055] hover:bg-[#E6004C] text-white text-sm font-semibold tracking-normal shadow-[0_0_15px_rgba(255,0,85,0.4)] hover:shadow-[0_0_25px_rgba(255,0,85,0.6)] transition-all duration-200 active:scale-95 cursor-pointer"
             >
               <span>Book a Demo</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
-          </div>
 
-          {/* Mobile Hamburger Toggle */}
-          <div className="flex lg:hidden items-center gap-3">
+            {/* Mobile Hamburger Toggle (Tablet/Mobile only) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-white hover:bg-white/10"
+              className="p-2 rounded-lg text-white hover:bg-white/10 lg:hidden flex items-center justify-center"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

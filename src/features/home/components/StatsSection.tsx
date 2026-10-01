@@ -99,25 +99,25 @@ export default function StatsSection({ children }: StatsSectionProps) {
   return (
     <div ref={ref} className="w-full bg-gradient-to-t from-[#020205] via-[#020205]/40 to-transparent pt-6 pb-5 sm:pb-6 backdrop-blur-[2px] animate-fade-in-up delay-900">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col xl:flex-row xl:items-center justify-between gap-6">
-        <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-start gap-y-5 gap-x-2 sm:gap-x-8 md:gap-x-10 lg:gap-x-12">
+        <div className="grid grid-cols-2 md:flex md:flex-nowrap md:justify-between items-center gap-y-5 gap-x-2 sm:gap-x-4 md:gap-x-4 lg:gap-x-12 w-full md:w-auto">
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className={`flex items-center gap-3.5 ${
-                idx !== stats.length - 1 ? "md:border-r border-white/15 md:pr-8 lg:pr-10" : ""
+              className={`flex items-center gap-2 sm:gap-3 lg:gap-3.5 ${
+                idx !== stats.length - 1 ? "md:border-r border-white/15 md:pr-4 lg:pr-10" : ""
               }`}
             >
-              <div className="flex-shrink-0 flex items-center justify-center">
+              <div className="flex-shrink-0 flex items-center justify-center transform scale-90 sm:scale-100">
                 {stat.icon}
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-bold text-white tracking-tight font-heading leading-tight
+                <div className="text-lg sm:text-xl md:text-lg lg:text-2xl font-bold text-white tracking-tight font-heading leading-tight
                   [@media(min-width:1920px)]:text-[32px]
                 ">
                   {stat.number.includes("+") && <AnimatedCounter to={parseInt(stat.number)} suffix="+" trigger={isInView} />}
                   {stat.number.includes("%") && <AnimatedCounter to={parseInt(stat.number)} suffix="%" trigger={isInView} />}
                 </div>
-                <div className="text-[11px] sm:text-xs text-slate-300 font-medium font-sans whitespace-nowrap
+                <div className="text-[10px] sm:text-[11px] lg:text-xs text-slate-300 font-medium font-sans whitespace-nowrap
                   [@media(min-width:1920px)]:text-[16px]
                 ">
                   {stat.label}

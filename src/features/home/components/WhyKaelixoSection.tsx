@@ -64,6 +64,7 @@ export default function WhyKaelixoSection() {
           -left-15 -top-30 w-[75%] h-[50%] 
           /* Tablet (sm/md) */
           sm:left-0 sm:top-0 sm:w-[60%] sm:h-full
+          md:-left-[8%] md:-top-[18%] md:w-[50%] md:h-full md:opacity-40
           /* Desktop (lg/xl) */
           lg:-left-[12%] lg:-top-[10%] lg:w-[60%] lg:h-[120%]
           /* 1920px+ Display */
@@ -79,8 +80,9 @@ export default function WhyKaelixoSection() {
           -right-5 bottom-130 w-[75%] h-[50%]
           /* Tablet (sm/md) */
           sm:right-0 sm:bottom-0 sm:w-[60%] sm:h-full
+          md:right-[20%] md:-bottom-[16%] md:w-[50%] md:h-full md:opacity-40
           /* Desktop (lg/xl) */
-          lg:-right-[12%] lg:-bottom-[10%] lg:w-[60%] lg:h-[120%]
+          lg:-right-[12%] lg:-bottom-[10%] lg:w-[60%] lg:h-[120%] 
           /* 1920px+ Display */
           [@media(min-width:1920px)]:-right-[5%] [@media(min-width:1920px)]:-bottom-[20%] [@media(min-width:1920px)]:w-[45%] [@media(min-width:1920px)]:h-[120%]
         " 
@@ -104,32 +106,32 @@ export default function WhyKaelixoSection() {
               <div className="w-10 h-[2px] bg-[#FF0055]"></div>
             </div>
             
-            <h2 className="text-[36px] xl:text-[44px] font-extrabold leading-[1.1] tracking-tight mb-5">
+            <h2 className="text-[36px] lg:text-[30px] xl:text-[44px] font-extrabold leading-[1.1] tracking-tight mb-5">
               More Than a <br /> Tech Company — <br />
               <span className="text-[#FF0055]">A Growth Marketing Agency</span>
             </h2>
             
-            <p className="text-slate-300 text-[14px] leading-relaxed mb-8 font-normal max-w-[340px]">
+            <p className="text-slate-300 text-[14px] lg:text-[12.5px] xl:text-[14px] leading-relaxed mb-8 font-normal max-w-[340px] lg:max-w-[300px] xl:max-w-[340px]">
               We combine technology, creativity, strategy and AI thinking to build digital experiences that create real business impact. It's what makes us a growth marketing agency businesses stay with, not just hire once.
             </p>
             
-            <button className="px-7 py-3 rounded-full bg-[#FF0055] text-white font-bold text-[14px] hover:shadow-[0_0_20px_rgba(255,0,85,0.4)] transition-all duration-300 flex items-center gap-2 cursor-pointer mb-10 lg:mb-0">
-              Our Story <ArrowRight className="w-4 h-4" />
+            <button className="px-7 py-3 lg:px-5 lg:py-2.5 xl:px-7 xl:py-3 rounded-full bg-[#FF0055] text-white font-bold text-[14px] lg:text-[13px] xl:text-[14px] hover:shadow-[0_0_20px_rgba(255,0,85,0.4)] transition-all duration-300 flex items-center gap-2 cursor-pointer mb-10 lg:mb-0">
+              Our Story <ArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4" />
             </button>
 
             {/* BOTTOM ROW: Footer Stats / Philosophy */}
-            <div className="flex flex-col xl:flex-row gap-6 sm:gap-8 w-full mt-auto relative top-10">
+            <div className="flex flex-col xl:flex-row gap-6 sm:gap-8 lg:gap-4 xl:gap-8 w-full mt-auto relative top-10">
               <div className="relative pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
-                <h4 className="text-[14px] font-bold text-white mb-1 leading-tight">Strategy-Led</h4>
-                <p className="text-[12px] text-slate-300 font-medium whitespace-nowrap">Not just execution</p>
+                <h4 className="text-[14px] lg:text-[12px] xl:text-[14px] font-bold text-white mb-1 leading-tight">Strategy-Led</h4>
+                <p className="text-[12px] lg:text-[10px] xl:text-[12px] text-slate-300 font-medium whitespace-nowrap">Not just execution</p>
               </div>
               <div className="relative pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
-                <h4 className="text-[14px] font-bold text-white mb-1 leading-tight">People-First</h4>
-                <p className="text-[12px] text-slate-300 font-medium whitespace-nowrap">Relationships matter</p>
+                <h4 className="text-[14px] lg:text-[12px] xl:text-[14px] font-bold text-white mb-1 leading-tight">People-First</h4>
+                <p className="text-[12px] lg:text-[10px] xl:text-[12px] text-slate-300 font-medium whitespace-nowrap">Relationships matter</p>
               </div>
               <div className="relative pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
-                <h4 className="text-[14px] font-bold text-white mb-1 leading-tight">Impact-Driven</h4>
-                <p className="text-[12px] text-slate-300 font-medium whitespace-nowrap">Your growth is our success</p>
+                <h4 className="text-[14px] lg:text-[12px] xl:text-[14px] font-bold text-white mb-1 leading-tight">Impact-Driven</h4>
+                <p className="text-[12px] lg:text-[10px] xl:text-[12px] text-slate-300 font-medium whitespace-nowrap">Your growth is our success</p>
               </div>
             </div>
           </motion.div>
@@ -198,12 +200,12 @@ export default function WhyKaelixoSection() {
                 style={{ willChange: "opacity, transform" }}
                 className="flex items-center gap-4 sm:gap-5 group cursor-pointer"
               >
-                <div className={`w-[60px] h-[60px] rounded-2xl flex items-center justify-center shrink-0 ${feature.iconBg} transition-transform duration-300 group-hover:scale-105`}>
-                  <feature.icon className={`w-6 h-6 ${feature.iconColor}`} strokeWidth={2.5} />
+                <div className={`w-[60px] h-[60px] lg:w-[48px] lg:h-[48px] xl:w-[60px] xl:h-[60px] rounded-2xl flex items-center justify-center shrink-0 ${feature.iconBg} transition-transform duration-300 group-hover:scale-105`}>
+                  <feature.icon className={`w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 ${feature.iconColor}`} strokeWidth={2.5} />
                 </div>
                 <div>
-                  <h4 className="text-[14px] sm:text-[15px] font-bold text-white mb-0.5 group-hover:text-white transition-colors">{feature.title}</h4>
-                  <p className="text-[12px] sm:text-[13px] text-slate-300 font-medium leading-tight">{feature.desc}</p>
+                  <h4 className="text-[14px] sm:text-[15px] lg:text-[13px] xl:text-[15px] font-bold text-white mb-0.5 group-hover:text-white transition-colors">{feature.title}</h4>
+                  <p className="text-[12px] sm:text-[13px] lg:text-[11px] xl:text-[13px] text-slate-300 font-medium leading-tight">{feature.desc}</p>
                 </div>
               </motion.div>
             ))}
