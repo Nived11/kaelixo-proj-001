@@ -150,7 +150,7 @@ export default function ReadyToBuildSection() {
             <div className="w-10 h-[2px] bg-[#FF0055]"></div>
           </motion.div>
           
-          <h2 ref={headingRef} className="text-[46px] sm:text-[52px] lg:text-[64px] font-extrabold leading-[1.1] mb-6 tracking-tight font-heading">
+          <h2 ref={headingRef} className="text-[46px] sm:text-[52px] md:text-[48px] lg:text-[46px] xl:text-[64px] font-extrabold leading-[1.1] mb-6 tracking-tight font-heading">
             <TypewriterText 
               text="What's Next" 
               delay={0} 
@@ -176,20 +176,20 @@ export default function ReadyToBuildSection() {
             />
           </h2>
           
-          <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-slate-700 text-xs md:text-base mb-10 max-w-md leading-relaxed font-medium">
+          <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-slate-700 text-xs sm:text-[15px] md:text-[14px] lg:text-[13px] xl:text-base mb-10 max-w-md leading-relaxed font-medium">
             Let's turn your ideas into real-world impact. Partner with Kaelixo and bring your vision to life.
           </motion.p>
 
           <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-4">
             <Link
               href="#contact"
-              className="inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center gap-1.5 sm:gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-[#FF0055] hover:bg-[#E6004C] text-white text-[13px] sm:text-sm font-semibold transition-all shadow-lg shadow-[#FF0055]/30 hover:shadow-[#FF0055]/50 hover:-translate-y-0.5 whitespace-nowrap"
+              className="group inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center gap-1.5 sm:gap-2 px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full bg-gradient-to-r from-[#CC0044] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[13px] sm:text-[14px] md:text-[13px] lg:text-[12px] xl:text-sm font-medium tracking-wide hover:brightness-110 transition-all duration-300 active:scale-95 whitespace-nowrap cursor-pointer"
             >
-              Let's Talk <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span>Let's Talk</span> <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-3.5 md:h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
             <Link
               href="#portfolio"
-              className="inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 rounded-full border border-slate-300 hover:border-[#FF0055] text-[#0A1024] text-[13px] sm:text-sm font-semibold bg-white/50 backdrop-blur-sm transition-all hover:bg-white whitespace-nowrap"
+              className="inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full border border-slate-300 hover:border-[#FF0055] text-[#0A1024] text-[13px] sm:text-[14px] md:text-[13px] lg:text-[12px] xl:text-sm font-semibold bg-white/50 backdrop-blur-sm transition-all hover:bg-white whitespace-nowrap cursor-pointer"
             >
               Explore Our Work
             </Link>
@@ -209,54 +209,54 @@ export default function ReadyToBuildSection() {
           >
 
             {/* Stat 1 */}
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start gap-3 sm:gap-4 lg:gap-6 justify-start px-2 sm:px-2 md:px-6">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 text-[#FF0055] shadow-sm border border-slate-100">
-                <Rocket className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[1.5]" />
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start md:items-center lg:items-start gap-3 sm:gap-4 md:gap-2 lg:gap-3 xl:gap-6 justify-start px-2 sm:px-2 md:px-3 lg:px-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 text-[#FF0055] shadow-sm border border-slate-100">
+                <Rocket className="w-5 h-5 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-7 xl:h-7 stroke-[1.5]" />
               </div>
               <div className="text-left">
-                <h4 className="text-[18px] sm:text-2xl lg:text-[28px] font-extrabold text-[#0A1024] leading-none mb-1">
+                <h4 className="text-[18px] sm:text-[24px] md:text-[18px] lg:text-[20px] xl:text-[28px] font-extrabold text-[#0A1024] leading-none mb-1">
                   <AnimatedCounter to={250} suffix="+" trigger={statsInView} />
                 </h4>
-                <p className="text-[10px] sm:text-xs lg:text-sm text-slate-500 font-medium leading-tight sm:leading-normal">Projects<br className="hidden sm:block lg:hidden" /> Delivered</p>
+                <p className="text-[10px] sm:text-[12px] md:text-[9px] lg:text-[10px] xl:text-[14px] text-slate-500 font-medium leading-tight sm:leading-normal">Projects<br className="hidden sm:block md:hidden" /> Delivered</p>
               </div>
             </motion.div>
 
             {/* Stat 2 */}
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start gap-3 sm:gap-4 lg:gap-6 justify-start px-2 sm:px-2 md:px-6">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 text-[#FF0055] shadow-sm border border-slate-100">
-                <Users className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[1.5]" />
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start md:items-center lg:items-start gap-3 sm:gap-4 md:gap-2 lg:gap-3 xl:gap-6 justify-start px-2 sm:px-2 md:px-3 lg:px-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 text-[#FF0055] shadow-sm border border-slate-100">
+                <Users className="w-5 h-5 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-7 xl:h-7 stroke-[1.5]" />
               </div>
               <div className="text-left">
-                <h4 className="text-[18px] sm:text-2xl lg:text-[28px] font-extrabold text-[#0A1024] leading-none mb-1">
+                <h4 className="text-[18px] sm:text-[24px] md:text-[18px] lg:text-[20px] xl:text-[28px] font-extrabold text-[#0A1024] leading-none mb-1">
                   <AnimatedCounter to={120} suffix="+" trigger={statsInView} />
                 </h4>
-                <p className="text-[10px] sm:text-xs lg:text-sm text-slate-500 font-medium leading-tight sm:leading-normal">Happy<br className="hidden sm:block lg:hidden" /> Clients</p>
+                <p className="text-[10px] sm:text-[12px] md:text-[9px] lg:text-[10px] xl:text-[14px] text-slate-500 font-medium leading-tight sm:leading-normal">Happy<br className="hidden sm:block md:hidden" /> Clients</p>
               </div>
             </motion.div>
 
             {/* Stat 3 */}
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start gap-3 sm:gap-4 lg:gap-6 justify-start px-2 sm:px-2 md:px-6">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 text-[#FF0055] shadow-sm border border-slate-100">
-                <Globe className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[1.5]" />
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start md:items-center lg:items-start gap-3 sm:gap-4 md:gap-2 lg:gap-3 xl:gap-6 justify-start px-2 sm:px-2 md:px-3 lg:px-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 text-[#FF0055] shadow-sm border border-slate-100">
+                <Globe className="w-5 h-5 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-7 xl:h-7 stroke-[1.5]" />
               </div>
               <div className="text-left">
-                <h4 className="text-[18px] sm:text-2xl lg:text-[28px] font-extrabold text-[#0A1024] leading-none mb-1">
+                <h4 className="text-[18px] sm:text-[24px] md:text-[18px] lg:text-[20px] xl:text-[28px] font-extrabold text-[#0A1024] leading-none mb-1">
                   <AnimatedCounter to={10} suffix="+" trigger={statsInView} />
                 </h4>
-                <p className="text-[10px] sm:text-xs lg:text-sm text-slate-500 font-medium leading-tight sm:leading-normal">Countries<br className="hidden sm:block lg:hidden" /> Served</p>
+                <p className="text-[10px] sm:text-[12px] md:text-[9px] lg:text-[10px] xl:text-[14px] text-slate-500 font-medium leading-tight sm:leading-normal">Countries<br className="hidden sm:block md:hidden" /> Served</p>
               </div>
             </motion.div>
 
             {/* Stat 4 */}
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start gap-3 sm:gap-4 lg:gap-6 justify-start md:justify-end px-2 sm:px-2 md:px-6">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 text-[#FF0055] shadow-sm border border-slate-100">
-                <Trophy className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[1.5]" />
+            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start md:items-center lg:items-start gap-3 sm:gap-4 md:gap-2 lg:gap-3 xl:gap-6 justify-start md:justify-end px-2 sm:px-2 md:px-3 lg:px-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 text-[#FF0055] shadow-sm border border-slate-100">
+                <Trophy className="w-5 h-5 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-7 xl:h-7 stroke-[1.5]" />
               </div>
               <div className="text-left">
-                <h4 className="text-[18px] sm:text-2xl lg:text-[28px] font-extrabold text-[#0A1024] leading-none mb-1">
+                <h4 className="text-[18px] sm:text-[24px] md:text-[18px] lg:text-[20px] xl:text-[28px] font-extrabold text-[#0A1024] leading-none mb-1">
                   <AnimatedCounter to={98} suffix="%" trigger={statsInView} />
                 </h4>
-                <p className="text-[10px] sm:text-xs lg:text-sm text-slate-500 font-medium leading-tight sm:leading-normal">Client<br className="hidden sm:block lg:hidden" /> Satisfaction</p>
+                <p className="text-[10px] sm:text-[12px] md:text-[9px] lg:text-[10px] xl:text-[14px] text-slate-500 font-medium leading-tight sm:leading-normal">Client<br className="hidden sm:block md:hidden" /> Satisfaction</p>
               </div>
             </motion.div>
 

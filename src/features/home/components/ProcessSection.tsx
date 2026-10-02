@@ -79,16 +79,16 @@ export default function ProcessSection() {
             <span className="text-[#FF0055] font-bold text-sm tracking-widest uppercase">OUR PROCESS</span>
             <div className="w-10 h-[2px] bg-[#FF0055]"></div>
           </div>
-          <h2 className="text-[32px] sm:text-[42px] md:text-[54px] font-black leading-[1.1] tracking-tight text-[#030C25] mb-4 sm:mb-5">
+          <h2 className="text-[32px] sm:text-[42px] lg:text-[36px] xl:text-[54px] font-black leading-[1.1] tracking-tight text-[#030C25] mb-4 sm:mb-5">
             From Idea to Impact
           </h2>
-          <p className="text-[#475569] text-[15px] sm:text-[17px] font-medium leading-relaxed max-w-2xl">
+          <p className="text-[#475569] text-[15px] sm:text-[17px] lg:text-[14px] xl:text-[17px] font-medium leading-relaxed max-w-2xl">
             A clear, collaborative process that keeps you involved at every step — the same process that makes us a growth marketing agency worth trusting with the full journey, not just one campaign.
           </p>
         </motion.div>
 
           {/* Steps Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-24 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-6 xl:gap-24 relative">
             {steps.map((step, index) => (
               <motion.div 
                 key={index} 
@@ -106,15 +106,15 @@ export default function ProcessSection() {
                 {/* Icon & Number Row */}
                 <div className="flex items-center justify-center lg:justify-start mb-4 lg:mb-6 relative z-10 w-full">
                   {/* Glowing Icon Container (with light colored background ring) */}
-                  <div className={`w-[88px] h-[88px] rounded-full flex items-center justify-center ${step.outerBgClass} ${step.glowClass} transition-transform duration-300 group-hover:scale-105 relative z-10`}>
-                    <div className={`w-[60px] h-[60px] rounded-full flex items-center justify-center text-white ${step.bgClass}`}>
-                      <step.icon size={26} strokeWidth={2.5} />
+                  <div className={`w-[88px] h-[88px] lg:w-[64px] lg:h-[64px] xl:w-[88px] xl:h-[88px] rounded-full flex items-center justify-center ${step.outerBgClass} ${step.glowClass} transition-transform duration-300 group-hover:scale-105 relative z-10`}>
+                    <div className={`w-[60px] h-[60px] lg:w-[44px] lg:h-[44px] xl:w-[60px] xl:h-[60px] rounded-full flex items-center justify-center text-white ${step.bgClass}`}>
+                      <step.icon className="w-[26px] h-[26px] lg:w-[20px] lg:h-[20px] xl:w-[26px] xl:h-[26px]" strokeWidth={2.5} />
                     </div>
                   </div>
                   
                   {/* Step Number (Alternating left/right on mobile) */}
                   <span 
-                    className={`text-[20px] font-black tracking-tight absolute lg:static z-10 lg:-translate-y-3 lg:ml-4 lg:right-auto lg:left-auto ${
+                    className={`text-[20px] lg:text-[16px] xl:text-[20px] font-black tracking-tight absolute lg:static z-10 lg:-translate-y-2 xl:-translate-y-3 lg:ml-2 xl:ml-4 lg:right-auto lg:left-auto ${
                       index % 2 === 0 ? 'right-[calc(50%+45px)]' : 'left-[calc(50%+45px)]'
                     }`} 
                     style={{ color: step.color }}
@@ -124,11 +124,11 @@ export default function ProcessSection() {
                 </div>
 
                 {/* Content */}
-                <div className="max-w-[260px] lg:max-w-[220px] relative z-10 px-4 py-2 lg:p-0">
-                  <h3 className="text-[22px] font-black text-[#030C25] mb-2">
+                <div className="max-w-[260px] lg:max-w-[180px] xl:max-w-[220px] relative z-10 px-4 py-2 lg:p-0">
+                  <h3 className="text-[22px] lg:text-[16px] xl:text-[22px] font-black text-[#030C25] mb-2 lg:mb-1 xl:mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-[#64748b] text-[14px] font-medium leading-relaxed">
+                  <p className="text-gray-600 text-[14px] lg:text-[11px] xl:text-[14px] font-medium leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -136,11 +136,7 @@ export default function ProcessSection() {
                 {/* Horizontal Connecting Line (Desktop Only) */}
                 {index < steps.length - 1 && (
                   <div 
-                    className="hidden lg:block absolute top-[44px] z-0"
-                    style={{
-                      left: '88px', // Starts perfectly at the right edge of the halo
-                      width: 'calc(100% + 96px - 88px)', // Reaches exactly the left edge of the next icon
-                    }}
+                    className="hidden lg:block absolute lg:top-[32px] xl:top-[44px] lg:left-[64px] xl:left-[88px] lg:w-[calc(100%+24px-64px)] xl:w-[calc(100%+96px-88px)] z-0"
                   >
                     <svg width="100%" height="40" viewBox="0 0 100 40" preserveAspectRatio="none" className="absolute -top-[20px] overflow-visible">
                       <defs>

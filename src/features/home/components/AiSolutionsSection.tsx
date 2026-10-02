@@ -20,7 +20,7 @@ export default function AiSolutionsSection() {
   }, []);
 
   return (
-    <section className="relative w-full py-16 lg:py-20 bg-[#020205] overflow-hidden flex items-center min-h-0 lg:min-h-[650px] xl:min-h-[700px] 2xl:min-h-[750px] [@media(min-width:1920px)]:min-h-[900px]">
+    <section className="relative w-full py-16 lg:py-16 xl:py-20 bg-[#020205] overflow-hidden flex items-center min-h-0 lg:min-h-[500px] xl:min-h-[700px] 2xl:min-h-[750px] [@media(min-width:1920px)]:min-h-[900px]">
 
       {/* Background Image Container */}
       <div className="absolute inset-0 w-full h-full z-0 flex justify-end">
@@ -71,17 +71,17 @@ export default function AiSolutionsSection() {
             </motion.div>
 
             {/* Headline */}
-            <motion.h2 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-white text-[34px] md:text-[40px] lg:text-[48px] font-extrabold leading-[1.05] tracking-tight mb-4 font-heading">
+            <motion.h2 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-white text-[34px] sm:text-[40px] md:text-[36px] lg:text-[38px] xl:text-[48px] font-extrabold leading-[1.05] tracking-tight mb-4 font-heading">
               AI Thinking for a<br />
               Smarter <span className="text-[#FF0066]">Tomorrow</span>
             </motion.h2>
 
-            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-slate-300/90 text-[13px] md:text-[14px] leading-[1.6] mb-8 max-w-[480px]">
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-slate-300/90 text-[13px] md:text-[13px] lg:text-[12px] xl:text-[14px] leading-[1.6] mb-8 lg:mb-6 xl:mb-8 max-w-[480px] lg:max-w-[380px] xl:max-w-[480px]">
               We integrate artificial intelligence into real business solutions — helping you automate, predict, personalize and grow without limits, the same intelligence-first approach that runs through every growth marketing agency service we offer.
             </motion.p>
 
             {/* Feature List */}
-            <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }} className="space-y-4 mb-8">
+            <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }} className="space-y-4 lg:space-y-3 xl:space-y-4 mb-8 lg:mb-6 xl:mb-8">
               <FeatureItem
                 icon={Settings}
                 title="Process Automation"
@@ -109,15 +109,15 @@ export default function AiSolutionsSection() {
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
               <Link
                 href="/services/ai-solutions"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#FF0055] hover:bg-[#E6004C] text-white text-[13px] font-semibold tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-2.5 md:px-5 md:py-2.5 lg:px-5 lg:py-2 xl:px-6 xl:py-2.5 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[13px] md:text-[12px] lg:text-[11px] xl:text-[13px] font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] hover:brightness-110 transition-all duration-300 active:scale-95 cursor-pointer"
               >
                 <span>Explore AI Solutions</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
 
               <div className="hidden sm:block w-[1px] h-8 bg-white/20" />
 
-              <p className="text-slate-300 text-[11px] leading-[1.4]">
+              <p className="text-slate-300 text-[11px] lg:text-[9px] xl:text-[11px] leading-[1.4]">
                 From Possibilities<br />to Real Impact
               </p>
             </motion.div>
@@ -136,7 +136,7 @@ export default function AiSolutionsSection() {
               - xl: large desktop
               - 2xl: extra large screens
             */}
-            <div className="absolute z-20 group overflow-hidden rounded-[20px] shadow-[0_0_50px_rgba(255,0,102,0.15)] w-[120px] aspect-[4/5] 
+            <div className="absolute z-20 group overflow-hidden rounded-[20px] shadow-[0_0_50px_rgba(255,0,102,0.15)] w-[120px] lg:w-[100px] xl:w-[120px] aspect-[4/5] 
               top-[25%] right-[10%] 
               md:top-[30%] md:right-[15%] 
               lg:top-[30%] lg:right-[22%] 
@@ -153,9 +153,9 @@ export default function AiSolutionsSection() {
 
               {/* Inner Glass Content */}
               <div className="absolute inset-[2px] rounded-[12px] bg-[#0c0418]/70 backdrop-blur-md flex flex-col items-center justify-center border border-white/5">
-                <span className="text-[#FF0066] text-[42px] font-black tracking-tighter mb-2 font-heading drop-shadow-[0_0_15px_rgba(255,0,102,0.8)]">AI</span>
+                <span className="text-[#FF0066] text-[42px] lg:text-[34px] xl:text-[42px] font-black tracking-tighter mb-2 lg:mb-1 xl:mb-2 font-heading drop-shadow-[0_0_15px_rgba(255,0,102,0.8)]">AI</span>
                 <div className="flex flex-col items-start w-[85%] mx-auto pl-2">
-                  <span className="text-white/90 text-[8px] font-medium tracking-[0.35em] text-left uppercase leading-[1.7] drop-shadow-sm">
+                  <span className="text-white/90 text-[8px] lg:text-[6px] xl:text-[8px] font-medium tracking-[0.35em] text-left uppercase leading-[1.7] drop-shadow-sm">
                     FOR A<br />BRIGHTER<br />TOMORROW
                   </span>
                 </div>
@@ -167,7 +167,7 @@ export default function AiSolutionsSection() {
               POSITION ADJUSTMENTS:
               Modify the 'bottom-' and 'right-' values below to change the quote box's position.
             */}
-            <div className="absolute z-20 group overflow-hidden rounded-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.6)] w-[280px] md:w-[310px] p-[2px]
+            <div className="absolute z-20 group overflow-hidden rounded-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.6)] w-[280px] md:w-[310px] lg:w-[250px] xl:w-[310px] p-[2px]
               bottom-10 right-0 
               md:bottom-12 md:right-0 
               lg:bottom-12 lg:right-4 
@@ -188,11 +188,11 @@ export default function AiSolutionsSection() {
                   “
                 </div>
 
-                <div className="relative h-[65px] mb-5">
+                <div className="relative h-[65px] mb-5 lg:mb-3 xl:mb-5">
                   {quotes.map((quote, idx) => (
                     <p
                       key={idx}
-                      className={`absolute inset-0 text-white text-[12px] md:text-[13px] leading-[1.6] font-medium pr-2 drop-shadow-sm whitespace-pre-line transition-all duration-500 ${activeQuote === idx ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
+                      className={`absolute inset-0 text-white text-[12px] md:text-[13px] lg:text-[11px] xl:text-[13px] leading-[1.6] font-medium pr-2 drop-shadow-sm whitespace-pre-line transition-all duration-500 ${activeQuote === idx ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
                         }`}
                     >
                       "{quote}"
@@ -220,30 +220,23 @@ export default function AiSolutionsSection() {
   );
 }
 
-function FeatureItem({ icon: Icon, title, desc, theme = "purple" }: { icon: any, title: string, desc: string, theme?: "purple" | "pink" }) {
-  const isPink = theme === "pink";
-
+function FeatureItem({ icon: Icon, title, desc }: { icon: any, title: string, desc: string }) {
   return (
     <motion.div 
       variants={{
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
       }}
-      className="flex items-center gap-4 group"
+      className="flex items-center gap-4 md:gap-3 lg:gap-3 xl:gap-4 group"
     >
       <div
-        className={`w-11 h-11 rounded-[12px] border flex items-center justify-center shrink-0 transition-all duration-300
-          ${isPink
-            ? 'bg-[#2a0e1b] border-[#f43f5e]/20 group-hover:border-[#f43f5e]/50 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.3)]'
-            : 'bg-[#16132b] border-[#c084fc]/20 group-hover:border-[#c084fc]/50 group-hover:shadow-[0_0_15px_rgba(192,132,252,0.3)]'
-          }
-        `}
+        className="w-11 h-11 md:w-9 md:h-9 lg:w-9 lg:h-9 xl:w-11 xl:h-11 rounded-[12px] border flex items-center justify-center shrink-0 transition-all duration-300 bg-[#16132b] border-[#c084fc]/20 group-hover:bg-[#2a0e1b] group-hover:border-[#f43f5e]/50 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.3)]"
       >
-        <Icon className={`w-5 h-5 ${isPink ? 'text-[#f43f5e]' : 'text-[#c084fc]'}`} />
+        <Icon className="w-5 h-5 md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 transition-colors duration-300 text-[#c084fc] group-hover:text-[#f43f5e]" />
       </div>
       <div>
-        <h4 className="text-white text-[14px] font-bold leading-tight mb-0.5">{title}</h4>
-        <p className="text-slate-400 text-[11px] leading-[1.4]">{desc}</p>
+        <h4 className="text-white text-[14px] md:text-[13px] lg:text-[12px] xl:text-[14px] font-bold leading-tight mb-0.5">{title}</h4>
+        <p className="text-slate-400 text-[11px] md:text-[10px] lg:text-[9px] xl:text-[11px] leading-[1.4]">{desc}</p>
       </div>
     </motion.div>
   );

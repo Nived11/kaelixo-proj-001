@@ -12,6 +12,7 @@ import ProductsSection from "./components/ProductsSection";
 import SuccessStoriesSection from "./components/SuccessStoriesSection";
 import AiSolutionsSection from "./components/AiSolutionsSection";
 import ReadyToBuildSection from "./components/ReadyToBuildSection";
+import ScrollToTop from "./components/ScrollToTop";
 export default function HomeMain() {
   return (
     <div className="relative w-full overflow-hidden bg-[#020205] text-white selection:bg-[#FF0055] selection:text-white">
@@ -46,6 +47,7 @@ export default function HomeMain() {
 
       <ReadyToBuildSection />
 
+      <ScrollToTop />
     </div>
   );
 }

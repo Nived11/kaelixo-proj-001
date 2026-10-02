@@ -76,7 +76,7 @@ export default function Header() {
           : "bg-transparent py-5 sm:py-6 border-b border-transparent shadow-none"
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-6 xl:px-12">
         <div className="flex items-center justify-between">
           
           {/* Brand Logo - Full Image */}
@@ -91,7 +91,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-9">
+          <nav className="hidden lg:flex items-center lg:space-x-5 xl:space-x-9">
             {navLinks.map((link) => {
               const isActive = activeLink === link.name;
               const isServices = link.name === "Services";
@@ -106,7 +106,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setActiveLink(link.name)}
-                    className={`relative text-sm tracking-normal transition-colors duration-200 group py-2 ${
+                    className={`relative text-[13px] xl:text-sm tracking-normal transition-colors duration-200 group py-2 ${
                       isActive
                         ? "text-[#FF0055] font-medium"
                         : "text-white/80 hover:text-white font-normal"
@@ -133,7 +133,8 @@ export default function Header() {
 
           {/* Right Action Area */}
           <div className="flex items-center gap-3 sm:gap-4">
-            {/* Search Icon (Visible on all screen sizes) */}
+            {/* Search Icon (Hidden for now) */}
+            {/*
             <button
               onClick={() => setSearchOpen(!searchOpen)}
               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:text-white hover:border-white/40 transition-colors cursor-pointer"
@@ -141,14 +142,23 @@ export default function Header() {
             >
               <Search className="w-4 h-4" />
             </button>
+            */}
 
             {/* Book a Demo Pill Button (Desktop only) */}
             <Link
               href="#book-demo"
-              className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#FF0055] hover:bg-[#E6004C] text-white text-sm font-semibold tracking-normal shadow-[0_0_15px_rgba(255,0,85,0.4)] hover:shadow-[0_0_25px_rgba(255,0,85,0.6)] transition-all duration-200 active:scale-95 cursor-pointer"
+              className="group hidden lg:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-sm font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300 active:scale-95 cursor-pointer overflow-hidden"
             >
-              <span>Book a Demo</span>
-              <ArrowRight className="w-4 h-4" />
+              <div className="flex flex-col h-[20px] overflow-hidden">
+                <div className="flex items-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
+                  <span className="leading-[20px]">Book a Demo</span>
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+                <div className="flex items-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
+                  <span className="leading-[20px]">Book a Demo</span>
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
             </Link>
 
             {/* Mobile Hamburger Toggle (Tablet/Mobile only) */}
@@ -162,8 +172,8 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Search Input Bar (Dropdown on click) */}
-        {searchOpen && (
+        {/* Search Input Bar (Hidden for now) */}
+        {/* searchOpen && (
           <div className="mt-4 pt-3 pb-1 flex items-center justify-end">
             <div className="relative w-full max-w-md">
               <input
@@ -175,7 +185,7 @@ export default function Header() {
               <Search className="w-4 h-4 text-white/50 absolute right-4 top-3" />
             </div>
           </div>
-        )}
+        ) */}
       </div>
 
       {/* Mobile Menu Drawer */}

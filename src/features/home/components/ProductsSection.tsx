@@ -133,7 +133,7 @@ export default function ProductsSection() {
               </span>
             </div>
 
-            <h2 className="text-[36px] sm:text-5xl lg:text-[46px] xl:text-[54px] font-extrabold text-white leading-[1.05] tracking-tight">
+            <h2 className="text-[36px] sm:text-5xl md:text-[42px] lg:text-[36px] xl:text-[54px] font-extrabold text-white leading-[1.05] tracking-tight">
               <span className="whitespace-nowrap">Built by Kaelixo</span> <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-pink-500">
                 For Modern
@@ -144,21 +144,19 @@ export default function ProductsSection() {
               </span>
             </h2>
 
-            <p className="text-slate-400 text-[15px] md:text-base max-w-[380px] leading-relaxed mt-6">
+            <p className="text-slate-400 text-[15px] md:text-[14px] lg:text-[14px] xl:text-[16px] max-w-[380px] lg:max-w-[280px] xl:max-w-[380px] leading-relaxed mt-6">
               Powerful digital products designed to simplify operations, improve
               productivity and accelerate growth.
             </p>
 
-            <button className="mt-10 p-[1.5px] rounded-full bg-gradient-to-r from-[#FF0055] to-[#A855F7] shadow-[0_0_30px_rgba(255,0,85,0.3)] hover:shadow-[0_0_40px_rgba(255,0,85,0.5)] transition-all hover:scale-105 active:scale-95 group">
-              <div className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#FF0055]/50 to-[#A855F7]/50 backdrop-blur-xl flex items-center gap-2">
-                <span className="text-white font-bold text-[15px]">
-                  Explore All Products
-                </span>
-                <ArrowRight className="text-white w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
+            <button className="group mt-10 lg:mt-8 xl:mt-10 flex items-center gap-2 px-8 py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full bg-gradient-to-r from-[#FF0055] to-[#A855F7] border border-white/30 hover:border-white/60 shadow-[0_0_30px_rgba(255,0,85,0.3)] hover:shadow-[0_0_40px_rgba(255,0,85,0.5)] transition-all duration-300 active:scale-95 cursor-pointer">
+              <span className="text-white font-bold text-[15px] md:text-[14px] lg:text-[13px] xl:text-[15px]">
+                Explore All Products
+              </span>
+              <ArrowRight className="text-white w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
 
-            <div className="mt-16 flex items-center gap-4 text-[10px] sm:text-xs font-semibold tracking-[0.3em] text-slate-300 uppercase">
+            <div className="mt-16 lg:mt-12 xl:mt-16 flex items-center gap-4 md:gap-3 lg:gap-2 xl:gap-4 text-[10px] sm:text-xs md:text-[10px] lg:text-[9px] xl:text-xs font-semibold tracking-[0.3em] text-slate-300 uppercase">
               <motion.span initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.3 }}>Simple</motion.span>
               <span className="text-slate-700">/</span>
               <motion.span initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.5 }}>Powerful</motion.span>
@@ -173,11 +171,7 @@ export default function ProductsSection() {
           <div className="lg:col-span-8 relative mt-12 lg:mt-0 z-10 perspective-[1000px]">
             <div className="flex flex-col gap-6 w-full">
               {/* TOP ROW: Way We Go (Spans full width) */}
-              <motion.div 
-                initial={isMobile ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: 50, y: 50 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
-                transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
+              <div 
                 className="relative rounded-[14px] sm:rounded-[20px] shadow-[0_0_30px_rgba(255,0,85,0.05)] group"
               >
                 {/* Animated Border Mask */}
@@ -202,15 +196,21 @@ export default function ProductsSection() {
                 {/* Static Glass Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#FF0055]/[0.06] to-transparent backdrop-blur-[32px] transform-gpu z-0 rounded-[14px] sm:rounded-[20px] border border-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
 
-                <div className="relative z-20 p-6 sm:p-8 flex flex-col md:flex-row gap-4 sm:gap-8 items-center justify-between h-full">
+                <div className="relative z-20 p-6 sm:p-8 md:p-6 lg:p-5 xl:p-8 flex flex-col md:flex-row gap-4 sm:gap-8 md:gap-6 lg:gap-4 xl:gap-8 items-center justify-between h-full">
                   {/* Left: Info */}
-                  <div className="w-full md:w-[40%] xl:w-[35%] flex flex-col items-start">
-                    <div className="px-2.5 py-1 rounded-full bg-[#FF0055] text-white text-[9px] font-bold tracking-wider mb-6 shadow-[0_0_15px_rgba(255,0,85,0.5)]">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.2 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full md:w-[40%] lg:w-[45%] xl:w-[35%] flex flex-col items-start"
+                  >
+                    <div className="px-2.5 py-1 rounded-full bg-[#FF0055] text-white text-[9px] font-bold tracking-wider mb-6 md:mb-4 lg:mb-4 xl:mb-6 shadow-[0_0_15px_rgba(255,0,85,0.5)]">
                       FEATURED PRODUCT
                     </div>
 
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-[48px] h-[48px] rounded-[14px] bg-gradient-to-br from-[#FF0055] to-[#A855F7] flex items-center justify-center shadow-lg shadow-pink-500/30 shrink-0">
+                    <div className="flex items-center gap-3 mb-4 md:mb-3 lg:mb-3 xl:mb-4">
+                      <div className="w-[48px] h-[48px] md:w-[40px] md:h-[40px] lg:w-[40px] lg:h-[40px] xl:w-[48px] xl:h-[48px] rounded-[14px] bg-gradient-to-br from-[#FF0055] to-[#A855F7] flex items-center justify-center shadow-lg shadow-pink-500/30 shrink-0">
                         {/* Custom Icon (Glasses-like) */}
                         <div className="flex items-center gap-1 scale-75">
                           <div className="w-4 h-4 rounded-full border-2 border-white flex items-center justify-center">
@@ -223,16 +223,16 @@ export default function ProductsSection() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-white text-xl font-bold">
+                        <h3 className="text-white text-xl md:text-[18px] lg:text-lg xl:text-xl font-bold">
                           Way We Go
                         </h3>
-                        <p className="text-slate-400 text-[11px] mt-0.5">
+                        <p className="text-slate-400 text-[11px] md:text-[10px] lg:text-[10px] xl:text-[11px] mt-0.5">
                           Business Management CRM
                         </p>
                       </div>
                     </div>
 
-                    <p className="text-slate-300 text-[13px] leading-relaxed mb-6">
+                    <p className="text-slate-300 text-[13px] md:text-[12px] lg:text-[11px] xl:text-[13px] leading-relaxed mb-6 md:mb-4 lg:mb-4 xl:mb-6">
                       Manage leads, sales, projects and teams — 
                       all in one place. A smarter way to run and grow your business.
                     </p>
@@ -240,7 +240,7 @@ export default function ProductsSection() {
                     <button className="text-[#FF0055] font-semibold text-[13px] flex items-center gap-2 group-hover:gap-3 transition-all">
                       Learn More <ArrowRight className="w-4 h-4" />
                     </button>
-                  </div>{" "}
+                  </motion.div>{" "}
                   {/* Right: Mock UI Dashboard */}
                   <TiltCard className="w-full md:w-[60%] xl:w-[65%] p-1 sm:p-6 md:p-4 mt-2 md:mt-0 z-20 flex justify-center items-center relative">
                     {/* Style block for floating badge and bar animations */}
@@ -288,7 +288,7 @@ export default function ProductsSection() {
                     />
 
                     {/* Floating Growth Badge - Overlapping Bottom Right */}
-                    <div className="absolute right-[-12px] sm:right-[-24px] bottom-[-8px] sm:bottom-[-20px] bg-[#0E1129]/95 backdrop-blur-xl rounded-lg sm:rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_20px_rgba(168,85,247,0.2)] flex flex-col z-30 animate-float-right transform-gpu min-w-[100px] sm:min-w-[125px] group/growth">
+                    <div className="absolute right-[-12px] sm:right-[-24px] bottom-[-8px] sm:bottom-[-20px] bg-[#0E1129]/95 backdrop-blur-xl rounded-lg sm:rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_20px_rgba(168,85,247,0.2)] flex flex-col z-30 animate-float-right transform-gpu min-w-[100px] sm:min-w-[125px] lg:min-w-[100px] xl:min-w-[125px] group/growth">
                       {/* Animated Border Mask for Growth Badge */}
                       <div
                         className="absolute inset-0 rounded-lg sm:rounded-xl overflow-hidden pointer-events-none z-10"
@@ -303,11 +303,11 @@ export default function ProductsSection() {
                         <div className="absolute inset-[-100%] animate-[spin_3s_linear_infinite] opacity-40 bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,#E81CFF_30%,#FF4D8D_50%,transparent_80%)]" />
                       </div>
 
-                      <div className="relative z-20 px-3 py-1.5 sm:px-4 sm:py-2 flex flex-col">
-                        <span className="text-blue-100/90 text-[10px] sm:text-[12px] font-medium tracking-wide">
+                      <div className="relative z-20 px-3 py-1.5 sm:px-4 sm:py-2 lg:px-3 lg:py-1.5 xl:px-4 xl:py-2 flex flex-col">
+                        <span className="text-blue-100/90 text-[10px] sm:text-[12px] lg:text-[10px] xl:text-[12px] font-medium tracking-wide">
                           Growth
                         </span>
-                        <span className="text-[#FF4D8D] font-extrabold text-[18px] sm:text-[22px] leading-tight drop-shadow-[0_0_10px_rgba(255,77,141,0.6)]">
+                        <span className="text-[#FF4D8D] font-extrabold text-[18px] sm:text-[22px] lg:text-[18px] xl:text-[22px] leading-tight drop-shadow-[0_0_10px_rgba(255,77,141,0.6)]">
                           +42%
                         </span>
 
@@ -322,16 +322,12 @@ export default function ProductsSection() {
                     </div>
                   </TiltCard>
                 </div>
-              </motion.div>
+              </div>
 
               {/* BOTTOM ROW: 3 columns */}
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 w-full">
                 {/* EduLoom */}
-                <motion.div 
-                  initial={isMobile ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: -50, y: 50 }}
-                  whileInView={{ opacity: 1, x: 0, y: 0 }}
-                  viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
-                  transition={{ duration: 0.6, type: "spring", bounce: 0.3, delay: 0.1 }}
+                <div 
                   className="md:col-span-6 relative rounded-[20px] shadow-[0_0_30px_rgba(59,130,246,0.05)] group"
                 >
                   {/* Animated Border Mask */}
@@ -356,36 +352,38 @@ export default function ProductsSection() {
                   {/* Static Glass Background - Blue Tint */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.08] to-transparent backdrop-blur-[32px] z-0 rounded-[20px] border border-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
 
-                  <div className="relative z-20 p-6 flex flex-col h-full">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-[12px] bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30 shrink-0">
-                        <BookOpen className="w-4 h-4 text-white" />
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.2 }}
+                    transition={{ duration: 0.5 }}
+                    className="relative z-20 p-6 md:p-5 lg:p-4 xl:p-6 flex flex-col h-full"
+                  >
+                    <div className="flex items-center gap-3 mb-4 lg:mb-3 xl:mb-4">
+                      <div className="w-10 h-10 md:w-8 md:h-8 lg:w-8 lg:h-8 xl:w-10 xl:h-10 rounded-[12px] bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30 shrink-0">
+                        <BookOpen className="w-4 h-4 lg:w-3 lg:h-3 xl:w-4 xl:h-4 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-white text-[17px] font-bold leading-tight">
+                        <h3 className="text-white text-[17px] md:text-[15px] lg:text-[14px] xl:text-[17px] font-bold leading-tight">
                           EduLoom
                         </h3>
-                        <p className="text-slate-400 text-[10px] mt-0.5">
+                        <p className="text-slate-400 text-[10px] md:text-[9px] lg:text-[9px] xl:text-[10px] mt-0.5">
                           Learning Platform
                         </p>
                       </div>
                     </div>
-                    <p className="text-slate-300 text-[13px] leading-relaxed mb-6 flex-1">
+                    <p className="text-slate-300 text-[13px] md:text-[12px] lg:text-[11px] xl:text-[13px] leading-relaxed mb-6 lg:mb-4 xl:mb-6 flex-1">
                       A modern learning platform for the next generation.
                       Empower educators and learners with technology.
                     </p>
-                    <button className="text-blue-400 font-semibold text-[13px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+                    <button className="text-blue-400 font-semibold text-[13px] md:text-[12px] lg:text-[12px] xl:text-[13px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
                       Learn More <ArrowRight className="w-4 h-4" />
                     </button>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
 
                 {/* Custom Solutions */}
-                <motion.div 
-                  initial={isMobile ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: 50, y: 50 }}
-                  whileInView={{ opacity: 1, x: 0, y: 0 }}
-                  viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
-                  transition={{ duration: 0.6, type: "spring", bounce: 0.3, delay: 0.2 }}
+                <div 
                   className="md:col-span-6 relative rounded-[20px] shadow-[0_0_30px_rgba(168,85,247,0.05)] group"
                 >
                   {/* Animated Border Mask */}
@@ -410,29 +408,35 @@ export default function ProductsSection() {
                   {/* Static Glass Background - Purple Tint */}
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/[0.08] to-transparent backdrop-blur-[32px] z-0 rounded-[20px] border border-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
 
-                  <div className="relative z-20 p-6 flex flex-col h-full">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-[12px] bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center shadow-lg shadow-purple-500/30 shrink-0">
-                        <Box className="w-4 h-4 text-white" />
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.2 }}
+                    transition={{ duration: 0.5 }}
+                    className="relative z-20 p-6 md:p-5 lg:p-4 xl:p-6 flex flex-col h-full"
+                  >
+                    <div className="flex items-center gap-3 mb-4 lg:mb-3 xl:mb-4">
+                      <div className="w-10 h-10 md:w-8 md:h-8 lg:w-8 lg:h-8 xl:w-10 xl:h-10 rounded-[12px] bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center shadow-lg shadow-purple-500/30 shrink-0">
+                        <Box className="w-4 h-4 lg:w-3 lg:h-3 xl:w-4 xl:h-4 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-white text-[17px] font-bold leading-tight">
+                        <h3 className="text-white text-[17px] md:text-[15px] lg:text-[14px] xl:text-[17px] font-bold leading-tight">
                           Custom Solutions
                         </h3>
-                        <p className="text-slate-400 text-[10px] mt-0.5">
+                        <p className="text-slate-400 text-[10px] md:text-[9px] lg:text-[9px] xl:text-[10px] mt-0.5">
                           For Your Business
                         </p>
                       </div>
                     </div>
-                    <p className="text-slate-300 text-[13px] leading-relaxed mb-6 flex-1">
+                    <p className="text-slate-300 text-[13px] md:text-[12px] lg:text-[11px] xl:text-[13px] leading-relaxed mb-6 md:mb-4 lg:mb-4 xl:mb-6 flex-1">
                       Tailored digital solutions to solve your unique
                       challenges. From idea to impact, we build with you.
                     </p>
-                    <button className="text-[#A855F7] font-semibold text-[13px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+                    <button className="text-[#A855F7] font-semibold text-[13px] md:text-[12px] lg:text-[12px] xl:text-[13px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
                       Let's Discuss <ArrowRight className="w-4 h-4" />
                     </button>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
               </div>
             </div>
           </div>

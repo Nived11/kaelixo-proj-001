@@ -48,11 +48,11 @@ export default function MissionSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#FF0055]/10 rounded-full blur-[150px] pointer-events-none -z-10" />
 
       <div className="max-w-[1200px] mx-auto px-6 text-center space-y-6 sm:space-y-8 relative z-10">
-        <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-[72px] font-bold text-white tracking-tight leading-[1.1] font-heading">
+        <h2 className="text-3xl sm:text-5xl lg:text-5xl xl:text-[72px] font-bold text-white tracking-tight leading-[1.1] font-heading">
           THINK. BUILD. <span className="text-[#FF0055]">GROW.</span>
         </h2>
 
-        <p ref={textRef} className="text-[15px] sm:text-[17px] lg:text-[20px] xl:text-[22px] text-slate-200 font-normal max-w-[1200px] mx-auto leading-relaxed">
+        <p ref={textRef} className="text-[15px] sm:text-[17px] lg:text-[17px] xl:text-[22px] text-slate-200 font-normal max-w-[1200px] mx-auto leading-relaxed">
           {lines.map((line, lineIdx) => (
             <React.Fragment key={lineIdx}>
               {line.split(" ").map((word, wordIdx) => (

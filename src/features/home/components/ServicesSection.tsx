@@ -61,7 +61,7 @@ export default function ServicesSection() {
 
       <div className="relative max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header Row */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14 sm:mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:gap-8 lg:gap-4 xl:gap-8 mb-12 sm:mb-16">
           {/* Left: Tag + Headline */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -76,7 +76,7 @@ export default function ServicesSection() {
               </span>
               <span className="w-8 h-[2px] bg-[#FF0055] inline-block rounded-full" />
             </div>
-            <h2 className="text-[32px] sm:text-4xl lg:text-[34px] xl:text-[46px] font-black text-slate-900 tracking-tight leading-[1.12]">
+            <h2 className="text-[32px] sm:text-4xl lg:text-[36px] xl:text-[46px] font-black text-slate-900 tracking-tight leading-[1.12]">
               Digital Solutions <br />
               for a Smarter Tomorrow
             </h2>
@@ -88,17 +88,17 @@ export default function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row sm:items-center lg:items-end justify-between gap-6 lg:gap-4 xl:gap-6 max-w-xl lg:max-w-sm xl:max-w-xl"
+            className="flex flex-col md:flex-row md:items-center lg:items-center justify-between lg:justify-end gap-5 md:gap-8 lg:gap-5 xl:gap-4 w-full lg:w-auto"
           >
-            <p className="text-sm sm:text-[15px] lg:text-[13px] xl:text-[15px] text-slate-600 leading-relaxed font-normal">
-             Every step is clear and shared, guided by a growth marketing agency.
+            <p className="text-sm md:text-[14px] lg:text-[13px] xl:text-[15px] text-slate-600 leading-relaxed font-normal md:max-w-[400px] lg:max-w-none lg:w-max">
+             Every step is clear and shared,<br className="hidden lg:block" /> guided by a growth marketing agency.
             </p>
             <Link
               href="/services"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap px-6 py-3 lg:px-4 lg:py-2.5 xl:px-6 xl:py-3 rounded-full bg-white hover:bg-slate-50 text-slate-900 font-semibold text-sm lg:text-[13px] xl:text-sm border border-slate-200/90 shadow-sm hover:shadow transition-all duration-200 self-start sm:self-auto"
+              className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap px-6 py-3 md:px-5 md:py-2.5 lg:px-4 lg:py-2.5 xl:px-6 xl:py-3 rounded-full bg-white hover:bg-[#FF0055]/5 text-[#FF0055] font-semibold text-sm md:text-[13px] lg:text-[11px] xl:text-sm border border-[#FF0055] shadow-sm hover:shadow transition-all duration-200 self-start md:self-auto group"
             >
               <span>View All Services</span>
-              <ArrowRight className="w-4 h-4 text-slate-700" />
+              <ArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-[#FF0055] group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
         </div>

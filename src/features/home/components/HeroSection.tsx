@@ -233,25 +233,41 @@ export default function HeroSection() {
             </p>
 
             {/* Dual Pill CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-3 pt-3 sm:pt-2 font-heading animate-fade-in-up">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-4 pt-3 sm:pt-2 font-heading animate-fade-in-up">
               <Link
                 href="#consultation"
-                className="inline-flex items-center justify-center gap-2 w-[240px] py-2.5 rounded-full bg-[#FF0055] hover:bg-[#E6004C] text-white text-[13px] sm:text-sm font-semibold tracking-normal shadow-lg shadow-[#FF0055]/30 hover:shadow-[#FF0055]/50 transition-all duration-200 active:scale-95 text-center cursor-pointer
-                  [@media(min-width:1920px)]:text-[18px] [@media(min-width:1920px)]:w-[280px] [@media(min-width:1920px)]:py-3.5
+                className="group overflow-hidden inline-flex items-center justify-center w-[240px] h-[44px] sm:h-[46px] rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[13px] sm:text-sm font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300 active:scale-95 cursor-pointer
+                  [@media(min-width:1920px)]:text-[18px] [@media(min-width:1920px)]:w-[280px] [@media(min-width:1920px)]:h-[56px]
                 "
               >
-                <span>Book Free Consultation</span>
-                <ArrowRight className="w-4 h-4" />
+                <div className="flex flex-col h-[20px] overflow-hidden">
+                  <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
+                    <span className="leading-[20px]">Book Free Consultation</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                  <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
+                    <span className="leading-[20px]">Book Free Consultation</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
               </Link>
 
               <Link
                 href="#services"
-                className="inline-flex items-center justify-center gap-2 w-[240px] py-2.5 rounded-full bg-black/40 hover:bg-white/10 text-white text-[13px] sm:text-sm font-medium border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm text-center cursor-pointer
-                  [@media(min-width:1920px)]:text-[18px] [@media(min-width:1920px)]:w-[280px] [@media(min-width:1920px)]:py-3.5
+                className="group overflow-hidden inline-flex items-center justify-center w-[240px] h-[44px] sm:h-[46px] rounded-full bg-black/40 hover:bg-white/10 text-white text-[13px] sm:text-sm font-medium border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm cursor-pointer
+                  [@media(min-width:1920px)]:text-[18px] [@media(min-width:1920px)]:w-[280px] [@media(min-width:1920px)]:h-[56px]
                 "
               >
-                <span>Explore Our Services</span>
-                <ArrowRight className="w-4 h-4" />
+                <div className="flex flex-col h-[20px] overflow-hidden">
+                  <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
+                    <span className="leading-[20px]">Explore Our Services</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                  <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
+                    <span className="leading-[20px]">Explore Our Services</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
               </Link>
             </div>
           </div>
