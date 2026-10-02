@@ -39,7 +39,11 @@ export default function ScrollToTop() {
           className="fixed bottom-6 right-6 sm:bottom-10 sm:right-10 z-50 p-3 sm:p-4 rounded-full bg-[#FF0055] text-white shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] hover:-translate-y-1 transition-all duration-300"
           aria-label="Scroll to top"
         >
-          <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={2.5} />
+          <img 
+            src="/images/brand/kaelixo-logo.png" 
+            alt="Scroll to top" 
+            className="w-6 h-6 sm:w-8 sm:h-8 object-contain rotate-90 brightness-0 invert" 
+          />
         </motion.button>
       )}
     </AnimatePresence>

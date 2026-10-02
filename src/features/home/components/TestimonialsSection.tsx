@@ -65,17 +65,17 @@ export default function TestimonialsSection() {
             className="lg:col-span-5 flex flex-col items-start lg:pr-8"
           >
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-[#FF0055] font-bold text-sm tracking-widest uppercase">CLIENTS SPEAK</span>
+              <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-widest uppercase">CLIENTS SPEAK</span>
               <div className="w-10 h-[2px] bg-[#FF0055]"></div>
             </div>
             
-            <h2 className="text-[32px] sm:text-[42px] lg:text-[36px] xl:text-[52px] font-extrabold text-[#020205] leading-[1.1] tracking-tight">
+            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold text-[#020205] leading-[1.1] tracking-tight">
               Trusted by <br />
               Businesses That <br />
               <span className="text-[#FF0055]">Dream Bigger</span>
             </h2>
             
-            <p className="text-[#4A5568] text-[14px] sm:text-[16px] lg:text-[13px] xl:text-[16px] max-w-[420px] lg:max-w-[320px] xl:max-w-[420px] leading-relaxed mt-4 sm:mt-6">
+            <p className="text-[#4A5568] text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[18px] max-w-[420px] lg:max-w-[320px] xl:max-w-[420px] leading-relaxed mt-4 sm:mt-6">
               Real stories from real partners who trust us as their growth marketing agency to bring their vision to life. Their success inspires us to go further every day.
             </p>
 
@@ -83,7 +83,7 @@ export default function TestimonialsSection() {
               <div className="w-12 h-12 rounded-full bg-[#FF0055] flex items-center justify-center text-white shadow-lg shadow-[#FF0055]/30 group-hover:scale-105 group-active:scale-95 transition-transform">
                 <ArrowRight className="w-5 h-5" />
               </div>
-              <span className="text-[#FF0055] font-bold text-[15px] group-hover:underline">
+              <span className="text-[#FF0055] font-bold text-[13px] sm:text-[14px] xl:text-[15px] group-hover:underline">
                 See What Our Clients Say
               </span>
             </button>
@@ -106,9 +106,9 @@ export default function TestimonialsSection() {
                   className="inline-block"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <h4 className="text-[#020205] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[18px] xl:text-[24px] font-extrabold whitespace-nowrap">4.9/5</h4>
+                  <h4 className="text-[#020205] text-[24px] lg:text-[28px] font-extrabold whitespace-nowrap">4.9/5</h4>
                 </motion.div>
-                <p className="text-[#64748B] text-[10px] sm:text-[11px] md:text-[12px] lg:text-[10px] xl:text-[13px] mt-1 font-medium leading-tight">Client Satisfaction</p>
+                <p className="text-[#64748B] text-[12px] lg:text-[14px] mt-1 font-medium leading-tight">Client Satisfaction</p>
               </motion.div>
               <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0 mt-2" />
               <motion.div 
@@ -127,9 +127,9 @@ export default function TestimonialsSection() {
                   className="inline-block"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <h4 className="text-[#020205] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[18px] xl:text-[24px] font-extrabold whitespace-nowrap">200+</h4>
+                  <h4 className="text-[#020205] text-[24px] lg:text-[28px] font-extrabold whitespace-nowrap">200+</h4>
                 </motion.div>
-                <p className="text-[#64748B] text-[10px] sm:text-[11px] md:text-[12px] lg:text-[10px] xl:text-[13px] mt-1 font-medium leading-tight">Happy Businesses</p>
+                <p className="text-[#64748B] text-[12px] lg:text-[14px] mt-1 font-medium leading-tight">Happy Businesses</p>
               </motion.div>
               <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0 mt-2" />
               <motion.div 
@@ -148,9 +148,9 @@ export default function TestimonialsSection() {
                   className="inline-block"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <h4 className="text-[#020205] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[18px] xl:text-[24px] font-extrabold whitespace-nowrap">Long-Term</h4>
+                  <h4 className="text-[#020205] text-[24px] lg:text-[28px] font-extrabold whitespace-nowrap">Long-Term</h4>
                 </motion.div>
-                <p className="text-[#64748B] text-[10px] sm:text-[11px] md:text-[12px] lg:text-[10px] xl:text-[13px] mt-1 font-medium leading-tight">Partnerships</p>
+                <p className="text-[#64748B] text-[12px] lg:text-[14px] mt-1 font-medium leading-tight">Partnerships</p>
               </motion.div>
             </div>
           </motion.div>
@@ -195,7 +195,7 @@ export default function TestimonialsSection() {
                 return (
                   <div 
                     key={t.id}
-                    className="absolute w-[250px] sm:w-[320px] md:w-[260px] lg:w-[260px] xl:w-[320px] transition-all duration-500 ease-out will-change-transform"
+                    className="absolute w-[230px] sm:w-[280px] md:w-[250px] lg:w-[280px] xl:w-[300px] transition-all duration-500 ease-out will-change-transform"
                     style={{ 
                       transform: `${transform} translateZ(0)`, 
                       zIndex, 
@@ -214,7 +214,7 @@ export default function TestimonialsSection() {
 
                     {/* The Card Shape */}
                     <div 
-                      className="bg-white min-h-[290px] sm:min-h-[340px] md:min-h-[280px] lg:min-h-[280px] xl:min-h-[340px] h-full w-full relative flex flex-col p-5 sm:p-8 md:p-6 lg:p-6 xl:p-8 pb-6 sm:pb-10 md:pb-7 lg:pb-7 xl:pb-10 rounded-[20px] sm:rounded-[24px] md:rounded-[20px] lg:rounded-[20px] xl:rounded-[24px] border border-black/[0.03]"
+                      className="bg-white min-h-[260px] sm:min-h-[300px] md:min-h-[270px] lg:min-h-[290px] xl:min-h-[320px] h-full w-full relative flex flex-col p-5 sm:p-6 md:p-6 lg:p-7 rounded-[20px] sm:rounded-[24px] border border-black/[0.03]"
                       style={{ 
                         transform: 'translateZ(0)',
                         WebkitTransform: 'translateZ(0)'
@@ -234,25 +234,25 @@ export default function TestimonialsSection() {
                       </div>
 
                       {/* Standard Quote Icon */}
-                      <div className={`text-[36px] sm:text-[48px] font-serif leading-none mt-1 sm:mt-2 ${isActive ? 'text-[#FF0055]' : 'text-[#8B98B4]'}`}>
+                      <div className={`text-[32px] sm:text-[40px] font-serif leading-none mt-1 ${isActive ? 'text-[#FF0055]' : 'text-[#8B98B4]'}`}>
                         “
                       </div>
                       
                       {/* Text is dark on all cards as per image */}
-                      <p className="mt-2 sm:mt-4 md:mt-2 lg:mt-2 xl:mt-4 relative z-10 text-[13px] sm:text-[15px] md:text-[12px] lg:text-[12px] xl:text-[15px] leading-[1.6] sm:leading-[1.7] md:leading-[1.6] lg:leading-[1.6] xl:leading-[1.7] flex-1 text-[#1E293B]">
+                      <p className="mt-2 sm:mt-3 relative z-10 text-[13px] lg:text-[14px] xl:text-[15px] leading-[1.6] sm:leading-[1.7] flex-1 text-[#1E293B]">
                         "{t.quote}"
                       </p>
                       
                       {/* Avatar and Name */}
-                      <div className="mt-5 sm:mt-8 md:mt-5 flex items-center gap-3 sm:gap-4 md:gap-2 lg:gap-2 xl:gap-4">
+                      <div className="mt-4 sm:mt-6 flex items-center gap-3 sm:gap-4">
                         <img 
                           src={t.avatar} 
                           alt={t.name} 
-                          className="w-10 h-10 sm:w-[52px] sm:h-[52px] md:w-9 md:h-9 lg:w-9 lg:h-9 xl:w-[52px] xl:h-[52px] rounded-full object-cover bg-slate-100 border-2 border-white shadow-sm shrink-0" 
+                          className="w-10 h-10 sm:w-[48px] sm:h-[48px] rounded-full object-cover bg-slate-100 border-2 border-white shadow-sm shrink-0" 
                         />
                         <div className="min-w-0">
-                          <h5 className="text-[13px] sm:text-[15px] md:text-[12px] lg:text-[12px] xl:text-[15px] font-bold text-[#020205] truncate">{t.name}</h5>
-                          <p className="text-[11px] sm:text-[13px] md:text-[10px] lg:text-[10px] xl:text-[13px] text-[#64748B] mt-0.5 lg:mt-0 xl:mt-0.5 truncate">{t.role}</p>
+                          <h5 className="text-[13px] lg:text-[15px] font-bold text-[#020205] truncate">{t.name}</h5>
+                          <p className="text-[12px] lg:text-[13px] text-[#64748B] mt-0.5 truncate">{t.role}</p>
                         </div>
                       </div>
 

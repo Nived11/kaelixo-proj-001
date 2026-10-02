@@ -76,13 +76,13 @@ export default function ProcessSection() {
           className="max-w-2xl mb-20"
         >
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-[#FF0055] font-bold text-sm tracking-widest uppercase">OUR PROCESS</span>
+            <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-widest uppercase">OUR PROCESS</span>
             <div className="w-10 h-[2px] bg-[#FF0055]"></div>
           </div>
-          <h2 className="text-[32px] sm:text-[42px] lg:text-[36px] xl:text-[54px] font-black leading-[1.1] tracking-tight text-[#030C25] mb-4 sm:mb-5">
+          <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-black leading-[1.1] tracking-tight text-[#030C25] mb-4 sm:mb-5">
             From Idea to Impact
           </h2>
-          <p className="text-[#475569] text-[15px] sm:text-[17px] lg:text-[14px] xl:text-[17px] font-medium leading-relaxed max-w-2xl">
+          <p className="text-[#475569] text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] font-medium leading-relaxed max-w-2xl">
             A clear, collaborative process that keeps you involved at every step — the same process that makes us a growth marketing agency worth trusting with the full journey, not just one campaign.
           </p>
         </motion.div>
@@ -114,7 +114,7 @@ export default function ProcessSection() {
                   
                   {/* Step Number (Alternating left/right on mobile) */}
                   <span 
-                    className={`text-[20px] lg:text-[16px] xl:text-[20px] font-black tracking-tight absolute lg:static z-10 lg:-translate-y-2 xl:-translate-y-3 lg:ml-2 xl:ml-4 lg:right-auto lg:left-auto ${
+                    className={`text-[18px] sm:text-[20px] lg:text-[22px] xl:text-[24px] font-black tracking-tight absolute lg:static z-10 lg:-translate-y-2 xl:-translate-y-3 lg:ml-2 xl:ml-4 lg:right-auto lg:left-auto ${
                       index % 2 === 0 ? 'right-[calc(50%+45px)]' : 'left-[calc(50%+45px)]'
                     }`} 
                     style={{ color: step.color }}
@@ -124,11 +124,11 @@ export default function ProcessSection() {
                 </div>
 
                 {/* Content */}
-                <div className="max-w-[260px] lg:max-w-[180px] xl:max-w-[220px] relative z-10 px-4 py-2 lg:p-0">
-                  <h3 className="text-[22px] lg:text-[16px] xl:text-[22px] font-black text-[#030C25] mb-2 lg:mb-1 xl:mb-2">
+                <div className="max-w-[260px] lg:max-w-[180px] xl:max-w-[220px] relative z-10 px-4 py-2 lg:p-0 mt-2 lg:mt-0">
+                  <h3 className="text-[18px] sm:text-[20px] lg:text-[22px] xl:text-[24px] font-black text-[#030C25] mb-2 lg:mb-1 xl:mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 text-[14px] lg:text-[11px] xl:text-[14px] font-medium leading-relaxed">
+                  <p className="text-gray-600 text-[13px] sm:text-[14px] lg:text-[14px] xl:text-[15px] font-medium leading-relaxed">
                     {step.desc}
                   </p>
                 </div>

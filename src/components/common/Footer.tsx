@@ -3,19 +3,18 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { FaLinkedinIn, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn, FaYoutube, FaInstagram, FaFacebookF, FaXTwitter, FaBehance, FaThreads } from "react-icons/fa6";
 
 export default function Footer() {
   return (
     <footer className="bg-[#050914] text-slate-400 font-sans border-t border-white/5 relative z-10">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 pt-16 pb-6">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 pt-16 pb-8">
         
-        {/* Top Section: Links, Socials & Newsletter */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-6 pb-12 border-b border-white/10">
+        {/* Top Section: Links & Connect */}
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8 pb-12">
           
           {/* 1. Brand Logo & Tagline */}
-          <div className="w-full lg:w-[22%] flex flex-col items-start gap-3.5">
+          <div className="w-full lg:w-[20%] flex flex-col items-start gap-3.5">
             <Link href="/" className="block">
               <Image 
                 src="/images/brand/kaelixo-logo.webp" 
@@ -25,103 +24,117 @@ export default function Footer() {
                 className="h-8 w-auto object-contain"
               />
             </Link>
-            <p className="text-[11px] text-gray-400 font-medium tracking-wide">
+            <p className="text-[12px] text-gray-400 font-medium tracking-wide">
               Technology for a Smarter Tomorrow.
             </p>
           </div>
 
-          {/* 2. Links Columns (Products, Company, Resources) */}
-          <div className="w-full lg:w-[35%] grid grid-cols-2 md:grid-cols-3 gap-8">
-            {/* Products */}
+          {/* 2. Links Columns */}
+          <div className="w-full lg:w-[80%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6">
+            
+            {/* Kaelixo */}
             <div>
-              <h4 className="text-white font-semibold text-[13px] mb-4">Products</h4>
-              <ul className="space-y-3 text-[12px] font-medium">
-                <li><Link href="#" className="hover:text-white transition-colors">Way We Go</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">EduLoom</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Custom Solutions</Link></li>
+              <h4 className="text-white font-semibold text-[14px] mb-4">Kaelixo</h4>
+              <ul className="space-y-3 text-[13px] font-medium">
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">About</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Services</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Industries</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Works</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Careers</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Contact</Link></li>
               </ul>
             </div>
             
-            {/* Company */}
+            {/* Services */}
             <div>
-              <h4 className="text-white font-semibold text-[13px] mb-4">Company</h4>
-              <ul className="space-y-3 text-[12px] font-medium">
-                <li><Link href="#" className="hover:text-white transition-colors">About Us</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Contact</Link></li>
+              <h4 className="text-white font-semibold text-[14px] mb-4">Services</h4>
+              <ul className="space-y-3 text-[13px] font-medium">
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Branding</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Experience Design</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Technology</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Digital Marketing</Link></li>
               </ul>
             </div>
 
             {/* Resources */}
             <div>
-              <h4 className="text-white font-semibold text-[13px] mb-4">Resources</h4>
-              <ul className="space-y-3 text-[12px] font-medium">
-                <li><Link href="#" className="hover:text-white transition-colors">Case Studies</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Blog</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Support</Link></li>
+              <h4 className="text-white font-semibold text-[14px] mb-4">Resources</h4>
+              <ul className="space-y-3 text-[13px] font-medium">
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Insights</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Blogs</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Events</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Testimonials</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Our Clients</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Submit Feedback</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Download Brochure</Link></li>
+                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Sitemap</Link></li>
               </ul>
             </div>
-          </div>
 
-          {/* 3. Social Icons with Custom Vertical Separator */}
-          <div className="w-full lg:w-[15%] lg:self-center flex items-center relative lg:pl-8 mt-4 lg:mt-0">
-            {/* Short vertical bar visible only on large screens */}
-            <div className="hidden lg:block absolute left-0 w-[1px] h-[40px] bg-white/10"></div>
-            
-            <div className="flex items-center gap-2.5">
-              <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
-                <FaLinkedinIn size={12} />
-              </a>
-              <a href="#" aria-label="Twitter" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
-                <FaTwitter size={12} />
-              </a>
-              <a href="#" aria-label="YouTube" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
-                <FaYoutube size={12} />
-              </a>
-              <a href="#" aria-label="Instagram" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
-                <FaInstagram size={12} />
-              </a>
-            </div>
-          </div>
-
-          {/* 4. Newsletter */}
-          <div className="w-full lg:w-[28%] flex flex-col gap-2">
-            <h4 className="text-white font-semibold text-[13px]">Stay in the loop</h4>
-            <p className="text-[11.5px] text-gray-400 font-medium mb-1">
-              Get the latest updates, insights and stories.
-            </p>
-            <form onSubmit={(e) => e.preventDefault()} className="flex items-center gap-2 mt-2">
-              <div className="relative flex-1">
-                <input 
-                  type="email" 
-                  placeholder="Your email address" 
-                  className="w-full bg-transparent border border-white/20 rounded-lg px-4 py-2.5 text-[12px] text-white placeholder:text-gray-500 focus:outline-none focus:border-[#FF0055] transition-colors"
-                />
+            {/* Connect */}
+            <div className="flex flex-col">
+              <h4 className="text-white font-semibold text-[14px] mb-4">Connect</h4>
+              <div className="space-y-4 text-[13px] font-medium leading-relaxed">
+                <div>
+                  <strong className="text-white font-semibold block">Kaelixo Pvt. Ltd.</strong>
+                  1st Floor, Maveli Arcade, Metro Pillar<br />
+                  No. 800, S A Road, Kadavanthra,<br />
+                  Kochi – 682020
+                </div>
+                <div>
+                  <p>General Enquiry : <a href="tel:+919037235832" className="hover:text-[#FF0055] transition-colors">+91 90372 35832</a></p>
+                  <p>Sales Enquiry : <a href="tel:+918086370404" className="hover:text-[#FF0055] transition-colors">+91 80863 70404</a></p>
+                  <p>Email : <a href="mailto:info@kaelixo.com" className="hover:text-[#FF0055] transition-colors">info@kaelixo.com</a></p>
+                </div>
               </div>
-              <button 
-                type="submit" 
-                aria-label="Subscribe to newsletter"
-                className="w-10 h-10 rounded-lg bg-[#FF0055] hover:bg-[#e6004c] flex items-center justify-center text-white shrink-0 transition-colors cursor-pointer"
-              >
-                <ArrowRight size={16} strokeWidth={2.5} />
-              </button>
-            </form>
-          </div>
+            </div>
 
+          </div>
         </div>
 
-        {/* Bottom Section: Copyright & Legal */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 text-[11px] font-medium text-gray-500">
-          <p>© {new Date().getFullYear()} Kaelixo. All rights reserved.</p>
+        {/* Separator */}
+        <div className="w-full h-px bg-white/10 mb-6"></div>
+
+        {/* Bottom Section: Socials & Copyright */}
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 md:gap-0 relative">
           
-          <div className="flex items-center flex-wrap justify-center gap-3">
-            <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
-            <span className="text-gray-700">|</span>
-            <Link href="#" className="hover:text-white transition-colors">Terms</Link>
-            <span className="text-gray-700">|</span>
-            <Link href="#" className="hover:text-white transition-colors">Sitemap</Link>
-           
+          {/* Copyright */}
+          <div className="text-[12px] font-medium text-gray-500 md:w-1/3 text-center md:text-left">
+            <p>© {new Date().getFullYear()} Kaelixo. All rights reserved.</p>
           </div>
+
+          {/* Social Links (Center) */}
+          <div className="flex items-center justify-center gap-2 md:w-1/3">
+            <a href="#" aria-label="Instagram" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
+              <FaInstagram size={15} />
+            </a>
+            <a href="#" aria-label="Facebook" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
+              <FaFacebookF size={14} />
+            </a>
+            <a href="#" aria-label="YouTube" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
+              <FaYoutube size={15} />
+            </a>
+            <a href="#" aria-label="X" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
+              <FaXTwitter size={14} />
+            </a>
+            <a href="#" aria-label="Behance" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
+              <FaBehance size={15} />
+            </a>
+            <a href="#" aria-label="Threads" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
+              <FaThreads size={15} />
+            </a>
+            <a href="#" aria-label="LinkedIn" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
+              <FaLinkedinIn size={14} />
+            </a>
+          </div>
+
+          {/* Legal Links (Right Side) */}
+          <div className="flex items-center justify-center md:justify-end gap-3 md:gap-4 text-[12px] font-medium text-gray-500 md:w-1/3">
+            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <span className="text-gray-600">|</span>
+            <Link href="#" className="hover:text-white transition-colors">Terms & Conditions</Link>
+          </div>
+
         </div>
 
       </div>

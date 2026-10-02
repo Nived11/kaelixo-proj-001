@@ -165,7 +165,7 @@ export default function TrustedBySection() {
     <section className="relative bg-transparent pt-16 pb-6 lg:pt-24 lg:pb-10 overflow-hidden select-none border-t border-white/[0.04]">
       {/* Section Subtitle */}
       <div className="max-w-[1400px] mx-auto px-6 mb-12 text-center">
-        <p className="text-xs sm:text-[14px] lg:text-[12px] xl:text-[14px] font-bold tracking-[0.28em] text-white/60 uppercase font-sans">
+        <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] font-bold tracking-[0.28em] text-white/60 uppercase font-sans">
           TRUSTED BY INNOVATIVE COMPANIES
         </p>
       </div>

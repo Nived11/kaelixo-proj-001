@@ -111,15 +111,11 @@ export default function StatsSection({ children }: StatsSectionProps) {
                 {stat.icon}
               </div>
               <div>
-                <div className="text-lg sm:text-xl md:text-lg lg:text-2xl font-bold text-white tracking-tight font-heading leading-tight
-                  [@media(min-width:1920px)]:text-[32px]
-                ">
+                <div className="text-[24px] sm:text-[28px] lg:text-[32px] xl:text-[36px] font-bold text-white tracking-tight font-heading leading-tight">
                   {stat.number.includes("+") && <AnimatedCounter to={parseInt(stat.number)} suffix="+" trigger={isInView} />}
                   {stat.number.includes("%") && <AnimatedCounter to={parseInt(stat.number)} suffix="%" trigger={isInView} />}
                 </div>
-                <div className="text-[10px] sm:text-[11px] lg:text-xs text-slate-300 font-medium font-sans whitespace-nowrap
-                  [@media(min-width:1920px)]:text-[16px]
-                ">
+                <div className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] text-slate-300 font-medium font-sans whitespace-nowrap">
                   {stat.label}
                 </div>
               </div>

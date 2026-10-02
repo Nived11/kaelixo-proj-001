@@ -144,13 +144,13 @@ export default function ReadyToBuildSection() {
           className="w-full lg:w-1/2 pt-8 pb-16 lg:pb-24"
         >
           <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex items-center gap-3 mb-4">
-            <span className="text-[#FF0055] font-bold text-sm tracking-widest uppercase">
+            <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-widest uppercase">
               READY TO BUILD
             </span>
             <div className="w-10 h-[2px] bg-[#FF0055]"></div>
           </motion.div>
           
-          <h2 ref={headingRef} className="text-[46px] sm:text-[52px] md:text-[48px] lg:text-[46px] xl:text-[64px] font-extrabold leading-[1.1] mb-6 tracking-tight font-heading">
+          <h2 ref={headingRef} className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold leading-[1.1] mb-6 tracking-tight font-heading">
             <TypewriterText 
               text="What's Next" 
               delay={0} 
@@ -176,20 +176,20 @@ export default function ReadyToBuildSection() {
             />
           </h2>
           
-          <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-slate-700 text-xs sm:text-[15px] md:text-[14px] lg:text-[13px] xl:text-base mb-10 max-w-md leading-relaxed font-medium">
+          <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-slate-700 text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] mb-10 max-w-md leading-relaxed font-medium">
             Let's turn your ideas into real-world impact. Partner with Kaelixo and bring your vision to life.
           </motion.p>
 
           <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-4">
             <Link
               href="#contact"
-              className="group inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center gap-1.5 sm:gap-2 px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full bg-gradient-to-r from-[#CC0044] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[13px] sm:text-[14px] md:text-[13px] lg:text-[12px] xl:text-sm font-medium tracking-wide hover:brightness-110 transition-all duration-300 active:scale-95 whitespace-nowrap cursor-pointer"
+              className="group inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center gap-1.5 sm:gap-2 px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full bg-gradient-to-r from-[#CC0044] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[13px] sm:text-[14px] lg:text-[15px] font-medium tracking-wide hover:brightness-110 transition-all duration-300 active:scale-95 whitespace-nowrap cursor-pointer"
             >
               <span>Let's Talk</span> <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-3.5 md:h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
             <Link
               href="#portfolio"
-              className="inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full border border-slate-300 hover:border-[#FF0055] text-[#0A1024] text-[13px] sm:text-[14px] md:text-[13px] lg:text-[12px] xl:text-sm font-semibold bg-white/50 backdrop-blur-sm transition-all hover:bg-white whitespace-nowrap cursor-pointer"
+              className="inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full border border-slate-300 hover:border-[#FF0055] text-[#0A1024] text-[13px] sm:text-[14px] lg:text-[15px] font-semibold bg-white/50 backdrop-blur-sm transition-all hover:bg-white whitespace-nowrap cursor-pointer"
             >
               Explore Our Work
             </Link>
@@ -214,10 +214,10 @@ export default function ReadyToBuildSection() {
                 <Rocket className="w-5 h-5 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-7 xl:h-7 stroke-[1.5]" />
               </div>
               <div className="text-left">
-                <h4 className="text-[18px] sm:text-[24px] md:text-[18px] lg:text-[20px] xl:text-[28px] font-extrabold text-[#0A1024] leading-none mb-1">
+                <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] xl:text-[36px] font-bold text-[#0A1024] tracking-tight font-heading leading-tight mb-0.5 sm:mb-1">
                   <AnimatedCounter to={250} suffix="+" trigger={statsInView} />
                 </h4>
-                <p className="text-[10px] sm:text-[12px] md:text-[9px] lg:text-[10px] xl:text-[14px] text-slate-500 font-medium leading-tight sm:leading-normal">Projects<br className="hidden sm:block md:hidden" /> Delivered</p>
+                <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] text-slate-500 font-medium font-sans whitespace-nowrap">Projects Delivered</p>
               </div>
             </motion.div>
 
@@ -227,10 +227,10 @@ export default function ReadyToBuildSection() {
                 <Users className="w-5 h-5 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-7 xl:h-7 stroke-[1.5]" />
               </div>
               <div className="text-left">
-                <h4 className="text-[18px] sm:text-[24px] md:text-[18px] lg:text-[20px] xl:text-[28px] font-extrabold text-[#0A1024] leading-none mb-1">
+                <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] xl:text-[36px] font-bold text-[#0A1024] tracking-tight font-heading leading-tight mb-0.5 sm:mb-1">
                   <AnimatedCounter to={120} suffix="+" trigger={statsInView} />
                 </h4>
-                <p className="text-[10px] sm:text-[12px] md:text-[9px] lg:text-[10px] xl:text-[14px] text-slate-500 font-medium leading-tight sm:leading-normal">Happy<br className="hidden sm:block md:hidden" /> Clients</p>
+                <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] text-slate-500 font-medium font-sans whitespace-nowrap">Happy Clients</p>
               </div>
             </motion.div>
 
@@ -240,10 +240,10 @@ export default function ReadyToBuildSection() {
                 <Globe className="w-5 h-5 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-7 xl:h-7 stroke-[1.5]" />
               </div>
               <div className="text-left">
-                <h4 className="text-[18px] sm:text-[24px] md:text-[18px] lg:text-[20px] xl:text-[28px] font-extrabold text-[#0A1024] leading-none mb-1">
+                <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] xl:text-[36px] font-bold text-[#0A1024] tracking-tight font-heading leading-tight mb-0.5 sm:mb-1">
                   <AnimatedCounter to={10} suffix="+" trigger={statsInView} />
                 </h4>
-                <p className="text-[10px] sm:text-[12px] md:text-[9px] lg:text-[10px] xl:text-[14px] text-slate-500 font-medium leading-tight sm:leading-normal">Countries<br className="hidden sm:block md:hidden" /> Served</p>
+                <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] text-slate-500 font-medium font-sans whitespace-nowrap">Countries Served</p>
               </div>
             </motion.div>
 
@@ -253,10 +253,10 @@ export default function ReadyToBuildSection() {
                 <Trophy className="w-5 h-5 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-7 xl:h-7 stroke-[1.5]" />
               </div>
               <div className="text-left">
-                <h4 className="text-[18px] sm:text-[24px] md:text-[18px] lg:text-[20px] xl:text-[28px] font-extrabold text-[#0A1024] leading-none mb-1">
+                <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] xl:text-[36px] font-bold text-[#0A1024] tracking-tight font-heading leading-tight mb-0.5 sm:mb-1">
                   <AnimatedCounter to={98} suffix="%" trigger={statsInView} />
                 </h4>
-                <p className="text-[10px] sm:text-[12px] md:text-[9px] lg:text-[10px] xl:text-[14px] text-slate-500 font-medium leading-tight sm:leading-normal">Client<br className="hidden sm:block md:hidden" /> Satisfaction</p>
+                <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] text-slate-500 font-medium font-sans whitespace-nowrap">Client Satisfaction</p>
               </div>
             </motion.div>
 

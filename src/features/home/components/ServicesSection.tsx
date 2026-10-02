@@ -71,12 +71,12 @@ export default function ServicesSection() {
             className="max-w-xl"
           >
             <div className="inline-flex items-center gap-2.5 mb-4">
-              <span className="text-[12px] font-bold text-[#FF0055] tracking-[0.2em] uppercase">
+              <span className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] font-bold text-[#FF0055] tracking-[0.2em] uppercase">
                 OUR SERVICES
               </span>
               <span className="w-8 h-[2px] bg-[#FF0055] inline-block rounded-full" />
             </div>
-            <h2 className="text-[32px] sm:text-4xl lg:text-[36px] xl:text-[46px] font-black text-slate-900 tracking-tight leading-[1.12]">
+            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-black text-slate-900 tracking-tight leading-[1.12]">
               Digital Solutions <br />
               for a Smarter Tomorrow
             </h2>
@@ -90,12 +90,12 @@ export default function ServicesSection() {
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="flex flex-col md:flex-row md:items-center lg:items-center justify-between lg:justify-end gap-5 md:gap-8 lg:gap-5 xl:gap-4 w-full lg:w-auto"
           >
-            <p className="text-sm md:text-[14px] lg:text-[13px] xl:text-[15px] text-slate-600 leading-relaxed font-normal md:max-w-[400px] lg:max-w-none lg:w-max">
+            <p className="text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] text-slate-600 leading-relaxed font-normal md:max-w-[400px] lg:max-w-none lg:w-max">
              Every step is clear and shared,<br className="hidden lg:block" /> guided by a growth marketing agency.
             </p>
             <Link
               href="/services"
-              className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap px-6 py-3 md:px-5 md:py-2.5 lg:px-4 lg:py-2.5 xl:px-6 xl:py-3 rounded-full bg-white hover:bg-[#FF0055]/5 text-[#FF0055] font-semibold text-sm md:text-[13px] lg:text-[11px] xl:text-sm border border-[#FF0055] shadow-sm hover:shadow transition-all duration-200 self-start md:self-auto group"
+              className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap px-6 py-3 md:px-5 md:py-2.5 lg:px-4 lg:py-2.5 xl:px-6 xl:py-3 rounded-full bg-white hover:bg-[#FF0055]/5 text-[#FF0055] font-semibold text-[13px] sm:text-[14px] lg:text-[15px] border border-[#FF0055] shadow-sm hover:shadow transition-all duration-200 self-start md:self-auto group"
             >
               <span>View All Services</span>
               <ArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-[#FF0055] group-hover:translate-x-1 transition-transform" />
@@ -135,13 +135,13 @@ export default function ServicesSection() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-[18px] sm:text-xl lg:text-[16px] xl:text-xl font-bold text-slate-900 tracking-tight sm:mt-7 sm:mb-3 lg:mt-5 lg:mb-2 xl:mt-7 xl:mb-3 leading-snug">
+                    <h3 className="text-[18px] sm:text-[20px] lg:text-[22px] xl:text-[24px] font-bold text-slate-900 tracking-tight sm:mt-7 sm:mb-3 lg:mt-5 lg:mb-2 xl:mt-7 xl:mb-3 leading-snug">
                       {item.title}
                     </h3>
                   </div>
 
                   {/* Description */}
-                  <p className="text-[14px] sm:text-[13.5px] lg:text-[12px] xl:text-[13.5px] text-slate-600 leading-relaxed lg:leading-normal xl:leading-relaxed font-normal mt-4 sm:mt-0 lg:mt-2 xl:mt-0">
+                  <p className="text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] text-slate-600 leading-relaxed lg:leading-normal xl:leading-relaxed font-normal mt-4 sm:mt-0 lg:mt-2 xl:mt-0">
                     {item.description}
                   </p>
                 </div>
@@ -149,7 +149,7 @@ export default function ServicesSection() {
                 {/* Bottom Learn More link */}
                 <div className="mt-5 sm:mt-8 lg:mt-5 xl:mt-8 pt-3 sm:pt-4 lg:pt-3 xl:pt-4">
                   <div
-                    className="inline-flex items-center gap-1.5 text-[13px] sm:text-sm lg:text-[12px] xl:text-sm font-semibold text-[#FF0055] group-hover:text-[#E6004C] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-[13px] sm:text-[14px] lg:text-[15px] font-semibold text-[#FF0055] group-hover:text-[#E6004C] transition-colors"
                   >
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />

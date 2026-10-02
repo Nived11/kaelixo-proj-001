@@ -1,6 +1,6 @@
 "use client";
-
 import React from "react";
+import Image from "next/image";
 import {
   ArrowRight,
   BookOpen,
@@ -110,7 +110,7 @@ export default function ProductsSection() {
 
       {/* Background Image - Desktop */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none hidden md:block"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none hidden md:block md:scale-105 lg:scale-110 2xl:scale-[1.15] origin-center"
         style={{ backgroundImage: "url('/images/home/products-bg-desktop.webp')" }}
       />
 
@@ -128,12 +128,12 @@ export default function ProductsSection() {
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-6 h-[2px] bg-[#FF0055]" />
-              <span className="text-[#FF0055] font-bold text-xs tracking-[0.25em] uppercase">
+              <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-[0.25em] uppercase">
                 Our Products
               </span>
             </div>
 
-            <h2 className="text-[36px] sm:text-5xl md:text-[42px] lg:text-[36px] xl:text-[54px] font-extrabold text-white leading-[1.05] tracking-tight">
+            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold text-white leading-[1.05] tracking-tight">
               <span className="whitespace-nowrap">Built by Kaelixo</span> <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-pink-500">
                 For Modern
@@ -144,19 +144,19 @@ export default function ProductsSection() {
               </span>
             </h2>
 
-            <p className="text-slate-400 text-[15px] md:text-[14px] lg:text-[14px] xl:text-[16px] max-w-[380px] lg:max-w-[280px] xl:max-w-[380px] leading-relaxed mt-6">
+            <p className="text-slate-400 text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] max-w-[380px] lg:max-w-[280px] xl:max-w-[380px] leading-relaxed mt-6">
               Powerful digital products designed to simplify operations, improve
               productivity and accelerate growth.
             </p>
 
             <button className="group mt-10 lg:mt-8 xl:mt-10 flex items-center gap-2 px-8 py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full bg-gradient-to-r from-[#FF0055] to-[#A855F7] border border-white/30 hover:border-white/60 shadow-[0_0_30px_rgba(255,0,85,0.3)] hover:shadow-[0_0_40px_rgba(255,0,85,0.5)] transition-all duration-300 active:scale-95 cursor-pointer">
-              <span className="text-white font-bold text-[15px] md:text-[14px] lg:text-[13px] xl:text-[15px]">
+              <span className="text-white font-bold text-[13px] sm:text-[14px] lg:text-[15px]">
                 Explore All Products
               </span>
               <ArrowRight className="text-white w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
 
-            <div className="mt-16 lg:mt-12 xl:mt-16 flex items-center gap-4 md:gap-3 lg:gap-2 xl:gap-4 text-[10px] sm:text-xs md:text-[10px] lg:text-[9px] xl:text-xs font-semibold tracking-[0.3em] text-slate-300 uppercase">
+            <div className="mt-16 lg:mt-12 xl:mt-16 flex items-center gap-4 md:gap-3 lg:gap-2 xl:gap-4 text-[10px] sm:text-[11px] lg:text-[12px] xl:text-[13px] 2xl:text-[14px] [@media(min-width:1920px)]:text-[15px] font-semibold tracking-[0.3em] text-slate-300 uppercase">
               <motion.span initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.3 }}>Simple</motion.span>
               <span className="text-slate-700">/</span>
               <motion.span initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.5 }}>Powerful</motion.span>
@@ -203,7 +203,7 @@ export default function ProductsSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.2 }}
                     transition={{ duration: 0.5 }}
-                    className="w-full md:w-[40%] lg:w-[45%] xl:w-[35%] flex flex-col items-start"
+                    className="w-full md:w-[45%] lg:w-[50%] xl:w-[45%] flex flex-col items-start"
                   >
                     <div className="px-2.5 py-1 rounded-full bg-[#FF0055] text-white text-[9px] font-bold tracking-wider mb-6 md:mb-4 lg:mb-4 xl:mb-6 shadow-[0_0_15px_rgba(255,0,85,0.5)]">
                       FEATURED PRODUCT
@@ -223,26 +223,26 @@ export default function ProductsSection() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-white text-xl md:text-[18px] lg:text-lg xl:text-xl font-bold">
+                        <h3 className="text-white text-[18px] sm:text-[20px] lg:text-[22px] xl:text-[24px] font-bold">
                           Way We Go
                         </h3>
-                        <p className="text-slate-400 text-[11px] md:text-[10px] lg:text-[10px] xl:text-[11px] mt-0.5">
+                        <p className="text-slate-400 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] mt-0.5">
                           Business Management CRM
                         </p>
                       </div>
                     </div>
 
-                    <p className="text-slate-300 text-[13px] md:text-[12px] lg:text-[11px] xl:text-[13px] leading-relaxed mb-6 md:mb-4 lg:mb-4 xl:mb-6">
+                    <p className="text-slate-300 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed mb-6 md:mb-4 lg:mb-4 xl:mb-6">
                       Manage leads, sales, projects and teams — 
                       all in one place. A smarter way to run and grow your business.
                     </p>
 
-                    <button className="text-[#FF0055] font-semibold text-[13px] flex items-center gap-2 group-hover:gap-3 transition-all">
+                    <button className="text-[#FF0055] font-semibold text-[13px] sm:text-[14px] lg:text-[15px] flex items-center gap-2 group-hover:gap-3 transition-all">
                       Learn More <ArrowRight className="w-4 h-4" />
                     </button>
                   </motion.div>{" "}
                   {/* Right: Mock UI Dashboard */}
-                  <TiltCard className="w-full md:w-[60%] xl:w-[65%] p-1 sm:p-6 md:p-4 mt-2 md:mt-0 z-20 flex justify-center items-center relative">
+                  <TiltCard className="w-full md:w-[55%] lg:w-[50%] xl:w-[55%] p-1 sm:p-6 md:p-4 mt-2 md:mt-0 z-20 flex justify-center items-center relative">
                     {/* Style block for floating badge and bar animations */}
                     <style>{`
                            @keyframes floatBadgeRight {
@@ -364,19 +364,19 @@ export default function ProductsSection() {
                         <BookOpen className="w-4 h-4 lg:w-3 lg:h-3 xl:w-4 xl:h-4 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-white text-[17px] md:text-[15px] lg:text-[14px] xl:text-[17px] font-bold leading-tight">
+                        <h3 className="text-white text-[18px] sm:text-[20px] lg:text-[22px] xl:text-[24px] font-bold leading-tight">
                           EduLoom
                         </h3>
-                        <p className="text-slate-400 text-[10px] md:text-[9px] lg:text-[9px] xl:text-[10px] mt-0.5">
+                        <p className="text-slate-400 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] mt-0.5">
                           Learning Platform
                         </p>
                       </div>
                     </div>
-                    <p className="text-slate-300 text-[13px] md:text-[12px] lg:text-[11px] xl:text-[13px] leading-relaxed mb-6 lg:mb-4 xl:mb-6 flex-1">
+                    <p className="text-slate-300 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed mb-6 lg:mb-4 xl:mb-6 flex-1">
                       A modern learning platform for the next generation.
                       Empower educators and learners with technology.
                     </p>
-                    <button className="text-blue-400 font-semibold text-[13px] md:text-[12px] lg:text-[12px] xl:text-[13px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+                    <button className="text-blue-400 font-semibold text-[13px] sm:text-[14px] lg:text-[15px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
                       Learn More <ArrowRight className="w-4 h-4" />
                     </button>
                   </motion.div>
@@ -420,19 +420,19 @@ export default function ProductsSection() {
                         <Box className="w-4 h-4 lg:w-3 lg:h-3 xl:w-4 xl:h-4 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-white text-[17px] md:text-[15px] lg:text-[14px] xl:text-[17px] font-bold leading-tight">
+                        <h3 className="text-white text-[18px] sm:text-[20px] lg:text-[22px] xl:text-[24px] font-bold leading-tight">
                           Custom Solutions
                         </h3>
-                        <p className="text-slate-400 text-[10px] md:text-[9px] lg:text-[9px] xl:text-[10px] mt-0.5">
+                        <p className="text-slate-400 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] mt-0.5">
                           For Your Business
                         </p>
                       </div>
                     </div>
-                    <p className="text-slate-300 text-[13px] md:text-[12px] lg:text-[11px] xl:text-[13px] leading-relaxed mb-6 md:mb-4 lg:mb-4 xl:mb-6 flex-1">
+                    <p className="text-slate-300 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed mb-6 md:mb-4 lg:mb-4 xl:mb-6 flex-1">
                       Tailored digital solutions to solve your unique
                       challenges. From idea to impact, we build with you.
                     </p>
-                    <button className="text-[#A855F7] font-semibold text-[13px] md:text-[12px] lg:text-[12px] xl:text-[13px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+                    <button className="text-[#A855F7] font-semibold text-[13px] sm:text-[14px] lg:text-[15px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
                       Let's Discuss <ArrowRight className="w-4 h-4" />
                     </button>
                   </motion.div>

@@ -88,7 +88,7 @@ export default function WhyKaelixoSection() {
         " 
       />
 
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10 flex flex-col">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-9 relative z-10 flex flex-col">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
@@ -102,20 +102,20 @@ export default function WhyKaelixoSection() {
             className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-4"
           >
             <div className="flex items-center gap-3 mb-5">
-              <span className="text-slate-200 font-bold text-[11px] tracking-[0.2em] uppercase">WHY KAELIXO</span>
+              <span className="text-slate-200 font-bold text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-[0.2em] uppercase">WHY KAELIXO</span>
               <div className="w-10 h-[2px] bg-[#FF0055]"></div>
             </div>
             
-            <h2 className="text-[36px] lg:text-[28px] xl:text-[44px] font-extrabold leading-[1.1] tracking-tight mb-4 xl:mb-5">
+            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold leading-[1.1] tracking-tight mb-4 xl:mb-5">
               More Than a <br /> Tech Company — <br />
               <span className="text-[#FF0055]">A Growth Marketing Agency</span>
             </h2>
             
-            <p className="text-slate-300 text-[14px] lg:text-[12px] xl:text-[14px] leading-relaxed mb-6 xl:mb-8 font-normal max-w-[340px] lg:max-w-[280px] xl:max-w-[340px]">
+            <p className="text-slate-300 text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] leading-relaxed mb-6 xl:mb-8 font-normal max-w-[340px] lg:max-w-[280px] xl:max-w-[340px]">
               We combine technology, creativity, strategy and AI thinking to build digital experiences that create real business impact. It's what makes us a growth marketing agency businesses stay with, not just hire once.
             </p>
             
-            <button className="group px-7 py-3 lg:px-4 lg:py-2 xl:px-7 xl:py-3 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white font-medium tracking-wide text-[14px] lg:text-[12px] xl:text-[14px] shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] hover:brightness-110 transition-all duration-300 flex items-center gap-2 cursor-pointer mb-6 lg:mb-0 active:scale-95">
+            <button className="group px-7 py-3 lg:px-4 lg:py-2 xl:px-7 xl:py-3 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white font-medium tracking-wide text-[13px] sm:text-[14px] lg:text-[15px] shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] hover:brightness-110 transition-all duration-300 flex items-center gap-2 cursor-pointer mb-6 lg:mb-0 active:scale-95">
               <span>Our Story</span>
               <ArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
@@ -123,16 +123,16 @@ export default function WhyKaelixoSection() {
             {/* BOTTOM ROW: Footer Stats / Philosophy */}
             <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-4 lg:gap-3 xl:gap-8 w-full mt-auto relative top-4 xl:top-10">
               <div className="relative pl-4 lg:pl-2.5 xl:pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
-                <h4 className="text-[14px] lg:text-[10px] xl:text-[14px] font-bold text-white mb-1 lg:mb-0.5 xl:mb-1 leading-tight whitespace-nowrap">Strategy-Led</h4>
-                <p className="text-[12px] lg:text-[9px] xl:text-[12px] text-slate-300 font-medium md:whitespace-nowrap lg:whitespace-nowrap xl:whitespace-nowrap leading-tight">Not just execution</p>
+                <h4 className="text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] font-bold text-white mb-1 lg:mb-0.5 xl:mb-1 leading-tight whitespace-nowrap">Strategy-Led</h4>
+                <p className="text-[12px] lg:text-[14px] text-slate-300 font-medium md:whitespace-nowrap lg:whitespace-nowrap xl:whitespace-nowrap leading-tight">Not just execution</p>
               </div>
               <div className="relative pl-4 lg:pl-2.5 xl:pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
-                <h4 className="text-[14px] lg:text-[10px] xl:text-[14px] font-bold text-white mb-1 lg:mb-0.5 xl:mb-1 leading-tight whitespace-nowrap">People-First</h4>
-                <p className="text-[12px] lg:text-[9px] xl:text-[12px] text-slate-300 font-medium md:whitespace-nowrap lg:whitespace-nowrap xl:whitespace-nowrap leading-tight">Relationships matter</p>
+                <h4 className="text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] font-bold text-white mb-1 lg:mb-0.5 xl:mb-1 leading-tight whitespace-nowrap">People-First</h4>
+                <p className="text-[12px] lg:text-[14px] text-slate-300 font-medium md:whitespace-nowrap lg:whitespace-nowrap xl:whitespace-nowrap leading-tight">Relationships matter</p>
               </div>
               <div className="relative pl-4 lg:pl-2.5 xl:pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
-                <h4 className="text-[14px] lg:text-[10px] xl:text-[14px] font-bold text-white mb-1 lg:mb-0.5 xl:mb-1 leading-tight whitespace-nowrap">Impact-Driven</h4>
-                <p className="text-[12px] lg:text-[9px] xl:text-[12px] text-slate-300 font-medium md:whitespace-nowrap lg:whitespace-nowrap xl:whitespace-nowrap leading-tight">Your growth is our success</p>
+                <h4 className="text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] font-bold text-white mb-1 lg:mb-0.5 xl:mb-1 leading-tight whitespace-nowrap">Impact-Driven</h4>
+                <p className="text-[12px] lg:text-[14px] text-slate-300 font-medium md:whitespace-nowrap lg:whitespace-nowrap xl:whitespace-nowrap leading-tight">Your growth is our success</p>
               </div>
             </div>
           </motion.div>
@@ -177,10 +177,10 @@ export default function WhyKaelixoSection() {
                   )}
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-[12px] sm:text-[13px] lg:text-[11px] xl:text-[13px] font-bold text-white mb-0.5 leading-tight whitespace-nowrap">
+                  <h4 className="text-[13px] sm:text-[14px] lg:text-[15px] font-bold text-white mb-0.5 leading-tight whitespace-nowrap">
                     {isPlaying ? "Pause Video" : "See Our Workspace"}
                   </h4>
-                  <p className="text-[10px] sm:text-[11px] lg:text-[9px] xl:text-[11px] text-slate-300 font-medium leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
+                  <p className="text-[12px] lg:text-[13px] text-slate-300 font-medium leading-tight">
                     {isPlaying ? "Currently playing" : "A peek into our world"}
                   </p>
                 </div>
@@ -205,8 +205,8 @@ export default function WhyKaelixoSection() {
                   <feature.icon className={`w-6 h-6 md:w-5 md:h-5 lg:w-4 lg:h-4 xl:w-6 xl:h-6 ${feature.iconColor}`} strokeWidth={2.5} />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-[14px] sm:text-[15px] md:text-[13px] lg:text-[12px] xl:text-[15px] font-bold text-white mb-0.5 group-hover:text-white transition-colors lg:whitespace-nowrap xl:whitespace-normal truncate xl:overflow-visible">{feature.title}</h4>
-                  <p className="text-[12px] sm:text-[13px] md:text-[11px] lg:text-[10px] xl:text-[13px] text-slate-300 font-medium leading-tight">{feature.desc}</p>
+                  <h4 className="text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] font-bold text-white mb-0.5 group-hover:text-white transition-colors lg:whitespace-nowrap xl:whitespace-normal">{feature.title}</h4>
+                  <p className="text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] text-slate-300 font-medium leading-tight">{feature.desc}</p>
                 </div>
               </motion.div>
             ))}
