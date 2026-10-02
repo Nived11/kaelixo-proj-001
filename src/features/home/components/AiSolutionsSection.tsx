@@ -96,7 +96,6 @@ export default function AiSolutionsSection() {
                 icon={BarChart2}
                 title="Data-Driven Decision Making"
                 desc="Turn raw data into actionable insight."
-                theme="pink"
               />
               <FeatureItem
                 icon={BrainCircuit}
