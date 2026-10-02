@@ -23,7 +23,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Kaelixo | Technology That Helps Businesses Think Bigger, Build Smarter and Grow Faster.",
+  title: "Kaelixo | Think. Build. Grow.",
   description:
     "We design intelligent websites, build powerful software, create custom CRM solutions, develop AI-driven tools and deliver digital growth strategies for ambitious businesses worldwide.",
   keywords: [
