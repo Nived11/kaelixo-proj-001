@@ -25,7 +25,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[12px] text-gray-400 font-medium tracking-wide">
-              Technology for a Smarter Tomorrow.
+              Think clearly. Build intelligently. Grow confidently. A technology and growth marketing agency that turns bold ideas into real, measurable impact, together, always.
             </p>
           </div>
 

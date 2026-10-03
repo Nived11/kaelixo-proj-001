@@ -71,12 +71,12 @@ export default function ServicesSection() {
             className="max-w-xl"
           >
             <div className="inline-flex items-center gap-2.5 mb-4">
-              <span className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] font-bold text-[#FF0055] tracking-[0.2em] uppercase">
+              <span className="text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] font-bold text-[#FF0055] tracking-[0.2em] uppercase">
                 OUR SERVICES
               </span>
               <span className="w-8 h-[2px] bg-[#FF0055] inline-block rounded-full" />
             </div>
-            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-black text-slate-900 tracking-tight leading-[1.12]">
+            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px] font-black text-slate-900 tracking-tight leading-[1.12]">
               Digital Solutions <br />
               for a Smarter Tomorrow
             </h2>
@@ -90,7 +90,7 @@ export default function ServicesSection() {
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="flex flex-col md:flex-row md:items-center lg:items-center justify-between lg:justify-end gap-5 md:gap-8 lg:gap-5 xl:gap-4 w-full lg:w-auto"
           >
-            <p className="text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] text-slate-600 leading-relaxed font-normal md:max-w-[400px] lg:max-w-none lg:w-max">
+            <p className="text-[16px] text-gray-600  md:max-w-[400px] lg:max-w-none lg:w-max">
              Every step is clear and shared,<br className="hidden lg:block" /> guided by a growth marketing agency.
             </p>
             <Link
@@ -141,7 +141,7 @@ export default function ServicesSection() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] text-slate-600 leading-relaxed lg:leading-normal xl:leading-relaxed font-normal mt-4 sm:mt-0 lg:mt-2 xl:mt-0">
+                  <p className="text-[16px] text-slate-600 leading-relaxed lg:leading-normal xl:leading-relaxed font-normal mt-4 sm:mt-0 lg:mt-2 xl:mt-0">
                     {item.description}
                   </p>
                 </div>

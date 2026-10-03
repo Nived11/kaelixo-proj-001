@@ -9,7 +9,6 @@ import AnimatedNeonLogo from "@/components/AnimatedNeonLogo";
 import RotatingGlobe from "@/components/RotatingGlobe";
 import { motion } from "framer-motion";
 
-
 export default function HeroSection() {
   const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
   const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -43,8 +42,9 @@ export default function HeroSection() {
       {/* SLIDE 1: MULTI-LAYER PARALLAX COSMIC SCENE                   */}
       {/* ============================================================ */}
       <div
-        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${currentSlide === 1 ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
+        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
+          currentSlide === 1 ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           {/* Preload Globe Image to prevent delay */}
@@ -174,8 +174,9 @@ export default function HeroSection() {
       {/* SLIDE 2: VIDEO BACKGROUND                                    */}
       {/* ============================================================ */}
       <div
-        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${currentSlide === 0 ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
+        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
+          currentSlide === 0 ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <video
@@ -196,49 +197,47 @@ export default function HeroSection() {
       </div>
 
       {/* Main Hero Content Area (Centered vertically in viewport) */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 w-full flex-1 flex items-center py-6 sm:py-8">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 w-full flex-1 flex items-center mt-10 sm:mt-0 py-6 sm:py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
 
           {/* Left Column: Headline, Description & CTAs */}
-          <div className="lg:col-span-8 max-w-2xl space-y-4 sm:space-y-5">
-            {/* Tagline Eyebrow */}
+          <div className="lg:col-span-8 max-w-2xl 2xl:max-w-3xl space-y-4 sm:space-y-5">
+            {/* Tagline Eyebrow - Consistent across all screens */}
             <div className="flex items-center gap-2 animate-fade-in-up">
-              <span className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] font-semibold tracking-[0.22em] text-white/80 uppercase font-heading">
+              <span className="text-[13px] sm:text-[18px] font-semibold tracking-[0.22em] text-white/80 uppercase font-heading">
                 THINK <span className="text-[#FF0055]">•</span> BUILD <span className="text-[#FF0055]">•</span> GROW
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] leading-[1.05] font-extrabold text-white tracking-tight sm:leading-[1.05] font-heading animate-fade-in-up">
-              {/* Mobile: 4 lines */}
-              <span className="block sm:hidden">Built</span>
-              <span className="block sm:hidden">Smart</span>
-              <span className="block sm:hidden text-[#FF0055] mt-1">Grown</span>
-              <span className="block sm:hidden text-[#FF0055]">Beyond</span>
+            {/* Main Headline - Responsive Scaling */}
+            <h1 className="text-[38px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] leading-[1.08] font-extrabold text-white tracking-tight font-heading animate-fade-in-up">
+              {/* Mobile: 2 lines */}
+              <span className="block sm:hidden">Built Smart</span>
+              <span className="block sm:hidden text-[#FF0055] mt-1">Grown Beyond</span>
 
               {/* Desktop: 2 lines */}
               <span className="hidden sm:block">Built Smart</span>
               <span className="hidden sm:block text-[#FF0055] mt-1 sm:mt-2">Grown Beyond</span>
             </h1>
 
-            {/* Sub-paragraph */}
-            <p className="text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[18px] text-slate-300 max-w-[480px] [@media(min-width:1920px)]:max-w-[600px] leading-relaxed font-normal font-sans animate-fade-in-up mt-2 sm:mt-4">
-              We study your business, build what it needs, <br className="block sm:hidden" />and grow it with marketing that delivers.
+            {/* Sub-paragraph - Standard 16px across all devices */}
+            <p className="text-[16px] text-white max-w-[500px] [@media(min-width:1920px)]:max-w-[600px] leading-relaxed font-normal font-sans animate-fade-in-up mt-2 sm:mt-4">
+              We study your business, build what it <br className="block sm:hidden" />needs, and deliver growth
             </p>
 
-            {/* Dual Pill CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-4 pt-3 sm:pt-2 font-heading animate-fade-in-up">
+            {/* Dual Pill CTA Buttons - Standard 15px font size */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3 sm:pt-4 font-heading animate-fade-in-up">
               <Link
                 href="#consultation"
-                className="group overflow-hidden inline-flex items-center justify-center w-[240px] h-[44px] sm:h-[46px] [@media(min-width:1920px)]:w-[280px] [@media(min-width:1920px)]:h-[56px] rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[13px] sm:text-[14px] xl:text-[15px] font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300 active:scale-95 cursor-pointer"
+                className="group overflow-hidden inline-flex items-center justify-center w-full sm:w-[240px] 2xl:w-[260px] h-[46px] 2xl:h-[50px] rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[15px] font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300 active:scale-95 cursor-pointer"
               >
                 <div className="flex flex-col h-[20px] overflow-hidden">
                   <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
-                    <span className="leading-[20px]">Book Free Consultation</span>
+                    <span className="leading-[20px] text-[16px]">Book Free Consultation</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>
                   <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
-                    <span className="leading-[20px]">Book Free Consultation</span>
+                    <span className="leading-[20px] text-[16px]">Book Free Consultation</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
@@ -246,7 +245,7 @@ export default function HeroSection() {
 
               <Link
                 href="#services"
-                className="group overflow-hidden inline-flex items-center justify-center w-[240px] h-[44px] sm:h-[46px] [@media(min-width:1920px)]:w-[280px] [@media(min-width:1920px)]:h-[56px] rounded-full bg-black/40 hover:bg-white/10 text-white text-[13px] sm:text-[14px] xl:text-[15px] font-medium border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm cursor-pointer"
+                className="group overflow-hidden inline-flex items-center justify-center w-full sm:w-[240px] 2xl:w-[260px] h-[46px] 2xl:h-[50px] rounded-full bg-black/40 hover:bg-white/10 text-white text-[15px] font-medium border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm cursor-pointer"
               >
                 <div className="flex flex-col h-[20px] overflow-hidden">
                   <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
@@ -274,10 +273,11 @@ export default function HeroSection() {
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-2 transition-all duration-300 rounded-full ${currentSlide === idx
+                className={`h-2 transition-all duration-300 rounded-full ${
+                  currentSlide === idx
                     ? "w-8 bg-[#FF0055]"
                     : "w-2 bg-white/30 hover:bg-white/50"
-                  }`}
+                }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}

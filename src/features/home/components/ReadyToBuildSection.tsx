@@ -92,7 +92,7 @@ export default function ReadyToBuildSection() {
             2xl:bottom-[20%] 2xl:right-[-5%] 2xl:w-[60%] 2xl:h-[75%]
             [@media(min-width:1920px)]:bottom-[20%] [@media(min-width:1920px)]:right-[-5%] [@media(min-width:1920px)]:w-[55%] [@media(min-width:1920px)]:h-[75%]
           "
-          style={{ 
+          style={{
             backgroundImage: "url('/images/home/person-2.webp')",
             /* Mask to softly fade the top 70% of the container to catch the top crop, and fade left/bottom borders */
             WebkitMaskImage: 'linear-gradient(to top, transparent 0%, black 15%, black 30%, transparent 100%), linear-gradient(to right, transparent 0%, black 25%, black 100%, transparent 100%)',
@@ -130,13 +130,13 @@ export default function ReadyToBuildSection() {
       <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col justify-between h-full">
 
         {/* Top Content (Text & Buttons) */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.2, margin: "0px 0px -50px 0px" }}
           variants={{
             hidden: { opacity: 0 },
-            visible: { 
+            visible: {
               opacity: 1,
               transition: { staggerChildren: 0.15 }
             }
@@ -144,39 +144,39 @@ export default function ReadyToBuildSection() {
           className="w-full lg:w-1/2 pt-8 pb-16 lg:pb-24"
         >
           <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex items-center gap-3 mb-4">
-            <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-widest uppercase">
+            <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-widest uppercase">
               READY TO BUILD
             </span>
             <div className="w-10 h-[2px] bg-[#FF0055]"></div>
           </motion.div>
-          
-          <h2 ref={headingRef} className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold leading-[1.1] mb-6 tracking-tight font-heading">
-            <TypewriterText 
-              text="What's Next" 
-              delay={0} 
-              duration={0.5} 
-              trigger={headingInView} 
-              className="text-[#0A1024]" 
+
+          <h2 ref={headingRef} className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px]  font-extrabold leading-[1.1] mb-6 tracking-tight font-heading">
+            <TypewriterText
+              text="What's Next"
+              delay={0}
+              duration={0.5}
+              trigger={headingInView}
+              className="text-[#0A1024]"
             />
             <br />
-            <TypewriterText 
-              text="for Your " 
-              delay={0.5} 
-              duration={0.3} 
-              trigger={headingInView} 
-              className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF0055] to-[#DD0077]" 
+            <TypewriterText
+              text="for Your "
+              delay={0.5}
+              duration={0.3}
+              trigger={headingInView}
+              className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF0055] to-[#DD0077]"
             />
             <br className="sm:hidden" />
-            <TypewriterText 
-              text="Business?" 
-              delay={0.8} 
-              duration={0.4} 
-              trigger={headingInView} 
-              className="text-transparent bg-clip-text bg-gradient-to-r from-[#DD0077] to-[#B000B0] pr-2" 
+            <TypewriterText
+              text="Business?"
+              delay={0.8}
+              duration={0.4}
+              trigger={headingInView}
+              className="text-transparent bg-clip-text bg-gradient-to-r from-[#DD0077] to-[#B000B0] pr-2"
             />
           </h2>
-          
-          <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-slate-700 text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] mb-10 max-w-md leading-relaxed font-medium">
+
+          <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-slate-700 text-[16px] mb-10 max-w-md leading-relaxed font-medium">
             Let's turn your ideas into real-world impact. Partner with Kaelixo and bring your vision to life.
           </motion.p>
 
@@ -198,7 +198,7 @@ export default function ReadyToBuildSection() {
 
         {/* Bottom Stats Bar */}
         <div ref={statsRef} className="w-full mt-4 sm:mt-8 relative z-20">
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate={statsInView ? "visible" : "hidden"}
             variants={{

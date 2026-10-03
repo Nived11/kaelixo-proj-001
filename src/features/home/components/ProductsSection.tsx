@@ -75,12 +75,12 @@ const TiltCard = ({
         style={
           isDesktop
             ? {
-                transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
-                transition: isHovering
-                  ? "transform 0.1s ease-out"
-                  : "transform 0.5s ease-out",
-                willChange: "transform",
-              }
+              transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+              transition: isHovering
+                ? "transform 0.1s ease-out"
+                : "transform 0.5s ease-out",
+              willChange: "transform",
+            }
             : {}
         }
       >
@@ -119,7 +119,7 @@ export default function ProductsSection() {
           {/* ========================================= */}
           {/* LEFT CONTENT                              */}
           {/* ========================================= */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2, margin: "0px 0px -50px 0px" }}
@@ -127,13 +127,13 @@ export default function ProductsSection() {
             className="lg:col-span-4 flex flex-col items-start lg:pr-4 relative z-20"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-6 h-[2px] bg-[#FF0055]" />
-              <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-[0.25em] uppercase">
+              <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.25em] uppercase">
                 Our Products
               </span>
+              <div className="w-6 h-[2px] bg-[#FF0055]" />
             </div>
 
-            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold text-white leading-[1.05] tracking-tight">
+            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px]  font-extrabold text-white leading-[1.05] tracking-tight">
               <span className="whitespace-nowrap">Built by Kaelixo</span> <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-pink-500">
                 For Modern
@@ -144,7 +144,7 @@ export default function ProductsSection() {
               </span>
             </h2>
 
-            <p className="text-slate-400 text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] max-w-[380px] lg:max-w-[280px] xl:max-w-[380px] leading-relaxed mt-6">
+            <p className="text-slate-400 text-[16px] max-w-[380px] lg:max-w-[280px] xl:max-w-[380px] leading-relaxed mt-6">
               Powerful digital products designed to simplify operations, improve
               productivity and accelerate growth.
             </p>
@@ -171,7 +171,7 @@ export default function ProductsSection() {
           <div className="lg:col-span-8 relative mt-12 lg:mt-0 z-10 perspective-[1000px]">
             <div className="flex flex-col gap-6 w-full">
               {/* TOP ROW: Way We Go (Spans full width) */}
-              <div 
+              <div
                 className="relative rounded-[14px] sm:rounded-[20px] shadow-[0_0_30px_rgba(255,0,85,0.05)] group"
               >
                 {/* Animated Border Mask */}
@@ -198,7 +198,7 @@ export default function ProductsSection() {
 
                 <div className="relative z-20 p-6 sm:p-8 md:p-6 lg:p-5 xl:p-8 flex flex-col md:flex-row gap-4 sm:gap-8 md:gap-6 lg:gap-4 xl:gap-8 items-center justify-between h-full">
                   {/* Left: Info */}
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.2 }}
@@ -233,7 +233,7 @@ export default function ProductsSection() {
                     </div>
 
                     <p className="text-slate-300 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed mb-6 md:mb-4 lg:mb-4 xl:mb-6">
-                      Manage leads, sales, projects and teams — 
+                      Manage leads, sales, projects and teams —
                       all in one place. A smarter way to run and grow your business.
                     </p>
 
@@ -327,7 +327,7 @@ export default function ProductsSection() {
               {/* BOTTOM ROW: 3 columns */}
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 w-full">
                 {/* EduLoom */}
-                <div 
+                <div
                   className="md:col-span-6 relative rounded-[20px] shadow-[0_0_30px_rgba(59,130,246,0.05)] group"
                 >
                   {/* Animated Border Mask */}
@@ -352,7 +352,7 @@ export default function ProductsSection() {
                   {/* Static Glass Background - Blue Tint */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.08] to-transparent backdrop-blur-[32px] z-0 rounded-[20px] border border-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
 
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.2 }}
@@ -383,7 +383,7 @@ export default function ProductsSection() {
                 </div>
 
                 {/* Custom Solutions */}
-                <div 
+                <div
                   className="md:col-span-6 relative rounded-[20px] shadow-[0_0_30px_rgba(168,85,247,0.05)] group"
                 >
                   {/* Animated Border Mask */}
@@ -408,7 +408,7 @@ export default function ProductsSection() {
                   {/* Static Glass Background - Purple Tint */}
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/[0.08] to-transparent backdrop-blur-[32px] z-0 rounded-[20px] border border-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
 
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.2 }}

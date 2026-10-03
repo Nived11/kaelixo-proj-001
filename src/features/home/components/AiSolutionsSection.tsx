@@ -52,7 +52,7 @@ export default function AiSolutionsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
           {/* Left Content */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -64,19 +64,19 @@ export default function AiSolutionsSection() {
           >
             {/* Eyebrow */}
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="flex items-center gap-3 mb-4">
-              <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-[0.25em] uppercase">
+              <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.25em] uppercase">
                 AI SOLUTIONS
               </span>
               <div className="w-8 h-[2px] bg-[#FF0055]" />
             </motion.div>
 
             {/* Headline */}
-            <motion.h2 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-white text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold leading-[1.05] tracking-tight mb-4 font-heading">
+            <motion.h2 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-white text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px]  font-extrabold leading-[1.05] tracking-tight mb-4 font-heading">
               AI Thinking for a<br />
               Smarter <span className="text-[#FF0066]">Tomorrow</span>
             </motion.h2>
 
-            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-slate-300/90 text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] leading-[1.6] mb-8 lg:mb-6 xl:mb-8 max-w-[480px] lg:max-w-[380px] xl:max-w-[480px]">
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-slate-300/90 text-[16px] leading-[1.6] mb-8 lg:mb-6 xl:mb-8 max-w-[480px] lg:max-w-[380px] xl:max-w-[480px]">
               We integrate artificial intelligence into real business solutions — helping you automate, predict, personalize and grow without limits, the same intelligence-first approach that runs through every growth marketing agency service we offer.
             </motion.p>
 
@@ -221,7 +221,7 @@ export default function AiSolutionsSection() {
 
 function FeatureItem({ icon: Icon, title, desc }: { icon: any, title: string, desc: string }) {
   return (
-    <motion.div 
+    <motion.div
       variants={{
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }

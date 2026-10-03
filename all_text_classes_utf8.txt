@@ -1,0 +1,350 @@
+﻿
+src\features\home\components\AiSolutionsSection.tsx:67:              <span className="text-[#FF0055] font-bold 
+text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-[0.25em] uppercase">
+src\features\home\components\AiSolutionsSection.tsx:74:            <motion.h2 variants={{ hidden: { opacity: 0, y: 20 
+}, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-white text-[28px] 
+sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold leading-[1.05] 
+tracking-tight mb-4 font-heading">
+src\features\home\components\AiSolutionsSection.tsx:76:              Smarter <span 
+className="text-[#FF0066]">Tomorrow</span>
+src\features\home\components\AiSolutionsSection.tsx:79:            <motion.p variants={{ hidden: { opacity: 0, y: 20 
+}, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-slate-300/90 
+text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] leading-[1.6] mb-8 lg:mb-6 xl:mb-8 
+max-w-[480px] lg:max-w-[380px] xl:max-w-[480px]">
+src\features\home\components\AiSolutionsSection.tsx:111:                className="group inline-flex items-center 
+justify-center gap-2 px-6 py-2.5 md:px-5 md:py-2.5 lg:px-5 lg:py-2 xl:px-6 xl:py-2.5 rounded-full bg-gradient-to-r 
+from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[13px] sm:text-[14px] 
+xl:text-[15px] font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] 
+hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] hover:brightness-110 transition-all duration-300 active:scale-95 
+cursor-pointer"
+src\features\home\components\AiSolutionsSection.tsx:119:              <p className="text-slate-300 text-[12px] 
+sm:text-[13px] lg:text-[14px] xl:text-[15px] leading-[1.4]">
+src\features\home\components\AiSolutionsSection.tsx:155:                <span className="text-[#FF0066] text-[36px] 
+lg:text-[34px] xl:text-[42px] 2xl:text-[48px] font-black tracking-tighter mb-2 lg:mb-1 xl:mb-2 font-heading 
+drop-shadow-[0_0_15px_rgba(255,0,102,0.8)]">AI</span>
+src\features\home\components\AiSolutionsSection.tsx:157:                  <span className="text-white/90 text-[8px] 
+lg:text-[6px] xl:text-[8px] 2xl:text-[9px] [@media(min-width:1920px)]:text-[10px] font-medium tracking-[0.35em] 
+text-left uppercase leading-[1.7] drop-shadow-sm">
+src\features\home\components\AiSolutionsSection.tsx:186:                <div className="text-[45px] font-serif 
+leading-none h-7 mb-2 bg-gradient-to-r from-[#FFB3D9] to-[#FF0055] bg-clip-text text-transparent select-none">
+src\features\home\components\AiSolutionsSection.tsx:194:                      className={`absolute inset-0 text-white 
+text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-[1.6] font-medium pr-2 drop-shadow-sm 
+whitespace-pre-line transition-all duration-500 ${activeQuote === idx ? 'opacity-100 translate-y-0' : 'opacity-0 
+translate-y-2 pointer-events-none'
+src\features\home\components\AiSolutionsSection.tsx:207:                  <span className="text-[#d8b4fe] text-[9px] 
+lg:text-[10px] 2xl:text-[11px] [@media(min-width:1920px)]:text-[12px] font-semibold tracking-[0.3em] text-right 
+uppercase leading-[1.5]">
+src\features\home\components\AiSolutionsSection.tsx:234:        <Icon className="w-5 h-5 md:w-4 md:h-4 lg:w-4 lg:h-4 
+xl:w-5 xl:h-5 transition-colors duration-300 text-[#c084fc] group-hover:text-[#f43f5e]" />
+src\features\home\components\AiSolutionsSection.tsx:237:        <h4 className="text-white text-[16px] sm:text-[17px] 
+lg:text-[18px] xl:text-[20px] font-bold leading-tight mb-0.5">{title}</h4>
+src\features\home\components\AiSolutionsSection.tsx:238:        <p className="text-slate-400 text-[13px] 
+sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-[1.4]">{desc}</p>
+src\features\home\components\HeroSection.tsx:206:              <span className="text-[12px] sm:text-[13px] 
+lg:text-[14px] xl:text-[15px] font-semibold tracking-[0.22em] text-white/80 uppercase font-heading">
+src\features\home\components\HeroSection.tsx:207:                THINK <span className="text-[#FF0055]">•</span> BUILD 
+<span className="text-[#FF0055]">•</span> GROW
+src\features\home\components\HeroSection.tsx:212:            <h1 className="text-[36px] sm:text-[48px] md:text-[56px] 
+lg:text-[64px] xl:text-[72px] leading-[1.05] font-extrabold text-white tracking-tight sm:leading-[1.05] font-heading 
+animate-fade-in-up">
+src\features\home\components\HeroSection.tsx:216:              <span className="block sm:hidden text-[#FF0055] 
+mt-1">Grown</span>
+src\features\home\components\HeroSection.tsx:217:              <span className="block sm:hidden 
+text-[#FF0055]">Beyond</span>
+src\features\home\components\HeroSection.tsx:221:              <span className="hidden sm:block text-[#FF0055] mt-1 
+sm:mt-2">Grown Beyond</span>
+src\features\home\components\HeroSection.tsx:225:            <p className="text-[14px] sm:text-[15px] lg:text-[16px] 
+xl:text-[18px] text-slate-300 max-w-[480px] [@media(min-width:1920px)]:max-w-[600px] leading-relaxed font-normal 
+font-sans animate-fade-in-up mt-2 sm:mt-4">
+src\features\home\components\HeroSection.tsx:233:                className="group overflow-hidden inline-flex 
+items-center justify-center w-[240px] h-[44px] sm:h-[46px] [@media(min-width:1920px)]:w-[280px] 
+[@media(min-width:1920px)]:h-[56px] rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] 
+hover:border-[#FF6699] text-white text-[13px] sm:text-[14px] xl:text-[15px] font-medium tracking-wide 
+shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300 
+active:scale-95 cursor-pointer"
+src\features\home\components\HeroSection.tsx:249:                className="group overflow-hidden inline-flex 
+items-center justify-center w-[240px] h-[44px] sm:h-[46px] [@media(min-width:1920px)]:w-[280px] 
+[@media(min-width:1920px)]:h-[56px] rounded-full bg-black/40 hover:bg-white/10 text-white text-[13px] sm:text-[14px] 
+xl:text-[15px] font-medium border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm 
+cursor-pointer"
+src\features\home\components\MissionSection.tsx:51:        <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 
+lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-bold text-white tracking-tight leading-[1.1] font-heading">
+src\features\home\components\MissionSection.tsx:52:          THINK. BUILD. <span 
+className="text-[#FF0055]">GROW.</span>
+src\features\home\components\MissionSection.tsx:55:        <p ref={textRef} className="text-[16px] sm:text-[17px] 
+lg:text-[18px] xl:text-[20px] text-slate-200 font-normal max-w-[1200px] mx-auto leading-relaxed">
+src\features\home\components\ProcessSection.tsx:61:    <div className="relative bg-[#ffffff] text-[#030C25] py-10 
+sm:py-24 overflow-hidden">
+src\features\home\components\ProcessSection.tsx:79:            <span className="text-[#FF0055] font-bold text-[12px] 
+sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-widest uppercase">OUR PROCESS</span>
+src\features\home\components\ProcessSection.tsx:82:          <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 
+lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-black leading-[1.1] tracking-tight text-[#030C25] mb-4 sm:mb-5">
+src\features\home\components\ProcessSection.tsx:85:          <p className="text-[#475569] text-[14px] sm:text-[15px] 
+lg:text-[16px] xl:text-[17px] 2xl:text-[18px] font-medium leading-relaxed max-w-2xl">
+src\features\home\components\ProcessSection.tsx:117:                    className={`text-[18px] sm:text-[20px] 
+lg:text-[22px] xl:text-[24px] font-black tracking-tight absolute lg:static z-10 lg:-translate-y-2 xl:-translate-y-3 
+lg:ml-2 xl:ml-4 lg:right-auto lg:left-auto ${
+src\features\home\components\ProcessSection.tsx:128:                  <h3 className="text-[18px] sm:text-[20px] 
+lg:text-[22px] xl:text-[24px] font-black text-[#030C25] mb-2 lg:mb-1 xl:mb-2">
+src\features\home\components\ProcessSection.tsx:131:                  <p className="text-gray-600 text-[13px] 
+sm:text-[14px] lg:text-[14px] xl:text-[15px] font-medium leading-relaxed">
+src\features\home\components\ProductsSection.tsx:131:              <span className="text-[#FF0055] font-bold 
+text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-[0.25em] uppercase">
+src\features\home\components\ProductsSection.tsx:136:            <h2 className="text-[28px] sm:text-[32px] 
+md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold text-white leading-[1.05] tracking-tight">
+src\features\home\components\ProductsSection.tsx:147:            <p className="text-slate-400 text-[14px] 
+sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] max-w-[380px] lg:max-w-[280px] xl:max-w-[380px] 
+leading-relaxed mt-6">
+src\features\home\components\ProductsSection.tsx:153:              <span className="text-white font-bold text-[13px] 
+sm:text-[14px] lg:text-[15px]">
+src\features\home\components\ProductsSection.tsx:159:            <div className="mt-16 lg:mt-12 xl:mt-16 flex 
+items-center gap-4 md:gap-3 lg:gap-2 xl:gap-4 text-[10px] sm:text-[11px] lg:text-[12px] xl:text-[13px] 2xl:text-[14px] 
+[@media(min-width:1920px)]:text-[15px] font-semibold tracking-[0.3em] text-slate-300 uppercase">
+src\features\home\components\ProductsSection.tsx:208:                    <div className="px-2.5 py-1 rounded-full 
+bg-[#FF0055] text-white text-[9px] font-bold tracking-wider mb-6 md:mb-4 lg:mb-4 xl:mb-6 
+shadow-[0_0_15px_rgba(255,0,85,0.5)]">
+src\features\home\components\ProductsSection.tsx:226:                        <h3 className="text-white text-[18px] 
+sm:text-[20px] lg:text-[22px] xl:text-[24px] font-bold">
+src\features\home\components\ProductsSection.tsx:229:                        <p className="text-slate-400 text-[13px] 
+sm:text-[14px] lg:text-[15px] xl:text-[16px] mt-0.5">
+src\features\home\components\ProductsSection.tsx:235:                    <p className="text-slate-300 text-[13px] 
+sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed mb-6 md:mb-4 lg:mb-4 xl:mb-6">
+src\features\home\components\ProductsSection.tsx:240:                    <button className="text-[#FF0055] 
+font-semibold text-[13px] sm:text-[14px] lg:text-[15px] flex items-center gap-2 group-hover:gap-3 transition-all">
+src\features\home\components\ProductsSection.tsx:307:                        <span className="text-blue-100/90 
+text-[10px] sm:text-[12px] lg:text-[10px] xl:text-[12px] font-medium tracking-wide">
+src\features\home\components\ProductsSection.tsx:310:                        <span className="text-[#FF4D8D] 
+font-extrabold text-[18px] sm:text-[22px] lg:text-[18px] xl:text-[22px] leading-tight 
+drop-shadow-[0_0_10px_rgba(255,77,141,0.6)]">
+src\features\home\components\ProductsSection.tsx:367:                        <h3 className="text-white text-[18px] 
+sm:text-[20px] lg:text-[22px] xl:text-[24px] font-bold leading-tight">
+src\features\home\components\ProductsSection.tsx:370:                        <p className="text-slate-400 text-[13px] 
+sm:text-[14px] lg:text-[15px] xl:text-[16px] mt-0.5">
+src\features\home\components\ProductsSection.tsx:375:                    <p className="text-slate-300 text-[13px] 
+sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed mb-6 lg:mb-4 xl:mb-6 flex-1">
+src\features\home\components\ProductsSection.tsx:379:                    <button className="text-blue-400 
+font-semibold text-[13px] sm:text-[14px] lg:text-[15px] flex items-center gap-2 group-hover:gap-3 transition-all 
+mt-auto">
+src\features\home\components\ProductsSection.tsx:423:                        <h3 className="text-white text-[18px] 
+sm:text-[20px] lg:text-[22px] xl:text-[24px] font-bold leading-tight">
+src\features\home\components\ProductsSection.tsx:426:                        <p className="text-slate-400 text-[13px] 
+sm:text-[14px] lg:text-[15px] xl:text-[16px] mt-0.5">
+src\features\home\components\ProductsSection.tsx:431:                    <p className="text-slate-300 text-[13px] 
+sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed mb-6 md:mb-4 lg:mb-4 xl:mb-6 flex-1">
+src\features\home\components\ProductsSection.tsx:435:                    <button className="text-[#A855F7] 
+font-semibold text-[13px] sm:text-[14px] lg:text-[15px] flex items-center gap-2 group-hover:gap-3 transition-all 
+mt-auto">
+src\features\home\components\ReadyToBuildSection.tsx:147:            <span className="text-[#FF0055] font-bold 
+text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-widest uppercase">
+src\features\home\components\ReadyToBuildSection.tsx:153:          <h2 ref={headingRef} className="text-[28px] 
+sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold leading-[1.1] mb-6 
+tracking-tight font-heading">
+src\features\home\components\ReadyToBuildSection.tsx:159:              className="text-[#0A1024]" 
+src\features\home\components\ReadyToBuildSection.tsx:179:          <motion.p variants={{ hidden: { opacity: 0, y: 20 
+}, visible: { opacity: 1, y: 0 } }} className="text-slate-700 text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] 
+mb-10 max-w-md leading-relaxed font-medium">
+src\features\home\components\ReadyToBuildSection.tsx:186:              className="group inline-flex min-w-[160px] 
+sm:min-w-0 sm:w-auto items-center justify-center gap-1.5 sm:gap-2 px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 
+lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full bg-gradient-to-r from-[#CC0044] to-[#FF0055] border border-[#FF3377] 
+hover:border-[#FF6699] text-white text-[13px] sm:text-[14px] lg:text-[15px] font-medium tracking-wide 
+hover:brightness-110 transition-all duration-300 active:scale-95 whitespace-nowrap cursor-pointer"
+src\features\home\components\ReadyToBuildSection.tsx:192:              className="inline-flex min-w-[160px] sm:min-w-0 
+sm:w-auto items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 
+rounded-full border border-slate-300 hover:border-[#FF0055] text-[#0A1024] text-[13px] sm:text-[14px] lg:text-[15px] 
+font-semibold bg-white/50 backdrop-blur-sm transition-all hover:bg-white whitespace-nowrap cursor-pointer"
+src\features\home\components\ReadyToBuildSection.tsx:213:              <div className="w-10 h-10 sm:w-12 sm:h-12 
+md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 
+text-[#FF0055] shadow-sm border border-slate-100">
+src\features\home\components\ReadyToBuildSection.tsx:217:                <h4 className="text-[24px] sm:text-[28px] 
+lg:text-[32px] xl:text-[36px] font-bold text-[#0A1024] tracking-tight font-heading leading-tight mb-0.5 sm:mb-1">
+src\features\home\components\ReadyToBuildSection.tsx:220:                <p className="text-[12px] sm:text-[13px] 
+lg:text-[14px] xl:text-[15px] text-slate-500 font-medium font-sans whitespace-nowrap">Projects Delivered</p>
+src\features\home\components\ReadyToBuildSection.tsx:226:              <div className="w-10 h-10 sm:w-12 sm:h-12 
+md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 
+text-[#FF0055] shadow-sm border border-slate-100">
+src\features\home\components\ReadyToBuildSection.tsx:230:                <h4 className="text-[24px] sm:text-[28px] 
+lg:text-[32px] xl:text-[36px] font-bold text-[#0A1024] tracking-tight font-heading leading-tight mb-0.5 sm:mb-1">
+src\features\home\components\ReadyToBuildSection.tsx:233:                <p className="text-[12px] sm:text-[13px] 
+lg:text-[14px] xl:text-[15px] text-slate-500 font-medium font-sans whitespace-nowrap">Happy Clients</p>
+src\features\home\components\ReadyToBuildSection.tsx:239:              <div className="w-10 h-10 sm:w-12 sm:h-12 
+md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 
+text-[#FF0055] shadow-sm border border-slate-100">
+src\features\home\components\ReadyToBuildSection.tsx:243:                <h4 className="text-[24px] sm:text-[28px] 
+lg:text-[32px] xl:text-[36px] font-bold text-[#0A1024] tracking-tight font-heading leading-tight mb-0.5 sm:mb-1">
+src\features\home\components\ReadyToBuildSection.tsx:246:                <p className="text-[12px] sm:text-[13px] 
+lg:text-[14px] xl:text-[15px] text-slate-500 font-medium font-sans whitespace-nowrap">Countries Served</p>
+src\features\home\components\ReadyToBuildSection.tsx:252:              <div className="w-10 h-10 sm:w-12 sm:h-12 
+md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 
+text-[#FF0055] shadow-sm border border-slate-100">
+src\features\home\components\ReadyToBuildSection.tsx:256:                <h4 className="text-[24px] sm:text-[28px] 
+lg:text-[32px] xl:text-[36px] font-bold text-[#0A1024] tracking-tight font-heading leading-tight mb-0.5 sm:mb-1">
+src\features\home\components\ReadyToBuildSection.tsx:259:                <p className="text-[12px] sm:text-[13px] 
+lg:text-[14px] xl:text-[15px] text-slate-500 font-medium font-sans whitespace-nowrap">Client Satisfaction</p>
+src\features\home\components\ServicesSection.tsx:74:              <span className="text-[12px] sm:text-[13px] 
+lg:text-[14px] xl:text-[15px] font-bold text-[#FF0055] tracking-[0.2em] uppercase">
+src\features\home\components\ServicesSection.tsx:79:            <h2 className="text-[28px] sm:text-[32px] 
+md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-black text-slate-900 tracking-tight leading-[1.12]">
+src\features\home\components\ServicesSection.tsx:93:            <p className="text-[14px] sm:text-[15px] 
+lg:text-[16px] xl:text-[17px] 2xl:text-[18px] text-slate-600 leading-relaxed font-normal md:max-w-[400px] 
+lg:max-w-none lg:w-max">
+src\features\home\components\ServicesSection.tsx:98:              className="inline-flex shrink-0 items-center 
+justify-center gap-2 whitespace-nowrap px-6 py-3 md:px-5 md:py-2.5 lg:px-4 lg:py-2.5 xl:px-6 xl:py-3 rounded-full 
+bg-white hover:bg-[#FF0055]/5 text-[#FF0055] font-semibold text-[13px] sm:text-[14px] lg:text-[15px] border 
+border-[#FF0055] shadow-sm hover:shadow transition-all duration-200 self-start md:self-auto group"
+src\features\home\components\ServicesSection.tsx:101:              <ArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 
+xl:w-4 xl:h-4 text-[#FF0055] group-hover:translate-x-1 transition-transform" />
+src\features\home\components\ServicesSection.tsx:138:                    <h3 className="text-[18px] sm:text-[20px] 
+lg:text-[22px] xl:text-[24px] font-bold text-slate-900 tracking-tight sm:mt-7 sm:mb-3 lg:mt-5 lg:mb-2 xl:mt-7 xl:mb-3 
+leading-snug">
+src\features\home\components\ServicesSection.tsx:144:                  <p className="text-[13px] sm:text-[14px] 
+lg:text-[15px] xl:text-[16px] text-slate-600 leading-relaxed lg:leading-normal xl:leading-relaxed font-normal mt-4 
+sm:mt-0 lg:mt-2 xl:mt-0">
+src\features\home\components\ServicesSection.tsx:152:                    className="inline-flex items-center gap-1.5 
+text-[13px] sm:text-[14px] lg:text-[15px] font-semibold text-[#FF0055] group-hover:text-[#E6004C] transition-colors"
+src\features\home\components\StatsSection.tsx:48:        <svg className="w-6 h-6 text-[#C084FC] fill-current 
+[@media(min-width:1920px)]:w-8 [@media(min-width:1920px)]:h-8" viewBox="0 0 24 24">
+src\features\home\components\StatsSection.tsx:61:        <svg className="w-6 h-6 text-[#C084FC] fill-none 
+stroke-current stroke-[1.8] [@media(min-width:1920px)]:w-8 [@media(min-width:1920px)]:h-8" viewBox="0 0 24 24" 
+strokeLinecap="round" strokeLinejoin="round">
+src\features\home\components\StatsSection.tsx:73:        <svg className="w-6 h-6 text-[#C084FC] fill-none 
+stroke-current stroke-[1.8] [@media(min-width:1920px)]:w-8 [@media(min-width:1920px)]:h-8" viewBox="0 0 24 24" 
+strokeLinecap="round" strokeLinejoin="round">
+src\features\home\components\StatsSection.tsx:85:        <svg className="w-6 h-6 text-[#C084FC] fill-current 
+[@media(min-width:1920px)]:w-8 [@media(min-width:1920px)]:h-8" viewBox="0 0 24 24">
+src\features\home\components\StatsSection.tsx:114:                <div className="text-[24px] sm:text-[28px] 
+lg:text-[32px] xl:text-[36px] font-bold text-white tracking-tight font-heading leading-tight">
+src\features\home\components\StatsSection.tsx:118:                <div className="text-[12px] sm:text-[13px] 
+lg:text-[14px] xl:text-[15px] text-slate-300 font-medium font-sans whitespace-nowrap">
+src\features\home\components\SuccessStoriesSection.tsx:58:              <span className="text-[#FF0055] font-bold 
+text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-widest uppercase">
+src\features\home\components\SuccessStoriesSection.tsx:63:            <h2 className="text-[28px] sm:text-[32px] 
+md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold text-[#020205] leading-[1.1] 
+tracking-tight lg:whitespace-nowrap xl:whitespace-normal">
+src\features\home\components\SuccessStoriesSection.tsx:69:            <p className="text-slate-700 text-[14px] 
+sm:text-[15px] lg:text-[16px] xl:text-[17px] leading-relaxed max-w-[280px] sm:max-w-sm md:max-w-[400px] lg:max-w-none 
+lg:w-max">
+src\features\home\components\SuccessStoriesSection.tsx:72:            <a href="#" className="px-5 py-2.5 sm:px-6 
+sm:py-3 md:px-5 md:py-2.5 lg:px-4 lg:py-2.5 xl:px-6 xl:py-3 rounded-full border border-[#FF0055]/20 text-[#FF0055] 
+font-bold text-[13px] sm:text-[14px] lg:text-[15px] flex items-center justify-center gap-2 hover:bg-[#FF0055]/5 
+transition-all shrink-0">
+src\features\home\components\SuccessStoriesSection.tsx:109:                  <span className="text-slate-800 font-bold 
+text-[10px] sm:text-[11px] lg:text-[12px] xl:text-[13px] 2xl:text-[14px] [@media(min-width:1920px)]:text-[15px] 
+tracking-wider uppercase leading-none mt-[1px]">
+src\features\home\components\SuccessStoriesSection.tsx:124:                <h3 className="text-[#020205] text-[18px] 
+sm:text-[20px] lg:text-[22px] xl:text-[24px] font-extrabold mb-1.5 sm:mb-2 md:mb-1.5 lg:mb-1.5 xl:mb-2 
+group-hover:text-[#FF0055] transition-colors">
+src\features\home\components\SuccessStoriesSection.tsx:127:                <p className="text-slate-600 text-[13px] 
+sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed mb-5 sm:mb-6 md:mb-4 lg:mb-4 xl:mb-6 flex-1">
+src\features\home\components\SuccessStoriesSection.tsx:134:                    <span className="text-[#FF0055] 
+text-[24px] sm:text-[28px] lg:text-[28px] xl:text-[32px] font-extrabold tracking-tight">
+src\features\home\components\SuccessStoriesSection.tsx:137:                    <span className="text-slate-500 
+text-[12px] sm:text-[13px] lg:text-[13px] xl:text-[14px] font-medium whitespace-nowrap">
+src\features\home\components\SuccessStoriesSection.tsx:141:                  <a href="#" className="text-[#FF0055] 
+font-bold text-[13px] sm:text-[14px] lg:text-[13px] xl:text-[14px] flex items-center justify-end gap-1 
+group-hover:gap-2 transition-all whitespace-nowrap shrink-0">
+src\features\home\components\SuccessStoriesSection.tsx:155:              <BarChart2 className="w-5 h-5 sm:w-6 sm:h-6 
+md:w-5 md:h-5 lg:w-5 lg:h-5 xl:w-6 xl:h-6 text-[#FF0055]" />
+src\features\home\components\SuccessStoriesSection.tsx:158:              <p className="text-[#020205] text-[14px] 
+sm:text-[15px] lg:text-[16px] xl:text-[17px] font-semibold leading-tight">
+src\features\home\components\SuccessStoriesSection.tsx:161:              <p className="text-[#020205] text-[16px] 
+sm:text-[17px] lg:text-[18px] xl:text-[20px] font-extrabold leading-tight mt-0.5 sm:mt-1">
+src\features\home\components\SuccessStoriesSection.tsx:168:            <button className="group w-full md:w-auto px-5 
+py-2.5 sm:px-6 sm:py-3 md:px-5 md:py-2.5 lg:px-5 lg:py-2.5 xl:px-6 xl:py-3 rounded-full bg-gradient-to-r 
+from-[#CC0044] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white font-medium tracking-wide 
+text-[13px] sm:text-[14px] lg:text-[15px] flex items-center justify-center gap-2 hover:brightness-110 transition-all 
+duration-300 active:scale-95 cursor-pointer">
+src\features\home\components\TestimonialsSection.tsx:68:              <span className="text-[#FF0055] font-bold 
+text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-widest uppercase">CLIENTS SPEAK</span>
+src\features\home\components\TestimonialsSection.tsx:72:            <h2 className="text-[28px] sm:text-[32px] 
+md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold text-[#020205] leading-[1.1] 
+tracking-tight">
+src\features\home\components\TestimonialsSection.tsx:75:              <span className="text-[#FF0055]">Dream 
+Bigger</span>
+src\features\home\components\TestimonialsSection.tsx:78:            <p className="text-[#4A5568] text-[14px] 
+sm:text-[15px] lg:text-[16px] xl:text-[18px] max-w-[420px] lg:max-w-[320px] xl:max-w-[420px] leading-relaxed mt-4 
+sm:mt-6">
+src\features\home\components\TestimonialsSection.tsx:86:              <span className="text-[#FF0055] font-bold 
+text-[13px] sm:text-[14px] xl:text-[15px] group-hover:underline">
+src\features\home\components\TestimonialsSection.tsx:109:                  <h4 className="text-[#020205] text-[24px] 
+lg:text-[28px] font-extrabold whitespace-nowrap">4.9/5</h4>
+src\features\home\components\TestimonialsSection.tsx:111:                <p className="text-[#64748B] text-[12px] 
+lg:text-[14px] mt-1 font-medium leading-tight">Client Satisfaction</p>
+src\features\home\components\TestimonialsSection.tsx:130:                  <h4 className="text-[#020205] text-[24px] 
+lg:text-[28px] font-extrabold whitespace-nowrap">200+</h4>
+src\features\home\components\TestimonialsSection.tsx:132:                <p className="text-[#64748B] text-[12px] 
+lg:text-[14px] mt-1 font-medium leading-tight">Happy Businesses</p>
+src\features\home\components\TestimonialsSection.tsx:151:                  <h4 className="text-[#020205] text-[24px] 
+lg:text-[28px] font-extrabold whitespace-nowrap">Long-Term</h4>
+src\features\home\components\TestimonialsSection.tsx:153:                <p className="text-[#64748B] text-[12px] 
+lg:text-[14px] mt-1 font-medium leading-tight">Partnerships</p>
+src\features\home\components\TestimonialsSection.tsx:237:                      <div className={`text-[32px] 
+sm:text-[40px] font-serif leading-none mt-1 ${isActive ? 'text-[#FF0055]' : 'text-[#8B98B4]'}`}>
+src\features\home\components\TestimonialsSection.tsx:242:                      <p className="mt-2 sm:mt-3 relative 
+z-10 text-[13px] lg:text-[14px] xl:text-[15px] leading-[1.6] sm:leading-[1.7] flex-1 text-[#1E293B]">
+src\features\home\components\TestimonialsSection.tsx:254:                          <h5 className="text-[13px] 
+lg:text-[15px] font-bold text-[#020205] truncate">{t.name}</h5>
+src\features\home\components\TestimonialsSection.tsx:255:                          <p className="text-[12px] 
+lg:text-[13px] text-[#64748B] mt-0.5 truncate">{t.role}</p>
+src\features\home\components\TrustedBySection.tsx:17:          <span className="text-[26px] font-semibold 
+tracking-tight">Microsoft</span>
+src\features\home\components\TrustedBySection.tsx:25:          <span className="text-[28px] font-bold tracking-tight 
+font-sans">
+src\features\home\components\TrustedBySection.tsx:35:          <span className="text-[28px] font-black lowercase 
+tracking-tight leading-none">
+src\features\home\components\TrustedBySection.tsx:64:          <span className="text-[26px] font-bold 
+tracking-tight">Meta</span>
+src\features\home\components\TrustedBySection.tsx:132:          <span className="text-[26px] font-bold 
+tracking-tight">Adobe</span>
+src\features\home\components\TrustedBySection.tsx:143:          <span className="text-[26px] font-bold italic 
+tracking-tight font-sans">
+src\features\home\components\TrustedBySection.tsx:156:          <span className="text-[19px] font-semibold 
+tracking-tight">Dropbox</span>
+src\features\home\components\TrustedBySection.tsx:168:        <p className="text-[12px] sm:text-[13px] lg:text-[14px] 
+xl:text-[15px] font-bold tracking-[0.28em] text-white/60 uppercase font-sans">
+src\features\home\components\WhyKaelixoSection.tsx:27:      iconColor: "text-[#FF0055]",
+src\features\home\components\WhyKaelixoSection.tsx:34:      iconColor: "text-[#c084fc]", // Brighter purple
+src\features\home\components\WhyKaelixoSection.tsx:41:      iconColor: "text-[#38bdf8]", // Brighter blue
+src\features\home\components\WhyKaelixoSection.tsx:48:      iconColor: "text-[#FF0055]",
+src\features\home\components\WhyKaelixoSection.tsx:105:              <span className="text-slate-200 font-bold 
+text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-[0.2em] uppercase">WHY KAELIXO</span>
+src\features\home\components\WhyKaelixoSection.tsx:109:            <h2 className="text-[28px] sm:text-[32px] 
+md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold leading-[1.1] tracking-tight mb-4 xl:mb-5">
+src\features\home\components\WhyKaelixoSection.tsx:111:              <span className="text-[#FF0055]">A Growth 
+Marketing Agency</span>
+src\features\home\components\WhyKaelixoSection.tsx:114:            <p className="text-slate-300 text-[14px] 
+sm:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] leading-relaxed mb-6 xl:mb-8 font-normal max-w-[340px] 
+lg:max-w-[280px] xl:max-w-[340px]">
+src\features\home\components\WhyKaelixoSection.tsx:118:            <button className="group px-7 py-3 lg:px-4 lg:py-2 
+xl:px-7 xl:py-3 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] 
+hover:border-[#FF6699] text-white font-medium tracking-wide text-[13px] sm:text-[14px] lg:text-[15px] 
+shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] hover:brightness-110 transition-all 
+duration-300 flex items-center gap-2 cursor-pointer mb-6 lg:mb-0 active:scale-95">
+src\features\home\components\WhyKaelixoSection.tsx:126:                <h4 className="text-[14px] sm:text-[15px] 
+lg:text-[16px] xl:text-[17px] 2xl:text-[18px] font-bold text-white mb-1 lg:mb-0.5 xl:mb-1 leading-tight 
+whitespace-nowrap">Strategy-Led</h4>
+src\features\home\components\WhyKaelixoSection.tsx:127:                <p className="text-[12px] lg:text-[14px] 
+text-slate-300 font-medium md:whitespace-nowrap lg:whitespace-nowrap xl:whitespace-nowrap leading-tight">Not just 
+execution</p>
+src\features\home\components\WhyKaelixoSection.tsx:130:                <h4 className="text-[14px] sm:text-[15px] 
+lg:text-[16px] xl:text-[17px] 2xl:text-[18px] font-bold text-white mb-1 lg:mb-0.5 xl:mb-1 leading-tight 
+whitespace-nowrap">People-First</h4>
+src\features\home\components\WhyKaelixoSection.tsx:131:                <p className="text-[12px] lg:text-[14px] 
+text-slate-300 font-medium md:whitespace-nowrap lg:whitespace-nowrap xl:whitespace-nowrap leading-tight">Relationships 
+matter</p>
+src\features\home\components\WhyKaelixoSection.tsx:134:                <h4 className="text-[14px] sm:text-[15px] 
+lg:text-[16px] xl:text-[17px] 2xl:text-[18px] font-bold text-white mb-1 lg:mb-0.5 xl:mb-1 leading-tight 
+whitespace-nowrap">Impact-Driven</h4>
+src\features\home\components\WhyKaelixoSection.tsx:135:                <p className="text-[12px] lg:text-[14px] 
+text-slate-300 font-medium md:whitespace-nowrap lg:whitespace-nowrap xl:whitespace-nowrap leading-tight">Your growth 
+is our success</p>
+src\features\home\components\WhyKaelixoSection.tsx:180:                  <h4 className="text-[13px] sm:text-[14px] 
+lg:text-[15px] font-bold text-white mb-0.5 leading-tight whitespace-nowrap">
+src\features\home\components\WhyKaelixoSection.tsx:183:                  <p className="text-[12px] lg:text-[13px] 
+text-slate-300 font-medium leading-tight">
+src\features\home\components\WhyKaelixoSection.tsx:208:                  <h4 className="text-[14px] sm:text-[15px] 
+lg:text-[16px] xl:text-[17px] font-bold text-white mb-0.5 group-hover:text-white transition-colors 
+lg:whitespace-nowrap xl:whitespace-normal">{feature.title}</h4>
+src\features\home\components\WhyKaelixoSection.tsx:209:                  <p className="text-[13px] sm:text-[14px] 
+lg:text-[15px] xl:text-[16px] text-slate-300 font-medium leading-tight">{feature.desc}</p>
+
+

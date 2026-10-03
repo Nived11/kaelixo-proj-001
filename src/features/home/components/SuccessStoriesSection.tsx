@@ -45,7 +45,7 @@ export default function SuccessStoriesSection() {
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
 
         {/* Header Row */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2, margin: "0px 0px -50px 0px" }}
@@ -55,18 +55,18 @@ export default function SuccessStoriesSection() {
         >
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] tracking-widest uppercase">
+              <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-widest uppercase">
                 REAL RESULTS
               </span>
               <div className="w-10 h-[2px] bg-[#FF0055]"></div>
             </div>
-            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-extrabold text-[#020205] leading-[1.1] tracking-tight lg:whitespace-nowrap xl:whitespace-normal">
+            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px]  font-extrabold text-[#020205] leading-[1.1] tracking-tight lg:whitespace-nowrap xl:whitespace-normal">
               Success Stories
             </h2>
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center lg:items-center justify-between lg:justify-end gap-5 md:gap-8 lg:gap-5 xl:gap-4 w-full lg:w-auto">
-            <p className="text-slate-700 text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] leading-relaxed max-w-[280px] sm:max-w-sm md:max-w-[400px] lg:max-w-none lg:w-max">
+            <p className="text-slate-700 text-[16px] leading-relaxed max-w-[280px] sm:max-w-sm md:max-w-[400px] lg:max-w-none lg:w-max">
               A growth marketing agency<br className="hidden lg:block" /> that delivers real, lasting growth.
             </p>
             <a href="#" className="px-5 py-2.5 sm:px-6 sm:py-3 md:px-5 md:py-2.5 lg:px-4 lg:py-2.5 xl:px-6 xl:py-3 rounded-full border border-[#FF0055]/20 text-[#FF0055] font-bold text-[13px] sm:text-[14px] lg:text-[15px] flex items-center justify-center gap-2 hover:bg-[#FF0055]/5 transition-all shrink-0">
@@ -85,9 +85,8 @@ export default function SuccessStoriesSection() {
               viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               style={{ willChange: "transform, opacity" }}
-              className={`bg-white rounded-[20px] sm:rounded-2xl border border-slate-100 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-300 group flex flex-col relative ${
-                index === 2 ? 'md:col-span-2 md:w-[calc(50%-16px)] md:mx-auto lg:col-span-1 lg:w-full lg:mx-0' : ''
-              }`}
+              className={`bg-white rounded-[20px] sm:rounded-2xl border border-slate-100 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-300 group flex flex-col relative ${index === 2 ? 'md:col-span-2 md:w-[calc(50%-16px)] md:mx-auto lg:col-span-1 lg:w-full lg:mx-0' : ''
+                }`}
             >
               {/* Subtle Animated Top Line */}
               <div className="absolute top-0 left-0 w-[200%] h-[3px] bg-gradient-to-r from-transparent via-[#FF0055] to-transparent -translate-x-[100%] group-hover:animate-[sweep_2s_ease-in-out_infinite] z-20" />
@@ -113,7 +112,7 @@ export default function SuccessStoriesSection() {
               </div>
 
               {/* Content Body */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}

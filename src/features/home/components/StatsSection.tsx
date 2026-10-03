@@ -115,7 +115,7 @@ export default function StatsSection({ children }: StatsSectionProps) {
                   {stat.number.includes("+") && <AnimatedCounter to={parseInt(stat.number)} suffix="+" trigger={isInView} />}
                   {stat.number.includes("%") && <AnimatedCounter to={parseInt(stat.number)} suffix="%" trigger={isInView} />}
                 </div>
-                <div className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] text-slate-300 font-medium font-sans whitespace-nowrap">
+                <div className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] text-slate-300 font-medium font-sans whitespace-nowrap">
                   {stat.label}
                 </div>
               </div>

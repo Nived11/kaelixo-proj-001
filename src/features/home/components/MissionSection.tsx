@@ -48,7 +48,7 @@ export default function MissionSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#FF0055]/10 rounded-full blur-[150px] pointer-events-none -z-10" />
 
       <div className="max-w-[1200px] mx-auto px-6 text-center space-y-6 sm:space-y-8 relative z-10">
-        <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] 2xl:text-[48px] font-bold text-white tracking-tight leading-[1.1] font-heading">
+        <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px]  font-bold text-white tracking-tight leading-[1.1] font-heading">
           THINK. BUILD. <span className="text-[#FF0055]">GROW.</span>
         </h2>
 

@@ -42,7 +42,7 @@ export default function ScrollToTop() {
           <img 
             src="/images/brand/kaelixo-logo.png" 
             alt="Scroll to top" 
-            className="w-6 h-6 sm:w-8 sm:h-8 object-contain rotate-90 brightness-0 invert" 
+            className="w-6 h-6 sm:w-5 sm:h-5 md:w-5 md:h-5 lg:w-5 lg:h-5 xl:w-5 xl:h-5 2xl:w-6 2xl:h-6 object-contain rotate-90 brightness-0 invert" 
           />
         </motion.button>
       )}
