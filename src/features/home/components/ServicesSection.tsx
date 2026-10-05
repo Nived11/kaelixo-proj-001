@@ -52,7 +52,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative bg-[#FAFAFC] text-slate-900 pt-12 pb-20 sm:py-28 overflow-hidden select-none"
+      className="relative bg-[#FAFAFC] text-slate-900 py-24 lg:py-32 overflow-hidden select-none"
     >
       {/* Subtle Ethereal Ambient Glows (matching reference) */}
       <div className="absolute top-1/4 -left-20 w-[420px] h-[420px] bg-[#FF0055]/[0.04] rounded-full blur-[120px] pointer-events-none" />
@@ -95,7 +95,7 @@ export default function ServicesSection() {
             </p>
             <Link
               href="/services"
-              className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap px-6 py-3 md:px-5 md:py-2.5 lg:px-4 lg:py-2.5 xl:px-6 xl:py-3 rounded-full bg-white hover:bg-[#FF0055]/5 text-[#FF0055] font-semibold text-[13px] sm:text-[14px] lg:text-[15px] border border-[#FF0055] shadow-sm hover:shadow transition-all duration-200 self-start md:self-auto group"
+              className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap px-6 py-3 md:px-5 md:py-2.5 lg:px-4 lg:py-2.5 xl:px-6 xl:py-3 rounded-full bg-white hover:bg-[#FF0055]/5 text-[#FF0055] font-semibold text-[13px] sm:text-[14px] lg:text-[16px] border border-[#FF0055] shadow-sm hover:shadow transition-all duration-200 self-start md:self-auto group"
             >
               <span>View All Services</span>
               <ArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-[#FF0055] group-hover:translate-x-1 transition-transform" />
@@ -149,7 +149,7 @@ export default function ServicesSection() {
                 {/* Bottom Learn More link */}
                 <div className="mt-5 sm:mt-8 lg:mt-5 xl:mt-8 pt-3 sm:pt-4 lg:pt-3 xl:pt-4">
                   <div
-                    className="inline-flex items-center gap-1.5 text-[13px] sm:text-[14px] lg:text-[15px] font-semibold text-[#FF0055] group-hover:text-[#E6004C] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-[13px] sm:text-[14px] lg:text-[16px] font-semibold text-[#FF0055] group-hover:text-[#E6004C] transition-colors"
                   >
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />

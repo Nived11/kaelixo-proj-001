@@ -51,7 +51,7 @@ export default function WhyKaelixoSection() {
   ];
 
   return (
-    <section className="relative bg-[#020205] text-white py-16 lg:py-24 xl:py-40 overflow-hidden border-t border-white/5">
+    <section className="relative bg-[#020205] text-white py-24 lg:py-32 overflow-hidden border-t border-white/5">
 
       {/* Background Graphics */}
 
@@ -121,7 +121,7 @@ export default function WhyKaelixoSection() {
             </button>
 
             {/* BOTTOM ROW: Footer Stats / Philosophy */}
-            <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-4 lg:gap-3 xl:gap-8 w-full mt-auto relative top-4 xl:top-10">
+            <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-4 lg:gap-3 xl:gap-8 w-full mt-12 lg:mt-16 xl:mt-20">
               <div className="relative pl-4 lg:pl-2.5 xl:pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[2px] before:bg-[#FF0055]">
                 <h4 className="text-[14px] sm:text-[15px] lg:text-[18px] xl:text-[18px] font-bold text-white mb-1 lg:mb-0.5 xl:mb-1 leading-tight whitespace-nowrap">Strategy-Led</h4>
                 <p className="text-[13px] sm:text-[14px] lg:text-[16px] xl:text-[16px] text-slate-300 font-medium md:whitespace-nowrap lg:whitespace-nowrap xl:whitespace-nowrap leading-tight">Not just execution</p>

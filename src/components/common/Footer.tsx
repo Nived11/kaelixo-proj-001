@@ -24,18 +24,18 @@ export default function Footer() {
                 className="h-8 w-auto object-contain"
               />
             </Link>
-            <p className="text-[12px] text-gray-400 font-medium tracking-wide">
+            <p className="text-[16px] text-gray-400 font-medium tracking-wide">
               Think clearly. Build intelligently. Grow confidently. A technology and growth marketing agency that turns bold ideas into real, measurable impact, together, always.
             </p>
           </div>
 
           {/* 2. Links Columns */}
-          <div className="w-full lg:w-[80%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6">
+          <div className="w-full lg:w-[78%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 md:gap-4 lg:gap-2">
             
             {/* Kaelixo */}
-            <div>
-              <h4 className="text-white font-semibold text-[14px] mb-4">Kaelixo</h4>
-              <ul className="space-y-3 text-[13px] font-medium">
+            <div className="sm:col-span-1 md:col-span-2">
+              <h4 className="text-white font-semibold text-[18px] mb-4">Kaelixo</h4>
+              <ul className="space-y-3 text-[16px] font-medium">
                 <li><Link href="#" className="hover:text-[#FF0055] transition-colors">About</Link></li>
                 <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Services</Link></li>
                 <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Industries</Link></li>
@@ -46,9 +46,9 @@ export default function Footer() {
             </div>
             
             {/* Services */}
-            <div>
-              <h4 className="text-white font-semibold text-[14px] mb-4">Services</h4>
-              <ul className="space-y-3 text-[13px] font-medium">
+            <div className="sm:col-span-1 md:col-span-3">
+              <h4 className="text-white font-semibold text-[18px] mb-4">Services</h4>
+              <ul className="space-y-3 text-[16px] font-medium">
                 <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Branding</Link></li>
                 <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Experience Design</Link></li>
                 <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Technology</Link></li>
@@ -57,9 +57,9 @@ export default function Footer() {
             </div>
 
             {/* Resources */}
-            <div>
-              <h4 className="text-white font-semibold text-[14px] mb-4">Resources</h4>
-              <ul className="space-y-3 text-[13px] font-medium">
+            <div className="sm:col-span-1 md:col-span-3">
+              <h4 className="text-white font-semibold text-[18px] mb-4">Resources</h4>
+              <ul className="space-y-3 text-[16px] font-medium">
                 <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Insights</Link></li>
                 <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Blogs</Link></li>
                 <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Events</Link></li>
@@ -72,9 +72,9 @@ export default function Footer() {
             </div>
 
             {/* Connect */}
-            <div className="flex flex-col">
-              <h4 className="text-white font-semibold text-[14px] mb-4">Connect</h4>
-              <div className="space-y-4 text-[13px] font-medium leading-relaxed">
+            <div className="sm:col-span-1 md:col-span-4 flex flex-col">
+              <h4 className="text-white font-semibold text-[18px] mb-4">Connect</h4>
+              <div className="space-y-4 text-[16px] font-medium leading-relaxed">
                 <div>
                   <strong className="text-white font-semibold block">Kaelixo Pvt. Ltd.</strong>
                   1st Floor, Maveli Arcade, Metro Pillar<br />
@@ -99,7 +99,7 @@ export default function Footer() {
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 md:gap-0 relative">
           
           {/* Copyright */}
-          <div className="text-[12px] font-medium text-gray-500 md:w-1/3 text-center md:text-left">
+          <div className="text-[16px] font-medium text-gray-500 md:w-1/3 text-center md:text-left">
             <p>© {new Date().getFullYear()} Kaelixo. All rights reserved.</p>
           </div>
 
@@ -129,7 +129,7 @@ export default function Footer() {
           </div>
 
           {/* Legal Links (Right Side) */}
-          <div className="flex items-center justify-center md:justify-end gap-3 md:gap-4 text-[12px] font-medium text-gray-500 md:w-1/3">
+          <div className="flex items-center justify-center md:justify-end gap-3 md:gap-4 text-[16px] font-medium text-gray-500 md:w-1/3">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <span className="text-gray-600">|</span>
             <Link href="#" className="hover:text-white transition-colors">Terms & Conditions</Link>

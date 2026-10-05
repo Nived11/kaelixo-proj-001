@@ -58,7 +58,7 @@ export default function ProcessSection() {
   ];
 
   return (
-    <div className="relative bg-[#ffffff] text-[#030C25] py-10 sm:py-24 overflow-hidden">
+    <div className="relative bg-[#ffffff] text-[#030C25] pt-24 lg:pt-32 pb-12 lg:pb-20">
 
       {/* Background Soft Blobs */}
       <div className="absolute top-[20%] left-[-10%] w-[30%] h-[400px] bg-rose-50/50 blur-[100px] rounded-full pointer-events-none"></div>

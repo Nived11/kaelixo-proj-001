@@ -229,7 +229,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3 sm:pt-4 font-heading animate-fade-in-up">
               <Link
                 href="#consultation"
-                className="group overflow-hidden inline-flex items-center justify-center w-full sm:w-[240px] 2xl:w-[260px] h-[46px] 2xl:h-[50px] rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[15px] font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300 active:scale-95 cursor-pointer"
+                className="group overflow-hidden inline-flex items-center justify-center w-full sm:w-[240px] 2xl:w-[260px] h-[46px] 2xl:h-[50px] rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[16px] font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300 active:scale-95 cursor-pointer"
               >
                 <div className="flex flex-col h-[20px] overflow-hidden">
                   <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
@@ -245,7 +245,7 @@ export default function HeroSection() {
 
               <Link
                 href="#services"
-                className="group overflow-hidden inline-flex items-center justify-center w-full sm:w-[240px] 2xl:w-[260px] h-[46px] 2xl:h-[50px] rounded-full bg-black/40 hover:bg-white/10 text-white text-[15px] font-medium border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm cursor-pointer"
+                className="group overflow-hidden inline-flex items-center justify-center w-full sm:w-[240px] 2xl:w-[260px] h-[46px] 2xl:h-[50px] rounded-full bg-black/40 hover:bg-white/10 text-white text-[16px] font-medium border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm cursor-pointer"
               >
                 <div className="flex flex-col h-[20px] overflow-hidden">
                   <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">

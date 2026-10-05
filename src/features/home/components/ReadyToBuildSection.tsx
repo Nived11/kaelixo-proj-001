@@ -78,7 +78,7 @@ export default function ReadyToBuildSection() {
   const statsInView = useInView(statsRef, { once: false, amount: 0.2 });
 
   return (
-    <section className="relative w-full bg-white overflow-hidden py-16 lg:py-20 font-sans">
+    <section className="relative w-full bg-white overflow-hidden py-24 lg:py-32 font-sans">
 
       {/* Background Image Area */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden">
@@ -183,13 +183,13 @@ export default function ReadyToBuildSection() {
           <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-4">
             <Link
               href="#contact"
-              className="group inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center gap-1.5 sm:gap-2 px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full bg-gradient-to-r from-[#CC0044] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[13px] sm:text-[14px] lg:text-[15px] font-medium tracking-wide hover:brightness-110 transition-all duration-300 active:scale-95 whitespace-nowrap cursor-pointer"
+              className="group inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center gap-1.5 sm:gap-2 px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full bg-gradient-to-r from-[#CC0044] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[13px] sm:text-[14px] lg:text-[16px] font-medium tracking-wide hover:brightness-110 transition-all duration-300 active:scale-95 whitespace-nowrap cursor-pointer"
             >
               <span>Let's Talk</span> <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-3.5 md:h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
             <Link
               href="#portfolio"
-              className="inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full border border-slate-300 hover:border-[#FF0055] text-[#0A1024] text-[13px] sm:text-[14px] lg:text-[15px] font-semibold bg-white/50 backdrop-blur-sm transition-all hover:bg-white whitespace-nowrap cursor-pointer"
+              className="inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full border border-slate-300 hover:border-[#FF0055] text-[#0A1024] text-[13px] sm:text-[16px] lg:text-[16px] font-semibold bg-white/50 backdrop-blur-sm transition-all hover:bg-white whitespace-nowrap cursor-pointer"
             >
               Explore Our Work
             </Link>
@@ -217,7 +217,7 @@ export default function ReadyToBuildSection() {
                 <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] xl:text-[36px] font-bold text-[#0A1024] tracking-tight font-heading leading-tight mb-0.5 sm:mb-1">
                   <AnimatedCounter to={250} suffix="+" trigger={statsInView} />
                 </h4>
-                <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] text-slate-500 font-medium font-sans whitespace-nowrap">Projects Delivered</p>
+                <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] text-slate-700 font-medium font-sans whitespace-nowrap">Projects Delivered</p>
               </div>
             </motion.div>
 
@@ -230,7 +230,7 @@ export default function ReadyToBuildSection() {
                 <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] xl:text-[36px] font-bold text-[#0A1024] tracking-tight font-heading leading-tight mb-0.5 sm:mb-1">
                   <AnimatedCounter to={120} suffix="+" trigger={statsInView} />
                 </h4>
-                <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] text-slate-500 font-medium font-sans whitespace-nowrap">Happy Clients</p>
+                <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] text-slate-700 font-medium font-sans whitespace-nowrap">Happy Clients</p>
               </div>
             </motion.div>
 
@@ -243,7 +243,7 @@ export default function ReadyToBuildSection() {
                 <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] xl:text-[36px] font-bold text-[#0A1024] tracking-tight font-heading leading-tight mb-0.5 sm:mb-1">
                   <AnimatedCounter to={10} suffix="+" trigger={statsInView} />
                 </h4>
-                <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] text-slate-500 font-medium font-sans whitespace-nowrap">Countries Served</p>
+                <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] text-slate-700 font-medium font-sans whitespace-nowrap">Countries Served</p>
               </div>
             </motion.div>
 
@@ -256,7 +256,7 @@ export default function ReadyToBuildSection() {
                 <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] xl:text-[36px] font-bold text-[#0A1024] tracking-tight font-heading leading-tight mb-0.5 sm:mb-1">
                   <AnimatedCounter to={98} suffix="%" trigger={statsInView} />
                 </h4>
-                <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] text-slate-500 font-medium font-sans whitespace-nowrap">Client Satisfaction</p>
+                <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] text-slate-700 font-medium font-sans whitespace-nowrap">Client Satisfaction</p>
               </div>
             </motion.div>
 

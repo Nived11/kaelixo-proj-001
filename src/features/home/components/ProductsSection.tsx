@@ -101,7 +101,7 @@ export default function ProductsSection() {
   }, []);
 
   return (
-    <section className="relative bg-[#040914] py-12 lg:py-16 overflow-hidden font-sans">
+    <section className="relative bg-[#040914] py-24 lg:py-32 overflow-hidden font-sans">
       {/* Background Image - Mobile */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none md:hidden opacity-80"
@@ -144,19 +144,19 @@ export default function ProductsSection() {
               </span>
             </h2>
 
-            <p className="text-slate-400 text-[16px] max-w-[380px] lg:max-w-[280px] xl:max-w-[380px] leading-relaxed mt-6">
+            <p className="text-slate-300 text-[16px] max-w-[380px] lg:max-w-[280px] xl:max-w-[380px] leading-relaxed mt-6">
               Powerful digital products designed to simplify operations, improve
               productivity and accelerate growth.
             </p>
 
             <button className="group mt-10 lg:mt-8 xl:mt-10 flex items-center gap-2 px-8 py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full bg-gradient-to-r from-[#FF0055] to-[#A855F7] border border-white/30 hover:border-white/60 shadow-[0_0_30px_rgba(255,0,85,0.3)] hover:shadow-[0_0_40px_rgba(255,0,85,0.5)] transition-all duration-300 active:scale-95 cursor-pointer">
-              <span className="text-white font-bold text-[13px] sm:text-[14px] lg:text-[15px]">
+              <span className="text-white font-bold text-[13px] sm:text-[14px] lg:text-[16px]">
                 Explore All Products
               </span>
               <ArrowRight className="text-white w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
 
-            <div className="mt-16 lg:mt-12 xl:mt-16 flex items-center gap-4 md:gap-3 lg:gap-2 xl:gap-4 text-[10px] sm:text-[11px] lg:text-[12px] xl:text-[13px] 2xl:text-[14px] [@media(min-width:1920px)]:text-[15px] font-semibold tracking-[0.3em] text-slate-300 uppercase">
+            <div className="mt-16 lg:mt-12 xl:mt-16 flex items-center gap-4 md:gap-3 lg:gap-2 xl:gap-4 text-[10px] sm:text-[11px] lg:text-[18px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] font-semibold tracking-[0.3em] text-slate-300 uppercase">
               <motion.span initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.3 }}>Simple</motion.span>
               <span className="text-slate-700">/</span>
               <motion.span initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.5 }}>Powerful</motion.span>
@@ -205,7 +205,7 @@ export default function ProductsSection() {
                     transition={{ duration: 0.5 }}
                     className="w-full md:w-[45%] lg:w-[50%] xl:w-[45%] flex flex-col items-start"
                   >
-                    <div className="px-2.5 py-1 rounded-full bg-[#FF0055] text-white text-[9px] font-bold tracking-wider mb-6 md:mb-4 lg:mb-4 xl:mb-6 shadow-[0_0_15px_rgba(255,0,85,0.5)]">
+                    <div className="px-2.5 py-1 rounded-full bg-[#FF0055] text-white text-[12px] font-bold tracking-wider mb-6 md:mb-4 lg:mb-4 xl:mb-6 shadow-[0_0_15px_rgba(255,0,85,0.5)]">
                       FEATURED PRODUCT
                     </div>
 
@@ -226,7 +226,7 @@ export default function ProductsSection() {
                         <h3 className="text-white text-[18px] sm:text-[20px] lg:text-[22px] xl:text-[24px] font-bold">
                           Way We Go
                         </h3>
-                        <p className="text-slate-400 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] mt-0.5">
+                        <p className="text-slate-400 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[18px] mt-0.5">
                           Business Management CRM
                         </p>
                       </div>
@@ -237,7 +237,7 @@ export default function ProductsSection() {
                       all in one place. A smarter way to run and grow your business.
                     </p>
 
-                    <button className="text-[#FF0055] font-semibold text-[13px] sm:text-[14px] lg:text-[15px] flex items-center gap-2 group-hover:gap-3 transition-all">
+                    <button className="text-[#FF0055] font-semibold text-[13px] sm:text-[14px] lg:text-[16px] flex items-center gap-2 group-hover:gap-3 transition-all">
                       Learn More <ArrowRight className="w-4 h-4" />
                     </button>
                   </motion.div>{" "}
@@ -367,7 +367,7 @@ export default function ProductsSection() {
                         <h3 className="text-white text-[18px] sm:text-[20px] lg:text-[22px] xl:text-[24px] font-bold leading-tight">
                           EduLoom
                         </h3>
-                        <p className="text-slate-400 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] mt-0.5">
+                        <p className="text-slate-400 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[18px] mt-0.5">
                           Learning Platform
                         </p>
                       </div>
@@ -376,7 +376,7 @@ export default function ProductsSection() {
                       A modern learning platform for the next generation.
                       Empower educators and learners with technology.
                     </p>
-                    <button className="text-blue-400 font-semibold text-[13px] sm:text-[14px] lg:text-[15px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+                    <button className="text-blue-400 font-semibold text-[13px] sm:text-[14px] lg:text-[16px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
                       Learn More <ArrowRight className="w-4 h-4" />
                     </button>
                   </motion.div>
@@ -423,7 +423,7 @@ export default function ProductsSection() {
                         <h3 className="text-white text-[18px] sm:text-[20px] lg:text-[22px] xl:text-[24px] font-bold leading-tight">
                           Custom Solutions
                         </h3>
-                        <p className="text-slate-400 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] mt-0.5">
+                        <p className="text-slate-400 text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[18px] mt-0.5">
                           For Your Business
                         </p>
                       </div>
@@ -432,7 +432,7 @@ export default function ProductsSection() {
                       Tailored digital solutions to solve your unique
                       challenges. From idea to impact, we build with you.
                     </p>
-                    <button className="text-[#A855F7] font-semibold text-[13px] sm:text-[14px] lg:text-[15px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+                    <button className="text-[#A855F7] font-semibold text-[13px] sm:text-[14px] lg:text-[16px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
                       Let's Discuss <ArrowRight className="w-4 h-4" />
                     </button>
                   </motion.div>

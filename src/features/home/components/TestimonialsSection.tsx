@@ -49,7 +49,13 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="bg-white py-24 lg:py-32 relative overflow-hidden font-sans">
+    <section className="bg-white pt-12 lg:pt-20 pb-24 lg:pb-32 relative font-sans">
+      
+      {/* Background Soft Blobs to Blend with Process Section */}
+      <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[600px] bg-purple-50/70 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[500px] bg-rose-50/60 blur-[100px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-[40%] right-[20%] w-[30%] h-[400px] bg-blue-50/40 blur-[100px] rounded-full pointer-events-none"></div>
+
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
 
@@ -108,7 +114,7 @@ export default function TestimonialsSection() {
                 >
                   <h4 className="text-[#020205] text-[24px] lg:text-[36px] 2xl:text-[36px] font-extrabold whitespace-nowrap">4.9/5</h4>
                 </motion.div>
-                <p className="text-gray-600 text-[12px] lg:text-[14px] 2xl:text-[16px] mt-1 font-medium leading-tight">Client Satisfaction</p>
+                <p className="text-gray-600 text-[12px] lg:text-[16px] 2xl:text-[16px] mt-1 font-medium leading-tight">Client Satisfaction</p>
               </motion.div>
               <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0 mt-2" />
               <motion.div
@@ -167,7 +173,13 @@ export default function TestimonialsSection() {
           >
 
             {/* Cards Container */}
-            <div className="relative w-full max-w-[800px] h-full flex items-center justify-center">
+            <motion.div 
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="relative w-full max-w-[800px] h-full flex items-center justify-center"
+            >
 
               {testimonials.map((t, index) => {
                 const isActive = index === activeIndex;
@@ -278,10 +290,10 @@ export default function TestimonialsSection() {
                 )
               })}
 
-            </div>
+            </motion.div>
 
-            {/* Desktop & Mobile Navigation Controls (Placed bottom left of the right column, aligning with stats) */}
-            <div className="absolute -bottom-16 sm:-bottom-12 lg:-bottom-10 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-76 flex items-center gap-4 z-40">
+            {/* Desktop & Mobile Navigation Controls */}
+            <div className="absolute -bottom-4 sm:-bottom-6 lg:-bottom-2 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-[304px] xl:left-[350px] flex items-center gap-4 z-40">
               <button
                 onClick={handlePrev}
                 className="w-14 h-14 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-50 transition-all shadow-sm active:scale-95"
