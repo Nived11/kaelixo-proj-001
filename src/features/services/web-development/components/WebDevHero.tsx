@@ -20,11 +20,11 @@ export default function WebDevHero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 sm:px-8 w-full max-w-[1400px] mx-auto">
-        <h1 className="text-white text-5xl md:text-6xl lg:text-[80px] font-extrabold tracking-tight mb-6 leading-none">
+        <h1 className="text-white text-5xl md:text-6xl lg:text-[72px] font-extrabold tracking-tight mb-6 leading-none">
           Web <span className="text-[#FF0055]">Development</span>
         </h1>
-        <p className="text-slate-300 text-lg md:text-xl lg:text-[22px] max-w-2xl mx-auto font-medium">
-          Fast, scalable web experiences for modern businesses.
+        <p className="text-slate-300 text-[16px] max-w-2xl mx-auto font-medium leading-relaxed">
+          We think your business through, build a site that fits it, and stay on to grow it — fast, flexible websites made for growing businesses.
         </p>
       </div>
     </section>

@@ -31,28 +31,28 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "How long does it take to develop a website?",
-      answer: "The timeline depends on the project's complexity and requirements. A standard business website usually takes 2-4 weeks, while larger or custom projects may take longer. We always provide a clear timeline before starting.",
+      question: "How long does it take to build a website?",
+      answer: "Timeline depends on scope and complexity. A standard business website typically takes 2–4 weeks, while larger custom builds take longer. As a web development company, we always think the timeline through and share it upfront before work begins.",
     },
     {
-      question: "What does your web development service include?",
-      answer: "Our service includes UI/UX design, frontend & backend development, mobile responsiveness, basic SEO setup, and performance optimization.",
+      question: "What services does your web development company offer?",
+      answer: "Our web development services cover strategy, UI/UX design, custom website and web application development, e-commerce, CMS setup, testing, launch and ongoing growth support — end to end, under one team that thinks it through, builds it, and stays to grow it.",
     },
     {
-      question: "Do you provide domain and hosting?",
-      answer: "Yes, we can assist you with purchasing the right domain and setting up reliable hosting suited for your specific application needs.",
+      question: "Do you provide domain and hosting for a new website?",
+      answer: "Yes. We can set up domain and hosting for you, or work within infrastructure you already have in place.",
     },
     {
-      question: "Will my website be mobile-friendly?",
-      answer: "Absolutely. All our websites are built with a mobile-first approach to ensure they look and function perfectly across all devices and screen sizes.",
+      question: "Will my website be mobile-friendly and SEO-ready?",
+      answer: "Every website we build is fully responsive and optimized for search from the ground up — mobile performance and SEO aren't an afterthought.",
     },
     {
-      question: "Can I update the website content myself?",
-      answer: "Yes, we integrate easy-to-use Content Management Systems (CMS) so you can update text, images, and basic content without any coding knowledge.",
+      question: "Can I update the website content myself after launch?",
+      answer: "Yes. We build on CMS platforms designed for non-technical teams, so you can update pages, images and content without needing a developer.",
     },
     {
-      question: "Do you provide ongoing support and maintenance?",
-      answer: "Yes, we offer flexible support and maintenance packages to keep your website secure, up-to-date, and running smoothly long after launch.",
+      question: "Do you offer ongoing website support and maintenance?",
+      answer: "Yes. Support continues after launch — updates, monitoring and maintenance are part of how we help what we've built keep growing.",
     },
   ];
 
@@ -70,16 +70,16 @@ export default function FAQSection() {
           <div className="lg:col-span-5 flex flex-col items-start">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-[2px] bg-[#FF0055]"></div>
-              <span className="text-gray-500 font-bold text-[10px] tracking-widest uppercase">FREQUENTLY ASKED QUESTIONS</span>
+              <span className="text-gray-500 font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.25em] uppercase">FREQUENTLY ASKED QUESTIONS</span>
             </div>
             
-            <h2 className="text-4xl md:text-[44px] font-black leading-[1.1] tracking-tight mb-5">
+            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px] font-extrabold leading-[1.05] tracking-tight mb-5 font-heading">
               Got Questions? <br />
               <span className="text-[#FF0055]">We've Got Answers.</span>
             </h2>
             
-            <p className="text-[#475569] text-[15px] font-medium leading-relaxed max-w-md mb-10">
-              Find answers to common questions about our web development services, process, and support.
+            <p className="text-[#475569] text-[16px] leading-[1.6] max-w-md mb-10">
+              Common questions about our web development company's services, process and support.
             </p>
 
             {/* Features Row */}
@@ -99,7 +99,7 @@ export default function FAQSection() {
 
             {/* Bottom Footer Line */}
             <div className="flex items-center gap-2.5 text-[9px] font-bold tracking-widest text-gray-400 uppercase">
-              IDEAS <span className="text-[#FF0055]">—</span> DESIGN <span className="text-[#FF0055]">—</span> DEVELOP <span className="text-[#FF0055]">—</span> GROW
+              THINK <span className="text-[#FF0055]">—</span> BUILD <span className="text-[#FF0055]">—</span> GROW
             </div>
           </div>
 

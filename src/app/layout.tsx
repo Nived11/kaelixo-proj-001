@@ -23,16 +23,21 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Kaelixo | Think. Build. Grow.",
+  title: "Kaelixo | Growth Marketing Agency | Think. Build. Grow.",
   description:
-    "We design intelligent websites, build powerful software, create custom CRM solutions, develop AI-driven tools and deliver digital growth strategies for ambitious businesses worldwide.",
+    "Kaelixo is a growth marketing agency building intelligent websites, custom software, CRM solutions and AI-driven tools that drive real digital growth.",
   keywords: [
+    "Growth Marketing Agency",
     "Kaelixo",
     "Intelligent Websites",
-    "Custom Software",
+    "Custom Software Development",
     "CRM Solutions",
     "AI Tools",
     "Digital Growth",
+    "Digital Marketing Agency Kochi",
+    "Web Development Company Kochi",
+    "Software Development Company Kerala",
+    "Custom CRM Development"
   ],
 };
 

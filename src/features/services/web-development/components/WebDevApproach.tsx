@@ -5,33 +5,33 @@ export default function WebDevApproach() {
   const steps = [
     {
       icon: <Lightbulb className="w-5 h-5 text-[#FF0055]" />,
-      title: "Strategic Planning",
-      desc: "Understand your goals and audience"
+      title: "Brand & Audience Study",
+      desc: "Your business studied closely before a single page takes shape."
     },
     {
       icon: <PenTool className="w-5 h-5 text-[#FF0055]" />,
-      title: "Creative Design",
-      desc: "Modern, user-centric and brand-focused"
+      title: "Design Shaped by Insight",
+      desc: "Modern, brand-focused design built on real audience behaviour."
     },
     {
       icon: <Code2 className="w-5 h-5 text-[#FF0055]" />,
-      title: "Clean Development",
-      desc: "Secure, scalable and high-performance code"
+      title: "Clean, Dependable Code",
+      desc: "Secure, scalable development built to hold up over time."
     },
     {
       icon: <Smartphone className="w-5 h-5 text-[#FF0055]" />,
       title: "Fully Responsive",
-      desc: "Seamless experience across all devices"
+      desc: "A seamless experience across every device your audience uses."
     },
     {
       icon: <Rocket className="w-5 h-5 text-[#FF0055]" />,
       title: "Testing & Optimization",
-      desc: "Quality, speed and SEO-ready"
+      desc: "Speed and quality checked thoroughly before anything goes live."
     },
     {
       icon: <LifeBuoy className="w-5 h-5 text-[#FF0055]" />,
       title: "Ongoing Support",
-      desc: "We're with you, even after launch"
+      desc: "Growth tracked and refined long after launch — because building doesn't end at launch, growing does."
     }
   ];
 
@@ -43,19 +43,19 @@ export default function WebDevApproach() {
           {/* Left Column */}
           <div className="flex flex-col items-start pr-0 lg:pr-10 relative z-20">
             <div className="flex flex-col items-start mb-5 gap-2">
-              <span className="text-slate-500 font-bold text-[10px] sm:text-[11px] tracking-widest uppercase">
+              <span className="text-slate-700 font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.25em] uppercase">
                 OUR APPROACH
               </span>
               <div className="w-8 h-[2px] bg-[#FF0055]" />
             </div>
 
-            <h2 className="text-[#020205] text-[34px] lg:text-[42px] font-black leading-[1.08] tracking-tight mb-4">
-              From Ideas to <br />
+            <h2 className="text-[#020205] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px] font-extrabold leading-[1.05] tracking-tight mb-4 font-heading">
+              From Deep Understanding to <br />
               <span className="text-[#FF0055]">Impactful Websites</span>
             </h2>
 
-            <p className="text-slate-500 text-[14px] lg:text-[15px] leading-relaxed mb-8 max-w-[480px]">
-              We combine strategy, design and technology to build websites that look great, perform exceptionally and help your business grow.
+            <p className="text-slate-500 text-[16px] leading-[1.6] mb-8 max-w-[480px]">
+              Most web development companies start building right away. As a Web Development Company, we start by thinking it through — who this brand is, and who they're really speaking to. Only once that's understood do we build, and we stay on afterward to grow what we've built.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-7 mb-8 w-full">
@@ -65,7 +65,7 @@ export default function WebDevApproach() {
                     <div className="scale-90">{step.icon}</div>
                   </div>
                   <div className="pt-0.5">
-                    <h4 className="text-[#020205] text-[14px] font-bold mb-1 leading-tight">{step.title}</h4>
+                    <h4 className="text-[#020205] text-[18px] font-bold mb-1 leading-tight">{step.title}</h4>
                     <p className="text-slate-500 text-[12px] leading-relaxed pr-2">{step.desc}</p>
                   </div>
                 </div>

@@ -4,7 +4,7 @@ import { ArrowRight, ShoppingCart, GraduationCap, HeartPulse, Building2, Factory
 const topCardsLeft = [
   {
     title: "Retail &\nE-commerce",
-    desc: "High-converting online stores and retail websites to boost your sales.",
+    desc: "Conversion-focused online stores that turn browsers into buyers.",
     icon: ShoppingCart,
     theme: "text-[#FF0055] bg-[#FF0055]/10",
     arrowTheme: "bg-[#FF0055]/10 text-[#FF0055]",
@@ -12,7 +12,7 @@ const topCardsLeft = [
   },
   {
     title: "Education",
-    desc: "Engaging websites for schools, colleges, training institutes and e-learning platforms.",
+    desc: "Interactive websites for schools, colleges, training institutes and e-learning platforms.",
     icon: GraduationCap,
     theme: "text-emerald-500 bg-emerald-500/10",
     arrowTheme: "bg-emerald-500/10 text-emerald-500",
@@ -23,7 +23,7 @@ const topCardsLeft = [
 const topCardsRight = [
   {
     title: "Healthcare",
-    desc: "Secure, patient-friendly websites for hospitals, clinics and healthcare providers.",
+    desc: "Secure, easy-to-navigate websites for hospitals, clinics and healthcare providers.",
     icon: HeartPulse,
     theme: "text-blue-500 bg-blue-500/10",
     arrowTheme: "bg-blue-500/10 text-blue-500",
@@ -31,7 +31,7 @@ const topCardsRight = [
   },
   {
     title: "Hospitality &\nTravel",
-    desc: "Beautiful, booking-ready websites for hotels, resorts, tour operators and travel brands.",
+    desc: "Booking-ready websites for hotels, resorts, tour operators and travel brands.",
     icon: Building2,
     theme: "text-orange-500 bg-orange-500/10",
     arrowTheme: "bg-orange-500/10 text-orange-500",
@@ -42,7 +42,7 @@ const topCardsRight = [
 const bottomCards = [
   {
     title: "Manufacturing &\nIndustrial",
-    desc: "Powerful websites to showcase your products, capabilities and global reach.",
+    desc: "Functional sites that showcase capabilities, products and global reach.",
     icon: Factory,
     theme: "text-purple-600 bg-purple-600/10",
     arrowTheme: "bg-purple-600/10 text-purple-600",
@@ -50,7 +50,7 @@ const bottomCards = [
   },
   {
     title: "Real Estate",
-    desc: "Feature-rich property websites for builders, agents and real estate firms.",
+    desc: "Detailed, feature-rich property websites for agents, builders and real estate firms.",
     icon: Home,
     theme: "text-rose-500 bg-rose-500/10",
     arrowTheme: "bg-rose-500/10 text-rose-500",
@@ -58,7 +58,7 @@ const bottomCards = [
   },
   {
     title: "Food &\nRestaurant",
-    desc: "Attractive websites with online menus, table booking and delivery integration.",
+    desc: "Appealing websites with online menus, table booking and delivery integration.",
     icon: Utensils,
     theme: "text-amber-500 bg-amber-500/10",
     arrowTheme: "bg-amber-500/10 text-amber-500",
@@ -66,7 +66,7 @@ const bottomCards = [
   },
   {
     title: "IT & Professional\nServices",
-    desc: "Modern websites for IT companies, consultancies and corporate service providers.",
+    desc: "Modern sites for IT companies, consultancies and corporate service providers.",
     icon: Monitor,
     theme: "text-sky-500 bg-sky-500/10",
     arrowTheme: "bg-sky-500/10 text-sky-500",
@@ -88,20 +88,19 @@ export default function WebDevIndustries() {
         <div className="text-center max-w-[800px] mx-auto mb-8">
           <div className="flex justify-center items-center gap-3 mb-3">
             <div className="w-8 h-[2px] bg-[#FF0055]" />
-            <span className="text-slate-500 font-bold text-[10px] tracking-[0.2em] uppercase">
+            <span className="text-slate-500 font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.25em] uppercase">
               INDUSTRY SOLUTIONS
             </span>
             <div className="w-8 h-[2px] bg-[#FF0055]" />
           </div>
           
-          <h2 className="text-[#05050A] text-[28px] md:text-[34px] lg:text-[40px] font-extrabold leading-[1.1] tracking-tight mb-3">
+          <h2 className="text-[#05050A] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px] font-extrabold leading-[1.05] tracking-tight mb-3 font-heading">
             Web Development Services <br />
             For <span className="text-[#FF0055]">Various Industries</span>
           </h2>
           
-          <p className="text-slate-600 text-[13px] lg:text-[14px] leading-relaxed max-w-[600px] mx-auto">
-            Tailored web solutions for every business — because every industry has a different story. 
-            We build websites that fit your goals, customers and growth.
+          <p className="text-slate-600 text-[16px] leading-[1.6] max-w-[700px] mx-auto">
+            No two businesses run the same way, so no two websites should either. As a Web Development Company, we think each industry through before we build for it — shaping every site around how that business actually grows.
           </p>
         </div>
 
@@ -157,10 +156,7 @@ export default function WebDevIndustries() {
           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-slate-200 -z-10" />
 
           {/* Side Texts */}
-          <div className="hidden lg:flex w-full absolute top-1/2 -translate-y-1/2 justify-between items-center text-[8px] lg:text-[9px] font-bold tracking-[0.2em] text-slate-400 uppercase pointer-events-none">
-            <span className="bg-[#f4f6f9] pr-4">STRATEGY — DESIGN — DEVELOPMENT — GROWTH</span>
-            <span className="bg-[#f4f6f9] pl-4">WEBSITES THAT WORK FOR EVERY INDUSTRY</span>
-          </div>
+          
 
           {/* Button */}
           <button className="bg-[#FF0055] hover:bg-[#e6004c] text-white px-6 py-3 rounded-full font-bold text-[12px] lg:text-[13px] transition-all flex items-center gap-2.5 shadow-[0_6px_15px_rgba(255,0,85,0.25)] hover:shadow-[0_8px_20px_rgba(255,0,85,0.35)] hover:-translate-y-1">

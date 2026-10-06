@@ -44,17 +44,17 @@ export default function WebDevTechStack() {
           <div className="flex flex-col items-start w-full xl:w-auto overflow-hidden">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-[2px] bg-[#FF0055]" />
-              <span className="text-slate-400 font-bold text-[11px] tracking-[0.25em] uppercase">
+              <span className="text-slate-400 font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.25em] uppercase">
                 TECHNOLOGY STACK
               </span>
             </div>
             
-            <h2 className="text-white text-[28px] sm:text-[34px] lg:text-[40px] xl:text-[44px] font-extrabold leading-[1.1] tracking-tight mb-4 lg:whitespace-nowrap">
+            <h2 className="text-white text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px] font-extrabold leading-[1.05] tracking-tight mb-4 font-heading lg:whitespace-nowrap">
               Built with <span className="text-[#FF0055] drop-shadow-[0_0_15px_rgba(255,0,85,0.3)]">Modern Technologies</span>
             </h2>
             
-            <p className="text-slate-400 text-[12px] lg:text-[13px] xl:text-[14px] leading-[1.6] lg:whitespace-nowrap">
-              We use industry-leading tools and frameworks to build fast, secure and scalable websites tailored to your business needs.
+            <p className="text-slate-400 text-[16px] leading-[1.6] max-w-[600px]">
+              As a Web Development Company, once we've thought a project through, we build it with whichever industry-leading tools and frameworks fit best — chosen to grow with the business, not lock it in.
             </p>
           </div>
 

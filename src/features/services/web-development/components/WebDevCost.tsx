@@ -19,20 +19,18 @@ export default function WebDevCost() {
           
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-[2px] bg-[#FF0055]" />
-            <span className="text-slate-400 font-bold text-[9px] tracking-[0.2em] uppercase">
+            <span className="text-slate-400 font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.25em] uppercase">
               TRANSPARENT PRICING
             </span>
           </div>
           
-          <h2 className="text-white text-[32px] md:text-[40px] lg:text-[46px] font-extrabold leading-[1.05] tracking-tight mb-4">
+          <h2 className="text-white text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px] font-extrabold leading-[1.05] tracking-tight mb-4 font-heading">
             How Much Does<br />
             <span className="text-[#FF0055]">Web Development</span> Cost?
           </h2>
           
-          <p className="text-slate-400 text-[13px] lg:text-[14px] leading-[1.6] max-w-[550px] mb-8">
-            The cost of web development depends on your goals, features, 
-            design complexity and functionality. We provide tailored solutions 
-            for every business size and budget.
+          <p className="text-slate-400 text-[16px] leading-[1.6] max-w-[600px] mb-8">
+            There's no single price tag for web development — it comes down to your goals, features, design complexity and functionality. As a Web Development Company, we think through the scope of every project before quoting, so you pay only for what actually helps your business grow.
           </p>
           
           {/* Action Row */}

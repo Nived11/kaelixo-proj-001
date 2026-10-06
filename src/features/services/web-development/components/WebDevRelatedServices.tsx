@@ -1,36 +1,60 @@
 import React from 'react';
-import { ArrowRight, Code2, Smartphone, Cloud, BarChart3 } from 'lucide-react';
+import { ArrowRight, Code2, Smartphone, Cloud, BarChart3, Users, ShoppingCart, Settings } from 'lucide-react';
 import Link from 'next/link';
 
 const relatedServices = [
   {
     category: "SOFTWARE DEVELOPMENT",
     title: "Custom Software\nDevelopment",
-    desc: "Build powerful, scalable software solutions tailored to your business needs.",
+    desc: "Software built around how your business actually operates — not adapted to fit a generic tool.",
     icon: Code2,
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
     link: "/services/custom-software"
   },
   {
+    category: "CRM DEVELOPMENT",
+    title: "CRM Systems",
+    desc: "Purpose-built platforms like WayWeGo and EduLoom, designed around your industry's real workflow.",
+    icon: Users,
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+    link: "/services/crm-development"
+  },
+  {
     category: "MOBILE SOLUTIONS",
     title: "Mobile App\nDevelopment",
-    desc: "Create high-performance mobile apps for Android and iOS platforms.",
+    desc: "High-performing Android and iOS apps designed around your users, built to grow with them.",
     icon: Smartphone,
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
     link: "/services/mobile-apps"
   },
   {
+    category: "E-COMMERCE DEVELOPMENT",
+    title: "E-commerce Website\nDevelopment",
+    desc: "Online stores engineered for fast checkout, easy discovery and real conversions.",
+    icon: ShoppingCart,
+    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=2070&auto=format&fit=crop",
+    link: "/services/e-commerce"
+  },
+  {
     category: "CLOUD & IT INFRASTRUCTURE",
     title: "Cloud Solutions\n& IT Infrastructure",
-    desc: "Secure, flexible and reliable infrastructure to keep your business running effortlessly.",
+    desc: "Reliable, secure infrastructure that keeps everything we build running without interruption.",
     icon: Cloud,
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop",
     link: "/services/cloud-solutions"
   },
   {
+    category: "WEBSITE MAINTENANCE",
+    title: "Website Maintenance\n& Support",
+    desc: "Ongoing code updates, monitoring and fixes that keep a live site fast, secure — and growing.",
+    icon: Settings,
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+    link: "/services/website-maintenance"
+  },
+  {
     category: "DATA & ANALYTICS",
     title: "Business Analytics\n& Reporting",
-    desc: "Turn your data into meaningful insights and make smarter business decisions.",
+    desc: "Real usage data turned into insight, so every decision after launch is backed by evidence.",
     icon: BarChart3,
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
     link: "/services/data-analytics"
@@ -40,53 +64,24 @@ const relatedServices = [
 export default function WebDevRelatedServices() {
   return (
     <section className="py-10 lg:py-16 bg-[#f8f9fa] relative overflow-hidden">
-      
-      {/* Decorative Corner Texts */}
-      <div className="absolute top-10 left-10 hidden lg:block">
-        <p className="text-[9px] font-bold tracking-[0.2em] text-slate-400 uppercase leading-relaxed">
-          IDEAS<br/>TECHNOLOGY<br/>GROWTH
-        </p>
-        <div className="w-6 h-[1px] bg-[#FF0055] mt-2" />
-      </div>
-
-      <div className="absolute top-10 right-10 hidden lg:flex flex-col items-end text-right">
-        <p className="text-[9px] font-bold tracking-[0.2em] text-slate-400 uppercase leading-relaxed">
-          SOLUTIONS<br/>THAT GROW<br/>WITH YOU
-        </p>
-        <div className="w-6 h-[1px] bg-[#FF0055] mt-2" />
-      </div>
-
-      <div className="absolute bottom-10 left-10 hidden lg:flex items-center gap-3">
-        <div className="w-12 h-[1px] bg-slate-300" />
-        <span className="text-[9px] font-bold tracking-[0.2em] text-slate-400 uppercase">
-          LET'S BUILD A BRIGHTER TOMORROW
-        </span>
-      </div>
-
-      <div className="absolute bottom-10 right-10 hidden lg:block">
-        <span className="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase">
-          KAELIXO
-        </span>
-      </div>
-
       <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-[800px] mx-auto mb-10 lg:mb-14">
           <div className="flex justify-center items-center gap-4 mb-3">
             <div className="w-10 h-[1px] bg-[#FF0055]" />
-            <span className="text-[#FF0055] font-bold text-[10px] tracking-[0.2em] uppercase">
+            <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.25em] uppercase">
               RELATED SERVICES
             </span>
             <div className="w-10 h-[1px] bg-slate-300 hidden sm:block" />
           </div>
           
-          <h2 className="text-[#05050A] text-[30px] md:text-[36px] lg:text-[42px] font-extrabold leading-[1.1] tracking-tight mb-3">
+          <h2 className="text-[#05050A] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px] font-extrabold leading-[1.05] tracking-tight mb-3 font-heading">
             Explore <span className="text-[#FF0055]">Related Services</span>
           </h2>
           
-          <p className="text-slate-500 text-[13px] lg:text-[14px] leading-relaxed max-w-[550px] mx-auto">
-            More solutions to help you build, scale, and succeed.
+          <p className="text-slate-500 text-[16px] leading-[1.6] max-w-[600px] mx-auto">
+            More ways we help you think, build and grow.
           </p>
         </div>
 

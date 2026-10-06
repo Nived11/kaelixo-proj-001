@@ -80,7 +80,7 @@ export default function AiSolutionsSection() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, margin: "-100px" }}
             variants={{
               hidden: { opacity: 0 },
               visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
@@ -193,7 +193,12 @@ export default function AiSolutionsSection() {
               POSITION ADJUSTMENTS:
               Modify the 'top-' and 'right-' values below to change the card's position on different screen sizes.
             */}
-            <div className="absolute z-20 group overflow-hidden rounded-[10px] sm:rounded-[14px] shadow-[0_0_50px_rgba(255,0,102,0.15)] w-[65px] sm:w-[120px] lg:w-[100px] xl:w-[120px] aspect-[4/5] 
+            <motion.div 
+              initial={{ opacity: 0, y: -30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false, margin: "-50px" }}
+              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              className="absolute z-20 group overflow-hidden rounded-[10px] sm:rounded-[14px] shadow-[0_0_50px_rgba(255,0,102,0.15)] w-[65px] sm:w-[120px] lg:w-[100px] xl:w-[120px] aspect-[4/5] 
               top-[10%] -right-[5%]
               sm:top-[25%] sm:right-[10%] 
               md:top-[30%] md:right-[15%] 
@@ -218,14 +223,19 @@ export default function AiSolutionsSection() {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* The Quote Box with Animated Border & Carousel */}
             {/* 
               POSITION ADJUSTMENTS:
               Modify the 'bottom-' and 'right-' values below to change the quote box's position.
             */}
-            <div className="absolute z-20 group overflow-hidden rounded-[16px] shadow-[0_20px_40px_rgba(0,0,0,0.6)] w-[92%] sm:w-[320px] md:w-[350px] lg:w-[320px] xl:w-[350px] p-[2px]
+            <motion.div 
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false, margin: "-50px" }}
+              transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+              className="absolute z-20 group overflow-hidden rounded-[16px] shadow-[0_20px_40px_rgba(0,0,0,0.6)] w-[92%] sm:w-[320px] md:w-[350px] lg:w-[320px] xl:w-[350px] p-[2px]
               bottom-2 left-1/2 -translate-x-1/2
               sm:left-auto sm:translate-x-0 sm:bottom-10 sm:right-0 
               md:bottom-12 md:right-0 
@@ -239,18 +249,18 @@ export default function AiSolutionsSection() {
               <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_180deg,transparent_0_270deg,#FF0066_360deg)] opacity-30" />
 
               {/* Inner Content (Sets the height of the card) */}
-              <div className="relative z-10 rounded-[14px] bg-[#0c0418]/60 backdrop-blur-lg p-4 sm:p-5 flex flex-row items-center border border-white/10 h-[110px] sm:h-[130px]">
+              <div className="relative z-10 rounded-[14px] bg-[#0c0418]/60 backdrop-blur-lg p-4 sm:p-5 lg:p-7 flex flex-row lg:flex-col items-center lg:items-start border border-white/10 h-[110px] sm:h-[130px] lg:h-auto lg:min-h-[220px]">
                 
-                {/* Left Side: Quote Text */}
-                <div className="flex-1 flex flex-col justify-between h-full pr-3">
-                  <div className="text-[32px] sm:text-[40px] font-serif leading-none h-4 sm:h-6 mb-2 bg-gradient-to-r from-[#FFB3D9] to-[#FF0055] bg-clip-text text-transparent select-none">
+                {/* Left/Top Side: Quote Text */}
+                <div className="flex-1 flex flex-col justify-between lg:justify-start h-full lg:h-auto pr-3 lg:pr-0 lg:w-full">
+                  <div className="text-[32px] sm:text-[40px] lg:text-[48px] font-serif leading-none h-4 sm:h-6 lg:h-8 mb-2 lg:mb-4 bg-gradient-to-r from-[#FFB3D9] to-[#FF0055] bg-clip-text text-transparent select-none">
                     “
                   </div>
-                  <div className="relative flex-1 w-full">
+                  <div className="relative flex-1 w-full lg:h-[90px] lg:mb-6">
                     {quotes.map((quote, idx) => (
                       <p
                         key={idx}
-                        className={`absolute inset-0 flex items-center text-white text-[12px] sm:text-[14px] lg:text-[15px] leading-[1.5] font-medium drop-shadow-sm whitespace-pre-line transition-all duration-500 ${activeQuote === idx ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
+                        className={`absolute inset-0 flex items-center lg:items-start text-white text-[12px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-[1.5] lg:leading-[1.6] font-medium drop-shadow-sm whitespace-pre-line transition-all duration-500 ${activeQuote === idx ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
                           }`}
                       >
                         {quote}
@@ -259,15 +269,26 @@ export default function AiSolutionsSection() {
                   </div>
                 </div>
 
-                {/* Right Side: Vertical Divider and Title */}
-                <div className="flex flex-col items-center justify-center shrink-0 pl-3 sm:pl-4 border-l border-white/10 h-[70%]">
+                {/* Right Side (Mobile Only): Vertical Divider and Title */}
+                <div className="flex lg:hidden flex-col items-center justify-center shrink-0 pl-3 sm:pl-4 border-l border-white/10 h-[70%]">
                   <span className="text-[#d8b4fe] text-[7px] sm:text-[9px] font-semibold tracking-[0.2em] text-center uppercase leading-[1.4] mb-2">
                     A SMARTER<br />TOMORROW
                   </span>
                   <div className="h-[2px] w-6 sm:w-8 bg-[#FF0055]" />
                 </div>
+
+                {/* Bottom Bar (Desktop Only): Lines and Title */}
+                <div className="hidden lg:flex w-full items-end justify-between mt-auto">
+                  <div className="flex gap-2 lg:gap-3 mb-1">
+                    <div className={`h-[3px] rounded-full transition-all duration-300 ${activeQuote === 0 ? 'w-8 bg-[#FF0055]' : 'w-8 bg-[#2a1a4a]'}`} />
+                    <div className={`h-[3px] rounded-full transition-all duration-300 ${activeQuote === 1 ? 'w-8 bg-[#FF0055]' : 'w-8 bg-[#2a1a4a]'}`} />
+                  </div>
+                  <span className="text-[#d8b4fe] text-[10px] xl:text-[11px] font-semibold tracking-[0.2em] text-right uppercase leading-[1.4]">
+                    A SMARTER<br />TOMORROW
+                  </span>
+                </div>
               </div>
-            </div>
+            </motion.div>
 
           </div>
 

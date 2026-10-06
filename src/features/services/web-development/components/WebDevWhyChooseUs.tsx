@@ -7,37 +7,37 @@ export default function WebDevWhyChooseUs() {
       id: "01",
       icon: <Users className="w-5 h-5 text-[#FF0055]" />,
       title: "Experienced Team",
-      desc: "Skilled developers, designers\nand strategists working together\nfor your success."
+      desc: "Designers, developers and\nstrategists who've shaped\nsolutions for startups and\nenterprises alike."
     },
     {
       id: "02",
       icon: <ShieldCheck className="w-5 h-5 text-[#FF0055]" />,
       title: "Secure & Reliable",
-      desc: "We follow best practices to keep\nyour website safe, stable and\nalways online."
+      desc: "Built on dependable practices\nthat keep your site safe,\nstable and always online."
     },
     {
       id: "03",
       icon: <Zap className="w-5 h-5 text-[#FF0055]" />,
       title: "High Performance",
-      desc: "Optimized for speed, SEO and\na seamless user experience."
+      desc: "Tuned for speed, SEO and\na smooth experience\non every device."
     },
     {
       id: "04",
       icon: <Maximize className="w-5 h-5 text-[#FF0055]" />,
       title: "Scalable Solutions",
-      desc: "Built to grow with your business\n— from startup to enterprise."
+      desc: "Built to grow alongside\nyour business — from a five-person\nteam to a multi-city enterprise."
     },
     {
       id: "05",
       icon: <MessageSquare className="w-5 h-5 text-[#FF0055]" />,
       title: "Transparent Process",
-      desc: "Clear communication, regular\nupdates and complete visibility\nat every stage."
+      desc: "Clear communication and full\nvisibility at every stage,\nnothing handed off."
     },
     {
       id: "06",
       icon: <HeadphonesIcon className="w-5 h-5 text-[#FF0055]" />,
       title: "Ongoing Support",
-      desc: "We're with you even after launch\nwith updates, maintenance\nand technical support."
+      desc: "We stay on after launch to grow\nwhat we've built — updates,\nmaintenance and support, not a one-time delivery."
     }
   ];
 
@@ -54,18 +54,18 @@ export default function WebDevWhyChooseUs() {
           <div className="lg:col-span-5 flex flex-col items-start pr-4 xl:pr-12">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-[2px] bg-[#FF0055]" />
-              <span className="text-slate-400 font-bold text-[11px] tracking-[0.25em] uppercase">
+              <span className="text-slate-400 font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.25em] uppercase">
                 WHY CHOOSE US
               </span>
             </div>
 
-            <h2 className="text-white text-[32px] lg:text-[42px] font-extrabold leading-[1.05] tracking-tight mb-4">
+            <h2 className="text-white text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px] font-extrabold leading-[1.05] tracking-tight mb-4 font-heading">
               More Than Just <br />
               <span className="text-[#FF0055]">Web Development</span>
             </h2>
 
-            <p className="text-slate-300 text-[12px] lg:text-[13px] leading-[1.6] mb-6 max-w-[420px]">
-              We build websites that are fast, secure, scalable and strategically designed to help your business grow in the digital world.
+            <p className="text-slate-300 text-[16px] leading-[1.6] mb-6 max-w-[420px]">
+              We don't just build websites. We think your business through first, then build exactly what it needs, and grow it with you — fast, secure, and built to last.
             </p>
 
             {/* Laptop & Rock Images Container */}

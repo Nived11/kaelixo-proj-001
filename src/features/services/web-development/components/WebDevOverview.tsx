@@ -7,42 +7,42 @@ export default function WebDevOverview() {
       id: 1,
       icon: <Code2 className="w-5 h-5 text-[#FF0055]" />,
       title: "Custom Website Development",
-      desc: "Tailored, high-performance websites built around your brand, goals and user needs.",
+      desc: "Websites designed and built around your specific business model, not a template.",
       mock: "wireframe" // We'll render a specific mock block based on this
     },
     {
       id: 2,
       icon: <Box className="w-5 h-5 text-[#FF0055]" />,
       title: "Web Application Development",
-      desc: "Scalable and secure web applications that streamline operations and create new opportunities.",
+      desc: "Scalable, functional web apps built to handle real workflows and real users.",
       mock: "dashboard"
     },
     {
       id: 3,
       icon: <ShoppingCart className="w-5 h-5 text-[#FF0055]" />,
       title: "E-commerce Solutions",
-      desc: "Powerful online stores designed to drive sales, deliver seamless shopping experiences and scale with your business.",
+      desc: "Storefronts built for conversion — fast checkout, clean product discovery, mobile-first.",
       mock: "ecommerce"
     },
     {
       id: 4,
       icon: <FileText className="w-5 h-5 text-[#FF0055]" />,
       title: "CMS Development",
-      desc: "Easy-to-manage content management systems that give you full control over your website content.",
+      desc: "Content systems your team can actually manage, without depending on a developer.",
       mock: "cms"
     },
     {
       id: 5,
       icon: <Settings className="w-5 h-5 text-[#FF0055]" />,
       title: "Website Maintenance & Support",
-      desc: "Reliable ongoing support, updates and security to keep your website running smoothly and performing at its best.",
+      desc: "Ongoing upkeep so what we've built keeps growing with your business — long after launch.",
       mock: "maintenance"
     },
     {
       id: 6,
       icon: <LineChart className="w-5 h-5 text-[#FF0055]" />,
       title: "Performance Optimization",
-      desc: "Speed, security and SEO optimization to ensure your website delivers the best possible user experience and higher conversions.",
+      desc: "Speed and stability tuned for both user experience and search visibility.",
       mock: "performance"
     }
   ];
@@ -55,22 +55,22 @@ export default function WebDevOverview() {
           {/* Left Column */}
           <div className="xl:col-span-4 flex flex-col items-start pr-4">
             <div className="flex items-center gap-3 mb-6">
-              <span className="text-slate-500 font-bold text-[11px] tracking-widest uppercase">
+              <span className="text-slate-700 font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.2em] uppercase">
                 OVERVIEW
               </span>
               <div className="w-10 h-[2px] bg-[#FF0055]" />
             </div>
 
-            <h2 className="text-[#020205] text-[40px] lg:text-[46px] font-extrabold leading-[1.05] tracking-tight mb-6">
+            <h2 className="text-[#020205] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[42px] font-extrabold leading-[1.05] tracking-tight mb-6 font-heading">
               What We Deliver Through <br />
               <span className="text-[#FF0055]">Web Development</span>
             </h2>
 
-            <p className="text-slate-500 text-[15px] leading-relaxed mb-10">
-              At Kaelixo, we build fast, scalable and conversion-focused websites and web applications tailored to your business goals. From modern marketing sites to complex web platforms, we create digital experiences that help you grow, engage your audience and achieve measurable results.
+            <p className="text-slate-500 text-[16px] leading-[1.6] mb-10">
+              Before we design or code anything, we think through how your business actually works. That's the difference with a Web Development Company like Kaelixo — we think first, build second, and stay on to grow what we've built.
             </p>
 
-            <button className="px-8 py-3.5 rounded-full bg-[#FF0055] text-white font-bold text-[15px] flex items-center gap-2 shadow-[0_10px_20px_rgba(255,0,85,0.2)] hover:shadow-[0_10px_30px_rgba(255,0,85,0.4)] transition-all hover:-translate-y-1 active:translate-y-0 group">
+            <button className="px-8 py-3.5 rounded-full bg-[#FF0055] text-white font-bold text-[16px] flex items-center gap-2 shadow-[0_10px_20px_rgba(255,0,85,0.2)] hover:shadow-[0_10px_30px_rgba(255,0,85,0.4)] transition-all hover:-translate-y-1 active:translate-y-0 group">
               Start Your Project
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -79,22 +79,19 @@ export default function WebDevOverview() {
             <div className="flex items-start gap-12 mt-16 pt-8 w-full">
               <div>
                 <h4 className="text-[#FF0055] text-[36px] font-extrabold mb-1 tracking-tight">100+</h4>
-                <p className="text-slate-500 text-[13px] font-medium leading-tight">Web Projects<br/>Delivered</p>
+                <p className="text-slate-700 text-[16px] font-medium leading-tight">Web Projects<br/>Delivered</p>
               </div>
               <div>
                 <h4 className="text-[#FF0055] text-[36px] font-extrabold mb-1 tracking-tight">98%</h4>
-                <p className="text-slate-500 text-[13px] font-medium leading-tight">Client<br/>Satisfaction</p>
+                <p className="text-slate-700 text-[16px] font-medium leading-tight">Client<br/>Satisfaction</p>
               </div>
               <div>
                 <h4 className="text-[#FF0055] text-[36px] font-extrabold mb-1 tracking-tight">3x</h4>
-                <p className="text-slate-500 text-[13px] font-medium leading-tight">Average Increase<br/>In Conversions</p>
+                <p className="text-slate-700 text-[16px] font-medium leading-tight">Average Increase<br/>In Conversions</p>
               </div>
             </div>
 
-            <p className="text-[10px] font-bold text-slate-300 tracking-[0.2em] uppercase mt-12 w-full text-center xl:text-left flex items-center gap-4">
-              We build websites that work harder for you
-              <span className="flex-1 h-[1px] bg-slate-200 hidden xl:block" />
-            </p>
+           
           </div>
 
           {/* Right Column - Cards */}
@@ -104,13 +101,13 @@ export default function WebDevOverview() {
                 <div className="w-12 h-12 rounded-2xl bg-pink-50 border border-pink-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   {service.icon}
                 </div>
-                <h3 className="text-[#020205] text-[18px] font-extrabold leading-tight mb-3">
+                <h3 className="text-[#020205] text-[24px] font-extrabold leading-tight mb-3">
                   {service.title}
                 </h3>
-                <p className="text-slate-500 text-[13px] leading-relaxed mb-5 flex-1">
+                <p className="text-slate-500 text-[16px] leading-relaxed mb-5 flex-1">
                   {service.desc}
                 </p>
-                <a href="#" className="text-[#FF0055] font-bold text-[13px] flex items-center gap-1.5 hover:gap-2 transition-all mb-6 mt-auto">
+                <a href="#" className="text-[#FF0055] font-bold text-[16px] flex items-center gap-1.5 hover:gap-2 transition-all mb-6 mt-auto">
                   Learn More <ArrowRight className="w-3.5 h-3.5" />
                 </a>
 
