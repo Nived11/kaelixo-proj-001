@@ -1,37 +1,45 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { motion, useInView, animate, useMotionValue, useTransform } from 'framer-motion';
+import React from "react";
 
-function AnimatedCounter({ to, suffix = "", duration = 2, trigger }: { to: number, suffix?: string, duration?: number, trigger: boolean }) {
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => Math.round(latest));
-
-  useEffect(() => {
-    let controls: any;
-    let interval: NodeJS.Timeout;
-
-    if (trigger) {
-      const startAnim = () => {
-        count.set(0);
-        controls = animate(count, to, { duration: duration, ease: "easeOut" });
-      };
-      startAnim();
-      interval = setInterval(startAnim, duration * 1000 + 4000);
-    } else {
-      count.set(0);
-    }
-
-    return () => {
-      if (controls) controls.stop();
-      if (interval) clearInterval(interval);
-    };
-  }, [trigger, to, duration, count]);
-
+function AnimatedCounter({ to, suffix = "", duration = 2 }: { to: number, suffix?: string, duration?: number }) {
+  // We use a unique ID for each counter that matches on server and client
+  const reactId = React.useId().replace(/:/g, "");
+  const id = `counter-${to}-${reactId}`;
+  
   return (
     <>
-      <motion.span>{rounded}</motion.span>
+      <span id={id} suppressHydrationWarning>{0}</span>
       {suffix}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              var el = document.getElementById('${id}');
+              if (!el) return;
+              var to = ${to};
+              var duration = ${duration} * 1000;
+              var start = null;
+              function update(time) {
+                if (!start) start = time;
+                var progress = (time - start) / duration;
+                if (progress > 1) progress = 1;
+                // easeOutCubic
+                var ease = 1 - Math.pow(1 - progress, 3);
+                el.innerText = Math.round(to * ease);
+                if (progress < 1) {
+                  requestAnimationFrame(update);
+                } else {
+                  // Loop the animation every 6 seconds
+                  setTimeout(function() { start = null; requestAnimationFrame(update); }, 4000);
+                }
+              }
+              // Delay slightly to match the CSS fade-in
+              setTimeout(function() { requestAnimationFrame(update); }, 800);
+            })();
+          `,
+        }}
+      />
     </>
   );
 }
@@ -93,11 +101,8 @@ export default function StatsSection({ children }: StatsSectionProps) {
     },
   ];
 
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
-
   return (
-    <div ref={ref} className="w-full bg-gradient-to-t from-[#020205] via-[#020205]/40 to-transparent pt-6 pb-5 sm:pb-6 backdrop-blur-[2px] animate-fade-in-up delay-900">
+    <div className="w-full bg-gradient-to-t from-[#020205] via-[#020205]/40 to-transparent pt-6 pb-12 sm:pb-6 backdrop-blur-[2px] animate-fade-in-up delay-900">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col xl:flex-row xl:items-center justify-between gap-6">
         <div className="grid grid-cols-2 md:flex md:flex-nowrap md:justify-between items-center gap-y-5 gap-x-2 sm:gap-x-4 md:gap-x-4 lg:gap-x-12 w-full md:w-auto">
           {stats.map((stat, idx) => (
@@ -112,8 +117,8 @@ export default function StatsSection({ children }: StatsSectionProps) {
               </div>
               <div>
                 <div className="text-[24px] sm:text-[28px] lg:text-[32px] xl:text-[36px] font-bold text-white tracking-tight font-heading leading-tight">
-                  {stat.number.includes("+") && <AnimatedCounter to={parseInt(stat.number)} suffix="+" trigger={isInView} />}
-                  {stat.number.includes("%") && <AnimatedCounter to={parseInt(stat.number)} suffix="%" trigger={isInView} />}
+                  {stat.number.includes("+") ? <AnimatedCounter to={parseInt(stat.number)} suffix="+" /> : null}
+                  {stat.number.includes("%") ? <AnimatedCounter to={parseInt(stat.number)} suffix="%" /> : null}
                 </div>
                 <div className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] text-slate-300 font-medium font-sans whitespace-nowrap">
                   {stat.label}

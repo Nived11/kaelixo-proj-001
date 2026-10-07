@@ -7,18 +7,65 @@ import { ArrowRight } from "lucide-react";
 import StatsSection from "./StatsSection";
 import AnimatedNeonLogo from "@/components/AnimatedNeonLogo";
 import RotatingGlobe from "@/components/RotatingGlobe";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+const slidesData = [
+  { title: "THINK", desc: "Every great solution starts with clarity." },
+  { title: "BUILD", desc: "Ideas made real, in design and code." },
+  { title: "GROW", desc: "Solutions that scale with your business." },
+];
 
 export default function HeroSection() {
   const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
   const [currentSlide, setCurrentSlide] = React.useState(0);
+  const [wordIndex, setWordIndex] = React.useState(0);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
 
   React.useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-    }, 8000); // 8 seconds per slide
-    return () => clearInterval(timer);
-  }, []);
+    if (currentSlide !== 0) {
+      setWordIndex(0);
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setWordIndex((prev) => {
+        if (prev === slidesData.length - 1) return prev;
+        return prev + 1;
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [currentSlide]);
+
+  const hasMounted = React.useRef(false);
+
+  React.useEffect(() => {
+    if (videoRef.current) {
+      if (currentSlide === 0) {
+        if (hasMounted.current) {
+          videoRef.current.currentTime = 0;
+          videoRef.current.play().catch((e) => console.log("Auto-play prevented:", e));
+        } else {
+          hasMounted.current = true;
+        }
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [currentSlide]);
+
+  React.useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (currentSlide === 1) {
+      timer = setTimeout(() => {
+        setCurrentSlide(0);
+      }, 9000);
+    }
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [currentSlide]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const { clientX, clientY, currentTarget } = e;
@@ -38,13 +85,22 @@ export default function HeroSection() {
       onMouseLeave={handleMouseLeave}
       className="relative min-h-[100svh] lg:h-screen flex flex-col justify-between pt-[72px] sm:pt-24 overflow-hidden bg-[#020205]"
     >
+      <style>{`
+        @keyframes revealText {
+          from { clip-path: inset(-100px 100% -100px -100px); }
+          to { clip-path: inset(-100px -100px -100px -100px); }
+        }
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(6px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
       {/* ============================================================ */}
       {/* SLIDE 1: MULTI-LAYER PARALLAX COSMIC SCENE                   */}
       {/* ============================================================ */}
       <div
-        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
-          currentSlide === 1 ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${currentSlide === 1 ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           {/* Preload Globe Image to prevent delay */}
@@ -174,23 +230,23 @@ export default function HeroSection() {
       {/* SLIDE 2: VIDEO BACKGROUND                                    */}
       {/* ============================================================ */}
       <div
-        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
-          currentSlide === 0 ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${currentSlide === 0 ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <video
+            ref={videoRef}
             autoPlay
             muted
-            loop
             playsInline
+            onEnded={() => setCurrentSlide(1)}
             className="absolute inset-0 w-full h-full object-cover opacity-60"
           >
             {/* Tech/AI Network Background Video */}
-            <source src="/videos/home/hero-video.mp4" type="video/mp4" />
+            <source src="/videos/home/kaelixo-hero-mobile.mp4" media="(max-width: 639px)" type="video/mp4" />
+            <source src="/videos/home/kaelixo-hero-video.mp4" media="(min-width: 640px)" type="video/mp4" />
           </video>
           {/* Text Readability Gradients (Same as Slide 1 to keep UI consistent) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#020205] via-[#020205]/60 sm:via-[#020205]/75 to-transparent w-[85%] sm:w-full md:w-[48%] [@media(min-width:1920px)]:w-[55%] [@media(min-width:1920px)]:from-[0%] [@media(min-width:1920px)]:via-[#020205]/80 [@media(min-width:1920px)]:via-[30%] z-[9]" />
           <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#020205] via-[#020205]/30 to-transparent z-[9]" />
           <div className="absolute bottom-0 left-0 right-0 h-[35vh] sm:h-28 2xl:h-48 [@media(min-width:1920px)]:h-64 bg-gradient-to-t from-[#020205] from-[30%] sm:from-0% via-[#020205]/80 via-[70%] sm:via-[#020205]/30 2xl:via-[#020205]/50 [@media(min-width:1920px)]:via-[#020205]/60 to-transparent z-[9]" />
         </div>
@@ -200,64 +256,113 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 w-full flex-1 flex items-center mt-10 sm:mt-0 py-6 sm:py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
 
-          {/* Left Column: Headline, Description & CTAs */}
-          <div className="lg:col-span-8 max-w-2xl 2xl:max-w-3xl space-y-4 sm:space-y-5">
-            {/* Tagline Eyebrow - Consistent across all screens */}
-            <div className="flex items-center gap-2 animate-fade-in-up">
-              <span className="text-[13px] sm:text-[18px] font-semibold tracking-[0.22em] text-white/80 uppercase font-heading">
-                THINK <span className="text-[#FF0055]">•</span> BUILD <span className="text-[#FF0055]">•</span> GROW
-              </span>
+          {/* Left Column / Centered Content based on slide */}
+          <div className="lg:col-span-12 w-full">
+            <div className="relative w-full">
+              <div
+                className={`space-y-4 sm:space-y-5 transition-opacity duration-700 ease-in-out ${currentSlide === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+              >
+                {/* Tagline Eyebrow - Consistent across all screens */}
+                <div className="flex items-center gap-2">
+                  <span className="text-[13px] sm:text-[18px] font-semibold tracking-[0.22em] text-white/80 uppercase font-heading">
+                    THINK <span className="text-[#FF0055]">•</span> BUILD <span className="text-[#FF0055]">•</span> GROW
+                  </span>
+                </div>
+
+                {/* Main Headline - Responsive Scaling */}
+                <h1 className="text-[38px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] leading-[1.08] font-extrabold text-white tracking-tight font-heading">
+                  {/* Mobile: 2 lines */}
+                  <span className="block sm:hidden">Built Smart</span>
+                  <span className="block sm:hidden text-[#FF0055] mt-1">Grown Beyond</span>
+
+                  {/* Desktop: 2 lines */}
+                  <span className="hidden sm:block">Built Smart</span>
+                  <span className="hidden sm:block text-[#FF0055] mt-1 sm:mt-2">Grown Beyond</span>
+                </h1>
+
+                {/* Sub-paragraph - Standard 16px across all devices */}
+                <p className="text-[16px] text-white max-w-[500px] [@media(min-width:1920px)]:max-w-[600px] leading-relaxed font-normal font-sans mt-2 sm:mt-4">
+                  We study your business, build what it <br className="block sm:hidden" />needs, and deliver growth
+                </p>
+              </div>
+
+              {/* Video Synced Slide Content with Clean Typewriter Heading */}
+              <div
+                className={`absolute inset-0 flex flex-col justify-end pb-2  sm:pb-0 items-center text-center transition-opacity duration-700 ease-in-out ${currentSlide === 1 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+              >
+                <div className="flex flex-col items-center">
+                  {currentSlide === 0 && (
+                    <div className="flex flex-col items-center">
+                      {/* Heading with Instant CSS Animation on each word */}
+                      <h2
+                        key={wordIndex}
+                        className="text-[64px] sm:text-[96px] lg:text-[112px] leading-[1.1] font-black text-[#FF0055] tracking-tight font-heading min-h-[80px] sm:min-h-[110px]"
+                        style={{
+                          animation: "revealText 0.6s ease-out forwards",
+                          textShadow: "0px 0px 12px rgba(255, 0, 85, 0.2), 0px 0px 30px rgba(255, 0, 85, 0.21)"
+                        }}
+                      >
+                        {slidesData[wordIndex].title}
+                      </h2>
+
+                      {/* Description with CSS Fade */}
+                      <div className="min-h-[48px] sm:min-h-[56px] mt-2 sm:mt-4">
+                        <p
+                          key={wordIndex}
+                          className="text-[16px] sm:text-[18px] text-white max-w-[500px] leading-relaxed font-normal font-sans opacity-0 animate-[fadeUp_0.4s_ease-out_forwards]"
+                          style={{ animationDelay: "0.2s" }}
+                        >
+                          {slidesData[wordIndex].desc}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
 
-            {/* Main Headline - Responsive Scaling */}
-            <h1 className="text-[38px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] leading-[1.08] font-extrabold text-white tracking-tight font-heading animate-fade-in-up">
-              {/* Mobile: 2 lines */}
-              <span className="block sm:hidden">Built Smart</span>
-              <span className="block sm:hidden text-[#FF0055] mt-1">Grown Beyond</span>
-
-              {/* Desktop: 2 lines */}
-              <span className="hidden sm:block">Built Smart</span>
-              <span className="hidden sm:block text-[#FF0055] mt-1 sm:mt-2">Grown Beyond</span>
-            </h1>
-
-            {/* Sub-paragraph - Standard 16px across all devices */}
-            <p className="text-[16px] text-white max-w-[500px] [@media(min-width:1920px)]:max-w-[600px] leading-relaxed font-normal font-sans animate-fade-in-up mt-2 sm:mt-4">
-              We study your business, build what it <br className="block sm:hidden" />needs, and deliver growth
-            </p>
-
-            {/* Dual Pill CTA Buttons - Standard 15px font size */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3 sm:pt-4 font-heading animate-fade-in-up">
-              <Link
-                href="#consultation"
-                className="group overflow-hidden inline-flex items-center justify-center w-full sm:w-[240px] 2xl:w-[260px] h-[46px] 2xl:h-[50px] rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[16px] font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300 active:scale-95 cursor-pointer"
+            {/* Smooth-shifting Dual Pill CTA Buttons */}
+            <div className="w-full pt-3 sm:pt-6 z-[50] min-h-[58px] sm:min-h-[66px]">
+              <div
+                className={`flex flex-col sm:flex-row items-stretch sm:items-center gap-4 font-heading w-full opacity-0 animate-[fadeUp_0.65s_cubic-bezier(0.16,1,0.3,1)_forwards] ${currentSlide === 0 ? "justify-center" : "justify-start"}`}
+                style={{ animationDelay: "0.5s" }}
               >
-                <div className="flex flex-col h-[20px] overflow-hidden">
-                  <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
-                    <span className="leading-[20px] text-[16px]">Book Free Consultation</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                  <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
-                    <span className="leading-[20px] text-[16px]">Book Free Consultation</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </Link>
+                <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
+                  <button
+                    onClick={() => window.dispatchEvent(new CustomEvent('open-consultation-modal'))}
+                    className="group overflow-hidden inline-flex items-center justify-center w-full sm:w-[240px] 2xl:w-[260px] h-[46px] 2xl:h-[50px] rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[16px] font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300 active:scale-95 cursor-pointer"
+                  >
+                    <div className="flex flex-col h-[20px] overflow-hidden">
+                      <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
+                        <span className="leading-[20px] text-[16px]">Book Free Consultation</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                      <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
+                        <span className="leading-[20px] text-[16px]">Book Free Consultation</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </button>
+                </motion.div>
 
-              <Link
-                href="#services"
-                className="group overflow-hidden inline-flex items-center justify-center w-full sm:w-[240px] 2xl:w-[260px] h-[46px] 2xl:h-[50px] rounded-full bg-black/40 hover:bg-white/10 text-white text-[16px] font-medium border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm cursor-pointer"
-              >
-                <div className="flex flex-col h-[20px] overflow-hidden">
-                  <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
-                    <span className="leading-[20px]">Explore Our Services</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                  <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
-                    <span className="leading-[20px]">Explore Our Services</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </Link>
+                <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
+                  <Link
+                    href="#services"
+                    className="group overflow-hidden inline-flex items-center justify-center w-full sm:w-[240px] 2xl:w-[260px] h-[46px] 2xl:h-[50px] rounded-full bg-black/40 hover:bg-white/10 text-white text-[16px] font-medium border border-white/20 hover:border-white/40 transition-all duration-200 backdrop-blur-sm cursor-pointer"
+                  >
+                    <div className="flex flex-col h-[20px] overflow-hidden">
+                      <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
+                        <span className="leading-[20px]">Explore Our Services</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                      <div className="flex items-center justify-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
+                        <span className="leading-[20px]">Explore Our Services</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              </div>
             </div>
           </div>
 
@@ -266,23 +371,31 @@ export default function HeroSection() {
 
       {/* Docked Stats Bar at the bottom of the Viewport */}
       <div className="relative z-10 w-full">
-        <StatsSection>
-          {/* Carousel Pagination Dots */}
-          <div className="flex items-center gap-2">
-            {[0, 1].map((idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentSlide(idx)}
-                className={`h-2 transition-all duration-300 rounded-full ${
-                  currentSlide === idx
+        <div
+          className="relative opacity-0 animate-[fadeUp_0.7s_ease-in-out_forwards]"
+          style={{ animationDelay: "0.8s" }}
+        >
+          <StatsSection />
+        </div>
+
+        {/* Carousel Pagination Dots - Always Visible */}
+        <div className="absolute bottom-5 sm:bottom-6 left-0 right-0 z-20 pointer-events-none">
+          <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex justify-center xl:justify-end">
+            <div className="flex items-center gap-2 pointer-events-auto">
+              {[0, 1].map((idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`h-2 transition-all duration-300 rounded-full ${currentSlide === idx
                     ? "w-8 bg-[#FF0055]"
                     : "w-2 bg-white/30 hover:bg-white/50"
-                }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
+                    }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
           </div>
-        </StatsSection>
+        </div>
       </div>
     </section>
   );

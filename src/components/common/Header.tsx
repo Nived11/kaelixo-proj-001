@@ -145,8 +145,8 @@ export default function Header() {
             */}
 
             {/* Book a Demo Pill Button (Desktop only) */}
-            <Link
-              href="#book-demo"
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent('open-consultation-modal'))}
               className="group hidden lg:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-sm font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300 active:scale-95 cursor-pointer overflow-hidden"
             >
               <div className="flex flex-col h-[20px] overflow-hidden">
@@ -159,7 +159,7 @@ export default function Header() {
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
-            </Link>
+            </button>
 
             {/* Mobile Hamburger Toggle (Tablet/Mobile only) */}
             <button
@@ -213,14 +213,16 @@ export default function Header() {
           </div>
 
           <div className="pt-4 flex flex-col gap-3">
-            <Link
-              href="#book-demo"
-              onClick={() => setMobileMenuOpen(false)}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                window.dispatchEvent(new CustomEvent('open-consultation-modal'));
+              }}
               className="w-full py-3 rounded-full bg-[#FF0055] text-white font-semibold text-center text-sm shadow-lg shadow-[#FF0055]/30 flex items-center justify-center gap-2"
             >
               Book a Demo
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </button>
           </div>
         </div>
       )}

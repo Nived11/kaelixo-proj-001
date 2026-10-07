@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import ConsultationModal from "@/components/ui/ConsultationModal";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />
+        <ConsultationModal />
       </body>
     </html>
   );
