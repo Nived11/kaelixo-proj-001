@@ -8,6 +8,7 @@ import ServicesSection from "./components/ServicesSection";
 import WhyKaelixoSection from "./components/WhyKaelixoSection";
 import ProcessSection from "./components/ProcessSection";
 import TestimonialsSection from "./components/TestimonialsSection";
+import RatingsSection from "./components/RatingsSection";
 import ProductsSection from "./components/ProductsSection";
 import SuccessStoriesSection from "./components/SuccessStoriesSection";
 import AiSolutionsSection from "./components/AiSolutionsSection";
@@ -38,6 +39,8 @@ export default function HomeMain() {
       <ProcessSection />
 
       <TestimonialsSection />
+      
+      <RatingsSection />
 
       <ProductsSection />
 

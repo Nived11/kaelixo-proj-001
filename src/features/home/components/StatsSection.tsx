@@ -3,43 +3,49 @@
 import React from "react";
 
 function AnimatedCounter({ to, suffix = "", duration = 2 }: { to: number, suffix?: string, duration?: number }) {
-  // We use a unique ID for each counter that matches on server and client
-  const reactId = React.useId().replace(/:/g, "");
-  const id = `counter-${to}-${reactId}`;
-  
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    let start: number | null = null;
+    let animationFrameId: number;
+    let timeoutId: NodeJS.Timeout;
+
+    const update = (time: number) => {
+      if (!start) start = time;
+      let progress = (time - start) / (duration * 1000);
+      if (progress > 1) progress = 1;
+      
+      // easeOutCubic
+      const ease = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(to * ease));
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(update);
+      } else {
+        // Loop the animation every 6 seconds
+        timeoutId = setTimeout(() => {
+          start = null;
+          animationFrameId = requestAnimationFrame(update);
+        }, 4000);
+      }
+    };
+
+    // Delay slightly to match the CSS fade-in
+    const initialDelay = setTimeout(() => {
+      animationFrameId = requestAnimationFrame(update);
+    }, 800);
+
+    return () => {
+      clearTimeout(initialDelay);
+      clearTimeout(timeoutId);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [to, duration]);
+
   return (
     <>
-      <span id={id} suppressHydrationWarning>{0}</span>
+      <span>{count}</span>
       {suffix}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              var el = document.getElementById('${id}');
-              if (!el) return;
-              var to = ${to};
-              var duration = ${duration} * 1000;
-              var start = null;
-              function update(time) {
-                if (!start) start = time;
-                var progress = (time - start) / duration;
-                if (progress > 1) progress = 1;
-                // easeOutCubic
-                var ease = 1 - Math.pow(1 - progress, 3);
-                el.innerText = Math.round(to * ease);
-                if (progress < 1) {
-                  requestAnimationFrame(update);
-                } else {
-                  // Loop the animation every 6 seconds
-                  setTimeout(function() { start = null; requestAnimationFrame(update); }, 4000);
-                }
-              }
-              // Delay slightly to match the CSS fade-in
-              setTimeout(function() { requestAnimationFrame(update); }, 800);
-            })();
-          `,
-        }}
-      />
     </>
   );
 }
@@ -116,11 +122,11 @@ export default function StatsSection({ children }: StatsSectionProps) {
                 {stat.icon}
               </div>
               <div>
-                <div className="text-[24px] sm:text-[28px] lg:text-[32px] xl:text-[36px] font-bold text-white tracking-tight font-heading leading-tight">
+                <div className="text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[32px] 2xl:text-[32px] font-bold text-white tracking-tight font-heading leading-tight">
                   {stat.number.includes("+") ? <AnimatedCounter to={parseInt(stat.number)} suffix="+" /> : null}
                   {stat.number.includes("%") ? <AnimatedCounter to={parseInt(stat.number)} suffix="%" /> : null}
                 </div>
-                <div className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] text-slate-300 font-medium font-sans whitespace-nowrap">
+                <div className="text-[14px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px]  text-slate-300 font-medium font-sans whitespace-nowrap">
                   {stat.label}
                 </div>
               </div>

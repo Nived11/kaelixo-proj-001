@@ -52,7 +52,7 @@ export default function MissionSection() {
           THINK. BUILD. <span className="text-[#FF0055]">GROW.</span>
         </h2>
 
-        <p ref={textRef} className="text-[16px] sm:text-[17px] lg:text-[18px] xl:text-[20px] text-slate-200 font-normal max-w-[1200px] mx-auto leading-relaxed">
+        <p ref={textRef} className="text-[15px] sm:text-[15px] lg:text-[18px] xl:text-[20px] text-slate-200 font-normal max-w-[1200px] mx-auto leading-relaxed">
           {lines.map((line, lineIdx) => (
             <React.Fragment key={lineIdx}>
               {line.split(" ").map((word, wordIdx) => (

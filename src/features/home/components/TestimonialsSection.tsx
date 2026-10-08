@@ -49,7 +49,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="bg-white pt-12 lg:pt-20 pb-24 lg:pb-32 relative font-sans">
+    <section className="bg-white pt-12 lg:pt-20 pb-12 lg:pb-16 relative font-sans">
       
       {/* Background Soft Blobs to Blend with Process Section */}
       <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[600px] bg-purple-50/70 blur-[120px] rounded-full pointer-events-none"></div>
@@ -71,17 +71,17 @@ export default function TestimonialsSection() {
             className="lg:col-span-5 flex flex-col items-start lg:pr-8"
           >
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-widest uppercase">CLIENTS SPEAK</span>
+              <span className="text-[#FF0055] font-bold text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] tracking-widest uppercase">CLIENTS SPEAK</span>
               <div className="w-10 h-[2px] bg-[#FF0055]"></div>
             </div>
 
-            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px]  font-extrabold text-[#020205] leading-[1.1] tracking-tight">
+            <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px]  font-extrabold text-[#020205] leading-[1.1] tracking-tight">
               Trusted by <br />
               Businesses That <br />
               <span className="text-[#FF0055]">Dream Bigger</span>
             </h2>
 
-            <p className="text-gray-600 text-[16px] max-w-[420px] lg:max-w-[320px] xl:max-w-[420px] leading-relaxed mt-4 sm:mt-6">
+            <p className="text-gray-600 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] max-w-[420px] lg:max-w-[320px] xl:max-w-[420px] leading-relaxed mt-4 sm:mt-6">
               Real stories from real partners who trust us as their growth marketing agency to bring their vision to life. Their success inspires us to go further every day.
             </p>
 
@@ -89,7 +89,7 @@ export default function TestimonialsSection() {
               <div className="w-12 h-12 rounded-full bg-[#FF0055] flex items-center justify-center text-white shadow-lg shadow-[#FF0055]/30 group-hover:scale-105 group-active:scale-95 transition-transform">
                 <ArrowRight className="w-5 h-5" />
               </div>
-              <span className="text-[#FF0055] font-bold text-[13px] sm:text-[16px] xl:text-[18px] group-hover:underline">
+              <span className="text-[#FF0055] font-bold text-[15px] sm:text-[16px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] group-hover:underline">
                 See What Our Clients Say
               </span>
             </button>
@@ -112,9 +112,9 @@ export default function TestimonialsSection() {
                   className="inline-block"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <h4 className="text-[#020205] text-[24px] lg:text-[36px] 2xl:text-[36px] font-extrabold whitespace-nowrap">4.9/5</h4>
+                  <h4 className="text-[#020205] text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[23px] 2xl:text-[32px] font-extrabold whitespace-nowrap">4.9/5</h4>
                 </motion.div>
-                <p className="text-gray-600 text-[12px] lg:text-[16px] 2xl:text-[16px] mt-1 font-medium leading-tight">Client Satisfaction</p>
+                <p className="text-gray-600 text-[14px] lg:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] mt-1 font-medium leading-tight">Client Satisfaction</p>
               </motion.div>
               <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0 mt-2" />
               <motion.div
@@ -133,9 +133,9 @@ export default function TestimonialsSection() {
                   className="inline-block"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <h4 className="text-[#020205] text-[24px] lg:text-[36px] 2xl:text-[36px] font-extrabold whitespace-nowrap">200+</h4>
+                  <h4 className="text-[#020205] text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[23px] 2xl:text-[32px] font-extrabold whitespace-nowrap">200+</h4>
                 </motion.div>
-                <p className="text-gray-600 text-[12px] lg:text-[14px] 2xl:text-[16px] mt-1 font-medium leading-tight">Happy Businesses</p>
+                <p className="text-gray-600 text-[14px] lg:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] mt-1 font-medium leading-tight">Happy Businesses</p>
               </motion.div>
               <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0 mt-2" />
               <motion.div
@@ -154,9 +154,9 @@ export default function TestimonialsSection() {
                   className="inline-block"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <h4 className="text-[#020205] text-[24px] lg:text-[36px] 2xl:text-[36px] font-extrabold whitespace-nowrap">Long-Term</h4>
+                  <h4 className="text-[#020205] text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[23px] 2xl:text-[32px] font-extrabold whitespace-nowrap">Long-Term</h4>
                 </motion.div>
-                <p className="text-gray-600 text-[12px] lg:text-[14px] 2xl:text-[16px] mt-1 font-medium leading-tight">Partnerships</p>
+                <p className="text-gray-600 text-[14px] lg:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] mt-1 font-medium leading-tight">Partnerships</p>
               </motion.div>
             </div>
           </motion.div>
@@ -251,7 +251,7 @@ export default function TestimonialsSection() {
                       </div>
 
                       {/* Text is dark on all cards as per image */}
-                      <p className="mt-2 sm:mt-3 relative z-10 text-[13px] lg:text-[14px] xl:text-[16px] leading-[1.6] sm:leading-[1.7] flex-1 text-gray-800">
+                      <p className="mt-2 sm:mt-3 relative z-10 text-[14px] lg:text-[14px] xl:text-[16px] leading-[1.6] sm:leading-[1.7] flex-1 text-gray-800">
                         "{t.quote}"
                       </p>
 
@@ -293,17 +293,18 @@ export default function TestimonialsSection() {
             </motion.div>
 
             {/* Desktop & Mobile Navigation Controls */}
-            <div className="absolute -bottom-4 sm:-bottom-6 lg:-bottom-2 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-[304px] xl:left-[350px] flex items-center gap-4 z-40">
+            <div className="absolute -bottom-16 sm:-bottom-6 lg:-bottom-2 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-[304px] xl:left-[350px] flex items-center gap-4 z-40">
               <button
                 onClick={handlePrev}
-                className="w-14 h-14 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-50 transition-all shadow-sm active:scale-95"
+                className="w-14 h-14 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-700 hover:bg-[#FF0055] hover:text-white transition-all shadow-sm active:scale-95"
                 aria-label="Previous testimonial"
               >
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNext}
-                className="w-14 h-14 rounded-full bg-[#FF0055] flex items-center justify-center text-white hover:bg-[#E6004C] transition-all shadow-lg shadow-[#FF0055]/30 active:scale-95"
+                className="w-14 h-14 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-700 hover:bg-[#FF0055] hover:text-white transition-all shadow-sm active:scale-95 
+                "
                 aria-label="Next testimonial"
               >
                 <ArrowRight className="w-5 h-5" />

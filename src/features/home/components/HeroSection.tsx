@@ -151,6 +151,7 @@ export default function HeroSection() {
               src="/images/home/hero-clouds.webp"
               alt="Cosmic Cloud"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-contain drop-shadow-[0_0_30px_rgba(255,0,85,0.25)]"
             />
           </div>
@@ -296,7 +297,7 @@ export default function HeroSection() {
                       {/* Heading with Instant CSS Animation on each word */}
                       <h2
                         key={wordIndex}
-                        className="text-[64px] sm:text-[96px] lg:text-[112px] leading-[1.1] font-black text-[#FF0055] tracking-tight font-heading min-h-[80px] sm:min-h-[110px]"
+                        className="text-[38px] sm:text-[96px] lg:text-[112px] leading-[1.1] font-black text-[#FF0055] tracking-tight font-heading min-h-[80px] sm:min-h-[110px]"
                         style={{
                           animation: "revealText 0.6s ease-out forwards",
                           textShadow: "0px 0px 12px rgba(255, 0, 85, 0.2), 0px 0px 30px rgba(255, 0, 85, 0.21)"
@@ -329,7 +330,7 @@ export default function HeroSection() {
               >
                 <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
                   <button
-                    onClick={() => window.dispatchEvent(new CustomEvent('open-consultation-modal'))}
+                    onClick={() => window.dispatchEvent(new CustomEvent('open-consultation-modal', { detail: { type: 'consultation' } }))}
                     className="group overflow-hidden inline-flex items-center justify-center w-full sm:w-[240px] 2xl:w-[260px] h-[46px] 2xl:h-[50px] rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[16px] font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300 active:scale-95 cursor-pointer"
                   >
                     <div className="flex flex-col h-[20px] overflow-hidden">
