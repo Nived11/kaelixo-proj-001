@@ -1,4 +1,5 @@
 "use client";
+import { ReplayDiv } from "@/components/ui/ReplayReveal";
 
 import { Search, FileText, PenTool, Code2, Send } from "lucide-react";
 import { motion } from "framer-motion";
@@ -67,12 +68,11 @@ export default function ProcessSection() {
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-6 xl:px-12 relative z-10">
 
         {/* Header Section */}
-        <motion.div
+        <ReplayDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          style={{ willChange: "opacity, transform" }}
           className="max-w-2xl mb-20"
         >
           <div className="flex items-center gap-3 mb-4">
@@ -85,21 +85,20 @@ export default function ProcessSection() {
           <p className="text-[#475569] text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] font-medium leading-relaxed max-w-2xl">
             A clear, collaborative process that keeps you involved at every step — the same process that makes us a growth marketing agency worth trusting with the full journey, not just one campaign.
           </p>
-        </motion.div>
+        </ReplayDiv>
 
         {/* Steps Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-4 xl:gap-24 relative">
           {steps.map((step, index) => (
-            <motion.div
+            <ReplayDiv
               key={index}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+              viewport={{ once: false, amount: 0.1, margin: "0px" }}
               variants={{
                 hidden: { opacity: 0, y: 30 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.1, ease: "easeOut" } }
               }}
-              style={{ willChange: "opacity, transform" }}
               className="flex flex-col items-center lg:items-start text-center lg:text-left relative group"
             >
 
@@ -169,7 +168,7 @@ export default function ProcessSection() {
                   </svg>
 
                   {/* Perfect Solid HTML Dot at the end of the line */}
-                  <motion.div
+                  <ReplayDiv
                     variants={{
                       hidden: { opacity: 0, scale: 0 },
                       visible: { opacity: 1, scale: 1, transition: { duration: 0.3, delay: 1.2 } }
@@ -182,7 +181,7 @@ export default function ProcessSection() {
                       right: '-5px',
                       top: '-5px',
                     }}
-                  ></motion.div>
+                  ></ReplayDiv>
                 </div>
               )}
 
@@ -236,7 +235,7 @@ export default function ProcessSection() {
                   </svg>
 
                   {/* Dot at the end of vertical line */}
-                  <motion.div
+                  <ReplayDiv
                     variants={{
                       hidden: { opacity: 0, scale: 0 },
                       visible: { opacity: 1, scale: 1, transition: { duration: 0.3, delay: 1.1 } }
@@ -250,11 +249,11 @@ export default function ProcessSection() {
                       left: '50%',
                       transform: 'translateX(-50%)'
                     }}
-                  ></motion.div>
+                  ></ReplayDiv>
                 </div>
               )}
 
-            </motion.div>
+            </ReplayDiv>
           ))}
         </div>
 

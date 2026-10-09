@@ -230,3 +230,40 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 .delay-500 { animation-delay: 0.5s; }
 .delay-700 { animation-delay: 0.7s; }
 .delay-900 { animation-delay: 0.9s; }
+
+/* Start the full loader timeline with its logo, rather than before hydration. */
+.page-loader { animation: loaderHydrationDeadline 12s linear forwards; }
+.page-loader[data-started="true"] { animation: loaderDeadline 3.4s linear forwards; }
+@keyframes loaderHydrationDeadline { 0%, 95% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
+@keyframes loaderDeadline {
+  0%, 82.353% { opacity: 1; transform: translateY(0); visibility: visible; }
+  100% { opacity: 0; transform: translateY(-30px); visibility: hidden; }
+}
+.ai-circuit { animation: aiCircuitFlow 4.8s linear infinite; }
+@keyframes aiCircuitFlow { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+.ai-section[data-active="false"] * { animation-play-state: paused !important; }
+@media (prefers-reduced-motion: reduce) {
+  .ai-circuit { animation: none; }
+  .animate-fade-in-up { animation: none; opacity: 1; }
+  .animate-marquee-infinite, .animate-marquee-reverse-infinite { animation: none; }
+}
+/* Limit large paint surfaces without suppressing replayed entrance animations. */
+@media (hover: none) and (pointer: coarse) {
+  .home-page [class*="blur-[100px]"], .home-page [class*="blur-[120px]"], .home-page [class*="blur-[150px]"] { filter: blur(40px); }
+}
+
+.home-page [data-animation-active="false"] * { animation-play-state: paused !important; }
+
+/* Lenis already interpolates desktop scrolling; native smooth scrolling must not compete. */
+html.lenis { scroll-behavior: auto; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+
+/* Logo draw/fill and overlay exit share one CSS timeline, including on slow hydration. */
+.loader-logo-piece { fill: rgba(255, 0, 85, 0); opacity: 0; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.page-loader[data-started="true"] .loader-logo-piece {
+  animation: loaderLogoDraw 1.5s ease-in-out forwards, loaderLogoFill .8s ease-in 1.4s forwards, loaderLogoAppear .3s ease-out forwards;
+}
+@keyframes loaderLogoDraw { to { stroke-dashoffset: 0; } }
+@keyframes loaderLogoFill { to { fill: #FF0055; } }
+@keyframes loaderLogoAppear { to { opacity: 1; } }

@@ -1,53 +1,19 @@
 "use client";
 
 import React from "react";
+import { motion, animate, useMotionValue, useTransform } from "framer-motion";
+import { useViewportActivity } from "@/hooks/useViewportActivity";
 
-function AnimatedCounter({ to, suffix = "", duration = 2 }: { to: number, suffix?: string, duration?: number }) {
-  const [count, setCount] = React.useState(0);
-
+function AnimatedCounter({ to, suffix = "", duration = 2, active }: { to: number, suffix?: string, duration?: number, active: boolean }) {
+  const count = useMotionValue(to);
+  const rounded = useTransform(count, Math.round);
   React.useEffect(() => {
-    let start: number | null = null;
-    let animationFrameId: number;
-    let timeoutId: NodeJS.Timeout;
-
-    const update = (time: number) => {
-      if (!start) start = time;
-      let progress = (time - start) / (duration * 1000);
-      if (progress > 1) progress = 1;
-      
-      // easeOutCubic
-      const ease = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(to * ease));
-
-      if (progress < 1) {
-        animationFrameId = requestAnimationFrame(update);
-      } else {
-        // Loop the animation every 6 seconds
-        timeoutId = setTimeout(() => {
-          start = null;
-          animationFrameId = requestAnimationFrame(update);
-        }, 4000);
-      }
-    };
-
-    // Delay slightly to match the CSS fade-in
-    const initialDelay = setTimeout(() => {
-      animationFrameId = requestAnimationFrame(update);
-    }, 800);
-
-    return () => {
-      clearTimeout(initialDelay);
-      clearTimeout(timeoutId);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [to, duration]);
-
-  return (
-    <>
-      <span>{count}</span>
-      {suffix}
-    </>
-  );
+    if (!active) return;
+    count.set(0);
+    const controls = animate(count, to, { duration, ease: "easeOut" });
+    return () => controls.stop();
+  }, [active, to, duration, count]);
+  return <><motion.span>{rounded}</motion.span>{suffix}</>;
 }
 
 interface StatsSectionProps {
@@ -55,6 +21,8 @@ interface StatsSectionProps {
 }
 
 export default function StatsSection({ children }: StatsSectionProps) {
+  const sectionRef = React.useRef<HTMLDivElement>(null);
+  const active = useViewportActivity(sectionRef);
   const stats = [
     {
       // 3-people silhouette icon matching image
@@ -108,7 +76,7 @@ export default function StatsSection({ children }: StatsSectionProps) {
   ];
 
   return (
-    <div className="w-full bg-gradient-to-t from-[#020205] via-[#020205]/40 to-transparent pt-6 pb-12 sm:pb-6 backdrop-blur-[2px] animate-fade-in-up delay-900">
+    <div ref={sectionRef} className="w-full bg-gradient-to-t from-[#020205] via-[#020205]/40 to-transparent pt-6 pb-12 sm:pb-6 backdrop-blur-[2px] animate-fade-in-up delay-900">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col xl:flex-row xl:items-center justify-between gap-6">
         <div className="grid grid-cols-2 md:flex md:flex-nowrap md:justify-between items-center gap-y-5 gap-x-2 sm:gap-x-4 md:gap-x-4 lg:gap-x-12 w-full md:w-auto">
           {stats.map((stat, idx) => (
@@ -123,8 +91,8 @@ export default function StatsSection({ children }: StatsSectionProps) {
               </div>
               <div>
                 <div className="text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[32px] 2xl:text-[32px] font-bold text-white tracking-tight font-heading leading-tight">
-                  {stat.number.includes("+") ? <AnimatedCounter to={parseInt(stat.number)} suffix="+" /> : null}
-                  {stat.number.includes("%") ? <AnimatedCounter to={parseInt(stat.number)} suffix="%" /> : null}
+                  {stat.number.includes("+") ? <AnimatedCounter active={active} to={parseInt(stat.number)} suffix="+" /> : null}
+                  {stat.number.includes("%") ? <AnimatedCounter active={active} to={parseInt(stat.number)} suffix="%" /> : null}
                 </div>
                 <div className="text-[14px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px]  text-slate-300 font-medium font-sans whitespace-nowrap">
                   {stat.label}

@@ -10,7 +10,7 @@ import { isValidPhoneNumber } from 'libphonenumber-js';
 
 export type ModalType = 'enquiry' | 'consultation' | 'demo';
 
-export default function ConsultationModal() {
+export default function ConsultationModal({ request }: { request?: { type: ModalType; sequence: number } }) {
   const [isOpen, setIsOpen] = useState(false);
   const [modalType, setModalType] = useState<ModalType>('enquiry');
   
@@ -45,18 +45,6 @@ export default function ConsultationModal() {
   } = useSubmitEnquiry();
 
   useEffect(() => {
-    const handleOpen = (e: Event) => {
-      const customEvent = e as CustomEvent;
-      if (customEvent.detail && customEvent.detail.type) {
-        setModalType(customEvent.detail.type as ModalType);
-      } else {
-        setModalType('enquiry');
-      }
-      setIsOpen(true);
-    };
-    
-    window.addEventListener('open-consultation-modal', handleOpen);
-    
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsDropdownOpen(false);
@@ -65,10 +53,13 @@ export default function ConsultationModal() {
     document.addEventListener("mousedown", handleClickOutside);
     
     return () => {
-      window.removeEventListener('open-consultation-modal', handleOpen);
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    if (request) { setModalType(request.type); setIsOpen(true); }
+  }, [request]);
 
   // Prevent background scrolling when modal is open and handle history API for mobile back button
   useEffect(() => {
@@ -178,7 +169,7 @@ export default function ConsultationModal() {
             <div className="relative z-10 w-full h-full bg-white rounded-none sm:rounded-[24px] overflow-hidden flex flex-col">
               
               {/* Close Button */}
-              <button 
+              <button aria-label="Close consultation form"
                 onClick={() => setIsOpen(false)}
                 className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2.5 text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors z-20 shadow-sm"
               >
@@ -452,3 +443,4 @@ export default function ConsultationModal() {
     </>
   );
 }
+

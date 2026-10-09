@@ -1,4 +1,5 @@
 "use client";
+import { ReplayDiv, ReplaySpan } from "@/components/ui/ReplayReveal";
 import React from "react";
 import Image from "next/image";
 import {
@@ -119,10 +120,10 @@ export default function ProductsSection() {
           {/* ========================================= */}
           {/* LEFT CONTENT                              */}
           {/* ========================================= */}
-          <motion.div
+          <ReplayDiv
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2, margin: "0px 0px -50px 0px" }}
+            viewport={{ once: false, amount: 0.2, margin: "0px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="lg:col-span-4 flex flex-col items-start lg:pr-4 relative z-20"
           >
@@ -157,13 +158,13 @@ export default function ProductsSection() {
             </button>
 
             <div className="mt-16 lg:mt-12 xl:mt-16 flex items-center gap-4 md:gap-3 lg:gap-2 xl:gap-4 text-[11px] sm:text-[11px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] font-semibold tracking-[0.3em] text-slate-300 uppercase">
-              <motion.span initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.3 }}>Simple</motion.span>
+              <ReplaySpan initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.3 }}>Simple</ReplaySpan>
               <span className="text-slate-700">/</span>
-              <motion.span initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.5 }}>Powerful</motion.span>
+              <ReplaySpan initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.5 }}>Powerful</ReplaySpan>
               <span className="text-slate-700">/</span>
-              <motion.span initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.7 }}>Scalable</motion.span>
+              <ReplaySpan initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.4, delay: 0.7 }}>Scalable</ReplaySpan>
             </div>
-          </motion.div>
+          </ReplayDiv>
 
           {/* ========================================= */}
           {/* RIGHT CONTENT (Product Cards)             */}
@@ -198,7 +199,7 @@ export default function ProductsSection() {
 
                 <div className="relative z-20 p-6 sm:p-8 md:p-6 lg:p-5 xl:p-8 flex flex-col md:flex-row gap-4 sm:gap-8 md:gap-6 lg:gap-4 xl:gap-8 items-center justify-between h-full">
                   {/* Left: Info */}
-                  <motion.div
+                  <ReplayDiv
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.2 }}
@@ -240,7 +241,7 @@ export default function ProductsSection() {
                     <button className="text-[#FF0055] font-semibold text-[16px] sm:text-[16px] lg:text-[16px] flex items-center gap-2 group-hover:gap-3 transition-all">
                       Learn More <ArrowRight className="w-4 h-4" />
                     </button>
-                  </motion.div>{" "}
+                  </ReplayDiv>{" "}
                   {/* Right: Mock UI Dashboard */}
                   <TiltCard className="w-full md:w-[55%] lg:w-[50%] xl:w-[55%] p-1 sm:p-6 md:p-4 mt-2 md:mt-0 z-20 flex justify-center items-center relative">
                     {/* Style block for floating badge and bar animations */}
@@ -352,7 +353,7 @@ export default function ProductsSection() {
                   {/* Static Glass Background - Blue Tint */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.08] to-transparent backdrop-blur-[32px] z-0 rounded-[20px] border border-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
 
-                  <motion.div
+                  <ReplayDiv
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.2 }}
@@ -379,7 +380,7 @@ export default function ProductsSection() {
                     <button className="text-blue-400 font-semibold text-[16px] sm:text-[16px] lg:text-[16px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
                       Learn More <ArrowRight className="w-4 h-4" />
                     </button>
-                  </motion.div>
+                  </ReplayDiv>
                 </div>
 
                 {/* Custom Solutions */}
@@ -408,7 +409,7 @@ export default function ProductsSection() {
                   {/* Static Glass Background - Purple Tint */}
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/[0.08] to-transparent backdrop-blur-[32px] z-0 rounded-[20px] border border-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
 
-                  <motion.div
+                  <ReplayDiv
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.2 }}
@@ -435,7 +436,7 @@ export default function ProductsSection() {
                     <button className="text-[#A855F7] font-semibold text-[16px] sm:text-[16px] lg:text-[16px] xl:text-[16px] flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
                       Let's Discuss <ArrowRight className="w-4 h-4" />
                     </button>
-                  </motion.div>
+                  </ReplayDiv>
                 </div>
               </div>
             </div>

@@ -1,4 +1,5 @@
 "use client";
+import { ReplayDiv } from "@/components/ui/ReplayReveal";
 
 import React from "react";
 import Link from "next/link";
@@ -63,7 +64,7 @@ export default function ServicesSection() {
         {/* Header Row */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:gap-8 lg:gap-4 xl:gap-8 mb-12 sm:mb-16">
           {/* Left: Tag + Headline */}
-          <motion.div 
+          <ReplayDiv 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
@@ -80,10 +81,10 @@ export default function ServicesSection() {
               Digital Solutions <br />
               for a Smarter Tomorrow
             </h2>
-          </motion.div>
+          </ReplayDiv>
 
           {/* Right: Description paragraph + View All Services Button */}
-          <motion.div 
+          <ReplayDiv 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
@@ -100,19 +101,18 @@ export default function ServicesSection() {
               <span>View All Services</span>
               <ArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-[#FF0055] group-hover:translate-x-1 transition-transform" />
             </Link>
-          </motion.div>
+          </ReplayDiv>
         </div>
 
         {/* 4 Service Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-3 xl:gap-6">
           {services.map((item, idx) => (
-            <motion.div
+            <ReplayDiv
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+              viewport={{ once: false, amount: 0.1, margin: "0px" }}
               transition={{ duration: 0.4, delay: idx * 0.08, ease: "easeOut" }}
-              style={{ willChange: "opacity, transform" }}
             >
               <Link
                 href={item.href}
@@ -156,7 +156,7 @@ export default function ServicesSection() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </ReplayDiv>
           ))}
         </div>
       </div>

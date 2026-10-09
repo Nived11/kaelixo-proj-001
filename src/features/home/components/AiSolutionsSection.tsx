@@ -1,12 +1,25 @@
 "use client";
+import { ReplayDiv } from "@/components/ui/ReplayReveal";
 
 import React, { useState, useEffect } from 'react';
 import { Settings, User, BarChart2, BrainCircuit, ArrowRight, Quote, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
+import { useViewportActivity } from '@/hooks/useViewportActivity';
+const AiArtwork = dynamic(() => import('./AiArtwork'));
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AiSolutionsSection() {
+  const sectionRef = React.useRef<HTMLElement>(null);
+  const active = useViewportActivity(sectionRef);
+  const nearby = useViewportActivity(sectionRef, 400);
+  const [mobile, setMobile] = useState<boolean | null>(null);
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 1023px)");
+    const update = () => setMobile(query.matches);
+    update(); query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
   const [activeQuote, setActiveQuote] = useState(0);
   const [activeFeature, setActiveFeature] = useState(0);
 
@@ -16,6 +29,7 @@ export default function AiSolutionsSection() {
   ];
 
   useEffect(() => {
+    if (!active) return;
     const quoteInterval = setInterval(() => {
       setActiveQuote((prev) => (prev === 0 ? 1 : 0));
     }, 5000);
@@ -28,10 +42,10 @@ export default function AiSolutionsSection() {
       clearInterval(quoteInterval);
       clearInterval(featureInterval);
     };
-  }, []);
+  }, [active]);
 
   return (
-    <section className="relative w-full py-24 lg:py-32 bg-[#020205] overflow-hidden">
+    <section ref={sectionRef} data-active={active} className="ai-section relative w-full py-24 lg:py-32 bg-[#020205] overflow-hidden">
 
       {/* Background Image Container */}
       <div className="absolute inset-0 w-full h-full z-0 flex justify-end">
@@ -45,26 +59,12 @@ export default function AiSolutionsSection() {
 
         {/* Image layer - Desktop Animated SVG */}
         <div className="relative w-full lg:w-[70%] h-full hidden lg:block">
-          <Image
-            src="/images/home/animated-circuit-lines.svg"
-            alt="AI Solutions Animated Background"
-            fill
-            className="object-cover object-[right_top] lg:object-right opacity-100"
-            sizes="70vw"
-            priority
-          />
+          {nearby && mobile === false && <AiArtwork mobile={false} active={active} />}
         </div>
 
         {/* Image layer - Mobile Animated SVG */}
         <div className="relative w-full h-[65%] lg:hidden mt-auto">
-          <Image
-            src="/images/home/mobile-animated-circuit-lines.svg"
-            alt="AI Solutions Animated Background Mobile"
-            fill
-            className="object-cover object-right opacity-90 -translate-x-[0%] -translate-y-[5%]"
-            sizes="100vw"
-            priority
-          />
+          {nearby && mobile === true && <AiArtwork mobile active={active} />}
           {/* Top gradient for mobile to blend into the dark bg above it */}
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#020205] via-[#020205]/80 to-transparent z-10" />
         </div>
@@ -75,10 +75,10 @@ export default function AiSolutionsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
           {/* Left Content */}
-          <motion.div
+          <ReplayDiv
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: false, margin: "0px" }}
             variants={{
               hidden: { opacity: 0 },
               visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
@@ -86,12 +86,12 @@ export default function AiSolutionsSection() {
             className="max-w-[550px]"
           >
             {/* Eyebrow */}
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="flex items-center gap-3 mb-4">
+            <ReplayDiv variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="flex items-center gap-3 mb-4">
               <span className="text-[#FF0055] font-bold text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] tracking-[0.25em] uppercase">
                 AI SOLUTIONS
               </span>
               <div className="w-8 h-[2px] bg-[#FF0055]" />
-            </motion.div>
+            </ReplayDiv>
 
             {/* Headline */}
             <motion.h2 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="text-white text-[28px] sm:text-[32px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px]  font-extrabold leading-[1.05] tracking-tight mb-4 font-heading">
@@ -104,18 +104,18 @@ export default function AiSolutionsSection() {
             </motion.p>
 
             {/* Feature List - Desktop */}
-            <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }} className="hidden lg:block space-y-3 xl:space-y-4 mb-8 lg:mb-6 xl:mb-8">
+            <ReplayDiv variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }} className="hidden lg:block space-y-3 xl:space-y-4 mb-8 lg:mb-6 xl:mb-8">
               <FeatureItem icon={Settings} title="Process Automation" desc="Streamline operations and reduce manual work." />
               <FeatureItem icon={User} title="Intelligent Customer Experiences" desc="Create personalized interactions that build loyalty." />
               <FeatureItem icon={BarChart2} title="Data-Driven Decision Making" desc="Turn raw data into actionable insight." />
               <FeatureItem icon={BrainCircuit} title="Custom AI Solutions" desc="Tailored to your business logic, not generic tools." />
-            </motion.div>
+            </ReplayDiv>
 
             {/* Feature List - Mobile Carousel */}
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} className="block lg:hidden mb-8 w-full max-w-sm">
-              <div className="relative border border-white/10 rounded-[16px] bg-[#0c0418]/60 backdrop-blur-md p-5 h-[160px] flex flex-col justify-between overflow-hidden">
+            <ReplayDiv variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} className="block lg:hidden mb-8 w-full max-w-sm">
+              <div className="relative border border-white/10 rounded-[16px] bg-[#0c0418]/60 sm:backdrop-blur-md p-5 h-[160px] flex flex-col justify-between overflow-hidden">
                 <AnimatePresence mode="wait">
-                  <motion.div
+                  <ReplayDiv
                     key={activeFeature}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -144,7 +144,7 @@ export default function AiSolutionsSection() {
                         {activeFeature === 3 && "Tailored to your business logic, not generic tools."}
                       </p>
                     </div>
-                  </motion.div>
+                  </ReplayDiv>
                 </AnimatePresence>
 
                 <div className="flex items-center justify-between mt-5 pt-4 border-t border-white/5">
@@ -161,10 +161,10 @@ export default function AiSolutionsSection() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </ReplayDiv>
 
             {/* CTA Area */}
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mt-2">
+            <ReplayDiv variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mt-2">
               <Link
                 href="/services/ai-solutions"
                 className="group inline-flex items-center justify-center gap-2 px-6 py-3 md:px-7 md:py-3.5 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377]/50 hover:border-[#FF6699] text-white text-[16px] sm:text-[16px] xl:text-[16px] font-medium tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.3)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] hover:brightness-110 transition-all duration-300 active:scale-95 cursor-pointer shrink-0"
@@ -179,8 +179,8 @@ export default function AiSolutionsSection() {
                   From Possibilities<br />to Real Impact
                 </p>
               </div>
-            </motion.div>
-          </motion.div>
+            </ReplayDiv>
+          </ReplayDiv>
 
           {/* Right Content - Overlays */}
           <div className="relative h-full min-h-[350px] sm:min-h-[400px] block w-full">
@@ -208,7 +208,7 @@ export default function AiSolutionsSection() {
               <div className="absolute inset-0 rounded-[10px] sm:rounded-[14px] border border-[#FF0066]/20" />
 
               {/* Inner Glass Content */}
-              <div className="absolute inset-[2px] rounded-[8px] sm:rounded-[12px] bg-[#0c0418]/70 backdrop-blur-md flex flex-col items-center justify-center border border-white/5">
+              <div className="absolute inset-[2px] rounded-[8px] sm:rounded-[12px] bg-[#0c0418]/70 sm:backdrop-blur-md flex flex-col items-center justify-center border border-white/5">
                 <span className="text-[#FF0066] text-[24px] sm:text-[36px] lg:text-[34px] xl:text-[42px] 2xl:text-[48px] font-black tracking-tighter mb-1 sm:mb-2 lg:mb-1 xl:mb-2 font-heading drop-shadow-[0_0_15px_rgba(255,0,102,0.8)]">AI</span>
                 <div className="flex flex-col items-start w-[85%] mx-auto pl-1 sm:pl-2">
                   <span className="text-white/90 text-[5px] sm:text-[8px] lg:text-[6px] xl:text-[8px] 2xl:text-[9px] [@media(min-width:1920px)]:text-[10px] font-medium tracking-[0.35em] text-left uppercase leading-[1.7] drop-shadow-sm">
@@ -223,12 +223,12 @@ export default function AiSolutionsSection() {
               POSITION ADJUSTMENTS:
               Modify the 'bottom-' and 'right-' values below to change the quote box's position.
             */}
-            <motion.div
+            <ReplayDiv
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: false, margin: "-50px" }}
+              viewport={{ once: false, margin: "0px" }}
               transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-              className="max-sm:!opacity-100 max-sm:!transform-none absolute z-20 group overflow-hidden rounded-[12px] shadow-[0_20px_40px_rgba(0,0,0,0.6)] w-[100%] sm:w-[100%] md:w-[350px] lg:w-[320px] xl:w-[350px] p-[2px]
+              className="absolute z-20 group overflow-hidden rounded-[12px] shadow-[0_20px_40px_rgba(0,0,0,0.6)] w-[100%] sm:w-[100%] md:w-[350px] lg:w-[320px] xl:w-[350px] p-[2px]
               bottom-2 left-1/2 -translate-x-1/2
               sm:left-auto sm:translate-x-0 sm:bottom-10 sm:right-0 
               md:bottom-12 md:right-0 
@@ -245,7 +245,7 @@ export default function AiSolutionsSection() {
               <div className="sm:hidden absolute inset-0 rounded-[12px] border border-[#FF0066]/20" />
 
               {/* Inner Content (Sets the height of the card) */}
-              <div className="relative z-10 rounded-[14px] bg-[#0c0418]/60 backdrop-blur-lg p-4 sm:p-5 lg:p-7 flex flex-row lg:flex-col items-center lg:items-start border border-white/10 h-[110px] sm:h-[130px] lg:h-auto lg:min-h-[220px]">
+              <div className="relative z-10 rounded-[14px] bg-[#0c0418]/60 sm:backdrop-blur-lg p-4 sm:p-5 lg:p-7 flex flex-row lg:flex-col items-center lg:items-start border border-white/10 h-[110px] sm:h-[130px] lg:h-auto lg:min-h-[220px]">
 
                 {/* Left/Top Side: Quote Text */}
                 <div className="flex-1 flex flex-col justify-between lg:justify-start h-full lg:h-auto pr-3 lg:pr-0 lg:w-full">
@@ -284,7 +284,7 @@ export default function AiSolutionsSection() {
                   </span>
                 </div>
               </div>
-            </motion.div>
+            </ReplayDiv>
 
           </div>
 
@@ -296,7 +296,7 @@ export default function AiSolutionsSection() {
 
 function FeatureItem({ icon: Icon, title, desc }: { icon: any, title: string, desc: string }) {
   return (
-    <motion.div
+    <ReplayDiv
       variants={{
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
@@ -312,6 +312,6 @@ function FeatureItem({ icon: Icon, title, desc }: { icon: any, title: string, de
         <h4 className="text-white text-[15px] sm:text-[15px] md:text-[20px] lg:text-[24px] xl:text-[24px] font-bold leading-tight mb-0.5">{title}</h4>
         <p className="text-slate-300 text-[12px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-[1.4]">{desc}</p>
       </div>
-    </motion.div>
+    </ReplayDiv>
   );
 }

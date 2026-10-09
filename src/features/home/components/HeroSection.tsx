@@ -5,9 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import StatsSection from "./StatsSection";
-import AnimatedNeonLogo from "@/components/AnimatedNeonLogo";
-import RotatingGlobe from "@/components/RotatingGlobe";
-import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
+import { usePageReady } from "@/components/ui/PageLoader";
+import { motion } from "framer-motion";
+import { useViewportActivity } from "@/hooks/useViewportActivity";
+
+const AnimatedNeonLogo = dynamic(() => import("@/components/AnimatedNeonLogo"), { ssr: false });
+const RotatingGlobe = dynamic(() => import("@/components/RotatingGlobe"), { ssr: false });
 
 const slidesData = [
   { title: "THINK", desc: "Every great solution starts with clarity." },
@@ -20,43 +24,71 @@ export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const [wordIndex, setWordIndex] = React.useState(0);
   const videoRef = React.useRef<HTMLVideoElement>(null);
+  const heroRef = React.useRef<HTMLElement>(null);
+  const isReady = usePageReady();
+  const isInView = useViewportActivity(heroRef);
+  const [videoUnavailable, setVideoUnavailable] = React.useState(false);
+  const [documentVisible, setDocumentVisible] = React.useState(true);
+  const heroActive = isReady && isInView && documentVisible;
 
   React.useEffect(() => {
-    if (currentSlide !== 0) {
-      setWordIndex(0);
+    const update = () => setDocumentVisible(!document.hidden);
+    update();
+    document.addEventListener('visibilitychange', update);
+    return () => document.removeEventListener('visibilitychange', update);
+  }, []);
+
+  React.useEffect(() => {
+    setWordIndex(0);
+    if (currentSlide === 0 && videoRef.current) videoRef.current.currentTime = 0;
+  }, [currentSlide]);
+
+  React.useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (!heroActive || currentSlide !== 0) {
+      video.pause();
       return;
     }
-
-    const interval = setInterval(() => {
-      setWordIndex((prev) => {
-        if (prev === slidesData.length - 1) return prev;
-        return prev + 1;
-      });
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [currentSlide]);
-
-  const hasMounted = React.useRef(false);
+    let cancelled = false;
+    video.muted = true;
+    video.defaultMuted = true;
+    // Safari may reject autoplay (for example in Low Power Mode).
+    video.play().catch(() => { if (!cancelled) { setVideoUnavailable(true); setCurrentSlide(1); } });
+    let lastTime = video.currentTime;
+    let lastProgress = Date.now();
+    const watchdog = window.setInterval(() => {
+      if (video.currentTime > lastTime) {
+        lastTime = video.currentTime;
+        lastProgress = Date.now();
+      } else if (Date.now() - lastProgress > 3000) {
+        setVideoUnavailable(true);
+        setCurrentSlide(1);
+      }
+    }, 500);
+    return () => {
+      cancelled = true;
+      window.clearInterval(watchdog);
+      video.pause();
+    };
+  }, [currentSlide, heroActive]);
 
   React.useEffect(() => {
-    if (videoRef.current) {
-      if (currentSlide === 0) {
-        if (hasMounted.current) {
-          videoRef.current.currentTime = 0;
-          videoRef.current.play().catch((e) => console.log("Auto-play prevented:", e));
-        } else {
-          hasMounted.current = true;
-        }
-      } else {
-        videoRef.current.pause();
+    if (!isReady || !documentVisible || currentSlide !== 0) return;
+    const timer = window.setTimeout(() => {
+      const box = heroRef.current?.getBoundingClientRect();
+      const video = videoRef.current;
+      if (box && box.bottom > 0 && box.top < window.innerHeight && (!video || video.paused || video.currentTime < 0.1)) {
+        setVideoUnavailable(true);
+        setCurrentSlide(1);
       }
-    }
-  }, [currentSlide]);
+    }, 3500);
+    return () => window.clearTimeout(timer);
+  }, [isReady, documentVisible, currentSlide, isInView]);
 
   React.useEffect(() => {
     let timer: NodeJS.Timeout;
-    if (currentSlide === 1) {
+    if (currentSlide === 1 && heroActive && !videoUnavailable) {
       timer = setTimeout(() => {
         setCurrentSlide(0);
       }, 9000);
@@ -65,9 +97,10 @@ export default function HeroSection() {
     return () => {
       if (timer) clearTimeout(timer);
     };
-  }, [currentSlide]);
+  }, [currentSlide, heroActive, videoUnavailable]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (!heroActive || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     const { clientX, clientY, currentTarget } = e;
     const { width, height } = currentTarget.getBoundingClientRect();
     const x = ((clientX / width) - 0.5) * 2; // Range -1 to 1
@@ -81,6 +114,7 @@ export default function HeroSection() {
 
   return (
     <section
+      ref={heroRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="relative min-h-[100svh] lg:h-screen flex flex-col justify-between pt-[72px] sm:pt-24 overflow-hidden bg-[#020205]"
@@ -94,19 +128,21 @@ export default function HeroSection() {
           from { opacity: 0; transform: translateY(6px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        .hero-bg-video::-webkit-media-controls {
+          display: none !important;
+        }
+        .hero-bg-video::-webkit-media-controls-start-playback-button {
+          display: none !important;
+        }
       `}</style>
       {/* ============================================================ */}
       {/* SLIDE 1: MULTI-LAYER PARALLAX COSMIC SCENE                   */}
       {/* ============================================================ */}
-      <div
+      {heroActive && currentSlide === 1 && <div
         className={`absolute inset-0 z-0 transition-opacity duration-1000 ${currentSlide === 1 ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
-          {/* Preload Globe Image to prevent delay */}
-          <div className="hidden">
-            <Image src="/images/home/globe-original.webp" alt="preload globe" width={10} height={10} />
-          </div>
 
           {/* Layer 1: Distant Cosmic Sky & Background Nebula (Fixed / Static) */}
           <div className="absolute inset-0">
@@ -135,7 +171,7 @@ export default function HeroSection() {
                 filter: "blur(38px)",
               }}
             />
-            <RotatingGlobe duration={180} animated={true} />
+            <RotatingGlobe duration={180} animated={heroActive} />
           </div>
 
           {/* Layer 3: Floating Nebula Cloud (Full cloud visible, smoothly blended at bottom into sky) */}
@@ -161,7 +197,7 @@ export default function HeroSection() {
             className="absolute bottom-[43%] sm:bottom-[20%] md:bottom-[15%] lg:bottom-[15%] xl:bottom-[22%] 2xl:bottom-[19%] left-[22%] sm:left-[34%] md:left-[36%] lg:left-[38%] xl:left-[40%] 2xl:left-[650px] w-[210px] sm:w-[460px] md:w-[300px] lg:w-[380px] xl:w-[400px] 2xl:w-[350px] aspect-[7/6] pointer-events-none z-[5]
               [@media(min-width:1920px)]:bottom-[19%] [@media(min-width:1920px)]:left-[48%] [@media(min-width:1920px)]:w-[450px]"
           >
-            <AnimatedNeonLogo glow={true} animated={true} />
+            <AnimatedNeonLogo glow={true} animated={heroActive} />
           </div>
 
           {/* Layer 5: Center Mountain Ridge (Misty Midground - behind Left Rock) */}
@@ -225,7 +261,7 @@ export default function HeroSection() {
           <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#020205] via-[#020205]/30 to-transparent z-[9]" />
           <div className="absolute bottom-0 left-0 right-0 h-[45vh] sm:h-28 2xl:h-48 [@media(min-width:1920px)]:h-64 bg-gradient-to-t from-[#020205] from-[50%] sm:from-0% via-[#020205]/80 via-[80%] sm:via-[#020205]/30 2xl:via-[#020205]/50 [@media(min-width:1920px)]:via-[#020205]/60 to-transparent z-[9]" />
         </div>
-      </div>
+      </div>}
 
       {/* ============================================================ */}
       {/* SLIDE 2: VIDEO BACKGROUND                                    */}
@@ -237,14 +273,18 @@ export default function HeroSection() {
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <video
             ref={videoRef}
-            autoPlay
             muted
+            controls={false}
+            preload={isReady ? "auto" : "none"}
+            poster="/images/home/hero-video-poster.webp"
             playsInline
             onEnded={() => setCurrentSlide(1)}
-            className="absolute inset-0 w-full h-full object-cover opacity-60"
+            onTimeUpdate={(event) => setWordIndex(Math.min(slidesData.length - 1, Math.floor(event.currentTarget.currentTime / 3)))}
+            onError={() => { setVideoUnavailable(true); if (isReady) setCurrentSlide(1); }}
+            className="hero-bg-video pointer-events-none absolute inset-0 w-full h-full object-cover opacity-60"
           >
             {/* Tech/AI Network Background Video */}
-            <source src="/videos/home/kaelixo-hero-mobile.mp4" media="(max-width: 639px)" type="video/mp4" />
+            <source src="/videos/home/kaelixo-hero-mobile-optimized.mp4" media="(max-width: 639px)" type="video/mp4" />
             <source src="/videos/home/kaelixo-hero-video.mp4" media="(min-width: 640px)" type="video/mp4" />
           </video>
           {/* Text Readability Gradients (Same as Slide 1 to keep UI consistent) */}
@@ -296,7 +336,7 @@ export default function HeroSection() {
                     <div className="flex flex-col items-center">
                       {/* Heading with Instant CSS Animation on each word */}
                       <h2
-                        key={wordIndex}
+                        key={`${isReady}-${wordIndex}`}
                         className="text-[38px] sm:text-[96px] lg:text-[112px] leading-[1.1] font-black text-[#FF0055] tracking-tight font-heading min-h-[80px] sm:min-h-[110px]"
                         style={{
                           animation: "revealText 0.6s ease-out forwards",
@@ -309,7 +349,7 @@ export default function HeroSection() {
                       {/* Description with CSS Fade */}
                       <div className="min-h-[48px] sm:min-h-[56px] mt-2 sm:mt-4">
                         <p
-                          key={wordIndex}
+                          key={`${isReady}-${wordIndex}`}
                           className="text-[16px] sm:text-[18px] text-white max-w-[500px] leading-relaxed font-normal font-sans opacity-0 animate-[fadeUp_0.4s_ease-out_forwards]"
                           style={{ animationDelay: "0.2s" }}
                         >

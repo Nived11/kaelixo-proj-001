@@ -1,4 +1,5 @@
 "use client";
+import { ReplayDiv } from "@/components/ui/ReplayReveal";
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -73,28 +74,26 @@ export default function RatingsSection() {
   return (
     <section className="relative w-full bg-white pt-8 sm:pt-12 pb-16 sm:pb-24">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
-        <motion.div 
+        <ReplayDiv 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "0px 0px -50px 0px" }}
+          viewport={{ once: false, amount: 0.2, margin: "0px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          style={{ willChange: "opacity, transform" }}
           className="text-center sm:text-left mb-10 sm:mb-16"
         >
           <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-extrabold text-[#020205] leading-[1.1] tracking-tight font-heading">
             Trusted by Clients with Top Ratings
           </h2>
-        </motion.div>
+        </ReplayDiv>
 
         <div className="flex flex-wrap items-center justify-center sm:justify-between gap-x-8 gap-y-12">
           {ratings.map((item, index) => (
-            <motion.div
+            <ReplayDiv
               key={item.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2, margin: "0px 0px -50px 0px" }}
+              viewport={{ once: false, amount: 0.2, margin: "0px" }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-              style={{ willChange: "opacity, transform" }}
               className="flex flex-col items-center sm:items-start group cursor-pointer"
             >
               <div className="mb-2 transition-transform duration-300 group-hover:-translate-y-1">
@@ -112,7 +111,7 @@ export default function RatingsSection() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </ReplayDiv>
           ))}
         </div>
       </div>

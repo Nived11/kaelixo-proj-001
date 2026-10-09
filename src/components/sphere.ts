@@ -198,7 +198,7 @@ export function createSphere(
   let frame = 0;
   let disposed = false;
   const reducedMotion = typeof window !== 'undefined' && window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
-  const canRun = () => playing && visible && !document.hidden && !disposed;
+  const canRun = () => playing && visible && !document.hidden && !reducedMotion?.matches && !disposed;
   let hiddenColumn = -1;
   const paint = () => {
     const fold = phase % Math.PI - Math.PI / 2;

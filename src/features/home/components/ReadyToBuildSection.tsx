@@ -1,17 +1,19 @@
 "use client";
+import { ReplayDiv, ReplaySpan } from "@/components/ui/ReplayReveal";
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useViewportActivity } from '@/hooks/useViewportActivity';
 import { ArrowRight, Rocket, Users, Globe, Trophy } from 'lucide-react';
 import { motion, useInView, animate, useMotionValue, useTransform } from 'framer-motion';
 
 function AnimatedCounter({ to, suffix = "", duration = 2, trigger }: { to: number, suffix?: string, duration?: number, trigger: boolean }) {
-  const count = useMotionValue(0);
+  const count = useMotionValue(to);
   const rounded = useTransform(count, (latest) => Math.round(latest));
 
   useEffect(() => {
     let controls: any;
-    let interval: NodeJS.Timeout;
+
 
     if (trigger) {
       const startAnim = () => {
@@ -19,27 +21,27 @@ function AnimatedCounter({ to, suffix = "", duration = 2, trigger }: { to: numbe
         controls = animate(count, to, { duration: duration, ease: "easeOut" });
       };
       startAnim();
-      interval = setInterval(startAnim, duration * 1000 + 4000);
+
     } else {
-      count.set(0);
+      count.set(to);
     }
 
     return () => {
       if (controls) controls.stop();
-      if (interval) clearInterval(interval);
+
     };
   }, [trigger, to, duration, count]);
 
   return (
     <>
-      <motion.span>{rounded}</motion.span>
+      <ReplaySpan>{rounded}</ReplaySpan>
       {suffix}
     </>
   );
 }
 
 function TypewriterText({ text, delay = 0, duration = 1, className = "", trigger }: { text: string, delay?: number, duration?: number, className?: string, trigger: boolean }) {
-  const count = useMotionValue(0);
+  const count = useMotionValue(text.length);
   const rounded = useTransform(count, (latest) => Math.round(latest));
   const displayText = useTransform(rounded, (latest) => text.slice(0, latest));
 
@@ -54,7 +56,7 @@ function TypewriterText({ text, delay = 0, duration = 1, className = "", trigger
         ease: "linear",
       });
     } else {
-      count.set(0);
+      count.set(text.length);
     }
     return () => {
       if (controls) controls.stop();
@@ -64,9 +66,9 @@ function TypewriterText({ text, delay = 0, duration = 1, className = "", trigger
   return (
     <span className={`relative inline-block ${className}`}>
       <span className="invisible">{text}</span>
-      <motion.span className={`absolute left-0 top-0 w-full h-full text-left whitespace-pre-wrap ${className}`}>
+      <ReplaySpan className={`absolute left-0 top-0 w-full h-full text-left whitespace-pre-wrap ${className}`}>
         {displayText}
-      </motion.span>
+      </ReplaySpan>
     </span>
   );
 }
@@ -75,7 +77,7 @@ export default function ReadyToBuildSection() {
   const headingRef = useRef(null);
   const headingInView = useInView(headingRef, { once: false, amount: 0.2 });
   const statsRef = useRef(null);
-  const statsInView = useInView(statsRef, { once: false, amount: 0.2 });
+  const statsInView = useViewportActivity(statsRef);
 
   return (
     <section className="relative w-full bg-white overflow-hidden py-24 lg:py-32 font-sans">
@@ -130,10 +132,10 @@ export default function ReadyToBuildSection() {
       <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col justify-between h-full">
 
         {/* Top Content (Text & Buttons) */}
-        <motion.div
+        <ReplayDiv
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2, margin: "0px 0px -50px 0px" }}
+          viewport={{ once: false, amount: 0.2, margin: "0px" }}
           variants={{
             hidden: { opacity: 0 },
             visible: {
@@ -143,12 +145,12 @@ export default function ReadyToBuildSection() {
           }}
           className="w-full lg:w-1/2 pt-8 pb-16 lg:pb-24"
         >
-          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex items-center gap-3 mb-4">
+          <ReplayDiv variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex items-center gap-3 mb-4">
             <span className="text-[#FF0055] font-bold text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] tracking-widest uppercase">
               READY TO BUILD
             </span>
             <div className="w-10 h-[2px] bg-[#FF0055]"></div>
-          </motion.div>
+          </ReplayDiv>
 
           <h2 ref={headingRef} className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px]  font-extrabold leading-[1.1] mb-6 tracking-tight font-heading">
             <TypewriterText
@@ -180,7 +182,7 @@ export default function ReadyToBuildSection() {
             Let's turn your ideas into real-world impact. Partner with Kaelixo and bring your vision to life.
           </motion.p>
 
-          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-4">
+          <ReplayDiv variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-4">
             <Link
               href="#contact"
               className="group inline-flex min-w-[160px] sm:min-w-0 sm:w-auto items-center justify-center gap-1.5 sm:gap-2 px-6 sm:px-8 py-3 sm:py-3.5 md:px-6 md:py-3 lg:px-6 lg:py-2.5 xl:px-8 xl:py-3.5 rounded-full bg-gradient-to-r from-[#CC0044] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[16px] sm:text-[16px] lg:text-[16px] font-medium tracking-wide hover:brightness-110 transition-all duration-300 active:scale-95 whitespace-nowrap cursor-pointer"
@@ -193,12 +195,12 @@ export default function ReadyToBuildSection() {
             >
               Explore Our Work
             </Link>
-          </motion.div>
-        </motion.div>
+          </ReplayDiv>
+        </ReplayDiv>
 
         {/* Bottom Stats Bar */}
         <div ref={statsRef} className="w-full mt-4 sm:mt-8 relative z-20">
-          <motion.div
+          <ReplayDiv
             initial="hidden"
             animate={statsInView ? "visible" : "hidden"}
             variants={{
@@ -209,7 +211,7 @@ export default function ReadyToBuildSection() {
           >
 
             {/* Stat 1 */}
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start md:items-center lg:items-start gap-3 sm:gap-4 md:gap-2 lg:gap-3 xl:gap-6 justify-start px-2 sm:px-2 md:px-3 lg:px-6">
+            <ReplayDiv variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start md:items-center lg:items-start gap-3 sm:gap-4 md:gap-2 lg:gap-3 xl:gap-6 justify-start px-2 sm:px-2 md:px-3 lg:px-6">
               <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 text-[#FF0055] shadow-sm border border-slate-100">
                 <Rocket className="w-5 h-5 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-7 xl:h-7 stroke-[1.5]" />
               </div>
@@ -219,10 +221,10 @@ export default function ReadyToBuildSection() {
                 </h4>
                 <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] text-slate-700 font-medium font-sans whitespace-nowrap">Projects Delivered</p>
               </div>
-            </motion.div>
+            </ReplayDiv>
 
             {/* Stat 2 */}
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start md:items-center lg:items-start gap-3 sm:gap-4 md:gap-2 lg:gap-3 xl:gap-6 justify-start px-2 sm:px-2 md:px-3 lg:px-6">
+            <ReplayDiv variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start md:items-center lg:items-start gap-3 sm:gap-4 md:gap-2 lg:gap-3 xl:gap-6 justify-start px-2 sm:px-2 md:px-3 lg:px-6">
               <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 text-[#FF0055] shadow-sm border border-slate-100">
                 <Users className="w-5 h-5 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-7 xl:h-7 stroke-[1.5]" />
               </div>
@@ -232,10 +234,10 @@ export default function ReadyToBuildSection() {
                 </h4>
                 <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] text-slate-700 font-medium font-sans whitespace-nowrap">Happy Clients</p>
               </div>
-            </motion.div>
+            </ReplayDiv>
 
             {/* Stat 3 */}
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start md:items-center lg:items-start gap-3 sm:gap-4 md:gap-2 lg:gap-3 xl:gap-6 justify-start px-2 sm:px-2 md:px-3 lg:px-6">
+            <ReplayDiv variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start md:items-center lg:items-start gap-3 sm:gap-4 md:gap-2 lg:gap-3 xl:gap-6 justify-start px-2 sm:px-2 md:px-3 lg:px-6">
               <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 text-[#FF0055] shadow-sm border border-slate-100">
                 <Globe className="w-5 h-5 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-7 xl:h-7 stroke-[1.5]" />
               </div>
@@ -245,10 +247,10 @@ export default function ReadyToBuildSection() {
                 </h4>
                 <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] text-slate-700 font-medium font-sans whitespace-nowrap">Countries Served</p>
               </div>
-            </motion.div>
+            </ReplayDiv>
 
             {/* Stat 4 */}
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start md:items-center lg:items-start gap-3 sm:gap-4 md:gap-2 lg:gap-3 xl:gap-6 justify-start md:justify-end px-2 sm:px-2 md:px-3 lg:px-6">
+            <ReplayDiv variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} className="flex flex-row items-center sm:items-start md:items-center lg:items-start gap-3 sm:gap-4 md:gap-2 lg:gap-3 xl:gap-6 justify-start md:justify-end px-2 sm:px-2 md:px-3 lg:px-6">
               <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-14 xl:h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 text-[#FF0055] shadow-sm border border-slate-100">
                 <Trophy className="w-5 h-5 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-7 xl:h-7 stroke-[1.5]" />
               </div>
@@ -258,12 +260,13 @@ export default function ReadyToBuildSection() {
                 </h4>
                 <p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] text-slate-700 font-medium font-sans whitespace-nowrap">Client Satisfaction</p>
               </div>
-            </motion.div>
+            </ReplayDiv>
 
-          </motion.div>
+          </ReplayDiv>
         </div>
 
       </div>
     </section>
   );
 }
+

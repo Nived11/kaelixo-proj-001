@@ -1,6 +1,5 @@
-"use client";
-
 import React from "react";
+import HomeAnimationActivity from "@/components/ui/HomeAnimationActivity";
 import HeroSection from "./components/HeroSection";
 import TrustedBySection from "./components/TrustedBySection";
 import MissionSection from "./components/MissionSection";
@@ -16,7 +15,7 @@ import ReadyToBuildSection from "./components/ReadyToBuildSection";
 import ScrollToTop from "./components/ScrollToTop";
 export default function HomeMain() {
   return (
-    <div className="relative w-full overflow-hidden bg-[#020205] text-white selection:bg-[#FF0055] selection:text-white">
+    <HomeAnimationActivity>
       <HeroSection />
 
       <div className="relative">
@@ -51,6 +50,6 @@ export default function HomeMain() {
       <ReadyToBuildSection />
 
       <ScrollToTop />
-    </div>
+    </HomeAnimationActivity>
   );
 }

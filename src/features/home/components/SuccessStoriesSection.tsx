@@ -1,4 +1,5 @@
 "use client";
+import { ReplayDiv } from "@/components/ui/ReplayReveal";
 
 import React from "react";
 import { ArrowRight, BarChart2 } from "lucide-react";
@@ -45,12 +46,11 @@ export default function SuccessStoriesSection() {
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
 
         {/* Header Row */}
-        <motion.div
+        <ReplayDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "0px 0px -50px 0px" }}
+          viewport={{ once: false, amount: 0.2, margin: "0px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          style={{ willChange: "transform, opacity" }}
           className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:gap-8 lg:gap-4 xl:gap-8 mb-12 sm:mb-16"
         >
           <div>
@@ -73,18 +73,17 @@ export default function SuccessStoriesSection() {
               See All Case Studies <ArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4" />
             </a>
           </div>
-        </motion.div>
+        </ReplayDiv>
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-4 xl:gap-8 mb-8">
           {cases.map((item, index) => (
-            <motion.div
+            <ReplayDiv
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+              viewport={{ once: false, amount: 0.1, margin: "0px" }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-              style={{ willChange: "transform, opacity" }}
               className={`bg-white rounded-[20px] sm:rounded-2xl border border-slate-100 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-300 group flex flex-col relative ${index === 2 ? 'md:col-span-2 md:w-[calc(50%-16px)] md:mx-auto lg:col-span-1 lg:w-full lg:mx-0' : ''
                 }`}
             >
@@ -112,12 +111,11 @@ export default function SuccessStoriesSection() {
               </div>
 
               {/* Content Body */}
-              <motion.div
+              <ReplayDiv
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                viewport={{ once: false, amount: 0.1, margin: "0px" }}
                 transition={{ duration: 0.6, delay: 0.2 + (index * 0.1), type: "spring", bounce: 0.25 }}
-                style={{ willChange: "transform, opacity" }}
                 className="relative -mt-6 sm:-mt-8 md:-mt-6 lg:-mt-6 xl:-mt-8 p-5 sm:p-6 md:p-5 lg:p-4 xl:p-6 bg-white rounded-t-2xl sm:rounded-t-3xl md:rounded-t-2xl lg:rounded-t-2xl xl:rounded-t-3xl flex flex-col flex-1 z-10"
               >
                 <h3 className="text-[#020205] text-[18px] sm:text-[18px] md:[18px]lg:text-[24px] xl:text-[24px] font-extrabold mb-1.5 sm:mb-2 md:mb-1.5 lg:mb-1.5 xl:mb-2 group-hover:text-[#FF0055] transition-colors">
@@ -141,8 +139,8 @@ export default function SuccessStoriesSection() {
                     Read Case Study <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
-              </motion.div>
-            </motion.div>
+              </ReplayDiv>
+            </ReplayDiv>
           ))}
         </div>
 

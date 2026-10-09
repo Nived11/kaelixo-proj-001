@@ -25,6 +25,8 @@ function RotatingGlobeComponent({
   const svgRef = useRef<SVGSVGElement | null>(null);
   const sphereRef = useRef<SphereController | null>(null);
   const seconds = Number.isFinite(duration) && duration > 0 ? duration : 90;
+  const optionsRef = useRef({ seconds, animated });
+  optionsRef.current = { seconds, animated };
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -35,8 +37,8 @@ function RotatingGlobeComponent({
       const sphere = createSphere(svgRef.current, {
         imageHref: '/images/home/globe-original.webp',
         id: `sphere-${titleId.replace(/[^a-zA-Z0-9_-]/g, '')}`,
-        duration: seconds,
-        animated,
+        duration: optionsRef.current.seconds,
+        animated: optionsRef.current.animated,
       });
       sphereRef.current = sphere;
     }, 100);
@@ -48,7 +50,10 @@ function RotatingGlobeComponent({
         sphereRef.current = null;
       }
     };
-  }, [titleId, seconds, animated]);
+  }, [titleId]);
+
+  useEffect(() => { sphereRef.current?.setAnimated(animated); }, [animated]);
+  useEffect(() => { sphereRef.current?.setDuration(seconds); }, [seconds]);
 
   return (
     <svg

@@ -1,4 +1,5 @@
 "use client";
+import { ReplayDiv } from "@/components/ui/ReplayReveal";
 
 import React, { useState, useRef } from "react";
 import { ArrowRight, Heart, Lightbulb, Users, BarChart3, Play, Pause } from "lucide-react";
@@ -13,7 +14,8 @@ export default function WhyKaelixoSection() {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        videoRef.current.play();
+        videoRef.current.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+        return;
       }
       setIsPlaying(!isPlaying);
     }
@@ -93,12 +95,11 @@ export default function WhyKaelixoSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-4 xl:gap-8 items-center">
 
           {/* LEFT COLUMN: Content & CTAs (4 Cols) */}
-          <motion.div
+          <ReplayDiv
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+            viewport={{ once: false, amount: 0.1, margin: "0px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            style={{ willChange: "opacity, transform" }}
             className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-4"
           >
             <div className="flex items-center gap-3 mb-5">
@@ -135,15 +136,14 @@ export default function WhyKaelixoSection() {
                 <p className="text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] text-slate-300 font-medium md:whitespace-nowrap lg:whitespace-nowrap xl:whitespace-nowrap leading-tight">Your growth is our success</p>
               </div>
             </div>
-          </motion.div>
+          </ReplayDiv>
 
           {/* CENTER COLUMN: Image & Video Card (5 Cols) */}
-          <motion.div
+          <ReplayDiv
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+            viewport={{ once: false, amount: 0.1, margin: "0px" }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-            style={{ willChange: "opacity, transform" }}
             className="lg:col-span-5 relative flex justify-center mt-6 lg:mt-0 lg:-ml-2"
           >
             <div className="relative w-full max-w-[600px] lg:max-w-[420px] xl:max-w-[500px]">
@@ -157,6 +157,7 @@ export default function WhyKaelixoSection() {
                   poster="/images/home/workspacethumbnail.webp"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700"
                   loop
+                  preload="none"
                   muted
                   playsInline
                 />
@@ -187,18 +188,17 @@ export default function WhyKaelixoSection() {
               </div>
 
             </div>
-          </motion.div>
+          </ReplayDiv>
 
           {/* RIGHT COLUMN: Feature List (3 Cols) */}
           <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-col justify-center gap-5 sm:gap-6 lg:gap-4 xl:gap-6 lg:pl-0 xl:pl-4 lg:ml-4 xl:-ml-6 mt-12 lg:mt-0">
             {features.map((feature, idx) => (
-              <motion.div
+              <ReplayDiv
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                viewport={{ once: false, amount: 0.1, margin: "0px" }}
                 transition={{ duration: 0.4, delay: idx * 0.1, ease: "easeOut" }}
-                style={{ willChange: "opacity, transform" }}
                 className="flex items-center gap-4 sm:gap-5 md:gap-3 lg:gap-3 xl:gap-5 group cursor-pointer"
               >
                 <div className={`w-[60px] h-[60px] md:w-[48px] md:h-[48px] lg:w-[42px] lg:h-[42px] xl:w-[60px] xl:h-[60px] rounded-2xl md:rounded-xl lg:rounded-2xl flex items-center justify-center shrink-0 ${feature.iconBg} transition-transform duration-300 group-hover:scale-105`}>
@@ -208,7 +208,7 @@ export default function WhyKaelixoSection() {
                   <h4 className="text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[18px] font-bold text-white mb-0.5 group-hover:text-white transition-colors lg:whitespace-nowrap xl:whitespace-normal">{feature.title}</h4>
                   <p className="text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] text-slate-300 font-medium leading-tight">{feature.desc}</p>
                 </div>
-              </motion.div>
+              </ReplayDiv>
             ))}
           </div>
 

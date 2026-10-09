@@ -1,7 +1,9 @@
 "use client";
+import { ReplayDiv } from "@/components/ui/ReplayReveal";
 
 import React, { useState, useEffect } from "react";
 import { ArrowRight, ArrowLeft, Star } from "lucide-react";
+import { useViewportActivity } from "@/hooks/useViewportActivity";
 import { motion } from "framer-motion";
 
 const testimonials = [
@@ -29,16 +31,18 @@ const testimonials = [
 ];
 
 export default function TestimonialsSection() {
+  const sectionRef = React.useRef<HTMLElement>(null);
+  const active = useViewportActivity(sectionRef);
   const [activeIndex, setActiveIndex] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || !active) return;
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, [isPaused]);
+  }, [isPaused, active]);
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -49,7 +53,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="bg-white pt-12 lg:pt-20 pb-12 lg:pb-16 relative font-sans">
+    <section ref={sectionRef} className="bg-white pt-12 lg:pt-20 pb-12 lg:pb-16 relative font-sans">
       
       {/* Background Soft Blobs to Blend with Process Section */}
       <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[600px] bg-purple-50/70 blur-[120px] rounded-full pointer-events-none"></div>
@@ -62,12 +66,11 @@ export default function TestimonialsSection() {
           {/* ========================================= */}
           {/* LEFT CONTENT (Text & Stats)               */}
           {/* ========================================= */}
-          <motion.div
+          <ReplayDiv
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2, margin: "0px 0px -50px 0px" }}
+            viewport={{ once: false, amount: 0.2, margin: "0px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            style={{ willChange: "opacity, transform" }}
             className="lg:col-span-5 flex flex-col items-start lg:pr-8"
           >
             <div className="flex items-center gap-3 mb-4">
@@ -96,15 +99,14 @@ export default function TestimonialsSection() {
 
             {/* Stats */}
             <div className="flex flex-row items-start sm:items-center justify-between sm:justify-start gap-1 sm:gap-6 lg:gap-3 xl:gap-10 mt-12 sm:mt-16 lg:mt-10 xl:mt-16 pt-6 sm:pt-8 border-t border-slate-100 relative z-20 w-full lg:w-[110%] xl:w-[120%] perspective-[1000px]">
-              <motion.div
+              <ReplayDiv
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                viewport={{ once: false, amount: 0.1, margin: "0px" }}
                 transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-                style={{ willChange: "opacity, transform" }}
                 className="flex-1 sm:flex-none text-center sm:text-left pr-1 sm:pr-0"
               >
-                <motion.div
+                <ReplayDiv
                   initial={{ rotateY: -360 }}
                   whileInView={{ rotateY: 0 }}
                   viewport={{ once: false }}
@@ -113,19 +115,18 @@ export default function TestimonialsSection() {
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <h4 className="text-[#020205] text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[23px] 2xl:text-[32px] font-extrabold whitespace-nowrap">4.9/5</h4>
-                </motion.div>
+                </ReplayDiv>
                 <p className="text-gray-600 text-[14px] lg:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] mt-1 font-medium leading-tight">Client Satisfaction</p>
-              </motion.div>
+              </ReplayDiv>
               <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0 mt-2" />
-              <motion.div
+              <ReplayDiv
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                viewport={{ once: false, amount: 0.1, margin: "0px" }}
                 transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-                style={{ willChange: "opacity, transform" }}
                 className="flex-1 sm:flex-none text-center sm:text-left px-1 sm:pr-0"
               >
-                <motion.div
+                <ReplayDiv
                   initial={{ rotateY: -360 }}
                   whileInView={{ rotateY: 0 }}
                   viewport={{ once: false }}
@@ -134,19 +135,18 @@ export default function TestimonialsSection() {
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <h4 className="text-[#020205] text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[23px] 2xl:text-[32px] font-extrabold whitespace-nowrap">200+</h4>
-                </motion.div>
+                </ReplayDiv>
                 <p className="text-gray-600 text-[14px] lg:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] mt-1 font-medium leading-tight">Happy Businesses</p>
-              </motion.div>
+              </ReplayDiv>
               <div className="w-px h-8 sm:h-10 bg-slate-200 shrink-0 mt-2" />
-              <motion.div
+              <ReplayDiv
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.1, margin: "0px 0px -50px 0px" }}
+                viewport={{ once: false, amount: 0.1, margin: "0px" }}
                 transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
-                style={{ willChange: "opacity, transform" }}
                 className="flex-1 sm:flex-none text-center sm:text-left pl-1 sm:pl-0"
               >
-                <motion.div
+                <ReplayDiv
                   initial={{ rotateY: -360 }}
                   whileInView={{ rotateY: 0 }}
                   viewport={{ once: false }}
@@ -155,11 +155,11 @@ export default function TestimonialsSection() {
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <h4 className="text-[#020205] text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[23px] 2xl:text-[32px] font-extrabold whitespace-nowrap">Long-Term</h4>
-                </motion.div>
+                </ReplayDiv>
                 <p className="text-gray-600 text-[14px] lg:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] mt-1 font-medium leading-tight">Partnerships</p>
-              </motion.div>
+              </ReplayDiv>
             </div>
-          </motion.div>
+          </ReplayDiv>
 
           {/* ========================================= */}
           {/* RIGHT CONTENT (Testimonials Carousel)     */}
@@ -173,7 +173,7 @@ export default function TestimonialsSection() {
           >
 
             {/* Cards Container */}
-            <motion.div 
+            <ReplayDiv 
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -290,7 +290,7 @@ export default function TestimonialsSection() {
                 )
               })}
 
-            </motion.div>
+            </ReplayDiv>
 
             {/* Desktop & Mobile Navigation Controls */}
             <div className="absolute -bottom-16 sm:-bottom-6 lg:-bottom-2 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-[304px] xl:left-[350px] flex items-center gap-4 z-40">
