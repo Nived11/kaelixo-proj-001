@@ -142,10 +142,10 @@ export default function WebDevRelatedServices() {
         <div className="mt-10 flex justify-center">
           <Link 
             href="/services"
-            className="bg-[#FF0055] hover:bg-[#e6004c] text-white px-7 py-3 rounded-full font-bold text-[13px] transition-all flex items-center gap-2 shadow-[0_8px_25px_rgba(255,0,85,0.35)] hover:shadow-[0_12px_30px_rgba(255,0,85,0.45)] hover:-translate-y-1"
+            className="group bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white px-7 py-3 rounded-full font-bold text-[13px] transition-all duration-300 flex items-center gap-2 hover:-translate-y-1"
           >
             View All Services
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
 

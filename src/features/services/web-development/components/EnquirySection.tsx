@@ -4,7 +4,7 @@ import { Rocket, Users, ShieldCheck, User, Mail, Phone, Grid, Lock, ArrowRight, 
 
 export default function EnquirySection() {
   return (
-    <div className="relative bg-[#fafbfe] text-[#030C25] pt-12 lg:pt-16 pb-8 overflow-hidden border-t border-gray-100">
+    <div id="contact" className="relative bg-[#fafbfe] text-[#030C25] pt-12 lg:pt-16 pb-8 overflow-hidden border-t border-gray-100 scroll-mt-24">
       
       {/* Background Decor & Image Element */}
       <div className="absolute top-0 right-0 w-full lg:w-[60%] h-full opacity-10 lg:opacity-100 pointer-events-none z-0">

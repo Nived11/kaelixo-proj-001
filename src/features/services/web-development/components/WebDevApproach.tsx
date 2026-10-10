@@ -4,82 +4,81 @@ import { Lightbulb, Code2, Rocket, PenTool, Smartphone, LifeBuoy, ArrowRight, Gl
 export default function WebDevApproach() {
   const steps = [
     {
-      icon: <Lightbulb className="w-5 h-5 text-[#FF0055]" />,
+      icon: Lightbulb,
       title: "Brand & Audience Study",
-      desc: "Your business studied closely before a single page takes shape."
+      desc: "Understanding your business and audience."
     },
     {
-      icon: <PenTool className="w-5 h-5 text-[#FF0055]" />,
+      icon: PenTool,
       title: "Design Shaped by Insight",
-      desc: "Modern, brand-focused design built on real audience behaviour."
+      desc: "Designs driven by audience behavior."
     },
     {
-      icon: <Code2 className="w-5 h-5 text-[#FF0055]" />,
+      icon: Code2,
       title: "Clean, Dependable Code",
-      desc: "Secure, scalable development built to hold up over time."
+      desc: "Secure, scalable, reliable development."
     },
     {
-      icon: <Smartphone className="w-5 h-5 text-[#FF0055]" />,
+      icon: Smartphone,
       title: "Fully Responsive",
-      desc: "A seamless experience across every device your audience uses."
+      desc: "Seamless across every device."
     },
     {
-      icon: <Rocket className="w-5 h-5 text-[#FF0055]" />,
+      icon: Rocket,
       title: "Testing & Optimization",
-      desc: "Speed and quality checked thoroughly before anything goes live."
+      desc: "Optimized for speed and quality."
     },
     {
-      icon: <LifeBuoy className="w-5 h-5 text-[#FF0055]" />,
+      icon: LifeBuoy,
       title: "Ongoing Support",
-      desc: "Growth tracked and refined long after launch — because building doesn't end at launch, growing does."
+      desc: "Continuous improvements for lasting growth."
     }
   ];
 
   return (
     <section className="py-16 lg:py-20 relative overflow-hidden bg-white">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-8 items-center">
 
           {/* Left Column */}
-          <div className="flex flex-col items-start pr-0 lg:pr-10 relative z-20">
-            <div className="flex flex-col items-start mb-5 gap-2">
-              <span className="text-slate-700 font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.25em] uppercase">
-                OUR APPROACH
-              </span>
-              <div className="w-8 h-[2px] bg-[#FF0055]" />
+          <div className="flex flex-col items-start pr-0 xl:pr-10 relative z-20">
+            <div className="mb-[18px] flex items-center gap-[14px] text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-[750] tracking-[.25em] text-gray-700 [&>span]:h-[2px] [&>span]:w-[30px] [&>span]:bg-[#ff0055] max-md:mb-3 max-md:tracking-[.23em] max-md:[&>span]:w-6">
+              OUR APPROACH<span />
             </div>
 
-            <h2 className="text-[#020205] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px] font-extrabold leading-[1.05] tracking-tight mb-4 font-heading">
+            <h2 className="text-[#020205] m-0 font-sans text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.16] tracking-[-1.3px] mb-4">
               From Deep Understanding to <br />
               <span className="text-[#FF0055]">Impactful Websites</span>
             </h2>
 
-            <p className="text-slate-500 text-[16px] leading-[1.6] mb-8 max-w-[480px]">
+            <p className="text-gray-700 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.6] mb-8 max-w-[480px]">
               Most web development companies start building right away. As a Web Development Company, we start by thinking it through — who this brand is, and who they're really speaking to. Only once that's understood do we build, and we stay on afterward to grow what we've built.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-7 mb-8 w-full">
-              {steps.map((step, idx) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-x-6 gap-y-7 mb-8 w-full">
+              {steps.map(({ icon: Icon, title, desc }, idx) => (
                 <div key={idx} className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 shrink-0 rounded-full bg-pink-50 flex items-center justify-center shadow-sm">
-                    <div className="scale-90">{step.icon}</div>
+                  <div className="w-[42px] h-[42px] shrink-0 rounded-full bg-pink-50 flex items-center justify-center">
+                    <div className="w-[28px] h-[28px] rounded-full flex items-center justify-center bg-gradient-to-br from-[#D40047] to-[#FF0055] border border-[#FF3377] shadow-[0_3px_8px_rgba(255,0,85,0.3)] text-white">
+                      <Icon className="w-[14px] h-[14px]" strokeWidth={2.5} />
+                    </div>
                   </div>
                   <div className="pt-0.5">
-                    <h4 className="text-[#020205] text-[18px] font-bold mb-1 leading-tight">{step.title}</h4>
-                    <p className="text-slate-500 text-[12px] leading-relaxed pr-2">{step.desc}</p>
+                    <h4 className="text-[#020205] text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[18px] font-bold mb-1 leading-tight">{title}</h4>
+                    <p className="text-gray-700 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed pr-2">{desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <button className="px-7 py-3 rounded-full bg-[#FF0055] text-white font-bold text-[14px] flex items-center gap-2 shadow-[0_10px_20px_rgba(255,0,85,0.2)] hover:shadow-[0_10px_30px_rgba(255,0,85,0.4)] transition-all hover:-translate-y-1 active:translate-y-0 group">
+            <button className="group px-7 py-3 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white font-bold text-[14px] flex items-center gap-2 transition-all duration-300 hover:-translate-y-1 active:translate-y-0">
               Let's Build Your Website
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </div>
 
           {/* Right Column - Graphics Mockup */}
-          <div className="relative w-full h-[350px] lg:h-[420px] flex items-center justify-center mt-12 lg:mt-0">
+          <div className="relative w-full h-[350px] lg:h-[420px] xl:h-[420px] flex items-center justify-center mt-12 xl:mt-0">
             
             {/* Background Decoration (Multiple Overlapping Pink Shapes) */}
             <div className="absolute top-[-10%] right-[-10%] w-[550px] lg:w-[500px] aspect-square bg-[#FFF0F5] rounded-full z-0 pointer-events-none" />
@@ -166,13 +165,13 @@ export default function WebDevApproach() {
               />
 
               {/* Floating Pill */}
-              <div className="absolute bottom-[10%] right-[0%] sm:right-[5%] z-40 bg-white/90 backdrop-blur-sm rounded-[15px] p-2 sm:p-2.5 shadow-[0_15px_40px_rgba(0,0,0,0.1)] border border-white/50 flex items-center gap-2 sm:gap-3 animate-float-3">
+              <div className="absolute bottom-[10%] right-[0%] sm:right-[5%] z-40 bg-white/90 backdrop-blur-sm rounded-[12px] p-2 sm:p-2.5 shadow-[0_15px_40px_rgba(0,0,0,0.1)] border border-white/50 flex items-center gap-2 sm:gap-3 animate-float-3">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-pink-50 border border-pink-100 flex items-center justify-center">
                   <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF0055]" />
                 </div>
                 <div className="pr-1 sm:pr-2">
                   <p className="text-slate-800 font-extrabold text-[11px] sm:text-[13px] leading-tight mb-0.5">Scalable</p>
-                  <p className="text-slate-500 text-[9px] sm:text-[11px] leading-tight font-medium">for Tomorrow</p>
+                  <p className="text-slate-700 text-[9px] sm:text-[11px] leading-tight font-medium">for Tomorrow</p>
                 </div>
               </div>
 

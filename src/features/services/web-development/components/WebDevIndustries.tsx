@@ -159,9 +159,9 @@ export default function WebDevIndustries() {
           
 
           {/* Button */}
-          <button className="bg-[#FF0055] hover:bg-[#e6004c] text-white px-6 py-3 rounded-full font-bold text-[12px] lg:text-[13px] transition-all flex items-center gap-2.5 shadow-[0_6px_15px_rgba(255,0,85,0.25)] hover:shadow-[0_8px_20px_rgba(255,0,85,0.35)] hover:-translate-y-1">
+          <button className="group bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white px-6 py-3 rounded-full font-bold text-[12px] lg:text-[13px] transition-all duration-300 flex items-center gap-2.5 hover:-translate-y-1">
             Let's Build Your Industry Solution
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
 
         </div>

@@ -1,236 +1,78 @@
 import React from 'react';
-import { ArrowRight, Code2, Box, ShoppingCart, FileText, Settings, LineChart, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Code2, Box, ShoppingCart, FileText, Settings, LineChart, ShieldCheck, ImageIcon } from 'lucide-react';
+import { FaWordpress, FaShopify, FaJoomla } from 'react-icons/fa';
+
+const services = [
+  { icon: Code2, title: ['Custom Website', 'Development'], lines: ['Websites designed and built around', 'your specific business model,', 'not a template.'], mock: 'wireframe', colors: { outer: 'bg-[#f4f0ff]', inner: 'bg-[#7C3AED]', shadow: 'shadow-[0_4px_10px_rgba(124,58,237,0.25)]' } },
+  { icon: Box, title: ['Web Application', 'Development'], lines: ['Scalable, functional web apps built', 'to handle real workflows and', 'real users.'], mock: 'dashboard', colors: { outer: 'bg-[#eef5ff]', inner: 'bg-[#0066FF]', shadow: 'shadow-[0_4px_10px_rgba(0,102,255,0.25)]' } },
+  { icon: ShoppingCart, title: ['E-commerce', 'Solutions'], lines: ['Storefronts built for conversion —', 'fast checkout, clean product', 'discovery, mobile-first.'], mock: 'ecommerce', colors: { outer: 'bg-[#fff5f0]', inner: 'bg-[#FF6B00]', shadow: 'shadow-[0_4px_10px_rgba(255,107,0,0.25)]' } },
+  { icon: FileText, title: ['CMS Development'], lines: ['Content systems your team can', 'actually manage, without', 'depending on a developer.'], mock: 'cms', colors: { outer: 'bg-[#eefcfa]', inner: 'bg-[#00A896]', shadow: 'shadow-[0_4px_10px_rgba(0,168,150,0.25)]' } },
+  { icon: Settings, title: ['Website Maintenance &', 'Support'], lines: ["Ongoing upkeep so what we've built", 'keeps growing with your business —', 'long after launch.'], mock: 'maintenance', colors: { outer: 'bg-[#f0f2ff]', inner: 'bg-[#4F46E5]', shadow: 'shadow-[0_4px_10px_rgba(79,70,229,0.25)]' } },
+  { icon: LineChart, title: ['Performance', 'Optimization'], lines: ['Speed and stability tuned for both', 'user experience and search', 'visibility.'], mock: 'performance', colors: { outer: 'bg-[#fff0f8]', inner: 'bg-[#ff0055]', shadow: 'shadow-[0_4px_10px_rgba(255,0,85,0.18)]' } },
+];
+
+function WindowBar() { return <div className="flex h-5 items-center gap-[5px] bg-gradient-to-r from-white to-[#f3f6f9] px-[10px] [&>i]:block [&>i]:size-2 [&>i]:rounded-full [&>i]:bg-[#dbe2ec] [&>i:first-child]:bg-[#ff4991]"><i /><i /><i /></div> }
+
+function ServiceMock({ kind }: { kind: string }) {
+  if (kind === 'cms') return <div className="flex h-[62px] items-center justify-evenly rounded-[14px] border border-[#e6eefb] bg-[#f8fbff] p-[6px] [&>span]:flex [&>span]:size-9 [&>span]:items-center [&>span]:justify-center [&>span]:rounded-[10px] [&>span]:border [&>span]:border-[#e7edf6] [&>span]:bg-white [&>span]:shadow-[0_2px_4px_#657c9d1c] [&>span:nth-child(4)]:text-[#0e1628] [&>span:nth-child(4)]:text-[24px] [&>span:nth-child(4)]:font-bold [&>span:nth-child(4)]:pb-3"><span><FaWordpress className="text-[#21759B]" size={22} /></span><span><FaShopify className="text-[#95BF47]" size={20} /></span><span><FaJoomla className="text-[#5091CD]" size={20} /></span><span>...</span></div>;
+  if (kind === 'maintenance') return <div className="rounded-[10px] border border-[#e6eefb] bg-white px-[11px] pt-[13px] pb-[11px] [&_strong]:block [&_strong]:text-[11px] [&_strong]:font-[750] [&_strong]:leading-[1.3] [&_small]:mt-1 [&_small]:block [&_small]:text-[8px] [&_small]:leading-[1.3] [&_small]:text-[#7c91af]"><div className="relative flex items-center gap-2 [&>i]:absolute [&>i]:top-[2px] [&>i]:right-0 [&>i]:size-[7px] [&>i]:rounded-full [&>i]:bg-[#24d67d]"><span className="flex size-[38px] shrink-0 items-center justify-center rounded-full bg-[#ff0055] text-white shadow-[0_3px_6px_#ff005524]"><ShieldCheck size={22} /></span><div><strong>Website<br />Healthy</strong><small>All systems<br />operational</small></div><i /></div><div className="mt-[10px] h-[6px] rounded-lg bg-[#eaf0f7] [&>span]:block [&>span]:h-full [&>span]:w-[70%] [&>span]:rounded-lg [&>span]:bg-[#c7d3e1]"><span /></div></div>;
+  if (kind === 'performance') return <div className="flex items-center gap-[10px] rounded-[10px] border border-[#e6eefb] bg-white px-[10px] py-[13px] [&_strong]:block [&_strong]:text-[11px] [&_strong]:font-[750] [&_strong]:leading-[1.3] [&_b]:mt-[7px] [&_b]:flex [&_b]:items-center [&_b]:gap-[3px] [&_b]:text-[10px] [&_b_svg]:-rotate-45 [&_b_svg]:text-[#12c986] [&_small]:mt-[5px] [&_small]:block [&_small]:text-[7px] [&_small]:whitespace-nowrap [&_small]:text-[#7c91af]"><div className="relative isolate flex size-12 shrink-0 items-center justify-center rounded-full bg-[conic-gradient(#ff0055_0deg_335deg,#ffd5e7_335deg_360deg)] text-[19px] font-extrabold before:absolute before:inset-[5px] before:z-[-1] before:rounded-full before:bg-white before:content-['']">98</div><div><strong>Performance<br />Score</strong><b><ArrowRight size={12} /> +162%</b><small>vs. previous period</small></div></div>;
+  return <div className={`h-[118px] overflow-hidden rounded-[10px] border border-[#e6eefb] bg-white shadow-[0_7px_18px_#768cab06] ${kind === 'dashboard' ? 'relative mb-[3px] !h-[110px] !overflow-visible [&>div:first-child]:rounded-t-[10px]' : ''}`}><WindowBar />
+    {kind === 'wireframe' && <div className="px-4 py-2 [&>div]:flex [&>div]:h-11 [&>div]:items-center [&>div]:justify-center [&>div]:rounded-[5px] [&>div]:bg-[#fff0fa] [&>div]:text-[#ffabd6] [&>span]:mt-2 [&>span]:mb-[6px] [&>span]:block [&>span]:h-[7px] [&>span]:w-[70%] [&>span]:rounded-lg [&>span]:bg-[#edf2f8] [&>b]:block [&>b]:h-3 [&>b]:w-[52px] [&>b]:rounded-[9px] [&>b]:bg-[#ff0055] [&>b]:shadow-[0_3px_6px_#ff005522]"><div><ImageIcon size={24} /></div><span /><b /></div>}
+    {kind === 'dashboard' && <><div className="pt-2 pr-[10px] pb-[6px] pl-[62px] [&>span]:mb-[6px] [&>span]:block [&>span]:h-[6px] [&>span]:rounded-[5px] [&>span]:bg-[#edf2f8] [&>span:nth-child(2)]:w-[78%] [&>svg]:h-[50px] [&>svg]:w-full [&>svg]:rounded-[3px] [&>svg]:bg-[#fff7fc]"><span /><span /><svg viewBox="0 0 120 55" fill="none"><path d="M2 35 C24 31 32 57 54 44 S77 26 94 7" stroke="#ff65b6" strokeWidth="2.5" /><path d="M106 7h6m-3-3v6" stroke="#ff65b6" strokeWidth="2" /></svg></div><div className="absolute top-[17px] bottom-[-1px] left-0 w-[55px] rounded-lg bg-[#0e1523] p-[10px] shadow-[0_4px_8px_#0e152322] [&>i]:mb-[11px] [&>i]:block [&>i]:size-3 [&>i]:rounded-full [&>i]:bg-[#ff0055] [&>span]:mb-2 [&>span]:block [&>span]:h-[6px] [&>span]:rounded-[5px] [&>span]:bg-[#202d40] [&>span:nth-child(3)]:w-3/4 [&>span:nth-child(4)]:w-[85%]"><i /><span /><span /><span /><span /></div></>}
+    {kind === 'ecommerce' && <div className="flex items-center gap-2 px-[9px] py-3"><div className="flex w-[52px] shrink-0 flex-col gap-2 [&>svg]:box-content [&>svg]:rounded-lg [&>svg]:bg-[#fff0fa] [&>svg]:p-3 [&>svg]:text-[#ff3999] [&>span]:h-[7px] [&>span]:w-[90%] [&>span]:rounded-[5px] [&>span]:bg-[#edf2f8]"><ShoppingCart size={25} /><span /></div><div className="min-w-0 flex-1 [&>span]:mb-2 [&>span]:block [&>span]:h-[7px] [&>span]:rounded-[5px] [&>span]:bg-[#edf2f8] [&>span:nth-child(2)]:w-[70%] [&>b]:mt-[10px] [&>b]:flex [&>b]:h-[25px] [&>b]:items-center [&>b]:justify-center [&>b]:rounded-md [&>b]:bg-[#ff0055] [&>b]:text-[7px] [&>b]:whitespace-nowrap [&>b]:text-white"><span /><span /><b>ADD TO CART</b></div></div>}
+  </div>;
+}
 
 export default function WebDevOverview() {
-  const services = [
-    {
-      id: 1,
-      icon: <Code2 className="w-5 h-5 text-[#FF0055]" />,
-      title: "Custom Website Development",
-      desc: "Websites designed and built around your specific business model, not a template.",
-      mock: "wireframe" // We'll render a specific mock block based on this
-    },
-    {
-      id: 2,
-      icon: <Box className="w-5 h-5 text-[#FF0055]" />,
-      title: "Web Application Development",
-      desc: "Scalable, functional web apps built to handle real workflows and real users.",
-      mock: "dashboard"
-    },
-    {
-      id: 3,
-      icon: <ShoppingCart className="w-5 h-5 text-[#FF0055]" />,
-      title: "E-commerce Solutions",
-      desc: "Storefronts built for conversion — fast checkout, clean product discovery, mobile-first.",
-      mock: "ecommerce"
-    },
-    {
-      id: 4,
-      icon: <FileText className="w-5 h-5 text-[#FF0055]" />,
-      title: "CMS Development",
-      desc: "Content systems your team can actually manage, without depending on a developer.",
-      mock: "cms"
-    },
-    {
-      id: 5,
-      icon: <Settings className="w-5 h-5 text-[#FF0055]" />,
-      title: "Website Maintenance & Support",
-      desc: "Ongoing upkeep so what we've built keeps growing with your business — long after launch.",
-      mock: "maintenance"
-    },
-    {
-      id: 6,
-      icon: <LineChart className="w-5 h-5 text-[#FF0055]" />,
-      title: "Performance Optimization",
-      desc: "Speed and stability tuned for both user experience and search visibility.",
-      mock: "performance"
-    }
-  ];
-
   return (
-    <section className="py-16 lg:py-20 relative overflow-hidden bg-[#FAFBFF] border-t border-slate-200/50 rounded-t-[3rem] -mt-8 z-20 shadow-[0_-20px_40px_rgba(0,0,0,0.2)]">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-16 lg:gap-12">
-          
-          {/* Left Column */}
-          <div className="xl:col-span-4 flex flex-col items-start pr-4">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-slate-700 font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.2em] uppercase">
-                OVERVIEW
-              </span>
-              <div className="w-10 h-[2px] bg-[#FF0055]" />
+    <section className="relative z-20 -mt-8 overflow-hidden rounded-t-[40px] border-t border-[#e9eef7] bg-[#f8faff] py-[72px] pb-16 text-[#07080c] max-md:rounded-t-[28px] max-md:py-10" aria-labelledby="web-development-overview">
+      <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-[1.12fr_1.05fr_auto] items-center gap-14 max-[1399px]:gap-[30px] max-[1279px]:grid-cols-[1fr_auto] max-[1279px]:gap-y-6 max-[1279px]:gap-x-7 max-md:flex max-md:flex-col max-md:items-start max-md:gap-[18px]">
+          <div className="max-[1279px]:col-start-1 max-[1279px]:row-start-1">
+            <div className="mb-[18px] flex items-center gap-[14px] text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-[750] tracking-[.25em] text-gray-700 [&>span]:h-[2px] [&>span]:w-[30px] [&>span]:bg-[#ff0055] max-md:mb-3 max-md:tracking-[.23em] max-md:[&>span]:w-6">
+              OVERVIEW<span />
             </div>
-
-            <h2 className="text-[#020205] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[42px] font-extrabold leading-[1.05] tracking-tight mb-6 font-heading">
-              What We Deliver Through <br />
-              <span className="text-[#FF0055]">Web Development</span>
+            <h2 id="web-development-overview" className="m-0 font-sans text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.16] tracking-[-1.3px]">
+              What We Deliver Through<br /><span className="text-[#ff0055]">Web Development</span>
             </h2>
-
-            <p className="text-slate-500 text-[16px] leading-[1.6] mb-10">
-              Before we design or code anything, we think through how your business actually works. That's the difference with a Web Development Company like Kaelixo — we think first, build second, and stay on to grow what we've built.
-            </p>
-
-            <button className="px-8 py-3.5 rounded-full bg-[#FF0055] text-white font-bold text-[16px] flex items-center gap-2 shadow-[0_10px_20px_rgba(255,0,85,0.2)] hover:shadow-[0_10px_30px_rgba(255,0,85,0.4)] transition-all hover:-translate-y-1 active:translate-y-0 group">
-              Start Your Project
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-
-            {/* Stats */}
-            <div className="flex items-start gap-12 mt-16 pt-8 w-full">
-              <div>
-                <h4 className="text-[#FF0055] text-[36px] font-extrabold mb-1 tracking-tight">100+</h4>
-                <p className="text-slate-700 text-[16px] font-medium leading-tight">Web Projects<br/>Delivered</p>
-              </div>
-              <div>
-                <h4 className="text-[#FF0055] text-[36px] font-extrabold mb-1 tracking-tight">98%</h4>
-                <p className="text-slate-700 text-[16px] font-medium leading-tight">Client<br/>Satisfaction</p>
-              </div>
-              <div>
-                <h4 className="text-[#FF0055] text-[36px] font-extrabold mb-1 tracking-tight">3x</h4>
-                <p className="text-slate-700 text-[16px] font-medium leading-tight">Average Increase<br/>In Conversions</p>
-              </div>
-            </div>
-
-           
           </div>
-
-          {/* Right Column - Cards */}
-          <div className="xl:col-span-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <div key={service.id} className="bg-white rounded-[32px] p-7 border border-slate-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col h-full">
-                <div className="w-12 h-12 rounded-2xl bg-pink-50 border border-pink-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  {service.icon}
+          <p className="m-0 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.65] text-gray-700 max-[1279px]:col-start-1 max-[1279px]:row-start-2 max-[1279px]:max-w-[700px]">
+           Before we build, we understand how your business works.Kaelixo thinks strategically, builds smart, and grows with you.
+          </p>
+          <a href="#contact" className="group flex items-center justify-center gap-[14px] whitespace-nowrap rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] px-7 py-[16px] text-[16px] sm:text-[16px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] font-[650] text-white transition-all duration-300 hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none max-[1279px]:col-start-2 max-[1279px]:row-start-1 max-[1279px]:row-span-2 max-[1279px]:self-end max-[1279px]:mb-1 max-[1279px]:w-max max-md:gap-3 max-md:px-6 max-md:py-[13px] max-md:self-start max-md:mb-0">
+            Start Your Project<ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        </div>
+        <div className="mt-[54px] mb-[46px] flex items-center justify-between gap-[30px] px-[6%] [&>div]:flex [&>div]:items-center [&>div]:gap-7 [&_strong]:font-[750] [&_strong]:leading-[1.15] [&_strong]:tracking-[-1.3px] [&_strong]:text-[#ff0055] [&_span]:leading-[1.4] [&_span]:text-gray-700 max-[1399px]:px-[3%] max-[1399px]:[&>div]:gap-[18px] max-[1279px]:gap-5 max-[1279px]:px-0 max-[1279px]:[&>div]:gap-3 max-md:my-7 max-md:grid max-md:grid-cols-2 max-md:gap-x-[22px] max-md:gap-y-[18px] max-md:[&>div]:flex-col max-md:[&>div]:items-start max-md:[&>div]:gap-[3px] max-md:[&>div:last-child]:col-span-2 max-md:[&>div:last-child]:flex-row max-md:[&>div:last-child]:items-center max-md:[&>div:last-child]:gap-[18px] max-md:[&>div:last-child>span]:max-w-[150px]" aria-label="Our results">
+          <div><strong className="text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[32px] 2xl:text-[32px] [@media(min-width:1920px)]:text-[32px]">100+</strong><span className="text-[14px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px]">Web Projects Delivered</span></div>
+          <div><strong className="text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[32px] 2xl:text-[32px] [@media(min-width:1920px)]:text-[32px]">98%</strong><span className="text-[14px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px]">Client Satisfaction</span></div>
+          <div><strong className="text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[32px] 2xl:text-[32px] [@media(min-width:1920px)]:text-[32px]">3x</strong><span className="text-[14px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px]">Average Increase in Conversions</span></div>
+        </div>
+        <div className="grid grid-cols-3 gap-x-4 gap-y-5 max-[1279px]:grid-cols-2 max-md:grid-cols-1 max-md:gap-3">
+          {services.map(({ icon: Icon, title, lines, mock, colors }) => (
+            <article className="relative md:max-[1279px]:flex md:max-[1279px]:flex-col h-[264px] md:max-[1279px]:h-auto min-[1500px]:h-[274px] max-md:min-h-[220px] max-md:h-auto max-md:pb-[120px] max-md:block min-w-0 rounded-[20px] border border-[#e6edf9] bg-white/95 p-[22px] shadow-[0_8px_24px_#92a6c005] min-[1500px]:p-6 max-md:rounded-2xl max-md:p-[14px]" key={mock}>
+              <div className="mb-[15px] flex min-h-[64px] items-center gap-5 max-md:mb-2 max-md:min-h-[46px] max-md:gap-[10px]">
+                <div className={`flex size-[64px] shrink-0 items-center justify-center rounded-[18px] ${colors.outer} max-md:size-[46px] max-md:rounded-[14px]`}>
+                  <div className={`flex size-[42px] items-center justify-center rounded-[12px] ${colors.inner} text-white ${colors.shadow} max-md:size-[30px] max-md:rounded-[9px] max-md:[&>svg]:size-[16px]`}>
+                    <Icon size={22} strokeWidth={2.2} />
+                  </div>
                 </div>
-                <h3 className="text-[#020205] text-[24px] font-extrabold leading-tight mb-3">
-                  {service.title}
+                <h3 className="m-0 font-sans text-[18px] sm:text-[18px] md:text-[20px] lg:text-[24px] xl:text-[24px] 2xl:text-[24px] [@media(min-width:1920px)]:text-[24px] font-bold leading-[1.24] tracking-[-.55px]">
+                  {title.map((line, index) => <React.Fragment key={line}>{index > 0 && <br />}{line}</React.Fragment>)}
                 </h3>
-                <p className="text-slate-500 text-[16px] leading-relaxed mb-5 flex-1">
-                  {service.desc}
-                </p>
-                <a href="#" className="text-[#FF0055] font-bold text-[16px] flex items-center gap-1.5 hover:gap-2 transition-all mb-6 mt-auto">
-                  Learn More <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-
-                {/* Bottom Mock Graphic based on type */}
-                <div className="w-full flex items-end justify-center">
-                  
-                  {service.mock === 'wireframe' && (
-                    <div className="w-[95%] bg-white rounded-t-xl border border-slate-100 border-b-0 shadow-[0_-5px_15px_-5px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col h-[100px]">
-                      <div className="h-5 bg-slate-50 border-b border-slate-100 flex items-center px-3 gap-1.5">
-                        <div className="w-2 h-2 rounded-full bg-[#FF0055]/40" />
-                        <div className="w-2 h-2 rounded-full bg-slate-200" />
-                        <div className="w-2 h-2 rounded-full bg-slate-200" />
-                      </div>
-                      <div className="flex-1 p-4 flex flex-col items-center justify-center gap-3 bg-white">
-                        <div className="w-full max-w-[120px] h-12 bg-pink-50 rounded flex items-center justify-center text-pink-200">
-                          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-                        </div>
-                        <div className="w-16 h-3 bg-[#FF0055] rounded-full self-start ml-2" />
-                      </div>
-                    </div>
-                  )}
-
-                  {service.mock === 'dashboard' && (
-                    <div className="w-full h-[100px] relative mt-4">
-                      {/* Background Light Window */}
-                      <div className="absolute bottom-0 right-2 w-[85%] h-[90%] bg-white rounded-t-xl border border-slate-100 shadow-[0_-5px_15px_-5px_rgba(0,0,0,0.05)] border-b-0 flex flex-col overflow-hidden">
-                         <div className="h-5 bg-slate-50 border-b border-slate-100 flex items-center px-3 gap-1.5">
-                           <div className="w-2 h-2 rounded-full bg-pink-200" />
-                         </div>
-                         <div className="flex-1 p-3 flex flex-col gap-2">
-                            <div className="w-1/2 h-2 bg-slate-100 rounded-full" />
-                            <div className="w-full flex-1 bg-pink-50/50 rounded flex items-end px-1">
-                              <svg viewBox="0 0 100 40" preserveAspectRatio="none" className="w-full h-[80%] text-pink-300"><path d="M0,30 Q20,10 40,25 T80,10 T100,5" fill="none" stroke="currentColor" strokeWidth="2"/></svg>
-                            </div>
-                         </div>
-                      </div>
-                      {/* Foreground Dark Sidebar */}
-                      <div className="absolute bottom-0 left-0 w-[35%] h-full bg-[#0F1523] rounded-tr-xl rounded-tl-md shadow-lg flex flex-col p-3 gap-3">
-                         <div className="w-4 h-4 rounded-full bg-[#FF0055]" />
-                         <div className="w-full h-1.5 bg-slate-800 rounded-full" />
-                         <div className="w-2/3 h-1.5 bg-slate-800 rounded-full" />
-                         <div className="w-5/6 h-1.5 bg-slate-800 rounded-full" />
-                      </div>
-                    </div>
-                  )}
-
-                  {service.mock === 'ecommerce' && (
-                    <div className="w-[95%] bg-white rounded-t-xl border border-slate-100 border-b-0 shadow-[0_-5px_15px_-5px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col h-[100px]">
-                      <div className="h-5 bg-slate-50 border-b border-slate-100 flex items-center px-3 gap-1.5">
-                        <div className="w-2 h-2 rounded-full bg-[#FF0055]/40" />
-                        <div className="w-2 h-2 rounded-full bg-slate-200" />
-                        <div className="w-2 h-2 rounded-full bg-slate-200" />
-                      </div>
-                      <div className="flex-1 p-3 flex items-center gap-3 bg-white">
-                        <div className="w-14 h-14 bg-pink-50 rounded-xl flex items-center justify-center shrink-0">
-                          <ShoppingCart className="w-6 h-6 text-pink-400" />
-                        </div>
-                        <div className="flex flex-col gap-2 justify-center flex-1 w-full">
-                          <div className="w-full h-2 bg-slate-100 rounded-full" />
-                          <div className="w-2/3 h-2 bg-slate-100 rounded-full" />
-                          <div className="w-20 h-5 bg-[#FF0055] rounded-md flex items-center justify-center mt-1">
-                            <span className="text-[7px] text-white font-bold uppercase tracking-wider">Add to Cart</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {service.mock === 'cms' && (
-                    <div className="w-full h-[80px] bg-slate-50/80 rounded-2xl border border-slate-100 flex items-center justify-center gap-3 mb-2 px-2">
-                       <div className="w-10 h-10 rounded-full bg-blue-50 shadow-sm border border-slate-100 flex items-center justify-center text-blue-700 font-serif font-bold text-lg">W</div>
-                       <div className="w-10 h-10 rounded-full bg-green-50 shadow-sm border border-slate-100 flex items-center justify-center text-green-700 font-bold text-lg">S</div>
-                       <div className="w-10 h-10 rounded-full bg-orange-50 shadow-sm border border-slate-100 flex items-center justify-center text-orange-700 font-bold text-lg">J</div>
-                       <div className="w-10 h-10 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center text-slate-400 font-bold tracking-widest text-sm">...</div>
-                    </div>
-                  )}
-
-                  {service.mock === 'maintenance' && (
-                    <div className="w-full h-[90px] mt-2 flex items-center justify-center p-3 bg-slate-50/80 rounded-2xl border border-slate-100 mb-2">
-                      <div className="w-full bg-white rounded-xl p-3.5 shadow-sm border border-slate-100 flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-[#FF0055] flex items-center justify-center text-white shrink-0 shadow-md shadow-pink-200">
-                          <ShieldCheck size={20} strokeWidth={2.5} />
-                        </div>
-                        <div className="flex flex-col gap-1 w-full">
-                          <div className="flex items-center gap-2">
-                            <span className="text-[12px] font-extrabold text-[#020205]">Website Healthy</span>
-                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                          </div>
-                          <span className="text-[9px] text-slate-400 font-semibold mb-1">All systems operational</span>
-                          <div className="w-full h-1 bg-slate-100 rounded-full">
-                            <div className="w-2/3 h-full bg-slate-300 rounded-full" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {service.mock === 'performance' && (
-                    <div className="w-full h-[90px] mt-2 flex items-center justify-center p-3 bg-slate-50/80 rounded-2xl border border-slate-100 mb-2">
-                      <div className="w-full bg-white rounded-xl p-3 shadow-sm border border-slate-100 flex items-center gap-4">
-                        <div className="relative w-12 h-12 rounded-full border-4 border-slate-100 flex items-center justify-center shrink-0">
-                          <svg viewBox="0 0 36 36" className="absolute inset-0 w-full h-full text-[#FF0055] -rotate-90">
-                            <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeWidth="4" strokeDasharray="98, 100" />
-                          </svg>
-                          <span className="text-[14px] font-black text-slate-800">98</span>
-                        </div>
-                        <div className="flex flex-col gap-0.5">
-                          <span className="text-[11px] font-extrabold text-[#020205]">Performance Score</span>
-                          <div className="flex items-center gap-1.5 mt-0.5">
-                            <ArrowRight className="w-2.5 h-2.5 text-[#020205] -rotate-45" />
-                            <span className="text-[#020205] text-[10px] font-bold">+62%</span>
-                          </div>
-                          <span className="text-[8px] text-slate-400 font-medium mt-0.5">vs. previous period</span>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                </div>
               </div>
-            ))}
-          </div>
-
+              <p className="relative z-[1] m-0 w-[calc(100%-154px)] md:max-[1279px]:w-full text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.5] text-gray-700 [&>span]:block [&>span]:whitespace-nowrap max-[1279px]:[&>span]:inline max-[1279px]:[&>span]:whitespace-normal max-md:w-full">
+                {lines.map((line, index) => <React.Fragment key={line}>{index > 0 && ' '}<span>{line}</span></React.Fragment>)}
+              </p>
+              <div className={`absolute md:max-[1279px]:relative md:max-[1279px]:self-center md:max-[1279px]:mt-8 md:max-[1279px]:mb-6 origin-bottom-right md:max-[1279px]:origin-center text-[#08090d] w-[154px] sm:w-[154px] md:w-[160px] lg:w-[165px] xl:w-[172px] 2xl:w-[180px] [@media(min-width:1920px)]:w-[190px] scale-[.80] sm:scale-[.85] md:scale-[.85] lg:scale-[1] xl:scale-[.80] 2xl:scale-[.85] [@media(min-width:1920px)]:scale-[.90] right-5 sm:right-6 md:max-[1279px]:right-auto xl:right-6 2xl:right-8 [@media(min-width:1920px)]:right-10 bottom-[22px] sm:bottom-[24px] md:max-[1279px]:bottom-auto xl:bottom-2 2xl:bottom-3 [@media(min-width:1920px)]:bottom-4 ${mock === 'cms' ? '!bottom-[45px] sm:!bottom-[50px] md:max-[1279px]:!bottom-auto xl:!bottom-[20px] 2xl:!bottom-[20px] [@media(min-width:1920px)]:!bottom-[20px] !w-[186px] sm:!w-[190px] md:!w-[220px] lg:!w-[280px] xl:!w-[220px] 2xl:!w-[220px] [@media(min-width:1920px)]:!w-[220px]' : ''}`} aria-hidden="true">
+                <ServiceMock kind={mock} />
+              </div>
+              <a href="#contact" className="absolute md:max-[1279px]:relative bottom-6 left-[22px] md:max-[1279px]:bottom-auto md:max-[1279px]:left-auto md:max-[1279px]:mt-auto md:max-[1279px]:self-start z-[1] flex items-center gap-[10px] text-[16px] font-semibold text-[#ff0055] transition-[gap] hover:gap-[14px] min-[1500px]:left-6 max-md:bottom-[22px] max-md:left-[18px]">
+                Learn More<ArrowRight size={16} />
+              </a>
+            </article>
+          ))}
         </div>
       </div>
     </section>

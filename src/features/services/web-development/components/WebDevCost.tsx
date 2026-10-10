@@ -35,9 +35,9 @@ export default function WebDevCost() {
           
           {/* Action Row */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 lg:gap-6 mb-8">
-            <button className="bg-[#FF0055] text-white px-6 py-3 rounded-full font-bold text-[13px] lg:text-[14px] transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] hover:-translate-y-1 hover:bg-[#e6004c]">
+            <button className="group bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white px-6 py-3 rounded-full font-bold text-[13px] lg:text-[14px] transition-all duration-300 flex items-center gap-2 hover:-translate-y-1">
               Get a Cost Estimate
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
             
             <div className="hidden sm:block w-[1px] h-10 bg-slate-800" />

@@ -65,8 +65,8 @@ export default function CTASection() {
           {/* RIGHT COLUMN: Buttons (3 Cols) */}
           <div className="lg:col-span-3 flex flex-col items-start lg:items-end justify-center pt-4 lg:pt-0">
             <div className="flex flex-col gap-3.5 w-full max-w-[240px]">
-              <button className="w-full bg-[#FF0055] hover:bg-[#e6004c] text-white font-bold text-[13.5px] py-3.5 rounded-full flex items-center justify-center gap-2 shadow-[0_8px_20px_-6px_rgba(255,0,85,0.4)] transition-all cursor-pointer hover:scale-[1.02]">
-                Start a Project <ArrowRight size={16} strokeWidth={2.5} />
+              <button className="group w-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white font-bold text-[13.5px] py-3.5 rounded-full flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer hover:scale-[1.02]">
+                Start a Project <ArrowRight size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" />
               </button>
               <button className="w-full bg-white border border-gray-300 text-[#030C25] hover:border-[#030C25] hover:bg-gray-50 font-bold text-[13.5px] py-3.5 rounded-full flex items-center justify-center transition-colors cursor-pointer shadow-sm">
                 Schedule a Call

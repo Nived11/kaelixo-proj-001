@@ -68,17 +68,17 @@ export default function WebDevProjects() {
           </div>
           
           <div className="flex flex-col items-start lg:items-end gap-3 shrink-0 mt-2 lg:mt-0">
-            <button className="bg-[#FF0055] hover:bg-[#e6004c] text-white px-6 py-2.5 rounded-full font-bold text-[13px] transition-all flex items-center gap-2 shadow-[0_8px_20px_rgba(255,0,85,0.25)] hover:shadow-[0_10px_25px_rgba(255,0,85,0.35)] hover:-translate-y-1">
+            <button className="group bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white px-6 py-2.5 rounded-full font-bold text-[13px] transition-all duration-300 flex items-center gap-2 hover:-translate-y-1">
               View All Projects
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
             
             <div className="flex items-center gap-2 mt-1">
               <button className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-[#05050A] hover:bg-slate-50 hover:border-slate-300 transition-colors">
                 <ArrowLeft className="w-3.5 h-3.5" />
               </button>
-              <button className="w-8 h-8 rounded-full bg-[#FF0055] flex items-center justify-center text-white shadow-[0_5px_15px_rgba(255,0,85,0.3)] hover:bg-[#e6004c] transition-colors">
-                <ArrowRight className="w-3.5 h-3.5" />
+              <button className="group w-8 h-8 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] flex items-center justify-center text-white transition-all duration-300">
+                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </button>
               <span className="text-slate-500 font-semibold text-[11px] tracking-widest ml-1.5">
                 01 / 04
