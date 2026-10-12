@@ -1,7 +1,10 @@
-import React from 'react';
+"use client";
+
+import React, { useState, useRef, useEffect } from 'react';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 
-const projects = [
+const allProjects = [
+  // Page 1 (01 / 04)
   {
     category: "TRAVEL & TOURISM",
     title: "Travel Hope",
@@ -34,12 +37,166 @@ const projects = [
       { value: "80%", label: "Increase in Enquiries" },
       { value: "100%", label: "Responsive Design" }
     ]
+  },
+
+  // Page 2 (02 / 04)
+  {
+    category: "REAL ESTATE & LIVING",
+    title: "Zenith Real Estate",
+    desc: "High-conversion luxury property portal with virtual tours, interactive floor plans and instant agent scheduling.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+    stats: [
+      { value: "3.2x", label: "Property Inquiries" },
+      { value: "85%", label: "Faster Page Speed" },
+      { value: "450+", label: "Listed Units" }
+    ]
+  },
+  {
+    category: "FASHION & E-COMMERCE",
+    title: "Luxe Wear Boutique",
+    desc: "Modern headless Shopify store with ultra-fast checkout, personalized suggestions and automated inventory sync.",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop",
+    stats: [
+      { value: "2.8x", label: "Conversion Rate" },
+      { value: "65%", label: "Repeat Customers" },
+      { value: "99.9%", label: "Uptime Guaranteed" }
+    ]
+  },
+  {
+    category: "HEALTHCARE & CLINICS",
+    title: "HealWell Medicare",
+    desc: "HIPAA-compliant telemedicine and appointment booking portal connecting patients with certified specialists seamlessly.",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop",
+    stats: [
+      { value: "4.5x", label: "Online Bookings" },
+      { value: "90%", label: "Reduced No-Shows" },
+      { value: "100%", label: "Data Encryption" }
+    ]
+  },
+
+  // Page 3 (03 / 04)
+  {
+    category: "FINTECH & BANKING",
+    title: "NovaFin Solutions",
+    desc: "Institutional fintech portal with interactive ROI calculators, bank-grade encryption and automated client onboarding.",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop",
+    stats: [
+      { value: "5x", label: "User Onboarding" },
+      { value: "75%", label: "Faster KYC Flow" },
+      { value: "100%", label: "Bank Security" }
+    ]
+  },
+  {
+    category: "SUPPLY CHAIN & LOGISTICS",
+    title: "CloudPeak Freight",
+    desc: "Real-time freight tracking dashboard, automated quotation engine and multi-carrier API integration.",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
+    stats: [
+      { value: "3x", label: "Shipment Efficiency" },
+      { value: "50%", label: "Cut in Transit Delay" },
+      { value: "24/7", label: "Live Telematics" }
+    ]
+  },
+  {
+    category: "SPORTS & WELLNESS",
+    title: "Apex Fitness Hub",
+    desc: "Dynamic membership portal with live class scheduling, trainer booking and integrated recurring Stripe billing.",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop",
+    stats: [
+      { value: "2.4x", label: "Active Subscriptions" },
+      { value: "60%", label: "App Engagement" },
+      { value: "50+", label: "Trainers Managed" }
+    ]
+  },
+
+  // Page 4 (04 / 04)
+  {
+    category: "HOSPITALITY & DINING",
+    title: "DineCraft Bistro",
+    desc: "Interactive digital dining menu, table reservation system and contactless POS integration for fine dining chains.",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop",
+    stats: [
+      { value: "3.5x", label: "Table Reservations" },
+      { value: "40%", label: "Higher Order Value" },
+      { value: "15k+", label: "Monthly Guests" }
+    ]
+  },
+  {
+    category: "CONSTRUCTION & ARCHITECTURE",
+    title: "BuildCraft Infra",
+    desc: "Showcase portfolio for modern architectural projects, featuring 3D model viewer and milestone progress tracker.",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2071&auto=format&fit=crop",
+    stats: [
+      { value: "4x", label: "B2B Project Leads" },
+      { value: "80%", label: "Longer Session Duration" },
+      { value: "120+", label: "Completed Sites" }
+    ]
+  },
+  {
+    category: "EDTECH & E-LEARNING",
+    title: "EduSphere Academy",
+    desc: "Next-gen learning management platform with live webinars, quiz assessments, and automated certificate issuance.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop",
+    stats: [
+      { value: "6x", label: "Course Enrollments" },
+      { value: "95%", label: "Completion Rate" },
+      { value: "20k+", label: "Students Certified" }
+    ]
   }
 ];
 
 export default function WebDevProjects() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isTablet, setIsTablet] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const checkTablet = () => {
+      const width = window.innerWidth;
+      setIsTablet(width >= 768 && width < 1024);
+    };
+    checkTablet();
+    window.addEventListener('resize', checkTablet);
+    return () => window.removeEventListener('resize', checkTablet);
+  }, []);
+
+  const itemsPerPage = isTablet ? 4 : 3;
+  const totalPages = Math.ceil(allProjects.length / itemsPerPage);
+
+  useEffect(() => {
+    if (currentPage >= totalPages) {
+      setCurrentPage(Math.max(0, totalPages - 1));
+    }
+  }, [totalPages, currentPage]);
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+    if (sectionRef.current) {
+      const yOffset = -90;
+      const y = sectionRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentPage > 0) {
+      handlePageChange(currentPage - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages - 1) {
+      handlePageChange(currentPage + 1);
+    }
+  };
+
+  const currentProjects = allProjects.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
+
   return (
-    <section className="py-6 lg:py-8 bg-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-6 lg:py-8 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[50%] bg-[#FF0055]/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
@@ -51,50 +208,59 @@ export default function WebDevProjects() {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 mb-6">
           <div className="max-w-[700px]">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-8 h-[2px] bg-[#FF0055]" />
-              <span className="text-slate-500 font-bold text-[10px] tracking-[0.2em] uppercase">
+              <span className="text-gray-700 font-[750] text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] tracking-[0.2em] uppercase">
                 CASE STUDIES
               </span>
+              <div className="w-8 h-[2px] bg-[#FF0055]" />
             </div>
             
-            <h2 className="text-[#05050A] text-[30px] md:text-[36px] lg:text-[42px] font-extrabold leading-[1.05] tracking-tight mb-2">
+            <h2 className="text-[#05050A] text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.16] tracking-[-1.3px] mb-2">
               Real Projects.<br />
               <span className="text-[#FF0055]">Real Results.</span>
             </h2>
             
-            <p className="text-slate-600 text-[13px] lg:text-[14px] leading-relaxed max-w-[500px]">
+            <p className="text-gray-700 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.6] max-w-[500px]">
               Explore some of the websites we've built and see how strategic design and technology helped businesses grow.
             </p>
           </div>
           
           <div className="flex flex-col items-start lg:items-end gap-3 shrink-0 mt-2 lg:mt-0">
-            <button className="group bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white px-6 py-2.5 rounded-full font-bold text-[13px] transition-all duration-300 flex items-center gap-2 hover:-translate-y-1">
+            <button className="group bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white px-6 py-2.5 rounded-full font-bold text-[16px] transition-all duration-300 flex items-center gap-2 hover:-translate-y-1">
               View All Projects
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
             
-            <div className="flex items-center gap-2 mt-1">
-              <button className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-[#05050A] hover:bg-slate-50 hover:border-slate-300 transition-colors">
-                <ArrowLeft className="w-3.5 h-3.5" />
+            {/* Desktop / Laptop Pagination Controls (Hidden on Mobile/Tablet) */}
+            <div className="hidden lg:flex items-center gap-2 mt-1">
+              <button 
+                onClick={handlePrev}
+                className="group w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-slate-200 hover:border-[#FF3377] hover:bg-gradient-to-r hover:from-[#80002A] hover:to-[#FF0055] flex items-center justify-center text-[#05050A] hover:text-white transition-all duration-300 cursor-pointer"
+                aria-label="Previous projects"
+              >
+                <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
               </button>
-              <button className="group w-8 h-8 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] flex items-center justify-center text-white transition-all duration-300">
-                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+              <button 
+                onClick={handleNext}
+                className="group w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-slate-200 hover:border-[#FF3377] hover:bg-gradient-to-r hover:from-[#80002A] hover:to-[#FF0055] flex items-center justify-center text-[#05050A] hover:text-white transition-all duration-300 cursor-pointer"
+                aria-label="Next projects"
+              >
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </button>
-              <span className="text-slate-500 font-semibold text-[11px] tracking-widest ml-1.5">
-                01 / 04
+              <span className="text-gray-700 font-semibold text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] tracking-widest ml-1.5 select-none">
+                {String(currentPage + 1).padStart(2, '0')} / {String(totalPages).padStart(2, '0')}
               </span>
             </div>
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
-          {projects.map((project, idx) => (
+        {/* Projects Grid (Shows 4 projects on tablet as 2x2, 3 projects on mobile/desktop) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+          {currentProjects.map((project, idx) => (
             <div 
-              key={idx} 
-              className="bg-white rounded-[16px] border border-slate-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(255,0,85,0.1)] overflow-hidden group hover:-translate-y-1.5 transition-all duration-500 flex flex-col"
+              key={`${project.title}-${idx}`} 
+              className="bg-white rounded-[20px] sm:rounded-[24px] border border-slate-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(255,0,85,0.1)] overflow-hidden group hover:-translate-y-1.5 transition-all duration-500 flex flex-col"
             >
-              {/* Image Section - changed to 2/1 aspect ratio to drastically reduce card height */}
+              {/* Image Section */}
               <div className="w-full aspect-[2/1] relative overflow-hidden bg-slate-100 shrink-0">
                 <img 
                   src={project.image} 
@@ -103,23 +269,23 @@ export default function WebDevProjects() {
                 />
               </div>
 
-              {/* Content Section */}
-              <div className="p-4 flex flex-col flex-grow">
+              {/* Content Section with Rounded Top overlapping the image */}
+              <div className="relative -mt-4 sm:-mt-5 z-10 bg-white rounded-t-[20px] sm:rounded-t-[24px] p-4 sm:p-5 flex flex-col flex-grow">
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <div>
-                    <span className="text-slate-400 text-[9px] font-bold tracking-[0.15em] uppercase mb-1 block">
+                    <span className="inline-block bg-slate-100 text-gray-700 px-3 py-1 rounded-full text-[11px] sm:text-[11px] lg:text-[12px] xl:text-[12px] 2xl:text-[12px] [@media(min-width:1920px)]:text-[15px] font-bold tracking-[0.05em] uppercase mb-2">
                       {project.category}
                     </span>
-                    <h3 className="text-[#05050A] text-[18px] lg:text-[20px] font-bold leading-tight">
+                    <h3 className="text-[#05050A] text-[18px] sm:text-[18px] md:text-[18px] lg:text-[18px] xl:text-[24px] font-bold leading-tight">
                       {project.title}
                     </h3>
                   </div>
-                  <button className="w-7 h-7 rounded-full border border-[#FF0055]/30 text-[#FF0055] flex items-center justify-center shrink-0 group-hover:bg-[#FF0055] group-hover:text-white transition-colors duration-300">
-                    <ArrowRight className="w-3 h-3 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                  <button className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-[#FF0055]/30 text-[#FF0055] flex items-center justify-center shrink-0 group-hover:bg-[#FF0055] group-hover:text-white transition-colors duration-300">
+                    <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                   </button>
                 </div>
 
-                <p className="text-slate-500 text-[12px] leading-[1.4] mb-3 flex-grow">
+                <p className="text-gray-700 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[15px] xl:text-[16px] 2xl:text-[16px] leading-relaxed mb-3 flex-grow">
                   {project.desc}
                 </p>
 
@@ -129,10 +295,10 @@ export default function WebDevProjects() {
                 <div className="grid grid-cols-3 gap-2 shrink-0">
                   {project.stats.map((stat, sIdx) => (
                     <div key={sIdx} className="flex flex-col">
-                      <span className="text-[#FF0055] text-[16px] lg:text-[18px] font-black leading-none mb-1">
+                      <span className="text-[#FF0055] text-[20px] sm:text-[20px] md:text-[20px] lg:text-[20px] xl:text-[28px] 2xl:text-[28px] font-black leading-none mb-1">
                         {stat.value}
                       </span>
-                      <span className="text-slate-500 text-[8px] font-medium leading-tight pr-1">
+                      <span className="text-gray-700 text-[12px] sm:text-[14px] lg:text-[12px] xl:text-[14px] font-medium leading-tight pr-1">
                         {stat.label}
                       </span>
                     </div>
@@ -141,6 +307,27 @@ export default function WebDevProjects() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile & Tablet Pagination Controls (Placed BELOW the 3 cards, CENTERED) */}
+        <div className="flex lg:hidden justify-center items-center gap-3 mt-7 sm:mt-8">
+          <button 
+            onClick={handlePrev}
+            className="group w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-[#FF3377] hover:bg-gradient-to-r hover:from-[#80002A] hover:to-[#FF0055] flex items-center justify-center text-[#05050A] hover:text-white transition-all duration-300 shadow-sm active:scale-95 cursor-pointer"
+            aria-label="Previous projects"
+          >
+            <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
+          </button>
+          <button 
+            onClick={handleNext}
+            className="group w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-[#FF3377] hover:bg-gradient-to-r hover:from-[#80002A] hover:to-[#FF0055] flex items-center justify-center text-[#05050A] hover:text-white transition-all duration-300 shadow-sm active:scale-95 cursor-pointer"
+            aria-label="Next projects"
+          >
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+          </button>
+          <span className="text-gray-700 font-semibold text-[15px] sm:text-[16px] tracking-widest ml-2 select-none">
+            {String(currentPage + 1).padStart(2, '0')} / {String(totalPages).padStart(2, '0')}
+          </span>
         </div>
 
       </div>

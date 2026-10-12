@@ -10,10 +10,17 @@ export default function CTASection() {
       <div className="absolute left-[-10%] top-[-50%] w-[30%] h-[200%] bg-pink-200/40 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="absolute right-[-10%] bottom-[-50%] w-[40%] h-[200%] bg-purple-200/40 blur-[120px] rounded-full pointer-events-none"></div>
 
-      {/* 3D Glass Graphic Placeholder (Right Edge) */}
-      <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 h-[120%] aspect-square pointer-events-none opacity-40 lg:opacity-100 z-0 flex items-center justify-end">
-        {/* You can replace this with the actual transparent PNG of the 3D glass shape later */}
-        <div className="w-[300px] h-[300px] bg-gradient-to-br from-pink-400/20 to-purple-500/20 backdrop-blur-md rounded-2xl transform rotate-12 shadow-2xl border border-white/50"></div>
+      {/* Ambient Glows for 3D Glass Prism */}
+      <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 lg:-translate-y-[38%] w-[260px] sm:w-[320px] md:w-[380px] lg:w-[420px] xl:w-[460px] h-[200px] sm:h-[240px] lg:h-[290px] bg-gradient-to-l from-pink-300/30 via-purple-300/20 to-transparent blur-[75px] rounded-full pointer-events-none z-0" />
+      <div className="absolute right-[2%] bottom-[-5%] w-[180px] sm:w-[220px] lg:w-[260px] h-[140px] sm:h-[180px] lg:h-[210px] bg-[#FF0055]/12 blur-[65px] rounded-full pointer-events-none z-0" />
+
+      {/* 3D Glass Graphic (Right Edge) - Responsive positions & sizes for all screen sizes */}
+      <div className="absolute top-auto bottom-[-10px] right-[-25px] sm:bottom-0 sm:right-[-10px] md:-bottom-8 md:-right-8 lg:top-1/2 lg:-translate-y-[30%] lg:right-[-20px] xl:-translate-y-[38%] xl:right-[-20px] 2xl:right-4 w-[300px] h-[300px] sm:w-[170px] sm:h-[195px] md:w-[410px] md:h-[435px] lg:w-[255px] lg:h-[280px] xl:w-[280px] xl:h-[300px] 2xl:w-[300px] 2xl:h-[340px] pointer-events-none z-0 flex items-center justify-end select-none">
+        <img 
+          src="/images/services/web-dev/web-last-icon.png" 
+          alt="Kaelixo Web Development" 
+          className="w-full h-full object-contain drop-shadow-[0_10px_25px_rgba(255,0,85,0.18)] drop-shadow-[0_15px_35px_rgba(168,85,247,0.15)] opacity-70 sm:opacity-70 md:opacity-80 lg:opacity-100 transition-all duration-300" 
+        />
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
@@ -21,63 +28,108 @@ export default function CTASection() {
           
           {/* LEFT COLUMN: Heading (4 Cols) */}
           <div className="lg:col-span-4 pr-0 lg:pr-4">
-            <span className="text-[#FF0055] font-black text-[10px] tracking-widest uppercase mb-3 block">
+            <span className="text-[#FF0055] font-[750]  text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] tracking-widest uppercase mb-3 block">
               LET'S WORK TOGETHER
             </span>
-            <h2 className="text-[34px] md:text-[42px] font-black leading-[1.1] tracking-tight text-[#030C25]">
+            <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.1] tracking-tight text-[#030C25]">
               Ready to Launch <br className="hidden md:block" /> Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF0055] to-[#a855f7]">Next Big Idea?</span>
             </h2>
           </div>
 
           {/* MIDDLE COLUMN: Text & Features (5 Cols) */}
           <div className="lg:col-span-5 relative lg:pl-10 lg:border-l border-gray-200/80">
-            <p className="text-[#475569] text-[14.5px] font-medium leading-relaxed mb-7 max-w-md">
+            <p className="text-gray-700 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-relaxed mb-6 lg:mb-0 max-w-md">
               From websites and custom software to digital marketing, branding and AI solutions, Kaelixo helps businesses turn ambitious ideas into measurable growth.
             </p>
             
-            <div className="flex flex-wrap items-center gap-5 lg:gap-8">
+            {/* Features in Mobile / Tablet (< lg): Stacked with Strategy-Led on next line */}
+            <div className="flex flex-col gap-3.5 sm:gap-4 lg:hidden mt-6">
               {/* Feature 1 */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-pink-100 text-[#FF0055] flex items-center justify-center shrink-0 shadow-sm">
-                  <Zap size={14} fill="currentColor" />
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#80002A] to-[#FF0055] flex items-center justify-center shrink-0 shadow-[0_2px_10px_rgba(255,0,85,0.35)] ring-4 ring-[#FF0055]/15">
+                  <Zap size={14} className="text-white fill-white" />
                 </div>
-                <span className="text-[11px] font-bold text-[#030C25] leading-tight">Fast<br/>Turnaround</span>
+                <span className="text-[14px] sm:text-[15px] font-medium text-gray-800 leading-tight">
+                  Fast Turnaround
+                </span>
               </div>
               
               {/* Feature 2 */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-fuchsia-100 text-[#d946ef] flex items-center justify-center shrink-0 shadow-sm">
-                  <BarChart2 size={14} strokeWidth={3} />
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#80002A] to-[#FF0055] flex items-center justify-center shrink-0 shadow-[0_2px_10px_rgba(255,0,85,0.35)] ring-4 ring-[#FF0055]/15">
+                  <BarChart2 size={14} strokeWidth={2.5} className="text-white" />
                 </div>
-                <span className="text-[11px] font-bold text-[#030C25] leading-tight">Strategy-Led<br/>Execution</span>
+                <span className="text-[14px] sm:text-[15px] font-medium text-gray-800 leading-tight">
+                  Strategy-Led Execution
+                </span>
               </div>
               
               {/* Feature 3 */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-purple-100 text-[#a855f7] flex items-center justify-center shrink-0 shadow-sm">
-                  <Headphones size={14} strokeWidth={3} />
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#80002A] to-[#FF0055] flex items-center justify-center shrink-0 shadow-[0_2px_10px_rgba(255,0,85,0.35)] ring-4 ring-[#FF0055]/15">
+                  <Headphones size={14} strokeWidth={2.5} className="text-white" />
                 </div>
-                <span className="text-[11px] font-bold text-[#030C25] leading-tight">Long-Term<br/>Support</span>
+                <span className="text-[14px] sm:text-[15px] font-medium text-gray-800 leading-tight">
+                  Long-Term Support
+                </span>
               </div>
             </div>
           </div>
 
           {/* RIGHT COLUMN: Buttons (3 Cols) */}
-          <div className="lg:col-span-3 flex flex-col items-start lg:items-end justify-center pt-4 lg:pt-0">
-            <div className="flex flex-col gap-3.5 w-full max-w-[240px]">
-              <button className="group w-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white font-bold text-[13.5px] py-3.5 rounded-full flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer hover:scale-[1.02]">
+          <div className="lg:col-span-3 flex flex-col items-start lg:items-center xl:items-end lg:pr-8 xl:pr-12 justify-center pt-4 lg:pt-0">
+            <div className="flex flex-col gap-3.5 w-full max-w-[250px] items-center">
+              <button className="group w-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white font-bold text-[16px] py-3.5 rounded-full flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer hover:scale-[1.02] shadow-[0_4px_16px_rgba(255,0,85,0.25)]">
                 Start a Project <ArrowRight size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" />
               </button>
-              <button className="w-full bg-white border border-gray-300 text-[#030C25] hover:border-[#030C25] hover:bg-gray-50 font-bold text-[13.5px] py-3.5 rounded-full flex items-center justify-center transition-colors cursor-pointer shadow-sm">
+              <button className="w-full bg-white border border-gray-300 text-[#030C25] hover:border-[#030C25] hover:bg-gray-50 font-bold text-[16px] py-3.5 rounded-full flex items-center justify-center transition-colors cursor-pointer shadow-sm">
                 Schedule a Call
               </button>
+              {/* <p className="text-[12px] sm:text-[13px] md:text-[13px] text-gray-700 font-medium mt-1 text-center whitespace-nowrap">
+                Trusted by growing brands across industries.
+              </p> */}
             </div>
-            <p className="text-[10.5px] text-gray-500 font-medium mt-4 text-left lg:text-center w-full max-w-[240px]">
-              Trusted by growing brands across industries.
-            </p>
           </div>
 
         </div>
+
+        {/* Bottom Features Row on Laptop / Desktop (lg+): In ONE Single Line */}
+        <div className="hidden lg:flex items-center justify-start gap-8 xl:gap-12 mt-8">
+          {/* Feature 1 */}
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#80002A] to-[#FF0055] flex items-center justify-center shrink-0 shadow-[0_2px_10px_rgba(255,0,85,0.35)] ring-4 ring-[#FF0055]/15">
+              <Zap size={14} className="text-white fill-white" />
+            </div>
+            <span className="text-[14px] sm:text-[15px] lg:text-[15px] xl:text-[16px] font-medium text-gray-800 leading-tight whitespace-nowrap">
+              Fast Turnaround
+            </span>
+          </div>
+
+          <div className="w-[1px] h-4 bg-gray-300/80 shrink-0" />
+
+          {/* Feature 2 */}
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#80002A] to-[#FF0055] flex items-center justify-center shrink-0 shadow-[0_2px_10px_rgba(255,0,85,0.35)] ring-4 ring-[#FF0055]/15">
+              <BarChart2 size={14} strokeWidth={2.5} className="text-white" />
+            </div>
+            <span className="text-[14px] sm:text-[15px] lg:text-[15px] xl:text-[16px] font-medium text-gray-800 leading-tight whitespace-nowrap">
+              Strategy-Led Execution
+            </span>
+          </div>
+
+          <div className="w-[1px] h-4 bg-gray-300/80 shrink-0" />
+
+          {/* Feature 3 */}
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#80002A] to-[#FF0055] flex items-center justify-center shrink-0 shadow-[0_2px_10px_rgba(255,0,85,0.35)] ring-4 ring-[#FF0055]/15">
+              <Headphones size={14} strokeWidth={2.5} className="text-white" />
+            </div>
+            <span className="text-[14px] sm:text-[15px] lg:text-[15px] xl:text-[16px] font-medium text-gray-800 leading-tight whitespace-nowrap">
+              Long-Term Support
+            </span>
+          </div>
+        </div>
+
       </div>
     </div>
   );

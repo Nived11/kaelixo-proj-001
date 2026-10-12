@@ -71,7 +71,7 @@ export default function WebDevApproach() {
               ))}
             </div>
 
-            <button className="group px-7 py-3 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white font-bold text-[14px] flex items-center gap-2 transition-all duration-300 hover:-translate-y-1 active:translate-y-0">
+            <button className="group px-7 py-3 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white font-bold text-[16px] flex items-center gap-2 transition-all duration-300 hover:-translate-y-1 active:translate-y-0">
               Let's Build Your Website
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </button>

@@ -6,13 +6,18 @@ export default function EnquirySection() {
   return (
     <div id="contact" className="relative bg-[#fafbfe] text-[#030C25] pt-12 lg:pt-16 pb-8 overflow-hidden border-t border-gray-100 scroll-mt-24">
       
-      {/* Background Decor & Image Element */}
-      <div className="absolute top-0 right-0 w-full lg:w-[60%] h-full opacity-10 lg:opacity-100 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#fafbfe] via-[#fafbfe]/80 to-transparent z-10 hidden lg:block"></div>
+      {/* Background Desk Image - Clean photo, blending to white only at the right edge */}
+      <div className="absolute top-0 left-0 w-full lg:w-[65%] xl:w-[70%] h-full opacity-40 lg:opacity-100 pointer-events-none z-0 overflow-hidden">
+        {/* Blend to white ONLY at the right edge of the image */}
+        <div className="absolute top-0 right-0 w-[45%] h-full bg-gradient-to-r from-transparent via-[#fafbfe]/60 to-[#fafbfe] z-10 hidden lg:block" />
+        
+        {/* Mobile overlay for text readability */}
+        <div className="absolute inset-0 bg-[#fafbfe]/85 lg:hidden z-10" />
+
         <img 
-          src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1200&q=80" 
-          alt="Workspace" 
-          className="w-full h-full object-cover opacity-30"
+          src="/images/services/web-dev/webdev-contactbg.png" 
+          alt="Workspace Desk" 
+          className="w-full h-full object-cover object-left"
         />
       </div>
 
@@ -65,7 +70,6 @@ export default function EnquirySection() {
                 </div>
               </div>
             </div>
-
 
           </div>
 
@@ -171,8 +175,6 @@ export default function EnquirySection() {
 
           </div>
         </div>
-
-
 
       </div>
     </div>
