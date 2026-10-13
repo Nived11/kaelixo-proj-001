@@ -5,6 +5,7 @@ import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import DeferredConsultationModal from "@/components/common/DeferredConsultationModal";
 import PageLoader from "@/components/ui/PageLoader";
+import ScrollToTop from '@/features/home/components/ScrollToTop';
 import SmoothScroll from "@/components/common/SmoothScroll";
 
 const spaceGrotesk = Space_Grotesk({
@@ -57,6 +58,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-1 flex flex-col">{children}</main>
             <Footer />
+            <ScrollToTop />
             <DeferredConsultationModal />
           </SmoothScroll>
         </PageLoader>

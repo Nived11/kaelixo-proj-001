@@ -1,6 +1,9 @@
+"use client";
+
 import React from 'react';
 import { ArrowRight, Code2, Smartphone, Cloud, BarChart3, Users, ShoppingCart, Settings } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const relatedServices = [
   {
@@ -63,91 +66,109 @@ const relatedServices = [
 
 export default function WebDevRelatedServices() {
   return (
-    <section className="py-10 lg:py-16 bg-[#f8f9fa] relative overflow-hidden">
-      <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-16 sm:py-20 lg:py-20 xl:py-24 bg-[#f8f9fa] relative overflow-hidden">
+      <div className="max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-[800px] mx-auto mb-10 lg:mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center max-w-[800px] mx-auto mb-10 lg:mb-14"
+        >
           <div className="flex justify-center items-center gap-4 mb-3">
-            <div className="w-10 h-[1px] bg-[#FF0055]" />
-            <span className="text-[#FF0055] font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.25em] uppercase">
+            <div className="w-8 h-[2px] bg-[#FF0055]" />
+            <span className="text-[#FF0055] text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-[750] tracking-[0.25em] uppercase">
               RELATED SERVICES
             </span>
-            <div className="w-10 h-[1px] bg-slate-300 hidden sm:block" />
+            <div className="w-8 h-[2px] bg-[#FF0055]" />
           </div>
           
-          <h2 className="text-[#05050A] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px] font-extrabold leading-[1.05] tracking-tight mb-3 font-heading">
+          <h2 className="text-[#05050A] text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.05] tracking-tight mb-3 font-heading">
             Explore <span className="text-[#FF0055]">Related Services</span>
           </h2>
           
-          <p className="text-slate-500 text-[16px] leading-[1.6] max-w-[600px] mx-auto">
+          <p className="text-gray-700 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.6] max-w-[600px] mx-auto">
             More ways we help you think, build and grow.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {/* Services Grid (3 cards per row on desktop like WebDevProjects) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
           {relatedServices.map((service, idx) => (
-            <Link 
-              key={idx} 
-              href={service.link}
-              className="bg-white rounded-[20px] shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col overflow-hidden group hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(255,0,85,0.08)] transition-all duration-500"
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: (idx % 3) * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="flex"
             >
-              {/* Image Header */}
-              <div className="w-full h-[140px] lg:h-[150px] relative overflow-hidden bg-slate-100">
-                <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors z-10" />
-                <img 
-                  src={service.image} 
-                  alt={service.title.replace('\n', ' ')} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                />
-              </div>
-
-              {/* Content Body */}
-              <div className="p-4 lg:p-5 pt-0 flex flex-col flex-grow relative bg-white">
-                
-                {/* Floating Icon Box */}
-                <div className="w-9 h-9 bg-white rounded-[10px] shadow-[0_8px_20px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#FF0055] -mt-[18px] mb-3 relative z-20 border border-slate-50 group-hover:text-white group-hover:bg-[#FF0055] group-hover:scale-110 transition-all duration-300">
-                  <service.icon className="w-3.5 h-3.5" />
+              <Link 
+                href={service.link}
+                className="w-full bg-white rounded-[20px] sm:rounded-[24px] border border-slate-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(255,0,85,0.1)] flex flex-col overflow-hidden group transition-all duration-500 cursor-pointer"
+              >
+                {/* Image Section */}
+                <div className="w-full aspect-[2/1] relative overflow-hidden bg-slate-100 shrink-0">
+                  <img 
+                    src={service.image} 
+                    alt={service.title.replace('\n', ' ')} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                  />
                 </div>
 
-                <span className="text-[#FF0055] text-[9px] font-bold tracking-[0.15em] uppercase mb-1 block">
-                  {service.category}
-                </span>
-                
-                <h3 className="text-[#05050A] text-[15px] lg:text-[16px] font-bold leading-[1.2] mb-2 whitespace-pre-line group-hover:text-[#FF0055] transition-colors">
-                  {service.title}
-                </h3>
-                
-                <p className="text-slate-500 text-[11px] lg:text-[12px] leading-[1.5] mb-4 flex-grow">
-                  {service.desc}
-                </p>
-                
-                {/* Footer Action */}
-                <div className="flex items-center justify-start gap-2 mt-auto">
-                  <span className="text-[#05050A] font-bold text-[11px] lg:text-[12px]">
-                    Learn More
+                {/* Content Section with Rounded Top overlapping the image like WebDevProjects */}
+                <div className="relative -mt-4 sm:-mt-5 z-10 bg-white rounded-t-[20px] sm:rounded-t-[24px] p-4 sm:p-5 flex flex-col flex-grow">
+                  {/* Gradient Icon Badge at top of the white card */}
+                  <div className="w-9 h-9 rounded-[10px] bg-gradient-to-tr from-[#FF0055] to-[#FF6699] flex items-center justify-center text-white shadow-[0_3px_12px_rgba(255,0,85,0.25)] ring-[3px] ring-white -mt-[28px] sm:-mt-[30px] mb-2.5 relative z-20 group-hover:scale-105 transition-transform duration-300">
+                    <service.icon className="w-4 h-4 text-white" strokeWidth={2.2} />
+                  </div>
+
+                  <span className="text-[#FF0055] text-[11px] sm:text-[11px] lg:text-[12px] xl:text-[12px] 2xl:text-[12px] [@media(min-width:1920px)]:text-[15px] font-bold tracking-[0.12em] uppercase mb-1.5 block">
+                    {service.category}
                   </span>
-                  <div className="w-5 h-5 rounded-full bg-[#FF0055]/10 text-[#FF0055] flex items-center justify-center group-hover:bg-[#FF0055] group-hover:text-white transition-colors">
-                    <ArrowRight className="w-2.5 h-2.5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                  
+                  <h3 className="text-[#05050A] text-[18px] sm:text-[18px] md:text-[18px] lg:text-[18px] xl:text-[24px] font-bold leading-tight mb-2.5 group-hover:text-[#FF0055] transition-colors">
+                    {service.title.replace('\n', ' ')}
+                  </h3>
+
+                  <p className="text-gray-700 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[15px] xl:text-[16px] 2xl:text-[16px] leading-relaxed mb-4 flex-grow">
+                    {service.desc}
+                  </p>
+
+                  {/* Footer Action - Learn More & Right Icon at bottom */}
+                  <div className="flex items-center justify-start gap-2.5 mt-auto pt-3 border-t border-slate-100">
+                    <span className="text-[#05050A] font-bold text-[14px] sm:text-[15px] group-hover:text-[#FF0055] transition-colors">
+                      Learn More
+                    </span>
+                    <div className="w-7 h-7 rounded-full bg-[#FF0055]/10 text-[#FF0055] flex items-center justify-center group-hover:bg-[#FF0055] group-hover:text-white transition-colors duration-300">
+                      <ArrowRight size={16} className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                    </div>
                   </div>
                 </div>
-
-              </div>
-            </Link>
+              </Link>
+            </motion.div>
           ))}
         </div>
 
         {/* Bottom Button */}
-        <div className="mt-10 flex justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-10 flex justify-center"
+        >
           <Link 
             href="/services"
-            className="group bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white px-7 py-3 rounded-full font-bold text-[13px] transition-all duration-300 flex items-center gap-2 hover:-translate-y-1"
+            className="group bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white px-7 py-3 rounded-full font-bold text-[16px] transition-all duration-300 flex items-center gap-2 hover:-translate-y-1 shadow-[0_4px_16px_rgba(255,0,85,0.25)]"
           >
             View All Services
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight size={16} className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
-        </div>
+        </motion.div>
 
       </div>
     </section>

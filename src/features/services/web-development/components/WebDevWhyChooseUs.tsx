@@ -1,4 +1,7 @@
+"use client";
+
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Users, ShieldCheck, Zap, Maximize, MessageSquare, HeadphonesIcon, ArrowRight } from 'lucide-react';
 
 export default function WebDevWhyChooseUs() {
@@ -42,7 +45,7 @@ export default function WebDevWhyChooseUs() {
   ];
 
   return (
-    <section className="py-6 lg:py-8 relative overflow-hidden bg-[#020205]">
+    <section className="py-16 sm:py-20 lg:py-20 xl:py-24 relative overflow-hidden bg-[#020205]">
 
       {/* Background Glow */}
       <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-[#FF0055]/5 rounded-full blur-[120px] pointer-events-none" />
@@ -51,7 +54,13 @@ export default function WebDevWhyChooseUs() {
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-10 lg:gap-8 xl:gap-8">
 
           {/* Left Column (Header & Desktop Laptop) */}
-          <div className="xl:col-span-5 flex flex-col items-start pr-0 xl:pr-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="xl:col-span-5 flex flex-col items-start pr-0 xl:pr-12"
+          >
             <div className="flex items-center gap-3 mb-6">
               <span className="text-slate-200 font-[750] text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] tracking-[0.25em] uppercase">
                 WHY CHOOSE US
@@ -69,7 +78,13 @@ export default function WebDevWhyChooseUs() {
             </p>
 
             {/* Laptop & Rock Images Container (Desktop / Laptop xl+ - both images locked together inside this container) */}
-            <div className="relative w-full h-[340px] md:h-[340px] lg:h-[340px] xl:h-[340px] 2xl:h-[340px] [@media(min-width:1920px)]:h-[340px] top-[0px] md:top-[0px] lg:top-[0px] xl:top-[0px] 2xl:top-[0px] [@media(min-width:1920px)]:top-[0px] left-[0px] md:left-[0px] lg:left-[0px] xl:left-[0px] 2xl:left-[0px] [@media(min-width:1920px)]:left-[0px] right-auto md:right-auto lg:right-auto xl:right-auto 2xl:right-auto [@media(min-width:1920px)]:right-auto mt-2 md:mt-2 lg:mt-2 xl:mt-2 2xl:mt-2 [@media(min-width:1920px)]:mt-2 hidden xl:block pointer-events-none">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              className="relative w-full h-[340px] md:h-[340px] lg:h-[340px] xl:h-[340px] 2xl:h-[340px] [@media(min-width:1920px)]:h-[340px] top-[0px] md:top-[0px] lg:top-[0px] xl:top-[0px] 2xl:top-[0px] [@media(min-width:1920px)]:top-[0px] left-[0px] md:left-[0px] lg:left-[0px] xl:left-[0px] 2xl:left-[0px] [@media(min-width:1920px)]:left-[0px] right-auto md:right-auto lg:right-auto xl:right-auto 2xl:right-auto [@media(min-width:1920px)]:right-auto mt-2 md:mt-2 lg:mt-2 xl:mt-2 2xl:mt-2 [@media(min-width:1920px)]:mt-2 hidden xl:block pointer-events-none"
+            >
 
               {/* Background Arc */}
               <img
@@ -84,17 +99,22 @@ export default function WebDevWhyChooseUs() {
                 alt="Why Choose Us Laptop"
                 className="absolute left-[-20%] md:left-[-20%] lg:left-[-20%] xl:left-[-20%] 2xl:left-[-20%] [@media(min-width:1920px)]:left-[-20%] right-auto md:right-auto lg:right-auto xl:right-auto 2xl:right-auto [@media(min-width:1920px)]:right-auto top-[8%] md:top-[8%] lg:top-[8%] xl:top-[8%] 2xl:top-[8%] [@media(min-width:1920px)]:top-[8%] w-[135%] md:w-[135%] lg:w-[135%] xl:w-[135%] 2xl:w-[135%] [@media(min-width:1920px)]:w-[135%] max-w-none object-contain z-10"
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column - Grid & Stats */}
           <div className="xl:col-span-7 flex flex-col gap-3 lg:pl-0 xl:pl-12 pt-0">
 
             {/* Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-2.5 lg:gap-3">
-              {reasons.map((reason) => (
-                <div
+              {reasons.map((reason, idx) => (
+                <motion.div
                   key={reason.id}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.15 }}
+                  transition={{ duration: 0.45, delay: (idx % 2) * 0.1, ease: "easeOut" }}
+                  whileHover={{ y: -3, transition: { duration: 0.2 } }}
                   className="rounded-[20px] relative group overflow-hidden bg-[#05050A] shadow-[0_0_15px_rgba(255,0,85,0.02)]"
                 >
                   {/* Animated Border Mask */}
@@ -133,7 +153,7 @@ export default function WebDevWhyChooseUs() {
 
                     <div className="w-6 h-[2px] bg-[#FF0055] rounded-full mt-2.5 group-hover:w-10 transition-all duration-300" />
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
@@ -157,7 +177,13 @@ export default function WebDevWhyChooseUs() {
             </div>
 
             {/* Stats Bar */}
-            <div className="mt-3 rounded-[10px] sm:rounded-[16px] relative z-20 group overflow-hidden bg-black shadow-[0_0_15px_rgba(255,0,85,0.02)]">
+            <motion.div 
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+              className="mt-3 rounded-[10px] sm:rounded-[16px] relative z-20 group overflow-hidden bg-black shadow-[0_0_15px_rgba(255,0,85,0.02)]"
+            >
               {/* Animated Border Mask */}
               <div
                 className="absolute inset-0 rounded-[10px] sm:rounded-[16px] overflow-hidden pointer-events-none z-10"
@@ -199,7 +225,7 @@ export default function WebDevWhyChooseUs() {
                   <span className="text-slate-200 text-[12px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] font-medium leading-snug">Support</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
         </div>

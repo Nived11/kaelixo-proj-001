@@ -1,0 +1,7 @@
+.globe { position: relative; aspect-ratio: 1; isolation: isolate; }
+.surface {
+  display: block;
+  /* Match the renderer's 522px radius in its 1400px viewBox. */
+  clip-path: circle(37.285714% at 50% 50%);
+  overflow: hidden;
+}

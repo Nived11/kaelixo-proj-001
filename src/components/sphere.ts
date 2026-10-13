@@ -33,6 +33,10 @@ export interface Patch {
 
 export interface SphereOptions {
   imageHref: string;
+  rotation?: 'down' | 'right';
+  hideOuterArtwork?: boolean;
+  detail?: 'full' | 'compact';
+  imageBox?: { x: number; y: number; width: number; height: number };
   id: string;
   duration?: number;
   animated?: boolean;
@@ -66,9 +70,9 @@ function textureCoordinate(angle: number): number {
   return wrapped <= Math.PI ? -1 + 2 * wrapped / Math.PI : 3 - 2 * wrapped / Math.PI;
 }
 
-function triangleVertices(row: number, west: number, east: number, triangle: number): Vertex[] {
-  const north = -Math.PI / 2 + row * Math.PI / ROWS;
-  const south = north + Math.PI / ROWS;
+function triangleVertices(row: number, west: number, east: number, triangle: number, rows = ROWS): Vertex[] {
+  const north = -Math.PI / 2 + row * Math.PI / rows;
+  const south = north + Math.PI / rows;
   const vertex = (longitude: number, latitude: number): Vertex => {
     const [x, y] = project(longitude, latitude);
     return { x, y, longitude, latitude, sourceY: SOURCE_X - SOURCE_RADIUS * Math.sin(latitude) };
@@ -94,12 +98,12 @@ function expandedTriangle(vertices: { x: number; y: number }[]): string {
   }).join(' ');
 }
 
-function patchMatrix(patch: Patch, phase: number): string {
+function patchMatrix(patch: Patch, phase: number, rightward = false): string {
   const ratio = SOURCE_RADIUS / RADIUS;
   const [first, second, third] = patch.vertices;
   // Virtual U runs down the screen and V runs across it. Decreasing texture
   // longitude makes surface features roll downward around the horizontal axis.
-  const u = (vertex: Vertex) => SOURCE_Y + SOURCE_RADIUS * Math.cos(vertex.latitude) * textureCoordinate(vertex.longitude - phase);
+  const u = (vertex: Vertex) => (rightward ? SOURCE_X : SOURCE_Y) + SOURCE_RADIUS * Math.cos(vertex.latitude) * textureCoordinate(vertex.longitude - phase);
   const u1 = u(first);
   const u2 = u(second);
   const u3 = u(third);
@@ -112,6 +116,7 @@ function patchMatrix(patch: Patch, phase: number): string {
   const scaleY = 1 / ratio;
   const translateX = first.x - scaleX * u1 - shearX * first.sourceY;
   const translateY = first.y - scaleY * first.sourceY;
+  if (rightward) return `matrix(${scaleX.toFixed(6)} 0 ${shearX.toFixed(6)} ${scaleY.toFixed(6)} ${translateX.toFixed(4)} ${translateY.toFixed(4)})`;
   // Swap the projected and source axes together to keep the artwork upright.
   return `matrix(${scaleY.toFixed(6)} ${shearX.toFixed(6)} 0 ${scaleX.toFixed(6)} ${translateY.toFixed(4)} ${translateX.toFixed(4)})`;
 }
@@ -119,11 +124,16 @@ function patchMatrix(patch: Patch, phase: number): string {
 /** Mount into an otherwise empty SVG. Returns pause/speed controls and cleanup. */
 export function createSphere(
   svg: SVGSVGElement,
-  { imageHref, id, duration = 90, animated = true }: SphereOptions
+  { imageHref, imageBox, rotation = 'down', detail = 'full', hideOuterArtwork = false, id, duration = 90, animated = true }: SphereOptions
 ): SphereController {
+  const columns = detail === 'compact' ? 20 : COLS;
+  const rows = detail === 'compact' ? 10 : ROWS;
+  const rightward = rotation === 'right';
+  const verticesFor = (row: number, west: number, east: number, triangle: number) => triangleVertices(row, west, east, triangle, rows).map(vertex => rightward ? { ...vertex, sourceY: vertex.sourceY + SOURCE_Y - SOURCE_X } : vertex);
+  const clipPoints = (vertices: Vertex[]) => expandedTriangle(vertices.map(vertex => rightward ? { x: vertex.x, y: vertex.y } : { x: vertex.y, y: vertex.x }));
   const url = (name: string) => `url(#${id}-${name})`;
   const defs = element('defs');
-  const texture = element('image', { id: `${id}-texture`, href: imageHref, width: 1254, height: 1254 });
+  const texture = element('image', { id: `${id}-texture`, href: imageHref, width: 1254, height: 1254, ...imageBox });
   defs.append(texture);
 
   const clip = element('clipPath', { id: `${id}-sphere-clip` });
@@ -141,8 +151,12 @@ export function createSphere(
   defs.append(mask);
 
   const artwork = element('g', { class: 'globe-artwork' });
-  artwork.append(element('use', { href: `#${id}-texture`, x: CENTER - SOURCE_X, y: CENTER - SOURCE_Y, class: 'globe-atmosphere' }));
+  const atmosphere = element('use', { href: `#${id}-texture`, x: CENTER - SOURCE_X, y: CENTER - SOURCE_Y, class: 'globe-atmosphere' });
+  // The baked image also contains static connections at the rim. Omit the
+  // entire stationary layer for the globe-only variant, not just its outside.
+  if (!hideOuterArtwork) artwork.append(atmosphere);
   const surface = element('g', { class: 'globe-surface', 'clip-path': url('sphere-clip'), mask: url('surface-mask') });
+  if (hideOuterArtwork) surface.removeAttribute('mask');
   surface.append(element('circle', { cx: CENTER, cy: CENTER, r: RADIUS, fill: '#070717' }));
   const patches: Patch[] = [];
   const foldPatches: Patch[] = [];
@@ -150,24 +164,24 @@ export function createSphere(
   function createPatch(vertices: Vertex[], name: string, details: Partial<Patch>): Patch {
     const clipId = `${id}-patch-${name}`;
     const patchClip = element('clipPath', { id: clipId });
-    const polygon = element('polygon', { points: expandedTriangle(vertices.map(vertex => ({ x: vertex.y, y: vertex.x }))) });
+    const polygon = element('polygon', { points: clipPoints(vertices) });
     patchClip.append(polygon);
     defs.append(patchClip);
     const group = element('g', { 'clip-path': `url(#${clipId})` });
     const image = element('use', { href: `#${id}-texture`, class: 'globe-patch' });
     const patch = { vertices, image, polygon, group, ...details } as Patch;
-    image.setAttribute('transform', patchMatrix(patch, 0));
+    image.setAttribute('transform', patchMatrix(patch, 0, rightward));
     group.append(image);
     surface.append(group);
     return patch;
   }
 
-  for (let row = 0; row < ROWS; row += 1) {
-    for (let col = 0; col < COLS; col += 1) {
-      const west = -Math.PI / 2 + col * Math.PI / COLS;
-      const east = west + Math.PI / COLS;
+  for (let row = 0; row < rows; row += 1) {
+    for (let col = 0; col < columns; col += 1) {
+      const west = -Math.PI / 2 + col * Math.PI / columns;
+      const east = west + Math.PI / columns;
       for (let triangle = 0; triangle < 2; triangle += 1) {
-        const vertices = triangleVertices(row, west, east, triangle);
+        const vertices = verticesFor(row, west, east, triangle);
         if (Math.abs(vertices[1].x - vertices[0].x) < .001) continue;
         patches.push(createPatch(vertices, `${row}-${col}-${triangle}`, { row, col, triangle }));
       }
@@ -176,11 +190,11 @@ export function createSphere(
 
   // Split the single column crossing a moving texture fold into two bands.
   // No triangle may straddle the fold, which would reintroduce a singular map.
-  for (let row = 0; row < ROWS; row += 1) {
+  for (let row = 0; row < rows; row += 1) {
     for (let half = 0; half < 2; half += 1) {
       for (let triangle = 0; triangle < 2; triangle += 1) {
-        if ((row === 0 && triangle === 0) || (row === ROWS - 1 && triangle === 1)) continue;
-        const vertices = triangleVertices(row, 0, Math.PI / COLS, triangle);
+        if ((row === 0 && triangle === 0) || (row === rows - 1 && triangle === 1)) continue;
+        const vertices = verticesFor(row, 0, Math.PI / columns, triangle);
         foldPatches.push(createPatch(vertices, `fold-${row}-${half}-${triangle}`, { row, half, triangle }));
       }
     }
@@ -202,9 +216,9 @@ export function createSphere(
   let hiddenColumn = -1;
   const paint = () => {
     const fold = phase % Math.PI - Math.PI / 2;
-    const col = Math.min(COLS - 1, Math.floor((fold + Math.PI / 2) * COLS / Math.PI));
-    const west = -Math.PI / 2 + col * Math.PI / COLS;
-    const east = west + Math.PI / COLS;
+    const col = Math.min(columns - 1, Math.floor((fold + Math.PI / 2) * columns / Math.PI));
+    const west = -Math.PI / 2 + col * Math.PI / columns;
+    const east = west + Math.PI / columns;
     const split = fold - west > 1e-7 && east - fold > 1e-7;
     const nextHidden = split ? col : -1;
     if (nextHidden !== hiddenColumn) {
@@ -215,14 +229,14 @@ export function createSphere(
       hiddenColumn = nextHidden;
     }
     patches.forEach(patch => {
-      if (patch.col !== hiddenColumn) patch.image.setAttribute('transform', patchMatrix(patch, phase));
+      if (patch.col !== hiddenColumn) patch.image.setAttribute('transform', patchMatrix(patch, phase, rightward));
     });
     foldPatches.forEach(patch => {
       if (!split) { patch.group.setAttribute('display', 'none'); return; }
       patch.group.removeAttribute('display');
-      patch.vertices = triangleVertices(patch.row, patch.half === 0 ? west : fold, patch.half === 0 ? fold : east, patch.triangle);
-      patch.polygon.setAttribute('points', expandedTriangle(patch.vertices.map(vertex => ({ x: vertex.y, y: vertex.x }))));
-      patch.image.setAttribute('transform', patchMatrix(patch, phase));
+      patch.vertices = verticesFor(patch.row, patch.half === 0 ? west : fold, patch.half === 0 ? fold : east, patch.triangle);
+      patch.polygon.setAttribute('points', clipPoints(patch.vertices));
+      patch.image.setAttribute('transform', patchMatrix(patch, phase, rightward));
     });
     svg.setAttribute('data-phase', phase.toFixed(6));
   };
@@ -232,7 +246,7 @@ export function createSphere(
     if (!canRun()) { previousTime = null; return; }
     if (previousTime !== null) phase = (phase + Math.min(time - previousTime, 100) * TAU / (seconds * 1000)) % TAU;
     previousTime = time;
-    if (time - previousPaint >= 1000 / 20) { paint(); previousPaint = time; }
+    if (time - previousPaint >= 1000 / (rightward ? 30 : 20)) { paint(); previousPaint = time; }
     frame = requestAnimationFrame(tick);
   }
 

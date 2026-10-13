@@ -12,7 +12,7 @@ import ProductsSection from "./components/ProductsSection";
 import SuccessStoriesSection from "./components/SuccessStoriesSection";
 import AiSolutionsSection from "./components/AiSolutionsSection";
 import ReadyToBuildSection from "./components/ReadyToBuildSection";
-import ScrollToTop from "./components/ScrollToTop";
+
 export default function HomeMain() {
   return (
     <HomeAnimationActivity>
@@ -49,7 +49,7 @@ export default function HomeMain() {
 
       <ReadyToBuildSection />
 
-      <ScrollToTop />
+
     </HomeAnimationActivity>
   );
 }

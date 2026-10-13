@@ -1,5 +1,8 @@
+"use client";
+
 import React from 'react';
 import { Zap, ShieldCheck, TrendingUp } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const techRows = [
   // Row 1: Core Technologies (9 items - fills container width)
@@ -27,7 +30,7 @@ const techRows = [
 
 export default function WebDevTechStack() {
   return (
-    <section className="py-12 lg:py-16 relative overflow-hidden bg-[#020205]">
+    <section className="py-16 sm:py-20 lg:py-20 xl:py-24 relative overflow-hidden bg-[#020205] border-t border-white/5">
 
       {/* Background Shapes */}
       <img
@@ -41,13 +44,19 @@ export default function WebDevTechStack() {
         className="absolute top-10 right-6 w-[400px] md:w-[500px] lg:w-[150px] opacity-40 pointer-events-none rotate-180 -translate-y-[40%] translate-x-[20%]"
       />
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
 
         {/* Header Row */}
         <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-8 xl:gap-4 mb-10 lg:mb-12">
 
           {/* Left Text */}
-          <div className="flex flex-col items-start w-full xl:w-auto overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col items-start w-full xl:w-auto overflow-hidden"
+          >
             <div className="flex items-center gap-3 mb-5">
               <span className="text-slate-200 text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-[750] tracking-[0.25em] uppercase">
                 TECHNOLOGY STACK
@@ -62,10 +71,16 @@ export default function WebDevTechStack() {
             <p className="text-slate-200 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.6] max-w-[600px]">
               As a Web Development Company, once we've thought a project through, we build it with whichever industry-leading tools and frameworks fit best — chosen to grow with the business, not lock it in.
             </p>
-          </div>
+          </motion.div>
 
           {/* Right Features */}
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 lg:gap-6 shrink-0">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-3.5 sm:gap-4 lg:gap-6 shrink-0"
+          >
             {/* Feature 1 */}
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 lg:w-10 lg:h-10 rounded-full bg-[#0a0407] shadow-[inset_0_1px_3px_rgba(255,0,85,0.4)] border border-[#FF0055]/20 flex items-center justify-center relative shrink-0">
@@ -105,7 +120,7 @@ export default function WebDevTechStack() {
                 <span className="text-slate-300 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] mt-0.5 whitespace-nowrap">Future Ready</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Downward Pyramid Tech Stack Cards */}
@@ -115,10 +130,19 @@ export default function WebDevTechStack() {
               key={`tech-row-${rowIndex}`}
               className="flex flex-wrap justify-center items-center gap-2 sm:gap-2.5 lg:gap-3 xl:gap-3.5 w-full"
             >
-              {row.map((tech) => (
-                <div
+              {row.map((tech, colIndex) => (
+                <motion.div
                   key={tech.name}
-                  className="flex flex-col items-center justify-center w-[76px] h-[84px] sm:w-[84px] sm:h-[92px] md:w-[92px] md:h-[98px] lg:w-[98px] lg:h-[104px] xl:w-[106px] xl:h-[110px] [@media(min-width:1920px)]:w-[112px] [@media(min-width:1920px)]:h-[116px] bg-[#05050A] rounded-[14px] lg:rounded-[16px] shadow-[0_0_15px_rgba(255,0,85,0.02)] relative group overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_22px_rgba(255,0,85,0.18)]"
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.1 }}
+                  transition={{
+                    duration: 0.45,
+                    delay: (rowIndex * 9 + colIndex) * 0.04,
+                    ease: "easeOut",
+                  }}
+                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                  className="flex flex-col items-center justify-center w-[76px] h-[84px] sm:w-[84px] sm:h-[92px] md:w-[92px] md:h-[98px] lg:w-[98px] lg:h-[104px] xl:w-[106px] xl:h-[110px] [@media(min-width:1920px)]:w-[112px] [@media(min-width:1920px)]:h-[116px] bg-[#05050A] rounded-[14px] lg:rounded-[16px] shadow-[0_0_15px_rgba(255,0,85,0.02)] relative group overflow-hidden cursor-default transition-all duration-300 hover:shadow-[0_0_22px_rgba(255,0,85,0.18)]"
                 >
                   {/* Animated Border Mask */}
                   <div
@@ -148,7 +172,7 @@ export default function WebDevTechStack() {
                       {tech.name}
                     </span>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           ))}

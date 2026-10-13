@@ -1,9 +1,12 @@
+"use client";
+
 import React from 'react';
 import { ArrowRight, MessageSquareText, Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function WebDevCost() {
   return (
-    <section className="py-10 lg:py-16 bg-[#020205] relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-20 xl:py-24 bg-[#020205] relative overflow-hidden">
       
       {/* Decorative Gradients */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#FF0055]/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
@@ -15,7 +18,13 @@ export default function WebDevCost() {
       <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8">
         
         {/* Left Content */}
-        <div className="w-full lg:w-[56%] xl:w-[55%] flex flex-col items-start relative z-20">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="w-full lg:w-[56%] xl:w-[55%] flex flex-col items-start relative z-20"
+        >
           
           <div className="flex items-center gap-3 mb-4">
             <span className="text-slate-200 text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-[750] tracking-[0.25em] uppercase">
@@ -87,11 +96,16 @@ export default function WebDevCost() {
             </div>
           </div>
           
-        </div>
+        </motion.div>
 
         {/* Right Content - 3D Illustration Placeholder */}
-        <div className="w-full lg:w-[44%] xl:w-[45%] relative flex justify-center lg:justify-end items-center">
-          
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, x: 30 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.65, ease: "easeOut" }}
+          className="w-full lg:w-[44%] xl:w-[45%] relative flex justify-center lg:justify-end items-center"
+        >
           {/* Subtle glow behind the image */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] bg-[#FF0055]/20 rounded-full blur-[100px] pointer-events-none" />
           
@@ -125,7 +139,7 @@ export default function WebDevCost() {
             </div>
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>

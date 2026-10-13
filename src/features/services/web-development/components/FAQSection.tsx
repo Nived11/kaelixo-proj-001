@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MessageSquare, ShieldCheck, Users, ChevronDown, ChevronUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function FAQSection() {
   // First item open by default
@@ -57,61 +58,93 @@ export default function FAQSection() {
   ];
 
   return (
-    <div className="relative bg-[#ffffff] text-[#030C25] py-16 overflow-hidden border-t border-gray-100">
+    <div className="relative bg-[#ffffff] text-[#030C25] py-16 sm:py-20 lg:py-20 xl:py-24 overflow-hidden border-t border-gray-100">
       
       {/* Background Soft Blobs */}
       <div className="absolute top-0 left-[-5%] w-[30%] h-[400px] bg-rose-50 blur-[100px] rounded-full pointer-events-none"></div>
       <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[500px] bg-pink-50/50 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 relative z-10">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 xl:gap-12 items-start">
           
-          {/* LEFT COLUMN: Title & Features */}
-          <div className="lg:col-span-5 flex flex-col items-start">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-[2px] bg-[#FF0055]"></div>
-              <span className="text-gray-500 font-bold text-[12px] sm:text-[13px] lg:text-[18px] xl:text-[18px] tracking-[0.25em] uppercase">FREQUENTLY ASKED QUESTIONS</span>
+          {/* TOP / LEFT COLUMN: Title & Features */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="xl:col-span-5 flex flex-col items-start w-full"
+          >
+            <div className="mb-4">
+              <span className="text-gray-700 font-[750] text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] tracking-[0.2em] uppercase">
+                FREQUENTLY ASKED{' '}
+                <span className="inline-flex items-center gap-3 whitespace-nowrap">
+                  QUESTIONS
+                  <span className="inline-block w-8 h-[2px] bg-[#FF0055] shrink-0" />
+                </span>
+              </span>
             </div>
             
-            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[38px] xl:text-[42px] 2xl:text-[46px] font-extrabold leading-[1.05] tracking-tight mb-5 font-heading">
-              Got Questions? <br />
-              <span className="text-[#FF0055]">We've Got Answers.</span>
+            <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.16] tracking-[-1.3px] mb-5 font-heading">
+              <span className="block sm:inline">Got Questions? </span>
+              <span className="block text-[#FF0055]">We've Got Answers.</span>
             </h2>
             
-            <p className="text-[#475569] text-[16px] leading-[1.6] max-w-md mb-10">
+            <p className="text-gray-700 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.6] max-w-xl mb-8 xl:mb-10">
               Common questions about our web development company's services, process and support.
             </p>
 
-            {/* Features Row */}
-            <div className="flex flex-col sm:flex-row gap-6 mb-12">
+            {/* Features List - Line by Line across all devices */}
+            <div className="flex flex-col gap-6 mb-8 xl:mb-10 w-full">
               {features.map((feature, idx) => (
-                <div key={idx} className="flex flex-col gap-2.5 max-w-[130px]">
-                  <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center text-[#FF0055]">
-                    <feature.icon size={18} strokeWidth={2.5} />
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={{ duration: 0.45, delay: idx * 0.1 }}
+                  className="flex flex-col items-start gap-1.5"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-[#FF0055] to-[#FF6699] flex items-center justify-center text-white shrink-0 shadow-[0_2px_8px_rgba(255,0,85,0.25)] ring-2 ring-pink-100">
+                      <feature.icon size={18} strokeWidth={2.5} />
+                    </div>
+                    <h4 className="text-[16px] sm:text-[16px] lg:text-[17px] xl:text-[18px] font-bold text-[#030C25] leading-tight">
+                      {feature.title}
+                    </h4>
                   </div>
-                  <div>
-                    <h4 className="text-[13px] font-bold text-[#030C25] mb-1 leading-tight">{feature.title}</h4>
-                    <p className="text-[11px] text-gray-500 font-medium leading-relaxed">{feature.desc}</p>
-                  </div>
-                </div>
+                  <p className="text-[14px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed text-gray-700 font-medium pl-12 sm:pl-[52px]">
+                    {feature.desc}
+                  </p>
+                </motion.div>
               ))}
             </div>
 
             {/* Bottom Footer Line */}
-            <div className="flex items-center gap-2.5 text-[9px] font-bold tracking-widest text-gray-400 uppercase">
+            {/* <div className="flex items-center gap-2.5 text-[9px] font-bold tracking-widest text-gray-400 uppercase">
               THINK <span className="text-[#FF0055]">—</span> BUILD <span className="text-[#FF0055]">—</span> GROW
-            </div>
-          </div>
+            </div> */}
+          </motion.div>
 
-          {/* RIGHT COLUMN: Accordion FAQ */}
-          <div className="lg:col-span-7 flex flex-col gap-3">
+          {/* BOTTOM / RIGHT COLUMN: Accordion FAQ */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="xl:col-span-7 flex flex-col gap-3 w-full"
+          >
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
               const formattedNumber = (index + 1).toString().padStart(2, "0");
 
               return (
-                <div 
+                <motion.div 
                   key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.1 }}
+                  transition={{ duration: 0.45, delay: index * 0.06 }}
                   onClick={() => toggleFAQ(index)}
                   className={`border rounded-2xl cursor-pointer transition-all duration-300 overflow-hidden ${
                     isOpen 
@@ -122,14 +155,16 @@ export default function FAQSection() {
                   <div className="p-4 flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                       {/* Number Badge */}
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-bold shrink-0 transition-colors ${
-                        isOpen ? 'bg-[#FF0055] text-white shadow-md shadow-pink-200' : 'bg-gray-100 text-gray-500'
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-bold shrink-0 transition-all ${
+                        isOpen 
+                          ? 'bg-gradient-to-r from-[#80002A] to-[#FF0055] text-white shadow-md shadow-pink-300' 
+                          : 'bg-rose-50 text-[#FF0055] border border-pink-200/80 font-extrabold'
                       }`}>
                         {formattedNumber}
                       </div>
                       
                       {/* Question Text */}
-                      <h3 className={`text-[14px] font-bold transition-colors ${isOpen ? 'text-[#030C25]' : 'text-[#030C25]'}`}>
+                      <h3 className={`text-[16px] sm:text-[16px] lg:text-[17px] xl:text-[18px] font-bold transition-colors ${isOpen ? 'text-[#030C25]' : 'text-[#030C25]'}`}>
                         {faq.question}
                       </h3>
                     </div>
@@ -141,19 +176,28 @@ export default function FAQSection() {
                   </div>
 
                   {/* Expandable Answer */}
-                  <div 
-                    className={`transition-all duration-300 ease-in-out ${
-                      isOpen ? 'max-h-[200px] opacity-100 pb-5 pt-0' : 'max-h-0 opacity-0 py-0'
-                    }`}
-                  >
-                    <p className="text-[13px] text-[#475569] font-medium leading-relaxed pl-[60px] pr-5">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="faq-content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-5 sm:pb-6 pt-0 pl-[60px] pr-4 sm:pr-6">
+                          <p className="text-[14px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed text-[#475569] font-medium">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
         </div>
       </div>

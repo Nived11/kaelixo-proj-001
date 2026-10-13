@@ -1,4 +1,7 @@
+"use client";
+
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Lightbulb, Code2, Rocket, PenTool, Smartphone, LifeBuoy, ArrowRight, Globe } from 'lucide-react';
 
 export default function WebDevApproach() {
@@ -36,12 +39,18 @@ export default function WebDevApproach() {
   ];
 
   return (
-    <section className="py-16 lg:py-20 relative overflow-hidden bg-white">
+    <section className="py-16 sm:py-20 lg:py-20 xl:py-24 relative overflow-hidden bg-white">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-8 items-center">
 
           {/* Left Column */}
-          <div className="flex flex-col items-start pr-0 xl:pr-10 relative z-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col items-start pr-0 xl:pr-10 relative z-20"
+          >
             <div className="mb-[18px] flex items-center gap-[14px] text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-[750] tracking-[.25em] text-gray-700 [&>span]:h-[2px] [&>span]:w-[30px] [&>span]:bg-[#ff0055] max-md:mb-3 max-md:tracking-[.23em] max-md:[&>span]:w-6">
               OUR APPROACH<span />
             </div>
@@ -57,7 +66,14 @@ export default function WebDevApproach() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-x-6 gap-y-7 mb-8 w-full">
               {steps.map(({ icon: Icon, title, desc }, idx) => (
-                <div key={idx} className="flex items-start gap-3.5">
+                <motion.div 
+                  key={idx} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.15 }}
+                  transition={{ duration: 0.45, delay: idx * 0.08, ease: "easeOut" }}
+                  className="flex items-start gap-3.5"
+                >
                   <div className="w-[42px] h-[42px] shrink-0 rounded-full bg-pink-50 flex items-center justify-center">
                     <div className="w-[28px] h-[28px] rounded-full flex items-center justify-center bg-gradient-to-br from-[#D40047] to-[#FF0055] border border-[#FF3377] shadow-[0_3px_8px_rgba(255,0,85,0.3)] text-white">
                       <Icon className="w-[14px] h-[14px]" strokeWidth={2.5} />
@@ -67,7 +83,7 @@ export default function WebDevApproach() {
                     <h4 className="text-[#020205] text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[18px] font-bold mb-1 leading-tight">{title}</h4>
                     <p className="text-gray-700 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed pr-2">{desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
@@ -75,11 +91,17 @@ export default function WebDevApproach() {
               Let's Build Your Website
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
-          </div>
+          </motion.div>
 
           {/* Right Column - Graphics Mockup */}
-          <div className="relative w-full h-[350px] lg:h-[420px] xl:h-[420px] flex items-center justify-center mt-12 xl:mt-0">
-            
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            className="relative w-full h-[350px] lg:h-[420px] xl:h-[420px] flex items-center justify-center mt-12 xl:mt-0"
+          >
+
             {/* Background Decoration (Multiple Overlapping Pink Shapes) */}
             <div className="absolute top-[-10%] right-[-10%] w-[550px] lg:w-[500px] aspect-square bg-[#FFF0F5] rounded-full z-0 pointer-events-none" />
             <div className="absolute top-[38%] left-[-15%] lg:left-[-2%] w-[300px] lg:w-[350px] aspect-square bg-[#FFE5EE] rounded-full z-0 pointer-events-none" />
@@ -91,8 +113,9 @@ export default function WebDevApproach() {
 
             {/* Mockups Container */}
             <div className="relative w-full max-w-[580px] h-full flex items-center justify-center">
-              
-              <style dangerouslySetInnerHTML={{__html: `
+
+              <style dangerouslySetInnerHTML={{
+                __html: `
                 @keyframes float-gentle-1 {
                   0%, 100% { transform: translateY(0px); }
                   50% { transform: translateY(-8px); }
@@ -119,7 +142,7 @@ export default function WebDevApproach() {
 
               {/* Code editor side panel peek (Behind Laptop, Left) */}
               <div className="absolute left-[-5%] sm:left-[8%] top-[15%] sm:top-[20%] z-10 animate-float-2">
-                <div 
+                <div
                   className="w-[160px] sm:w-[200px] h-[140px] sm:h-[170px] bg-[#1E1E1E] rounded-xl shadow-[15px_20px_40px_rgba(0,0,0,0.4)] border border-slate-700 overflow-hidden flex flex-col"
                   style={{ transform: "perspective(800px) rotateY(20deg) rotateX(5deg) rotateZ(-3deg)" }}
                 >
@@ -148,9 +171,9 @@ export default function WebDevApproach() {
               <div className="absolute bottom-[0%] lg:bottom-[3%] right-[2%] lg:right-[5%] w-[75%] h-[15px] sm:h-[25px] bg-slate-400/40 rounded-[100%] blur-[12px] z-10 pointer-events-none" />
 
               {/* Main Laptop Image */}
-              <img 
-                src="/images/services/web-dev/laptop.webp" 
-                alt="Laptop Web Development" 
+              <img
+                src="/images/services/web-dev/laptop.webp"
+                alt="Laptop Web Development"
                 className="relative z-20 w-[100%] sm:w-[105%] max-w-none object-contain translate-x-[5%] lg:translate-x-[8%] animate-float-1"
               />
 
@@ -158,9 +181,9 @@ export default function WebDevApproach() {
               <div className="absolute bottom-[-4%] sm:bottom-[-1%] left-[5%] sm:left-[12%] w-[80px] sm:w-[140px] h-[10px] sm:h-[15px] bg-slate-400/40 rounded-[100%] blur-[8px] z-20 pointer-events-none" />
 
               {/* Mobile Mockup Image (Foreground left) */}
-              <img 
-                src="/images/services/web-dev/mobile.webp" 
-                alt="Mobile Web Development" 
+              <img
+                src="/images/services/web-dev/mobile.webp"
+                alt="Mobile Web Development"
                 className="absolute bottom-[-2%] sm:bottom-[2%] left-[2%] sm:left-[10%] w-[100px] sm:w-[180px] object-contain z-30 animate-float-2"
               />
 
@@ -177,7 +200,7 @@ export default function WebDevApproach() {
 
             </div>
 
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

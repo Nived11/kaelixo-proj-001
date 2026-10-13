@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const allProjects = [
   // Page 1 (01 / 04)
@@ -196,7 +197,7 @@ export default function WebDevProjects() {
   );
 
   return (
-    <section ref={sectionRef} className="py-6 lg:py-8 bg-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 sm:py-20 lg:py-20 xl:py-24 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[50%] bg-[#FF0055]/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
@@ -206,7 +207,13 @@ export default function WebDevProjects() {
         
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 mb-6">
-          <div className="max-w-[700px]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="max-w-[700px]"
+          >
             <div className="flex items-center gap-3 mb-2">
               <span className="text-gray-700 font-[750] text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] tracking-[0.2em] uppercase">
                 CASE STUDIES
@@ -222,9 +229,15 @@ export default function WebDevProjects() {
             <p className="text-gray-700 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.6] max-w-[500px]">
               Explore some of the websites we've built and see how strategic design and technology helped businesses grow.
             </p>
-          </div>
+          </motion.div>
           
-          <div className="flex flex-col items-start lg:items-end gap-3 shrink-0 mt-2 lg:mt-0">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="flex flex-col items-start lg:items-end gap-3 shrink-0 mt-2 lg:mt-0"
+          >
             <button className="group bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white px-6 py-2.5 rounded-full font-bold text-[16px] transition-all duration-300 flex items-center gap-2 hover:-translate-y-1">
               View All Projects
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -250,15 +263,20 @@ export default function WebDevProjects() {
                 {String(currentPage + 1).padStart(2, '0')} / {String(totalPages).padStart(2, '0')}
               </span>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Projects Grid (Shows 4 projects on tablet as 2x2, 3 projects on mobile/desktop) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
           {currentProjects.map((project, idx) => (
-            <div 
+            <motion.div 
               key={`${project.title}-${idx}`} 
-              className="bg-white rounded-[20px] sm:rounded-[24px] border border-slate-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(255,0,85,0.1)] overflow-hidden group hover:-translate-y-1.5 transition-all duration-500 flex flex-col"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: (idx % 3) * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="bg-white rounded-[20px] sm:rounded-[24px] border border-slate-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(255,0,85,0.1)] overflow-hidden group transition-all duration-500 flex flex-col"
             >
               {/* Image Section */}
               <div className="w-full aspect-[2/1] relative overflow-hidden bg-slate-100 shrink-0">
@@ -305,12 +323,18 @@ export default function WebDevProjects() {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Mobile & Tablet Pagination Controls (Placed BELOW the 3 cards, CENTERED) */}
-        <div className="flex lg:hidden justify-center items-center gap-3 mt-7 sm:mt-8">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="flex lg:hidden justify-center items-center gap-3 mt-7 sm:mt-8"
+        >
           <button 
             onClick={handlePrev}
             className="group w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-[#FF3377] hover:bg-gradient-to-r hover:from-[#80002A] hover:to-[#FF0055] flex items-center justify-center text-[#05050A] hover:text-white transition-all duration-300 shadow-sm active:scale-95 cursor-pointer"
@@ -328,7 +352,7 @@ export default function WebDevProjects() {
           <span className="text-gray-700 font-semibold text-[15px] sm:text-[16px] tracking-widest ml-2 select-none">
             {String(currentPage + 1).padStart(2, '0')} / {String(totalPages).padStart(2, '0')}
           </span>
-        </div>
+        </motion.div>
 
       </div>
     </section>

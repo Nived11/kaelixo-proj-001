@@ -1,0 +1,6 @@
+/* Keep existing animation timelines, but stop work outside the viewport. */
+.page section[data-animation-active='false'] *,
+.page section[data-animation-active='false'] *::before,
+.page section[data-animation-active='false'] *::after {
+  animation-play-state: paused !important;
+}

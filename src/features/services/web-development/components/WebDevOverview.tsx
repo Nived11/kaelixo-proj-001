@@ -1,4 +1,7 @@
+"use client";
+
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, Code2, Box, ShoppingCart, FileText, Settings, LineChart, ShieldCheck, ImageIcon } from 'lucide-react';
 import { FaWordpress, FaShopify, FaJoomla } from 'react-icons/fa';
 
@@ -26,9 +29,24 @@ function ServiceMock({ kind }: { kind: string }) {
 
 export default function WebDevOverview() {
   return (
-    <section className="relative z-20 -mt-8 overflow-hidden rounded-t-[40px] border-t border-[#e9eef7] bg-[#f8faff] py-[72px] pb-16 text-[#07080c] max-md:rounded-t-[28px] max-md:py-10" aria-labelledby="web-development-overview">
+    <section 
+      className="relative z-20 -mt-8 overflow-hidden rounded-t-[40px] border-t border-[#e9eef7] bg-[#f8faff] py-16 sm:py-20 lg:py-20 xl:py-24 text-[#07080c] max-md:rounded-t-[28px]" 
+      aria-labelledby="web-development-overview"
+      style={{
+        transform: 'translate3d(0, 0, 0)',
+        WebkitTransform: 'translate3d(0, 0, 0)',
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden',
+      }}
+    >
       <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-[1.12fr_1.05fr_auto] items-center gap-14 max-[1399px]:gap-[30px] max-[1279px]:grid-cols-[1fr_auto] max-[1279px]:gap-y-6 max-[1279px]:gap-x-7 max-md:flex max-md:flex-col max-md:items-start max-md:gap-[18px]">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="grid grid-cols-[1.12fr_1.05fr_auto] items-center gap-14 max-[1399px]:gap-[30px] max-[1279px]:grid-cols-[1fr_auto] max-[1279px]:gap-y-6 max-[1279px]:gap-x-7 max-md:flex max-md:flex-col max-md:items-start max-md:gap-[18px]"
+        >
           <div className="max-[1279px]:col-start-1 max-[1279px]:row-start-1">
             <div className="mb-[18px] flex items-center gap-[14px] text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-[750] tracking-[.25em] text-gray-700 [&>span]:h-[2px] [&>span]:w-[30px] [&>span]:bg-[#ff0055] max-md:mb-3 max-md:tracking-[.23em] max-md:[&>span]:w-6">
               OVERVIEW<span />
@@ -38,20 +56,35 @@ export default function WebDevOverview() {
             </h2>
           </div>
           <p className="m-0 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.65] text-gray-700 max-[1279px]:col-start-1 max-[1279px]:row-start-2 max-[1279px]:max-w-[700px]">
-           Before we build, we understand how your business works.Kaelixo thinks strategically, builds smart, and grows with you.
+            Before we build, we understand how your business works.Kaelixo thinks strategically, builds smart, and grows with you.
           </p>
           <a href="#contact" className="group flex items-center justify-center gap-[14px] whitespace-nowrap rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] px-7 py-[16px] text-[16px] sm:text-[16px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] font-[650] text-white transition-all duration-300 hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none max-[1279px]:col-start-2 max-[1279px]:row-start-1 max-[1279px]:row-span-2 max-[1279px]:self-end max-[1279px]:mb-1 max-[1279px]:w-max max-md:gap-3 max-md:px-6 max-md:py-[13px] max-md:self-start max-md:mb-0">
             Start Your Project<ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
           </a>
-        </div>
-        <div className="mt-[54px] mb-[46px] flex items-center justify-between gap-[30px] px-[6%] [&>div]:flex [&>div]:items-center [&>div]:gap-7 [&_strong]:font-[750] [&_strong]:leading-[1.15] [&_strong]:tracking-[-1.3px] [&_strong]:text-[#ff0055] [&_span]:leading-[1.4] [&_span]:text-gray-700 max-[1399px]:px-[3%] max-[1399px]:[&>div]:gap-[18px] max-[1279px]:gap-5 max-[1279px]:px-0 max-[1279px]:[&>div]:gap-3 max-md:my-7 max-md:grid max-md:grid-cols-2 max-md:gap-x-[22px] max-md:gap-y-[18px] max-md:[&>div]:flex-col max-md:[&>div]:items-start max-md:[&>div]:gap-[3px] max-md:[&>div:last-child]:col-span-2 max-md:[&>div:last-child]:flex-row max-md:[&>div:last-child]:items-center max-md:[&>div:last-child]:gap-[18px] max-md:[&>div:last-child>span]:max-w-[150px]" aria-label="Our results">
+        </motion.div>
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+          className="mt-[54px] mb-[46px] flex items-center justify-between gap-[30px] px-[6%] [&>div]:flex [&>div]:items-center [&>div]:gap-7 [&_strong]:font-[750] [&_strong]:leading-[1.15] [&_strong]:tracking-[-1.3px] [&_strong]:text-[#ff0055] [&_span]:leading-[1.4] [&_span]:text-gray-700 max-[1399px]:px-[3%] max-[1399px]:[&>div]:gap-[18px] max-[1279px]:gap-5 max-[1279px]:px-0 max-[1279px]:[&>div]:gap-3 max-md:my-6 max-md:flex max-md:flex-col max-md:items-start max-md:gap-3.5 max-md:[&>div]:flex-row max-md:[&>div]:items-center max-md:[&>div]:gap-4 max-md:[&_strong]:min-w-[56px] max-md:[&_strong]:shrink-0" 
+          aria-label="Our results"
+        >
           <div><strong className="text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[32px] 2xl:text-[32px] [@media(min-width:1920px)]:text-[32px]">100+</strong><span className="text-[14px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px]">Web Projects Delivered</span></div>
           <div><strong className="text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[32px] 2xl:text-[32px] [@media(min-width:1920px)]:text-[32px]">98%</strong><span className="text-[14px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px]">Client Satisfaction</span></div>
           <div><strong className="text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[32px] 2xl:text-[32px] [@media(min-width:1920px)]:text-[32px]">3x</strong><span className="text-[14px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px]">Average Increase in Conversions</span></div>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-3 gap-x-4 gap-y-5 max-[1279px]:grid-cols-2 max-md:grid-cols-1 max-md:gap-3">
-          {services.map(({ icon: Icon, title, lines, mock, colors }) => (
-            <article className="relative md:max-[1279px]:flex md:max-[1279px]:flex-col h-[264px] md:max-[1279px]:h-auto min-[1500px]:h-[274px] max-md:min-h-[220px] max-md:h-auto max-md:pb-[120px] max-md:block min-w-0 rounded-[20px] border border-[#e6edf9] bg-white/95 p-[22px] shadow-[0_8px_24px_#92a6c005] min-[1500px]:p-6 max-md:rounded-2xl max-md:p-[14px]" key={mock}>
+          {services.map(({ icon: Icon, title, lines, mock, colors }, idx) => (
+            <motion.article 
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.45, delay: (idx % 3) * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="relative md:max-[1279px]:flex md:max-[1279px]:flex-col h-[264px] md:max-[1279px]:h-auto min-[1500px]:h-[274px] max-md:min-h-[220px] max-md:h-auto max-md:pb-[120px] max-md:block min-w-0 rounded-[20px] border border-[#e6edf9] bg-white/95 p-[22px] shadow-[0_8px_24px_#92a6c005] min-[1500px]:p-6 max-md:rounded-2xl max-md:p-[14px]" 
+              key={mock}
+            >
               <div className="mb-[15px] flex min-h-[64px] items-center gap-5 max-md:mb-2 max-md:min-h-[46px] max-md:gap-[10px]">
                 <div className={`flex size-[64px] shrink-0 items-center justify-center rounded-[18px] ${colors.outer} max-md:size-[46px] max-md:rounded-[14px]`}>
                   <div className={`flex size-[42px] items-center justify-center rounded-[12px] ${colors.inner} text-white ${colors.shadow} max-md:size-[30px] max-md:rounded-[9px] max-md:[&>svg]:size-[16px]`}>
@@ -71,7 +104,7 @@ export default function WebDevOverview() {
               <a href="#contact" className="absolute md:max-[1279px]:relative bottom-6 left-[22px] md:max-[1279px]:bottom-auto md:max-[1279px]:left-auto md:max-[1279px]:mt-auto md:max-[1279px]:self-start z-[1] flex items-center gap-[10px] text-[16px] font-semibold text-[#ff0055] transition-[gap] hover:gap-[14px] min-[1500px]:left-6 max-md:bottom-[22px] max-md:left-[18px]">
                 Learn More<ArrowRight size={16} />
               </a>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
