@@ -23,13 +23,13 @@ const allProjects = [
     image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=2070&auto=format&fit=crop",
     stats: [
       { value: "4x", label: "Storytelling Reach" },
-      { value: "98%", label: "Satisfaction Rate" },
+      { value: "100%", label: "Satisfaction Rate" },
       { value: "0", label: "Templates Used" }
     ]
   },
   {
     category: "HEALTHCARE & CLINICS",
-    title: "Women's Hospital Website",
+    title: "Wishbloom",
     desc: "A custom-built site praised by the client for its responsiveness and smoothness.",
     image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop",
     stats: [
