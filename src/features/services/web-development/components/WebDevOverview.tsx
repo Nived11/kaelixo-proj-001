@@ -1,17 +1,18 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code2, Box, ShoppingCart, FileText, Settings, LineChart, ShieldCheck, ImageIcon } from 'lucide-react';
 import { FaWordpress, FaShopify, FaJoomla } from 'react-icons/fa';
 
 const services = [
-  { icon: Code2, title: ['Custom Website', 'Development'], lines: ['Websites designed and built around', 'your specific business model,', 'not a template.'], mock: 'wireframe', colors: { outer: 'bg-[#f4f0ff]', inner: 'bg-[#7C3AED]', shadow: 'shadow-[0_4px_10px_rgba(124,58,237,0.25)]' } },
-  { icon: Box, title: ['Web Application', 'Development'], lines: ['Scalable, functional web apps built', 'to handle real workflows and', 'real users.'], mock: 'dashboard', colors: { outer: 'bg-[#eef5ff]', inner: 'bg-[#0066FF]', shadow: 'shadow-[0_4px_10px_rgba(0,102,255,0.25)]' } },
-  { icon: ShoppingCart, title: ['E-commerce', 'Solutions'], lines: ['Storefronts built for conversion —', 'fast checkout, clean product', 'discovery, mobile-first.'], mock: 'ecommerce', colors: { outer: 'bg-[#fff5f0]', inner: 'bg-[#FF6B00]', shadow: 'shadow-[0_4px_10px_rgba(255,107,0,0.25)]' } },
-  { icon: FileText, title: ['CMS Development'], lines: ['Content systems your team can', 'actually manage, without', 'depending on a developer.'], mock: 'cms', colors: { outer: 'bg-[#eefcfa]', inner: 'bg-[#00A896]', shadow: 'shadow-[0_4px_10px_rgba(0,168,150,0.25)]' } },
-  { icon: Settings, title: ['Website Maintenance &', 'Support'], lines: ["Ongoing upkeep so what we've built", 'keeps growing with your business —', 'long after launch.'], mock: 'maintenance', colors: { outer: 'bg-[#f0f2ff]', inner: 'bg-[#4F46E5]', shadow: 'shadow-[0_4px_10px_rgba(79,70,229,0.25)]' } },
-  { icon: LineChart, title: ['Performance', 'Optimization'], lines: ['Speed and stability tuned for both', 'user experience and search', 'visibility.'], mock: 'performance', colors: { outer: 'bg-[#fff0f8]', inner: 'bg-[#ff0055]', shadow: 'shadow-[0_4px_10px_rgba(255,0,85,0.18)]' } },
+  { icon: Code2, title: ['Custom Website', 'Development'], lines: ['Websites designed and built around', 'your specific business model,', 'not a template.'], mock: 'wireframe', link: '/services/web-development/custom-webdevelopment', colors: { outer: 'bg-[#f4f0ff]', inner: 'bg-[#7C3AED]', shadow: 'shadow-[0_4px_10px_rgba(124,58,237,0.25)]' } },
+  { icon: Box, title: ['Web Application', 'Development'], lines: ['Scalable, functional web apps built', 'to handle real workflows and', 'real users.'], mock: 'dashboard', link: '#contact', colors: { outer: 'bg-[#eef5ff]', inner: 'bg-[#0066FF]', shadow: 'shadow-[0_4px_10px_rgba(0,102,255,0.25)]' } },
+  { icon: ShoppingCart, title: ['E-commerce', 'Solutions'], lines: ['Storefronts built for conversion —', 'fast checkout, clean product', 'discovery, mobile-first.'], mock: 'ecommerce', link: '#contact', colors: { outer: 'bg-[#fff5f0]', inner: 'bg-[#FF6B00]', shadow: 'shadow-[0_4px_10px_rgba(255,107,0,0.25)]' } },
+  { icon: FileText, title: ['CMS Development'], lines: ['Content systems your team can', 'actually manage, without', 'depending on a developer.'], mock: 'cms', link: '#contact', colors: { outer: 'bg-[#eefcfa]', inner: 'bg-[#00A896]', shadow: 'shadow-[0_4px_10px_rgba(0,168,150,0.25)]' } },
+  { icon: Settings, title: ['Website Maintenance &', 'Support'], lines: ["Ongoing upkeep so what we've built", 'keeps growing with your business —', 'long after launch.'], mock: 'maintenance', link: '#contact', colors: { outer: 'bg-[#f0f2ff]', inner: 'bg-[#4F46E5]', shadow: 'shadow-[0_4px_10px_rgba(79,70,229,0.25)]' } },
+  { icon: LineChart, title: ['Performance', 'Optimization'], lines: ['Speed and stability tuned for both', 'user experience and search', 'visibility.'], mock: 'performance', link: '#contact', colors: { outer: 'bg-[#fff0f8]', inner: 'bg-[#ff0055]', shadow: 'shadow-[0_4px_10px_rgba(255,0,85,0.18)]' } },
 ];
 
 function WindowBar() { return <div className="flex h-5 items-center gap-[5px] bg-gradient-to-r from-white to-[#f3f6f9] px-[10px] [&>i]:block [&>i]:size-2 [&>i]:rounded-full [&>i]:bg-[#dbe2ec] [&>i:first-child]:bg-[#ff4991]"><i /><i /><i /></div> }
@@ -75,7 +76,7 @@ export default function WebDevOverview() {
           <div><strong className="text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[32px] 2xl:text-[32px] [@media(min-width:1920px)]:text-[32px]">3x</strong><span className="text-[14px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px]">Average Increase in Conversions</span></div>
         </motion.div>
         <div className="grid grid-cols-3 gap-x-4 gap-y-5 max-[1279px]:grid-cols-2 max-md:grid-cols-1 max-md:gap-3">
-          {services.map(({ icon: Icon, title, lines, mock, colors }, idx) => (
+          {services.map(({ icon: Icon, title, lines, mock, colors, link }, idx) => (
             <motion.article 
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -101,9 +102,9 @@ export default function WebDevOverview() {
               <div className={`absolute md:max-[1279px]:relative md:max-[1279px]:self-center md:max-[1279px]:mt-8 md:max-[1279px]:mb-6 origin-bottom-right md:max-[1279px]:origin-center text-[#08090d] w-[154px] sm:w-[154px] md:w-[160px] lg:w-[165px] xl:w-[172px] 2xl:w-[180px] [@media(min-width:1920px)]:w-[190px] scale-[.80] sm:scale-[.85] md:scale-[.85] lg:scale-[1] xl:scale-[.80] 2xl:scale-[.85] [@media(min-width:1920px)]:scale-[.90] right-5 sm:right-6 md:max-[1279px]:right-auto xl:right-6 2xl:right-8 [@media(min-width:1920px)]:right-10 bottom-[22px] sm:bottom-[24px] md:max-[1279px]:bottom-auto xl:bottom-2 2xl:bottom-3 [@media(min-width:1920px)]:bottom-4 ${mock === 'cms' ? '!bottom-[45px] sm:!bottom-[50px] md:max-[1279px]:!bottom-auto xl:!bottom-[20px] 2xl:!bottom-[20px] [@media(min-width:1920px)]:!bottom-[20px] !w-[186px] sm:!w-[190px] md:!w-[220px] lg:!w-[280px] xl:!w-[220px] 2xl:!w-[220px] [@media(min-width:1920px)]:!w-[220px]' : ''}`} aria-hidden="true">
                 <ServiceMock kind={mock} />
               </div>
-              <a href="#contact" className="absolute md:max-[1279px]:relative bottom-6 left-[22px] md:max-[1279px]:bottom-auto md:max-[1279px]:left-auto md:max-[1279px]:mt-auto md:max-[1279px]:self-start z-[1] flex items-center gap-[10px] text-[16px] font-semibold text-[#ff0055] transition-[gap] hover:gap-[14px] min-[1500px]:left-6 max-md:bottom-[22px] max-md:left-[18px]">
+              <Link href={link || "#contact"} className="absolute md:max-[1279px]:relative bottom-6 left-[22px] md:max-[1279px]:bottom-auto md:max-[1279px]:left-auto md:max-[1279px]:mt-auto md:max-[1279px]:self-start z-[1] flex items-center gap-[10px] text-[16px] font-semibold text-[#ff0055] transition-[gap] hover:gap-[14px] min-[1500px]:left-6 max-md:bottom-[22px] max-md:left-[18px]">
                 Learn More<ArrowRight size={16} />
-              </a>
+              </Link>
             </motion.article>
           ))}
         </div>

@@ -51,11 +51,28 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+    const checkScroll = () => {
+      const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+      setIsScrolled(scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Immediately evaluate scroll position on mount/refresh
+    checkScroll();
+
+    // Catch asynchronous scroll restorations by browser or smooth-scroller
+    const rafId = requestAnimationFrame(checkScroll);
+    const timer50 = setTimeout(checkScroll, 50);
+    const timer150 = setTimeout(checkScroll, 150);
+    const timer300 = setTimeout(checkScroll, 300);
+
+    window.addEventListener("scroll", checkScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(rafId);
+      clearTimeout(timer50);
+      clearTimeout(timer150);
+      clearTimeout(timer300);
+      window.removeEventListener("scroll", checkScroll);
+    };
   }, []);
 
   const navLinks = [
@@ -72,7 +89,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
         isScrolled
-          ? "bg-[#020205]/95 backdrop-blur-md py-3 sm:py-4 shadow-[0_10px_30px_rgba(0,0,0,0.8)] border-b border-white/[0.05]"
+          ? "bg-[#020205]/95 backdrop-blur-md py-3 sm:py-4 shadow-none border-b border-transparent"
           : "bg-transparent py-5 sm:py-6 border-b border-transparent shadow-none"
       }`}
     >
@@ -106,7 +123,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setActiveLink(link.name)}
-                    className={`relative text-[13px] xl:text-sm tracking-normal transition-colors duration-200 group py-2 ${
+                    className={`relative text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] tracking-normal transition-colors duration-200 group py-2 ${
                       isActive
                         ? "text-[#FF0055] font-medium"
                         : "text-white/80 hover:text-white font-normal"
@@ -151,7 +168,7 @@ export default function Header() {
             >
               <div className="flex flex-col h-[20px] overflow-hidden">
                 <div className="flex items-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
-                  <span className="leading-[20px]">Book a Demo</span>
+                  <span className="leading-[20px] text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px]">Book a Demo</span>
                   <ArrowRight className="w-4 h-4" />
                 </div>
                 <div className="flex items-center gap-2 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[20px]">
@@ -203,7 +220,7 @@ export default function Header() {
                     setMobileMenuOpen(false);
                   }}
                   className={`py-2 text-base ${
-                    isActive ? "text-[#FF0055] font-semibold" : "text-white/80 hover:text-white"
+                    isActive ? "text-[#FF0055] text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-semibold" : "text-white/80 hover:text-white"
                   }`}
                 >
                   {link.name}
@@ -218,7 +235,7 @@ export default function Header() {
                 setMobileMenuOpen(false);
                 window.dispatchEvent(new CustomEvent('open-consultation-modal', { detail: { type: 'demo' } }));
               }}
-              className="w-full py-3 rounded-full bg-[#FF0055] text-white font-semibold text-center text-sm shadow-lg shadow-[#FF0055]/30 flex items-center justify-center gap-2"
+              className="w-full py-3 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] rounded-full bg-[#FF0055] text-white font-semibold text-center text-sm shadow-lg shadow-[#FF0055]/30 flex items-center justify-center gap-2"
             >
               Book a Demo
               <ArrowRight className="w-4 h-4" />
@@ -248,18 +265,18 @@ export default function Header() {
 
               {/* Left Column (Overview) */}
               <div className="w-[30%] border-r border-white/10 pr-8 xl:pr-12 relative z-10 shrink-0">
-                <span className="text-[#FF0055] font-bold text-[10px] tracking-[0.2em] uppercase mb-4 block">
+                <span className="text-[#FF0055] font-semibold text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] tracking-[0.08em] uppercase mb-4 block">
                   Our Services
                 </span>
-                <h3 className="text-white text-3xl font-normal leading-tight mb-4">
+                <h3 className="text-white text-[18px] sm:text-[18px] md:text-[20px] lg:text-[24px] xl:text-[24px] font-bold leading-tight mb-4">
                   Building Strong <br />
-                  <span className="text-[#FF0055] font-medium">Digital Capabilities</span> <br />
+                  <span className="text-[#FF0055]">Digital Capabilities</span> <br />
                   for Business Growth
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-8">
+                <p className="text-slate-400 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed mb-8">
                   Strategy, design, technology and marketing — all working together to move your business forward.
                 </p>
-                <Link href="/#overview" onClick={() => setIsServicesHovered(false)} className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:text-[#FF0055] transition-colors border-b border-[#FF0055] pb-1 group">
+                <Link href="/#overview" onClick={() => setIsServicesHovered(false)} className="inline-flex items-center gap-2 text-white font-semibold text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] hover:text-[#FF0055] transition-colors border-b border-[#FF0055] pb-1 group">
                   Go to overview
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -270,7 +287,7 @@ export default function Header() {
                 
                 {/* Branding */}
                 <div>
-                  <Link href="/#branding" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[15px] mb-6 group hover:text-[#FF0055] transition-colors">
+                  <Link href="/#branding" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] mb-6 group hover:text-[#FF0055] transition-colors">
                     <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#FF0055]">
                       <Layers className="w-4 h-4" />
                     </div>
@@ -280,7 +297,7 @@ export default function Header() {
                   <ul className="space-y-3.5">
                     {["Brand Strategy", "Logo Design", "Visual Identity", "Brand Guidelines", "Marketing Collateral"].map((item) => (
                       <li key={item}>
-                        <Link href={`/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`} onClick={() => setIsServicesHovered(false)} className="text-slate-400 text-[13px] hover:text-white transition-colors">
+                        <Link href={`/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`} onClick={() => setIsServicesHovered(false)} className="text-slate-400 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] hover:text-white transition-colors">
                           {item}
                         </Link>
                       </li>
@@ -290,7 +307,7 @@ export default function Header() {
 
                 {/* Experience Design */}
                 <div>
-                  <Link href="/#experience" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[15px] mb-6 group hover:text-[#FF0055] transition-colors">
+                  <Link href="/#experience" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] mb-6 group hover:text-[#FF0055] transition-colors">
                     <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#FF0055]">
                       <UserCircle className="w-4 h-4" />
                     </div>
@@ -300,7 +317,7 @@ export default function Header() {
                   <ul className="space-y-3.5">
                     {["UI/UX Design", "Website Design", "Landing Pages", "Mobile Experience", "Commerce Experience"].map((item) => (
                       <li key={item}>
-                        <Link href={`/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`} onClick={() => setIsServicesHovered(false)} className="text-slate-400 text-[13px] hover:text-white transition-colors">
+                        <Link href={`/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`} onClick={() => setIsServicesHovered(false)} className="text-slate-400 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] hover:text-white transition-colors">
                           {item}
                         </Link>
                       </li>
@@ -310,7 +327,7 @@ export default function Header() {
 
                 {/* Technology */}
                 <div>
-                  <Link href="/#technology" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[15px] mb-6 group hover:text-[#FF0055] transition-colors">
+                  <Link href="/#technology" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] mb-6 group hover:text-[#FF0055] transition-colors">
                     <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#FF0055]">
                       <Code className="w-4 h-4" />
                     </div>
@@ -323,7 +340,7 @@ export default function Header() {
                         <Link 
                           href={item === "Web Development" ? "/services/web-development" : `/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`} 
                           onClick={() => setIsServicesHovered(false)}
-                          className="text-slate-400 text-[13px] hover:text-white transition-colors"
+                          className="text-slate-400 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] hover:text-white transition-colors"
                         >
                           {item}
                         </Link>
@@ -334,7 +351,7 @@ export default function Header() {
 
                 {/* Digital Marketing */}
                 <div>
-                  <Link href="/#marketing" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[15px] mb-6 group hover:text-[#FF0055] transition-colors">
+                  <Link href="/#marketing" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] mb-6 group hover:text-[#FF0055] transition-colors">
                     <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#FF0055]">
                       <BarChart className="w-4 h-4" />
                     </div>
@@ -344,7 +361,7 @@ export default function Header() {
                   <ul className="space-y-3.5">
                     {["SEO", "Social Media Marketing", "Performance Marketing", "Content Marketing", "Marketing Automation", "Analytics"].map((item) => (
                       <li key={item}>
-                        <Link href={`/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`} onClick={() => setIsServicesHovered(false)} className="text-slate-400 text-[13px] hover:text-white transition-colors">
+                        <Link href={`/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`} onClick={() => setIsServicesHovered(false)} className="text-slate-400 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] hover:text-white transition-colors">
                           {item}
                         </Link>
                       </li>

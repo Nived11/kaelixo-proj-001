@@ -39,20 +39,12 @@ const relatedServices = [
     link: "/services/e-commerce"
   },
   {
-    category: "CLOUD & IT INFRASTRUCTURE",
-    title: "Cloud Solutions\n& IT Infrastructure",
-    desc: "Reliable, secure infrastructure that keeps everything we build running without interruption.",
+    category: "CLOUD, HOSTING & SUPPORT",
+    title: "Cloud Solutions \n& Website Maintenance",
+    desc: "Secure infrastructure, ongoing updates and monitoring that keep everything we build fast, stable and growing.",
     icon: Cloud,
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop",
     link: "/services/cloud-solutions"
-  },
-  {
-    category: "WEBSITE MAINTENANCE",
-    title: "Website Maintenance\n& Support",
-    desc: "Ongoing code updates, monitoring and fixes that keep a live site fast, secure — and growing.",
-    icon: Settings,
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
-    link: "/services/website-maintenance"
   },
   {
     category: "DATA & ANALYTICS",

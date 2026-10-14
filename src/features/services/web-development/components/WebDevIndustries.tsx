@@ -47,7 +47,7 @@ const topCardsRight = [
   },
   {
     title: "Hospitality &\nTravel",
-    desc: "Booking-ready websites for hotels, resorts, tour operators and travel brands.",
+    desc: "Booking-ready websites for hotels and travel brands, with online menus, table booking and delivery.",
     icon: Building2,
     colors: {
       outer: "bg-[#fff5f0]",

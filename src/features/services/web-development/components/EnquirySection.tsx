@@ -97,18 +97,19 @@ export default function EnquirySection() {
     <>
       <div id="contact" className="relative bg-[#fafbfe] text-[#030C25] py-16 sm:py-20 lg:py-20 xl:py-24 overflow-hidden border-t border-gray-100 scroll-mt-24">
 
-        {/* Background Desk Image - Clean photo, blending to white only at the right edge */}
-        <div className="absolute top-0 left-0 w-full lg:w-[65%] xl:w-[70%] h-full opacity-40 lg:opacity-100 pointer-events-none z-0 overflow-hidden">
+        {/* Background Desk Image - Clean photo, shifted left to showcase the laptop desk setup */}
+        <div className="absolute top-0 left-0 w-full lg:w-[68%] xl:w-[72%] h-full opacity-65 sm:opacity-75 lg:opacity-100 pointer-events-none z-0 overflow-hidden">
           {/* Blend to white ONLY at the right edge of the image */}
-          <div className="absolute top-0 right-0 w-[45%] h-full bg-gradient-to-r from-transparent via-[#fafbfe]/60 to-[#fafbfe] z-10 hidden lg:block" />
+          <div className="absolute top-0 right-0 w-[32%] lg:w-[35%] h-full bg-gradient-to-r from-transparent via-[#fafbfe]/50 to-[#fafbfe] z-10 hidden lg:block" />
 
           {/* Mobile overlay for text readability */}
-          <div className="absolute inset-0 bg-[#fafbfe]/85 lg:hidden z-10" />
+          <div className="absolute inset-0 bg-[#fafbfe]/75 lg:hidden z-10" />
 
           <img
             src="/images/services/web-dev/webdev-contactbg.png"
             alt="Workspace Desk"
-            className="w-full h-full object-cover object-left"
+            className="w-full h-full object-cover object-[62%_center] lg:object-[58%_center]"
+            style={{ objectPosition: '62% center' }}
           />
         </div>
 

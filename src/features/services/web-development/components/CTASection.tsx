@@ -65,7 +65,7 @@ export default function CTASection() {
             <div className="flex flex-col gap-3.5 sm:gap-4 lg:hidden mt-6">
               {/* Feature 1 */}
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#80002A] to-[#FF0055] flex items-center justify-center shrink-0 shadow-[0_2px_10px_rgba(255,0,85,0.35)] ring-4 ring-[#FF0055]/15">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF0055] to-[#FF6699] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(255,0,85,0.25)] ring-4 ring-[#FF0055]/15">
                   <Zap size={14} className="text-white fill-white" />
                 </div>
                 <span className="text-[14px] sm:text-[15px] font-medium text-gray-800 leading-tight">
@@ -75,7 +75,7 @@ export default function CTASection() {
               
               {/* Feature 2 */}
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#80002A] to-[#FF0055] flex items-center justify-center shrink-0 shadow-[0_2px_10px_rgba(255,0,85,0.35)] ring-4 ring-[#FF0055]/15">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF0055] to-[#FF6699] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(255,0,85,0.25)] ring-4 ring-[#FF0055]/15">
                   <BarChart2 size={14} strokeWidth={2.5} className="text-white" />
                 </div>
                 <span className="text-[14px] sm:text-[15px] font-medium text-gray-800 leading-tight">
@@ -85,7 +85,7 @@ export default function CTASection() {
               
               {/* Feature 3 */}
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#80002A] to-[#FF0055] flex items-center justify-center shrink-0 shadow-[0_2px_10px_rgba(255,0,85,0.35)] ring-4 ring-[#FF0055]/15">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF0055] to-[#FF6699] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(255,0,85,0.25)] ring-4 ring-[#FF0055]/15">
                   <Headphones size={14} strokeWidth={2.5} className="text-white" />
                 </div>
                 <span className="text-[14px] sm:text-[15px] font-medium text-gray-800 leading-tight">
@@ -128,7 +128,7 @@ export default function CTASection() {
         >
           {/* Feature 1 */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#80002A] to-[#FF0055] flex items-center justify-center shrink-0 shadow-[0_2px_10px_rgba(255,0,85,0.35)] ring-4 ring-[#FF0055]/15">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF0055] to-[#FF6699] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(255,0,85,0.25)] ring-4 ring-[#FF0055]/15">
               <Zap size={14} className="text-white fill-white" />
             </div>
             <span className="text-[14px] sm:text-[15px] lg:text-[15px] xl:text-[16px] font-medium text-gray-800 leading-tight whitespace-nowrap">
@@ -140,7 +140,7 @@ export default function CTASection() {
 
           {/* Feature 2 */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#80002A] to-[#FF0055] flex items-center justify-center shrink-0 shadow-[0_2px_10px_rgba(255,0,85,0.35)] ring-4 ring-[#FF0055]/15">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF0055] to-[#FF6699] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(255,0,85,0.25)] ring-4 ring-[#FF0055]/15">
               <BarChart2 size={14} strokeWidth={2.5} className="text-white" />
             </div>
             <span className="text-[14px] sm:text-[15px] lg:text-[15px] xl:text-[16px] font-medium text-gray-800 leading-tight whitespace-nowrap">
@@ -152,7 +152,7 @@ export default function CTASection() {
 
           {/* Feature 3 */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#80002A] to-[#FF0055] flex items-center justify-center shrink-0 shadow-[0_2px_10px_rgba(255,0,85,0.35)] ring-4 ring-[#FF0055]/15">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF0055] to-[#FF6699] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(255,0,85,0.25)] ring-4 ring-[#FF0055]/15">
               <Headphones size={14} strokeWidth={2.5} className="text-white" />
             </div>
             <span className="text-[14px] sm:text-[15px] lg:text-[15px] xl:text-[16px] font-medium text-gray-800 leading-tight whitespace-nowrap">
