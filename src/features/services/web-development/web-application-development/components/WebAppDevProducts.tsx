@@ -26,18 +26,8 @@ const allProducts = [
       { value: "98%", label: "User Retention" },
       { value: "0", label: "Templates Used" }
     ]
-  },
-  {
-    category: "WORKFLOW AUTOMATION",
-    title: "FlowOps Suite",
-    desc: "Enterprise workflow automation platform engineered to streamline cross-team tasks, approvals and analytics in real time.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-    stats: [
-      { value: "4x", label: "Process Velocity" },
-      { value: "99.9%", label: "Cloud Uptime" },
-      { value: "Real-Time", label: "Data Sync" }
-    ]
   }
+
 ];
 
 export default function WebAppDevProducts() {
@@ -120,7 +110,7 @@ export default function WebAppDevProducts() {
             </h2>
             
             <p className="text-gray-700 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.6] max-w-[500px]">
-              Explore the platforms we built from scratch to power real businesses, workflows and scale.
+              Our products aren't side projects. They're our own ideas, built with the same process we bring to every client.
             </p>
           </motion.div>
           

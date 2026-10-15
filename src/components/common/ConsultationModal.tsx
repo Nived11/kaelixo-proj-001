@@ -61,21 +61,40 @@ export default function ConsultationModal({ request }: { request?: { type: Modal
     if (request) { setModalType(request.type); setIsOpen(true); }
   }, [request]);
 
-  // Prevent background scrolling when modal is open and handle history API for mobile back button
+  // Prevent background scrolling when modal is open, pause Lenis smooth scroll, and handle history API
   useEffect(() => {
     const handlePopState = () => {
       if (isOpen) setIsOpen(false);
     };
 
     if (isOpen) {
+      // 1. Pause Lenis smooth scrolling if active
+      const lenis = (window as unknown as { __lenis?: { stop: () => void; start: () => void } }).__lenis;
+      lenis?.stop();
+
+      // 2. Lock both documentElement and body scrolling
+      const originalHtmlOverflow = document.documentElement.style.overflow;
+      const originalBodyOverflow = document.body.style.overflow;
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
+
       // Push state only if we haven't already pushed it
       if (!window.history.state || window.history.state.modal !== 'consultation') {
         window.history.pushState({ modal: 'consultation' }, '');
       }
       window.addEventListener('popstate', handlePopState);
+
+      return () => {
+        lenis?.start();
+        document.documentElement.style.overflow = originalHtmlOverflow || '';
+        document.body.style.overflow = originalBodyOverflow || '';
+        window.removeEventListener('popstate', handlePopState);
+      };
     } else {
-      document.body.style.overflow = 'unset';
+      const lenis = (window as unknown as { __lenis?: { stop: () => void; start: () => void } }).__lenis;
+      lenis?.start();
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
       window.removeEventListener('popstate', handlePopState);
       // Clean up the history state if it was closed via UI button instead of back button
       if (window.history.state && window.history.state.modal === 'consultation') {
@@ -84,7 +103,10 @@ export default function ConsultationModal({ request }: { request?: { type: Modal
     }
 
     return () => {
-      document.body.style.overflow = 'unset';
+      const lenis = (window as unknown as { __lenis?: { stop: () => void; start: () => void } }).__lenis;
+      lenis?.start();
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
       window.removeEventListener('popstate', handlePopState);
     };
   }, [isOpen]);
@@ -147,7 +169,10 @@ export default function ConsultationModal({ request }: { request?: { type: Modal
     <>
       <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 sm:p-4 md:p-6">
+        <div 
+          data-lenis-prevent="true"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-0 sm:p-4 md:p-6 overscroll-contain"
+        >
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -166,17 +191,20 @@ export default function ConsultationModal({ request }: { request?: { type: Modal
             className="relative w-full h-full sm:h-auto max-w-[600px] bg-white rounded-none sm:rounded-[24px] overflow-hidden flex flex-col sm:max-h-[90vh] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]"
           >
             {/* Inner Content Container */}
-            <div className="relative z-10 w-full h-full bg-white rounded-none sm:rounded-[24px] overflow-hidden flex flex-col">
+            <div className="relative z-10 w-full h-full bg-white rounded-none sm:rounded-[24px] overflow-hidden flex flex-col min-h-0 sm:max-h-[90vh]">
               
               {/* Close Button */}
               <button aria-label="Close consultation form"
                 onClick={() => setIsOpen(false)}
-                className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2.5 text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors z-20 shadow-sm"
+                className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2.5 text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors z-20 shadow-sm cursor-pointer"
               >
                 <X className="w-5 h-5" strokeWidth={2.5} />
               </button>
 
-              <div className="overflow-y-auto p-5 sm:p-8 custom-scrollbar">
+              <div 
+                data-lenis-prevent="true"
+                className="overflow-y-auto flex-1 min-h-0 p-5 sm:p-8 custom-scrollbar overscroll-contain"
+              >
                 <div className="mb-6 sm:mb-8 pt-4 sm:pt-0 pr-8 sm:pr-0">
                   <span className="text-[#FF0055] text-[10px] sm:text-[11px] font-bold tracking-widest uppercase mb-2 block">
                     {content.subtitle}

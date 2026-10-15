@@ -56,7 +56,7 @@ export default function CustomWebDevHero() {
           className="text-white text-[38px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-extrabold tracking-tight mb-6 leading-none"
         >
           Custom Websites, <br className="hidden sm:inline" />
-          <span className="text-[#FF0055]">Built Around Your Business.</span>
+          <span className="text-[#FF0055]">Built Around Your Business</span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 25 }}
