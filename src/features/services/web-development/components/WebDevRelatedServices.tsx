@@ -36,7 +36,7 @@ const relatedServices = [
     desc: "Online stores engineered for fast checkout, easy discovery and real conversions.",
     icon: ShoppingCart,
     image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=2070&auto=format&fit=crop",
-    link: "/services/e-commerce"
+    link: "/services/web-development/e-commerce-solutions"
   },
   {
     category: "CLOUD, HOSTING & SUPPORT",

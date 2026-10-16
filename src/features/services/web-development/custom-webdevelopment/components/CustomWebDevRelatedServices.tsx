@@ -12,7 +12,7 @@ const relatedServices = [
     desc: "Easy-to-manage content systems, plus ongoing updates and monitoring that keep your site fast, secure and growing.",
     icon: Settings,
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
-    link: "#contact"
+    link: "/services/web-development/cms-development"
   },
   {
     category: "ONLINE STORE",
@@ -20,7 +20,7 @@ const relatedServices = [
     desc: "Online stores built for smooth browsing, easy checkout and real conversions.",
     icon: ShoppingCart,
     image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=2070&auto=format&fit=crop",
-    link: "#contact"
+    link: "/services/web-development/e-commerce-solutions"
   },
   {
     category: "GROWTH & AUTOMATION",
