@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Lightbulb, Code2, TrendingUp, ArrowRight, Globe } from 'lucide-react';
+import { Lightbulb, Code2, TrendingUp, ArrowRight } from 'lucide-react';
 
 export default function EcommerceApproach() {
   const steps = [
@@ -85,10 +85,10 @@ export default function EcommerceApproach() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="relative w-full h-[350px] lg:h-[420px] xl:h-[420px] flex items-center justify-center mt-12 xl:mt-0"
+            className="relative w-full h-[380px] sm:h-[440px] lg:h-[480px] xl:h-[500px] flex items-center justify-center mt-12 xl:mt-0"
           >
 
-            {/* Background Decoration */}
+            {/* Background Decoration (Multiple Overlapping Pink Shapes) */}
             <div className="absolute top-[-10%] right-[-10%] w-[550px] lg:w-[500px] aspect-square bg-[#FFF0F5] rounded-full z-0 pointer-events-none" />
             <div className="absolute top-[38%] left-[-15%] lg:left-[-2%] w-[300px] lg:w-[350px] aspect-square bg-[#FFE5EE] rounded-full z-0 pointer-events-none" />
             <div className="absolute top-[-18%] left-[-5%] w-[180px] lg:w-[220px] aspect-square bg-[#FFEBF3] rounded-full z-0 pointer-events-none" />
@@ -97,86 +97,33 @@ export default function EcommerceApproach() {
             {/* Dotted pattern circle */}
             <div className="absolute top-[5%] left-[20%] w-[200px] h-[200px] opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #FF0055 1px, transparent 0)', backgroundSize: '18px 16px' }} />
 
-            {/* Mockups Container */}
-            <div className="relative w-full max-w-[580px] h-full flex items-center justify-center">
-
+            {/* Image Container with smooth floating translate animation */}
+            <div className="relative w-full max-w-[640px] h-full flex items-center justify-center z-10">
               <style dangerouslySetInnerHTML={{
                 __html: `
-                @keyframes float-gentle-1 {
-                  0%, 100% { transform: translateY(0px); }
-                  50% { transform: translateY(-8px); }
+                @keyframes float-ecommerce-approach {
+                  0%, 100% {
+                    transform: translateY(0px) rotate(0deg);
+                  }
+                  50% {
+                    transform: translateY(-12px) rotate(0.4deg);
+                  }
                 }
-                @keyframes float-gentle-2 {
-                  0%, 100% { transform: translateY(0px); }
-                  50% { transform: translateY(-12px); }
+                .animate-float-ecommerce {
+                  animation: float-ecommerce-approach 6s ease-in-out infinite;
+                  will-change: transform;
                 }
-                @keyframes float-gentle-3 {
-                  0%, 100% { transform: translateY(0px); }
-                  50% { transform: translateY(-10px); }
-                }
-                .animate-float-1 { animation: float-gentle-1 6s ease-in-out infinite; }
-                .animate-float-2 { animation: float-gentle-2 5.5s ease-in-out infinite; }
-                .animate-float-3 { animation: float-gentle-3 7s ease-in-out infinite; }
               `}} />
 
-              {/* Code editor side panel peek (Behind Laptop, Left) */}
-              <div className="absolute left-[-5%] sm:left-[8%] top-[15%] sm:top-[20%] z-10 animate-float-2">
-                <div
-                  className="w-[160px] sm:w-[200px] h-[140px] sm:h-[170px] bg-[#1E1E1E] rounded-xl shadow-[15px_20px_40px_rgba(0,0,0,0.4)] border border-slate-700 overflow-hidden flex flex-col"
-                  style={{ transform: "perspective(800px) rotateY(20deg) rotateX(5deg) rotateZ(-3deg)" }}
-                >
-                  <div className="h-5 sm:h-6 bg-[#2D2D2D] flex items-center px-2.5 sm:px-3 gap-1 sm:gap-1.5 shrink-0">
-                    <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#FF5F56]" />
-                    <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#FFBD2E]" />
-                    <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#27C93F]" />
-                  </div>
-                  <div className="flex-1 p-3 sm:p-4 text-[7px] sm:text-[8.5px] font-mono leading-[1.7] overflow-hidden text-slate-300">
-                    <div><span className="text-slate-500 mr-2">1</span> <span className="text-blue-400">&lt;!DOCTYPE html&gt;</span></div>
-                    <div><span className="text-slate-500 mr-2">2</span> <span className="text-pink-400">&lt;html <span className="text-blue-300">lang="en"</span>&gt;</span></div>
-                    <div><span className="text-slate-500 mr-2">3</span> <span className="text-pink-400">&lt;head&gt;</span></div>
-                    <div className="ml-2 sm:ml-3"><span className="text-slate-500 mr-2 -ml-2 sm:-ml-3">4</span> <span className="text-pink-400">&lt;meta <span className="text-blue-300">charset="UTF-8"</span>&gt;</span></div>
-                    <div className="ml-2 sm:ml-3"><span className="text-slate-500 mr-2 -ml-2 sm:-ml-3">5</span> <span className="text-pink-400">&lt;title&gt;</span><span className="text-white">Store</span><span className="text-pink-400">&lt;/title&gt;</span></div>
-                    <div><span className="text-slate-500 mr-2">6</span> <span className="text-pink-400">&lt;/head&gt;</span></div>
-                    <div><span className="text-slate-500 mr-2">7</span> <span className="text-pink-400">&lt;body&gt;</span></div>
-                    <div className="ml-2 sm:ml-3"><span className="text-slate-500 mr-2 -ml-2 sm:-ml-3">8</span> <span className="text-pink-400">&lt;h1&gt;</span><span className="text-white">Online Store</span></div>
-                    <div className="ml-4 sm:ml-6"><span className="text-slate-500 mr-2 -ml-4 sm:-ml-6">9</span> <span className="text-white">Built to Sell</span><span className="text-pink-400">&lt;/h1&gt;</span></div>
-                    <div><span className="text-slate-500 mr-2">10</span> <span className="text-pink-400">&lt;/body&gt;</span></div>
-                    <div><span className="text-slate-500 mr-2">11</span> <span className="text-pink-400">&lt;/html&gt;</span></div>
-                  </div>
-                </div>
-              </div>
+              {/* Bottom Soft Ambient Shadow */}
+              <div className="absolute bottom-[4%] left-[10%] w-[80%] h-[25px] sm:h-[35px] bg-slate-900/10 rounded-[100%] blur-[16px] pointer-events-none z-0" />
 
-              {/* Laptop Bottom Shadow */}
-              <div className="absolute bottom-[0%] lg:bottom-[3%] right-[2%] lg:right-[5%] w-[75%] h-[15px] sm:h-[25px] bg-slate-400/40 rounded-[100%] blur-[12px] z-10 pointer-events-none" />
-
-              {/* Main Laptop Image */}
+              {/* Approach Single Graphic */}
               <img
-                src="/images/services/web-dev/laptop.webp"
-                alt="Laptop E-commerce Development"
-                className="relative z-20 w-[100%] sm:w-[105%] max-w-none object-contain translate-x-[5%] lg:translate-x-[8%] animate-float-1"
+                src="/images/services/web-dev/e-commerce-solutions-ourapproach.png"
+                alt="E-commerce Solutions Approach & Online Store Experience"
+                className="relative z-10 w-full h-auto max-h-[95%] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.08)] animate-float-ecommerce"
               />
-
-              {/* Mobile Bottom Shadow */}
-              <div className="absolute bottom-[-4%] sm:bottom-[-1%] left-[5%] sm:left-[12%] w-[80px] sm:w-[140px] h-[10px] sm:h-[15px] bg-slate-400/40 rounded-[100%] blur-[8px] z-20 pointer-events-none" />
-
-              {/* Mobile Mockup Image */}
-              <img
-                src="/images/services/web-dev/mobile.webp"
-                alt="Mobile E-commerce Store"
-                className="absolute bottom-[-2%] sm:bottom-[2%] left-[2%] sm:left-[10%] w-[100px] sm:w-[180px] object-contain z-30 animate-float-2"
-              />
-
-              {/* Floating Pill */}
-              <div className="absolute bottom-[10%] right-[0%] sm:right-[5%] z-40 bg-white/90 backdrop-blur-sm rounded-[12px] p-2 sm:p-2.5 shadow-[0_15px_40px_rgba(0,0,0,0.1)] border border-white/50 flex items-center gap-2 sm:gap-3 animate-float-3">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-pink-50 border border-pink-100 flex items-center justify-center">
-                  <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF0055]" />
-                </div>
-                <div className="pr-1 sm:pr-2">
-                  <p className="text-slate-800 font-extrabold text-[11px] sm:text-[13px] leading-tight mb-0.5">High Speed</p>
-                  <p className="text-slate-700 text-[9px] sm:text-[11px] leading-tight font-medium">Checkout Flow</p>
-                </div>
-              </div>
-
             </div>
 
           </motion.div>

@@ -77,27 +77,38 @@ export default function WebAppDevWhyChooseUs() {
               From the first idea to the final product, Kaelixo brings strategies built around your business to drive real growth.
             </p>
 
-            {/* Laptop & Rock Images Container (Desktop / Laptop xl+) */}
+            {/* Graphic Container (Desktop / Laptop xl+) */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-              className="relative w-full h-[340px] md:h-[340px] lg:h-[340px] xl:h-[340px] 2xl:h-[340px] [@media(min-width:1920px)]:h-[340px] top-[0px] md:top-[0px] lg:top-[0px] xl:top-[0px] 2xl:top-[0px] [@media(min-width:1920px)]:top-[0px] left-[0px] md:left-[0px] lg:left-[0px] xl:left-[0px] 2xl:left-[0px] [@media(min-width:1920px)]:left-[0px] right-auto md:right-auto lg:right-auto xl:right-auto 2xl:right-auto [@media(min-width:1920px)]:right-auto mt-2 md:mt-2 lg:mt-2 xl:mt-2 2xl:mt-2 [@media(min-width:1920px)]:mt-2 hidden xl:block pointer-events-none"
+              className="relative w-full h-[360px] xl:h-[400px] 2xl:h-[420px] mt-4 hidden xl:flex items-center justify-center pointer-events-none"
             >
+              <style dangerouslySetInnerHTML={{
+                __html: `
+                @keyframes float-whychoose-webapp {
+                  0%, 100% {
+                    transform: translateY(0px) rotate(0deg);
+                  }
+                  50% {
+                    transform: translateY(-10px) rotate(0.4deg);
+                  }
+                }
+                .animate-float-whychoose {
+                  animation: float-whychoose-webapp 6s ease-in-out infinite;
+                  will-change: transform;
+                }
+              `}} />
 
-              {/* Background Arc */}
-              <img
-                src="/images/services/web-dev/hero-bg.webp"
-                alt="Glowing Background Arc"
-                className="absolute left-[-5%] md:left-[-5%] lg:left-[-5%] xl:left-[-5%] 2xl:left-[-5%] [@media(min-width:1920px)]:left-[-5%] right-auto md:right-auto lg:right-auto xl:right-auto 2xl:right-auto [@media(min-width:1920px)]:right-auto top-[25%] md:top-[25%] lg:top-[25%] xl:top-[25%] 2xl:top-[25%] [@media(min-width:1920px)]:top-[25%] w-[115%] md:w-[115%] lg:w-[115%] xl:w-[115%] 2xl:w-[115%] [@media(min-width:1920px)]:w-[115%] max-w-none object-contain z-0 opacity-90"
-              />
+              {/* Ambient Glow */}
+              <div className="absolute top-[20%] left-[10%] w-[80%] h-[60%] bg-[#FF0055]/15 rounded-full blur-[50px] pointer-events-none z-0" />
 
-              {/* Foreground Laptop on Rock */}
+              {/* Foreground Image */}
               <img
-                src="/images/services/web-dev/hero-laptop.webp"
-                alt="Why Choose Us Laptop"
-                className="absolute left-[-20%] md:left-[-20%] lg:left-[-20%] xl:left-[-20%] 2xl:left-[-20%] [@media(min-width:1920px)]:left-[-20%] right-auto md:right-auto lg:right-auto xl:right-auto 2xl:right-auto [@media(min-width:1920px)]:right-auto top-[8%] md:top-[8%] lg:top-[8%] xl:top-[8%] 2xl:top-[8%] [@media(min-width:1920px)]:top-[8%] w-[135%] md:w-[135%] lg:w-[135%] xl:w-[135%] 2xl:w-[135%] [@media(min-width:1920px)]:w-[135%] max-w-none object-contain z-10"
+                src="/images/services/web-dev/web-application-development-whychooseus.png"
+                alt="Why Choose Kaelixo for Web Application Development"
+                className="relative z-10 w-full h-auto max-h-full object-contain drop-shadow-[0_20px_40px_rgba(255,0,85,0.2)] animate-float-whychoose"
               />
             </motion.div>
           </motion.div>
@@ -157,21 +168,16 @@ export default function WebAppDevWhyChooseUs() {
               ))}
             </div>
 
-            {/* Laptop & Rock Images Container (Mobile, Tablet, and Laptop lg) */}
-            <div className="relative w-full max-w-[340px] sm:max-w-[440px] md:max-w-[500px] lg:max-w-[540px] mx-auto mt-4 sm:mt-6 mb-2 block xl:hidden pointer-events-none z-10 isolate">
-              <div className="relative w-full aspect-[16/11]">
-                {/* Background Arc */}
-                <img
-                  src="/images/services/web-dev/hero-bg.webp"
-                  alt="Glowing Background Arc"
-                  className="absolute left-[7%] sm:left-[7%] md:left-[7%] lg:left-[7%] top-[14%] sm:top-[14%] md:top-[14%] lg:top-[14%] w-[86%] sm:w-[86%] md:w-[86%] lg:w-[86%] object-contain z-0 opacity-90"
-                />
+            {/* Graphic Container (Mobile, Tablet, and Laptop lg — stacked below cards & above stats) */}
+            <div className="relative w-full max-w-[360px] sm:max-w-[440px] md:max-w-[500px] mx-auto mt-6 mb-4 block xl:hidden pointer-events-none z-10 isolate">
+              <div className="relative w-full flex items-center justify-center">
+                {/* Ambient Glow */}
+                <div className="absolute top-[20%] left-[10%] w-[80%] h-[60%] bg-[#FF0055]/15 rounded-full blur-[40px] pointer-events-none z-0" />
 
-                {/* Foreground Laptop on Rock */}
                 <img
-                  src="/images/services/web-dev/hero-laptop.webp"
-                  alt="Why Choose Us Laptop"
-                  className="absolute left-0 sm:left-0 md:left-0 lg:left-0 top-[2%] sm:top-[2%] md:top-[2%] lg:top-[2%] w-full sm:w-full md:w-full lg:w-full object-contain z-10"
+                  src="/images/services/web-dev/web-application-development-whychooseus.png"
+                  alt="Why Choose Kaelixo for Web Application Development"
+                  className="relative z-10 w-full h-auto max-h-[320px] object-contain drop-shadow-[0_20px_40px_rgba(255,0,85,0.2)] animate-float-whychoose"
                 />
               </div>
             </div>

@@ -23,7 +23,7 @@ const cmsServices = [
   { 
     icon: Users, 
     title: ['Role-Based', 'Access'], 
-    lines: ['Give writers, editors and admins', 'the right level of control, so', 'content stays safe and organised.'], 
+    lines: ['Give writers, editors and admins', 'the right level of control, so', 'content stays safe and', 'organised.'], 
     mock: 'wireframe', 
     colors: { outer: 'bg-[#eef5ff]', inner: 'bg-[#0066FF]', shadow: 'shadow-[0_4px_10px_rgba(0,102,255,0.25)]' } 
   },
@@ -141,9 +141,6 @@ export default function CMSOverview() {
               <div className={`absolute md:max-[1279px]:relative md:max-[1279px]:self-center md:max-[1279px]:mt-8 md:max-[1279px]:mb-6 origin-bottom-right md:max-[1279px]:origin-center text-[#08090d] w-[154px] sm:w-[154px] md:w-[160px] lg:w-[165px] xl:w-[172px] 2xl:w-[180px] [@media(min-width:1920px)]:w-[190px] scale-[.80] sm:scale-[.85] md:scale-[.85] lg:scale-[1] xl:scale-[.80] 2xl:scale-[.85] [@media(min-width:1920px)]:scale-[.90] right-5 sm:right-6 md:max-[1279px]:right-auto xl:right-6 2xl:right-8 [@media(min-width:1920px)]:right-10 bottom-[22px] sm:bottom-[24px] md:max-[1279px]:bottom-auto xl:bottom-2 2xl:bottom-3 [@media(min-width:1920px)]:bottom-4 ${mock === 'cms' ? '!bottom-[45px] sm:!bottom-[50px] md:max-[1279px]:!bottom-auto xl:!bottom-[20px] 2xl:!bottom-[20px] [@media(min-width:1920px)]:!bottom-[20px] !w-[186px] sm:!w-[190px] md:!w-[220px] lg:!w-[280px] xl:!w-[220px] 2xl:!w-[220px] [@media(min-width:1920px)]:!w-[220px]' : ''}`} aria-hidden="true">
                 <ServiceMock kind={mock} />
               </div>
-              <a href="#contact" className="absolute md:max-[1279px]:relative bottom-6 left-[22px] md:max-[1279px]:bottom-auto md:max-[1279px]:left-auto md:max-[1279px]:mt-auto md:max-[1279px]:self-start z-[1] flex items-center gap-[10px] text-[16px] font-semibold text-[#ff0055] transition-[gap] hover:gap-[14px] min-[1500px]:left-6 max-md:bottom-[22px] max-md:left-[18px]">
-                Learn More<ArrowRight size={16} />
-              </a>
             </motion.article>
           ))}
         </div>

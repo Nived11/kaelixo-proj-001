@@ -22,7 +22,7 @@ export default function SuccessMessage({ isOpen, onClose, type = 'enquiry' }: Su
       {isOpen && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
           {/* Backdrop */}
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
