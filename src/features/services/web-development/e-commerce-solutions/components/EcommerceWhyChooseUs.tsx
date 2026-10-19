@@ -91,7 +91,7 @@ export default function EcommerceWhyChooseUs() {
               {/* Foreground Image - Static & Increased Size with Bottom Rock Gradient Blend */}
               <div className="relative z-10 w-full h-full flex items-center justify-center overflow-hidden">
                 <img
-                  src="/images/services/web-dev/e-commerce-solutions-whychooseus.png"
+                  src="/images/services/web-dev/e-commerce-solutions-whychooseus.webp"
                   alt="Why Choose Kaelixo for E-commerce Solutions"
                   className="w-full h-auto max-h-full object-contain drop-shadow-[0_20px_40px_rgba(255,0,85,0.2)]"
                   style={{
@@ -168,7 +168,7 @@ export default function EcommerceWhyChooseUs() {
 
                 <div className="relative z-10 w-full flex items-center justify-center overflow-hidden">
                   <img
-                    src="/images/services/web-dev/e-commerce-solutions-whychooseus.png"
+                    src="/images/services/web-dev/e-commerce-solutions-whychooseus.webp"
                     alt="Why Choose Kaelixo for E-commerce Solutions"
                     className="w-full h-auto max-h-[360px] object-contain drop-shadow-[0_20px_40px_rgba(255,0,85,0.2)]"
                     style={{

@@ -120,7 +120,7 @@ export default function EcommerceApproach() {
 
               {/* Approach Single Graphic */}
               <img
-                src="/images/services/web-dev/e-commerce-solutions-ourapproach.png"
+                src="/images/services/web-dev/e-commerce-solutions-ourapproach.webp"
                 alt="E-commerce Solutions Approach & Online Store Experience"
                 className="relative z-10 w-full h-auto max-h-[95%] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.08)] animate-float-ecommerce"
               />

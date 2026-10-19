@@ -24,7 +24,7 @@ export default function PerformanceCTA() {
         className="absolute top-auto bottom-[-10px] right-[-25px] sm:bottom-0 sm:right-[-10px] md:-bottom-8 md:-right-8 lg:top-1/2 lg:-translate-y-[30%] lg:right-[-20px] xl:-translate-y-[38%] xl:right-[-20px] 2xl:right-4 w-[300px] h-[300px] sm:w-[170px] sm:h-[195px] md:w-[410px] md:h-[435px] lg:w-[255px] lg:h-[280px] xl:w-[280px] xl:h-[300px] 2xl:w-[300px] 2xl:h-[340px] pointer-events-none z-0 flex items-center justify-end select-none"
       >
         <img 
-          src="/images/services/web-dev/web-last-icon.png" 
+          src="/images/services/web-dev/web-last-icon.webp" 
           alt="Kaelixo Performance Optimization" 
           className="w-full h-full object-contain drop-shadow-[0_10px_25px_rgba(255,0,85,0.18)] drop-shadow-[0_15px_35px_rgba(168,85,247,0.15)] opacity-70 sm:opacity-70 md:opacity-80 lg:opacity-100 transition-all duration-300" 
         />

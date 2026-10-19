@@ -106,7 +106,7 @@ export default function EnquirySection() {
           <div className="absolute inset-0 bg-[#fafbfe]/75 lg:hidden z-10" />
 
           <img
-            src="/images/services/web-dev/webdev-contactbg.png"
+            src="/images/services/web-dev/webdev-contactbg.webp"
             alt="Workspace Desk"
             className="w-full h-full object-cover object-[62%_center] lg:object-[58%_center]"
             style={{ objectPosition: '62% center' }}

@@ -106,7 +106,7 @@ export default function CustomWebDevWhyChooseUs() {
 
               {/* Foreground Image */}
               <img
-                src="/images/services/web-dev/custom-webdevelopment-whyvhhooseus.png"
+                src="/images/services/web-dev/custom-webdevelopment-whyvhhooseus.webp"
                 alt="Why Choose Kaelixo for Custom Website Development"
                 className="relative z-10 w-full h-auto max-h-full object-contain drop-shadow-[0_20px_40px_rgba(255,0,85,0.2)] animate-float-whychoose"
               />
@@ -175,7 +175,7 @@ export default function CustomWebDevWhyChooseUs() {
                 <div className="absolute top-[20%] left-[10%] w-[80%] h-[60%] bg-[#FF0055]/15 rounded-full blur-[40px] pointer-events-none z-0" />
 
                 <img
-                  src="/images/services/web-dev/custom-webdevelopment-whyvhhooseus.png"
+                  src="/images/services/web-dev/custom-webdevelopment-whyvhhooseus.webp"
                   alt="Why Choose Kaelixo for Custom Website Development"
                   className="relative z-10 w-full h-auto max-h-[320px] object-contain drop-shadow-[0_20px_40px_rgba(255,0,85,0.2)] animate-float-whychoose"
                 />

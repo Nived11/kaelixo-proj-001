@@ -91,7 +91,7 @@ export default function PerformanceWhyChooseUs() {
               {/* Foreground Image */}
               <div className="relative z-10 w-full h-full flex items-center justify-center overflow-hidden">
                 <img
-                  src="/images/services/web-dev/performance-optimization-whychooseus.png"
+                  src="/images/services/web-dev/performance-optimization-whychooseus.webp"
                   alt="Why Choose Kaelixo for Performance Optimization"
                   className="w-full h-auto max-h-full object-contain drop-shadow-[0_20px_40px_rgba(255,0,85,0.2)]"
                   style={{
@@ -165,7 +165,7 @@ export default function PerformanceWhyChooseUs() {
                 <div className="absolute top-[20%] left-[10%] w-[80%] h-[60%] bg-[#FF0055]/15 rounded-full blur-[40px] pointer-events-none z-0" />
                 <div className="relative z-10 w-full flex items-center justify-center overflow-hidden">
                   <img
-                    src="/images/services/web-dev/performance-optimization-whychooseus.png"
+                    src="/images/services/web-dev/performance-optimization-whychooseus.webp"
                     alt="Why Choose Kaelixo for Performance Optimization"
                     className="w-full h-auto max-h-[360px] object-contain drop-shadow-[0_20px_40px_rgba(255,0,85,0.2)]"
                     style={{

@@ -120,7 +120,7 @@ export default function PerformanceApproach() {
 
               {/* Approach Single Graphic */}
               <img
-                src="/images/services/web-dev/performance-optimization-ourapproach.png"
+                src="/images/services/web-dev/performance-optimization-ourapproach.webp"
                 alt="Performance Optimization Approach"
                 className="relative z-10 w-full h-auto max-h-[95%] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.08)] animate-float-perf"
               />

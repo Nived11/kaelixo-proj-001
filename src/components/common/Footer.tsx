@@ -36,7 +36,7 @@ export default function Footer() {
             <div className="sm:col-span-1 md:col-span-2">
               <h4 className="text-white font-semibold text-[18px] mb-4">Kaelixo</h4>
               <ul className="space-y-3 text-[15px] sm:text-[15px] md:text-[14px] lg:text-[16px] xl:text-[16px] font-medium">
-                <li><Link href="#" className="hover:text-[#FF0055] transition-colors">About</Link></li>
+                <li><Link href="/about" className="hover:text-[#FF0055] transition-colors">About</Link></li>
                 <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Services</Link></li>
                 <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Industries</Link></li>
                 <li><Link href="#" className="hover:text-[#FF0055] transition-colors">Works</Link></li>

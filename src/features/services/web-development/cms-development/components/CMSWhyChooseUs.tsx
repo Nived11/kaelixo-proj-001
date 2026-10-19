@@ -91,7 +91,7 @@ export default function CMSWhyChooseUs() {
               {/* Foreground Image - Static & Increased Size with Bottom Rock Gradient Blend */}
               <div className="relative z-10 w-full h-full flex items-center justify-center overflow-hidden">
                 <img
-                  src="/images/services/web-dev/cms-development-whychooseus.png"
+                  src="/images/services/web-dev/cms-development-whychooseus.webp"
                   alt="Why Choose Kaelixo for CMS Development"
                   className="w-full h-auto max-h-full object-contain drop-shadow-[0_20px_40px_rgba(255,0,85,0.2)]"
                   style={{
@@ -168,7 +168,7 @@ export default function CMSWhyChooseUs() {
 
                 <div className="relative z-10 w-full flex items-center justify-center overflow-hidden">
                   <img
-                    src="/images/services/web-dev/cms-development-whychooseus.png"
+                    src="/images/services/web-dev/cms-development-whychooseus.webp"
                     alt="Why Choose Kaelixo for CMS Development"
                     className="w-full h-auto max-h-[360px] object-contain drop-shadow-[0_20px_40px_rgba(255,0,85,0.2)]"
                     style={{
