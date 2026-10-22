@@ -36,7 +36,8 @@ export default function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
           transition={{ duration: 0.3 }}
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 sm:bottom-10 sm:right-10 z-50 p-3 sm:p-4 rounded-full bg-[#FF0055] text-white shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] hover:-translate-y-1 transition-all duration-300"
+          // Changed bottom-6 to bottom-24 and sm:bottom-10 to sm:bottom-28 to avoid chatbot overlap
+          className="fixed bottom-24 right-6 sm:bottom-28 sm:right-8 z-50 p-3 sm:p-4 rounded-full bg-[#FF0055] text-white shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] hover:-translate-y-1 transition-all duration-300"
           aria-label="Scroll to top"
         >
           <img 

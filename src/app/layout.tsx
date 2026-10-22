@@ -55,6 +55,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={`${spaceGrotesk.variable} ${inter.variable} ${caveat.variable} dark`}>
       <body className="min-h-screen flex flex-col bg-[#020205] text-slate-100 antialiased font-sans custom-scrollbar selection:bg-[#FF0055] selection:text-white">
         <PageLoader>
+          <Script
+          src="https://kaira.kaelixo.com/static/js/kaira_widget.js"
+          data-api-base="https://kaira.kaelixo.com"
+          data-widget-key="QrRUFOkdr7VfR-t4n6HKWGx3qqKs1ic7l9dHDZ18N54"
+          strategy="lazyOnload"
+        />
           <SmoothScroll>
             <Header />
             <main className="flex-1 flex flex-col">{children}</main>
@@ -63,12 +69,7 @@ export default function RootLayout({
             <DeferredConsultationModal />
           </SmoothScroll>
         </PageLoader>
-        <Script
-          src="https://kaira.kaelixo.com/static/js/kaira_widget.js"
-          data-api-base="https://kaira.kaelixo.com"
-          data-widget-key="QrRUFOkdr7VfR-t4n6HKWGx3qqKs1ic7l9dHDZ18N54"
-          strategy="afterInteractive"
-        />
+        
       </body>
     </html>
   );

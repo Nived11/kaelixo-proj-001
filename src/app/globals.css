@@ -3,7 +3,7 @@
 :root {
   --background: #020205;
   --foreground: #ffffff;
-  
+
   /* Kaelixo Official Brand Colors from Design */
   --color-pink: #FF0055;
   --color-pink-hover: #E6004C;
@@ -40,7 +40,13 @@ body {
 }
 
 /* Headings and Display Typography use Space Grotesk */
-h1, h2, h3, h4, h5, h6, .font-heading {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
   font-family: var(--font-space-grotesk), sans-serif;
 }
 
@@ -57,16 +63,20 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #020205;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #FF0055;
   border-radius: 9999px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #FF0055;
 }
+
 ::-webkit-scrollbar-thumb:active {
   background: #FF0055;
 }
@@ -75,22 +85,28 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   width: 6px;
   height: 6px;
 }
+
 .custom-scrollbar::-webkit-scrollbar-track {
   background: #020205;
 }
+
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: #FF0055;
   border-radius: 9999px;
 }
+
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #FF0055;
 }
+
 .custom-scrollbar:hover::-webkit-scrollbar-thumb {
   background: #FF0055;
 }
 
 /* Firefox standard scrollbar support */
-html, body, * {
+html,
+body,
+* {
   scrollbar-width: thin;
   scrollbar-color: #FF0055 #020205;
 }
@@ -109,9 +125,11 @@ html, body, * {
   0% {
     transform: translate3d(0, 0, 0);
   }
+
   50% {
     transform: translate3d(-35px, -10px, 0) scale(1.02);
   }
+
   100% {
     transform: translate3d(0, 0, 0);
   }
@@ -121,19 +139,24 @@ html, body, * {
   0% {
     transform: translate3d(0, 0, 0);
   }
+
   50% {
     transform: translate3d(45px, -6px, 0) scale(1.03);
   }
+
   100% {
     transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes neonPulseGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.35;
     transform: scale(0.98);
   }
+
   50% {
     opacity: 0.65;
     transform: scale(1.03);
@@ -158,35 +181,169 @@ html, body, * {
 /* ========================================================= */
 /* ANIMATED NEON LOGO (React SVG Component Styles)           */
 /* ========================================================= */
-.animated-neon-logo { 
-  display: block; 
-  width: 100%; 
-  height: 100%; 
-  overflow: visible; 
-  isolation: isolate; 
+.animated-neon-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  isolation: isolate;
   /* Floating animation removed as per user request */
   will-change: transform;
 }
-.animated-neon-logo .mesh-lines { stroke: #FFD0DF; stroke-width: 0.85; opacity: .28; }
-.animated-neon-logo .crystal-mesh--side .mesh-lines { stroke: #F9427D; opacity: .22; stroke-width: .7; }
-.animated-neon-logo .crystal-mesh--channel .mesh-lines { stroke: #AD2551; opacity: .15; stroke-width: .6; }
-.animated-neon-logo .crystal-mesh--channel .mesh-node { opacity: .1; animation: none; }
-.animated-neon-logo .crystal-mesh--side .mesh-node { opacity: .3; }
-.animated-neon-logo .mesh-node { opacity: .35; transform-box: fill-box; transform-origin: center; animation: nodePulse var(--node-duration, 4s) ease-in-out var(--node-delay, 0s) infinite; }
-.animated-neon-logo .surface-reflection { transform: translateX(420px); opacity: .3; animation: surfaceSweep 5s cubic-bezier(.3, 0, .4, 1) -2.5s infinite; }
-.animated-neon-logo .localized-reflections > [data-reflection] { opacity: .85; animation: reflectionShimmer var(--shimmer-duration, 3.8s) ease-in-out var(--shimmer-delay, 0s) infinite; }
-.animated-neon-logo [data-reflection='upper-groove'] { --shimmer-duration: 3.8s; --shimmer-delay: -.4s; }
-.animated-neon-logo [data-reflection='inner-diagonal'] { --shimmer-duration: 4.3s; --shimmer-delay: -2.1s; }
-.animated-neon-logo [data-reflection='left-ridge'] { --shimmer-duration: 3.4s; --shimmer-delay: -1.3s; }
-.animated-neon-logo .neon-breath { animation: neonBreath 6s ease-in-out infinite; }
-.animated-neon-logo[data-glow='false'] .edge-bloom { display: none; }
-.animated-neon-logo[data-animated='false'] *, .animated-neon-logo[data-animated='false'] { animation-play-state: paused !important; }
-@keyframes nodePulse { 0%, 100% { opacity: .18; transform: scale(.88); } 50% { opacity: .42; transform: scale(1.13); } }
-@keyframes neonBreath { 0%, 100% { opacity: .48; } 50% { opacity: .6; } }
-@keyframes reflectionShimmer { 0%, 100% { opacity: .3; } 45%, 55% { opacity: 1; } }
-@keyframes surfaceSweep { 0% { transform: translateX(-700px); opacity: 0; } 12% { opacity: .6; } 48% { opacity: .8; } 88% { opacity: .55; } 100% { transform: translateX(1450px); opacity: 0; } }
-@keyframes logoFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
-@media (prefers-reduced-motion: reduce) { .animated-neon-logo * { animation: none !important; } }
+
+.animated-neon-logo .mesh-lines {
+  stroke: #FFD0DF;
+  stroke-width: 0.85;
+  opacity: .28;
+}
+
+.animated-neon-logo .crystal-mesh--side .mesh-lines {
+  stroke: #F9427D;
+  opacity: .22;
+  stroke-width: .7;
+}
+
+.animated-neon-logo .crystal-mesh--channel .mesh-lines {
+  stroke: #AD2551;
+  opacity: .15;
+  stroke-width: .6;
+}
+
+.animated-neon-logo .crystal-mesh--channel .mesh-node {
+  opacity: .1;
+  animation: none;
+}
+
+.animated-neon-logo .crystal-mesh--side .mesh-node {
+  opacity: .3;
+}
+
+.animated-neon-logo .mesh-node {
+  opacity: .35;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: nodePulse var(--node-duration, 4s) ease-in-out var(--node-delay, 0s) infinite;
+}
+
+.animated-neon-logo .surface-reflection {
+  transform: translateX(420px);
+  opacity: .3;
+  animation: surfaceSweep 5s cubic-bezier(.3, 0, .4, 1) -2.5s infinite;
+}
+
+.animated-neon-logo .localized-reflections>[data-reflection] {
+  opacity: .85;
+  animation: reflectionShimmer var(--shimmer-duration, 3.8s) ease-in-out var(--shimmer-delay, 0s) infinite;
+}
+
+.animated-neon-logo [data-reflection='upper-groove'] {
+  --shimmer-duration: 3.8s;
+  --shimmer-delay: -.4s;
+}
+
+.animated-neon-logo [data-reflection='inner-diagonal'] {
+  --shimmer-duration: 4.3s;
+  --shimmer-delay: -2.1s;
+}
+
+.animated-neon-logo [data-reflection='left-ridge'] {
+  --shimmer-duration: 3.4s;
+  --shimmer-delay: -1.3s;
+}
+
+.animated-neon-logo .neon-breath {
+  animation: neonBreath 6s ease-in-out infinite;
+}
+
+.animated-neon-logo[data-glow='false'] .edge-bloom {
+  display: none;
+}
+
+.animated-neon-logo[data-animated='false'] *,
+.animated-neon-logo[data-animated='false'] {
+  animation-play-state: paused !important;
+}
+
+@keyframes nodePulse {
+
+  0%,
+  100% {
+    opacity: .18;
+    transform: scale(.88);
+  }
+
+  50% {
+    opacity: .42;
+    transform: scale(1.13);
+  }
+}
+
+@keyframes neonBreath {
+
+  0%,
+  100% {
+    opacity: .48;
+  }
+
+  50% {
+    opacity: .6;
+  }
+}
+
+@keyframes reflectionShimmer {
+
+  0%,
+  100% {
+    opacity: .3;
+  }
+
+  45%,
+  55% {
+    opacity: 1;
+  }
+}
+
+@keyframes surfaceSweep {
+  0% {
+    transform: translateX(-700px);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: .6;
+  }
+
+  48% {
+    opacity: .8;
+  }
+
+  88% {
+    opacity: .55;
+  }
+
+  100% {
+    transform: translateX(1450px);
+    opacity: 0;
+  }
+}
+
+@keyframes logoFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-neon-logo * {
+    animation: none !important;
+  }
+}
 
 /* ========================================================= */
 /* ROTATING GLOBE (Spherical SVG Projection)                 */
@@ -207,13 +364,23 @@ html, body, * {
 /* CONTINUOUS LOGO MARQUEE TICKER (Right to Left + Hover Pause) */
 /* ========================================================= */
 @keyframes marqueeScroll {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 @keyframes marqueeScrollReverse {
-  0% { transform: translate3d(-50%, 0, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .animate-marquee-infinite {
@@ -242,6 +409,7 @@ html, body, * {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -253,45 +421,151 @@ html, body, * {
   opacity: 0;
 }
 
-.delay-100 { animation-delay: 0.1s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-500 { animation-delay: 0.5s; }
-.delay-700 { animation-delay: 0.7s; }
-.delay-900 { animation-delay: 0.9s; }
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+.delay-900 {
+  animation-delay: 0.9s;
+}
 
 /* Start the full loader timeline with its logo, rather than before hydration. */
-.page-loader { animation: loaderHydrationDeadline 12s linear forwards; }
-.page-loader[data-started="true"] { animation: loaderDeadline 3.4s linear forwards; }
-@keyframes loaderHydrationDeadline { 0%, 95% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
+.page-loader {
+  animation: loaderHydrationDeadline 12s linear forwards;
+}
+
+.page-loader[data-started="true"] {
+  animation: loaderDeadline 3.4s linear forwards;
+}
+
+@keyframes loaderHydrationDeadline {
+
+  0%,
+  95% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 @keyframes loaderDeadline {
-  0%, 82.353% { opacity: 1; transform: translateY(0); visibility: visible; }
-  100% { opacity: 0; transform: translateY(-30px); visibility: hidden; }
+
+  0%,
+  82.353% {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-30px);
+    visibility: hidden;
+  }
 }
-.ai-circuit { animation: aiCircuitFlow 4.8s linear infinite; }
-@keyframes aiCircuitFlow { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
-.ai-section[data-active="false"] * { animation-play-state: paused !important; }
+
+.ai-circuit {
+  animation: aiCircuitFlow 4.8s linear infinite;
+}
+
+@keyframes aiCircuitFlow {
+  from {
+    stroke-dashoffset: 1000;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.ai-section[data-active="false"] * {
+  animation-play-state: paused !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .ai-circuit { animation: none; }
-  .animate-fade-in-up { animation: none; opacity: 1; }
-  .animate-marquee-infinite, .animate-marquee-reverse-infinite { animation: none; }
+  .ai-circuit {
+    animation: none;
+  }
+
+  .animate-fade-in-up {
+    animation: none;
+    opacity: 1;
+  }
+
+  .animate-marquee-infinite,
+  .animate-marquee-reverse-infinite {
+    animation: none;
+  }
 }
+
 /* Limit large paint surfaces without suppressing replayed entrance animations. */
 @media (hover: none) and (pointer: coarse) {
-  .home-page [class*="blur-[100px]"], .home-page [class*="blur-[120px]"], .home-page [class*="blur-[150px]"] { filter: blur(40px); }
+
+  .home-page [class*="blur-[100px]"],
+  .home-page [class*="blur-[120px]"],
+  .home-page [class*="blur-[150px]"] {
+    filter: blur(40px);
+  }
 }
 
-.home-page [data-animation-active="false"] * { animation-play-state: paused !important; }
+.home-page [data-animation-active="false"] * {
+  animation-play-state: paused !important;
+}
 
 /* Lenis already interpolates desktop scrolling; native smooth scrolling must not compete. */
-html.lenis { scroll-behavior: auto; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+html.lenis {
+  scroll-behavior: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
 
 
 /* Logo draw/fill and overlay exit share one CSS timeline, including on slow hydration. */
-.loader-logo-piece { fill: rgba(255, 0, 85, 0); opacity: 0; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.loader-logo-piece {
+  fill: rgba(255, 0, 85, 0);
+  opacity: 0;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
 .page-loader[data-started="true"] .loader-logo-piece {
   animation: loaderLogoDraw 1.5s ease-in-out forwards, loaderLogoFill .8s ease-in 1.4s forwards, loaderLogoAppear .3s ease-out forwards;
 }
-@keyframes loaderLogoDraw { to { stroke-dashoffset: 0; } }
-@keyframes loaderLogoFill { to { fill: #FF0055; } }
-@keyframes loaderLogoAppear { to { opacity: 1; } }
+
+@keyframes loaderLogoDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes loaderLogoFill {
+  to {
+    fill: #FF0055;
+  }
+}
+
+@keyframes loaderLogoAppear {
+  to {
+    opacity: 1;
+  }
+}
