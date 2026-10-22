@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Space_Grotesk, Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/Header";
@@ -62,6 +63,12 @@ export default function RootLayout({
             <DeferredConsultationModal />
           </SmoothScroll>
         </PageLoader>
+        <Script
+          src="https://kaira.kaelixo.com/static/js/kaira_widget.js"
+          data-api-base="https://kaira.kaelixo.com"
+          data-widget-key="QrRUFOkdr7VfR-t4n6HKWGx3qqKs1ic7l9dHDZ18N54"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
