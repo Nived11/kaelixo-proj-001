@@ -93,7 +93,7 @@ export default function AboutStats() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-20 w-full bg-white border-y border-slate-200/80 py-8 sm:py-10 lg:py-12 shadow-[0_4px_24px_rgba(0,0,0,0.03)]"
+      className="relative z-20 w-full bg-white py-8 sm:py-10 lg:py-12"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div
@@ -113,9 +113,9 @@ export default function AboutStats() {
                   : "md:px-4 lg:px-8"
               } justify-start`}
             >
-              {/* Circular Icon with signature Kaelixo Pink Gradient & soft halo */}
+              {/* Circular Icon with vibrant Kaelixo Pink Gradient & soft halo */}
               <div className="relative group shrink-0">
-                <div className="w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-gradient-to-br from-[#FF0055] via-[#ff1464] to-[#ff2b70] text-white flex items-center justify-center shadow-[0_4px_16px_rgba(255,0,85,0.32)] ring-4 ring-[#FF0055]/10 group-hover:scale-105 group-hover:shadow-[0_6px_22px_rgba(255,0,85,0.45)] transition-all duration-300">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-gradient-to-br from-[#C70044] via-[#FF0055] to-[#FF3D82] border border-[#FF6699]/30 text-white flex items-center justify-center shadow-[0_4px_16px_rgba(255,0,85,0.3)] ring-4 ring-[#FF0055]/10 group-hover:scale-105 group-hover:shadow-[0_6px_22px_rgba(255,0,85,0.45)] transition-all duration-300">
                   {stat.icon}
                 </div>
               </div>

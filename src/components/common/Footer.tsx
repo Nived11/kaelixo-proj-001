@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaLinkedinIn, FaYoutube, FaInstagram, FaFacebookF, FaXTwitter, FaBehance, FaThreads } from "react-icons/fa6";
+import { FaLinkedinIn, FaYoutube, FaInstagram, FaFacebookF, FaXTwitter, FaBehance, FaThreads, FaWhatsapp } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -104,28 +104,32 @@ export default function Footer() {
           </div>
 
           {/* Social Links (Center) */}
-          <div className="order-1 md:order-2 flex items-center justify-center gap-2 md:w-1/3">
-            <a href="https://www.instagram.com/kaelixo_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
-              <FaInstagram size={15} />
+          <div className="order-1 md:order-2 flex flex-nowrap sm:flex-wrap items-center justify-center gap-1.5 sm:gap-2 md:w-auto">
+             <a href="https://wa.me/919037235832" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all shrink-0">
+              <FaWhatsapp size={14} />
             </a>
-            <a href="https://www.facebook.com/kaelixotbt" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
-              <FaFacebookF size={14} />
+            <a href="https://www.instagram.com/kaelixo_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all shrink-0">
+              <FaInstagram size={14} />
             </a>
-            <a href="https://www.youtube.com/@kaeli_xo" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
-              <FaYoutube size={15} />
+            <a href="https://www.facebook.com/kaelixotbt" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all shrink-0">
+              <FaFacebookF size={13} />
             </a>
-            <a href="https://x.com/Kaelixotbg" target="_blank" rel="noopener noreferrer" aria-label="X" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
-              <FaXTwitter size={14} />
+            <a href="https://www.youtube.com/@kaeli_xo" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all shrink-0">
+              <FaYoutube size={14} />
             </a>
-            <a href="https://www.behance.net/kaelixotech" target="_blank" rel="noopener noreferrer" aria-label="Behance" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
-              <FaBehance size={15} />
+            <a href="https://x.com/Kaelixotbg" target="_blank" rel="noopener noreferrer" aria-label="X" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all shrink-0">
+              <FaXTwitter size={13} />
             </a>
-            <a href="https://www.threads.com/@kaelixo_?igshid=NTc4MTIwNjQ2YQ%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Threads" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
-              <FaThreads size={15} />
+            <a href="https://www.behance.net/kaelixotech" target="_blank" rel="noopener noreferrer" aria-label="Behance" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all shrink-0">
+              <FaBehance size={14} />
             </a>
-            <a href="https://www.linkedin.com/company/kaelixo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-9 h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all">
-              <FaLinkedinIn size={14} />
+            <a href="https://www.threads.com/@kaelixo_?igshid=NTc4MTIwNjQ2YQ%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Threads" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all shrink-0">
+              <FaThreads size={14} />
             </a>
+            <a href="https://www.linkedin.com/company/kaelixo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/5 text-gray-400 flex items-center justify-center hover:bg-[#FF0055] hover:text-white hover:-translate-y-1 transition-all shrink-0">
+              <FaLinkedinIn size={13} />
+            </a>
+           
           </div>
 
           {/* Legal Links (Right Side) */}

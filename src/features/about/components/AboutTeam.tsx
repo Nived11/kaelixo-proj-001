@@ -22,6 +22,7 @@ export default function AboutTeam() {
   return (
     <section
       ref={sectionRef}
+      id="team"
       className="relative z-20 w-full bg-[#020205] py-20 sm:py-24 lg:py-28 overflow-hidden text-white"
     >
       {/* Background Ambient Glow */}
