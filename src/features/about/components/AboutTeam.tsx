@@ -151,26 +151,24 @@ export default function AboutTeam() {
 
             {/* Headline */}
             <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-black text-white leading-[1.12] tracking-tight font-heading">
-              Creative Minds <br />
+              Skilled Minds, <br />
               <span className="text-[#FF0055] drop-shadow-[0_0_28px_rgba(255,0,85,0.45)]">
-                Real People
+                One Shared Goal
               </span>
             </h2>
 
             {/* Description */}
             <p className="mt-5 sm:mt-6 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed text-white/75 font-sans font-normal max-w-[500px]">
-              Our team is a mix of designers, developers, strategists and
-              problem-solvers who share a common goal — to create digital
-              experiences that make a difference.
+              Designers, developers, writers, marketers and strategists work side by side here, each adding their craft to the same goal. Our director, Jineesh Sojan, guides the team from the first idea to the final result.
             </p>
 
-            {/* CTA Button: Meet The Team */}
+            {/* CTA Button: Meet Everyone */}
             <div className="mt-8 sm:mt-9 flex items-center gap-4">
               <button
                 onClick={handleOpenConsultation}
                 className="group inline-flex items-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[15px] sm:text-[15px] md:text-[15px] lg:text-[15px] xl:text-[16px] 2xl:text-[16px] font-semibold tracking-wide shadow-sm hover:shadow-none active:scale-95 transition-all duration-300 font-heading cursor-pointer"
               >
-                <span>Meet The Team</span>
+                <span>Meet Everyone</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>

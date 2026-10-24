@@ -21,18 +21,18 @@ interface TimelineItem {
 const timelineData: TimelineItem[] = [
   {
     year: "2025",
-    title: "The Beginning",
-    desc: "Started with a focused vision to build modern, high-performance web and digital solutions.",
+    title: "The Spark",
+    desc: "A clear goal took shape: create modern, fast and dependable digital solutions, grounded in careful thinking.",
   },
   {
     year: "2026",
-    title: "The Official Launch",
-    desc: "Kaelixo officially goes live as a full-fledged digital agency, turning bold ideas into digital growth.",
+    title: "Going Live",
+    desc: "Kaelixo opened its doors as a complete digital agency, ready to guide bold ideas from the first chat to visible growth.",
   },
   {
-    year: "2026+",
-    title: "A Bigger Tomorrow",
-    desc: "Continuing to innovate, scale partnerships, and create lasting impact for businesses worldwide.",
+    year: "2026 and Beyond",
+    title: "Aiming Higher",
+    desc: "We’ll keep exploring new ideas, deepening partnerships and helping more businesses grow.",
   },
 ];
 
@@ -286,19 +286,15 @@ export default function AboutStory() {
 
             {/* Headline */}
             <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-black text-white leading-[1.12] tracking-tight font-heading">
-              From a Small Idea <br />
-              to a{" "}
+              One Idea, Now a <br />
               <span className="text-[#FF0055] drop-shadow-[0_0_28px_rgba(255,0,85,0.45)]">
-                Growing Agency
+                Full Digital Agency
               </span>
             </h2>
 
             {/* Subtext Paragraph */}
             <p className="mt-5 sm:mt-6 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed text-white/90 max-w-[540px]">
-              What started as a small idea to help businesses go online has now
-              grown into a full-fledged digital agency. Over the years, we have
-              worked with amazing clients, built meaningful partnerships and
-              delivered projects across various industries.
+              We began by asking how to help businesses get online the right way. That question grew into a team, a process and a list of lasting partnerships across industries, all built on one habit: think first, then build.
             </p>
 
             {/* CTA Button: Our Journey */}
@@ -323,6 +319,14 @@ export default function AboutStory() {
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 relative flex flex-col justify-center max-w-[560px] lg:max-w-none mx-auto lg:ml-auto w-full"
           >
+            {/* Timeline Header: The Road So Far */}
+            <div className="flex items-center gap-2.5 mb-5 sm:mb-6">
+              <span className="text-[13px] sm:text-[14px] font-bold tracking-[0.2em] text-[#FF0055] uppercase">
+                The Road So Far
+              </span>
+              <span className="inline-block w-6 sm:w-8 h-[1.5px] bg-[#FF0055]/60 rounded-full" />
+            </div>
+
             <div
               ref={listContainerRef}
               className="flex flex-col gap-9 sm:gap-10 relative"

@@ -38,10 +38,10 @@ export default function AboutCTA() {
           {/* ============================================================ */}
           <div className="shrink-0 text-center md:text-left">
             <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-extrabold text-[#0A1024] tracking-tighter sm:tracking-tight leading-[1.12] font-heading drop-shadow-[0_1px_2px_rgba(255,255,255,0.7)]">
-              <span>Let&apos;s Build</span>
+              <span>Got an Idea?</span>
               <br />
               <span className="whitespace-nowrap">
-                Something Great <span className="text-[#FF0055]">Together</span>
+                Let&apos;s Make It <span className="text-[#FF0055]">Real</span>
               </span>
             </h2>
           </div>
@@ -49,9 +49,10 @@ export default function AboutCTA() {
           {/* ============================================================ */}
           {/* 2. SUBTITLE / DESCRIPTION                                    */}
           {/* ============================================================ */}
-          <div className="text-gray-600 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-medium leading-snug text-center md:text-left max-w-[480px] xl:max-w-none xl:-translate-x-12 2xl:-translate-x-14">
-            <p className="whitespace-nowrap tracking-tight sm:tracking-normal">Have a project in mind or just want to say hello?</p>
-            <p className="whitespace-nowrap tracking-tight sm:tracking-normal mt-0.5">We&apos;d love to hear from you.</p>
+          <div className="text-gray-600 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-medium leading-relaxed text-center md:text-left max-w-[480px] xl:max-w-[500px]">
+            <p>
+              Whether you have a full plan or just a spark, start a conversation with us. Kaelixo IT Company will help you think it through and turn it into something that works.
+            </p>
           </div>
 
           {/* ============================================================ */}

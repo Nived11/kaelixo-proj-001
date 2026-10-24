@@ -126,10 +126,10 @@ export default function AboutWhoWeAre() {
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-black text-[#0A1024] leading-[1.12] tracking-tight font-heading"
             >
-              A Team That Turns <br className="hidden sm:inline" />
-              Ideas Into{" "}
+              Where Understanding <br className="hidden sm:inline" />
+              Becomes{" "}
               <span className="text-[#FF0055] drop-shadow-[0_2px_18px_rgba(255,0,85,0.25)]">
-                Impact
+                Results
               </span>
             </motion.h2>
 
@@ -140,13 +140,10 @@ export default function AboutWhoWeAre() {
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="mt-5 sm:mt-6 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed text-gray-600 max-w-[540px]"
             >
-              Kaelixo is a digital solutions company focused on web development,
-              UI/UX design and technology-driven growth. We help startups,
-              small businesses and established brands build powerful digital
-              experiences that attract, engage and deliver real results.
+              Kaelixo IT Company brings together web development, UI/UX design, software, CRM and growth marketing under one roof. Whether you’re a young startup or an established brand, we begin by learning how your business truly works, so everything we create is made to fit it.
             </motion.p>
 
-            {/* CTA Button: Learn More */}
+            {/* CTA Button: Discover More */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -157,7 +154,7 @@ export default function AboutWhoWeAre() {
                 onClick={handleOpenConsultation}
                 className="group inline-flex items-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white font-medium text-[15px] sm:text-[15px] md:text-[15px] lg:text-[15px] xl:text-[16px] 2xl:text-[16px] tracking-wide transition-all duration-300 active:scale-95 font-heading cursor-pointer"
               >
-                <span>Learn More</span>
+                <span>Discover More</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
               </button>
             </motion.div>

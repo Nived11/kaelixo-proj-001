@@ -9,26 +9,26 @@ const valuesData = [
   {
     id: "innovation",
     icon: <Lightbulb className="w-4 h-4 stroke-[2.2]" />,
-    title: "Innovation",
-    desc: "We embrace new ideas and modern technology.",
+    title: "Fresh Thinking",
+    desc: "We try new ideas and tools, and use them where they genuinely help.",
   },
   {
     id: "integrity",
     icon: <ShieldCheck className="w-4 h-4 stroke-[2.2]" />,
-    title: "Integrity",
-    desc: "We believe in honest and transparent work.",
+    title: "Honest Work",
+    desc: "We say what we’ll do, do what we said, and show you the results.",
   },
   {
     id: "collaboration",
     icon: <Users className="w-4 h-4 stroke-[2.2]" />,
-    title: "Collaboration",
-    desc: "We work together to achieve the best results.",
+    title: "Shared Effort",
+    desc: "We succeed together, with our clients and with each other.",
   },
   {
     id: "growth",
     icon: <TrendingUp className="w-4 h-4 stroke-[2.2]" />,
-    title: "Growth",
-    desc: "We are committed to continuous learning and improvement.",
+    title: "Steady Progress",
+    desc: "We never stop learning, and we count your growth as our own.",
   },
 ];
 
@@ -107,8 +107,7 @@ export default function AboutMissionValues() {
 
                   {/* Description in next line */}
                   <p className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[15px] xl:text-[16px] leading-relaxed text-slate-100 font-sans font-normal drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
-                    To empower businesses with innovative digital solutions that drive
-                    measurable growth and create lasting value.
+                    To give businesses digital solutions that are planned with care, built with skill and followed through until the growth is clear.
                   </p>
                 </div>
               </motion.div>
@@ -163,8 +162,7 @@ export default function AboutMissionValues() {
 
                   {/* Description in next line */}
                   <p className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[15px] xl:text-[16px] leading-relaxed text-slate-100 font-sans font-normal drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
-                    To be a trusted global partner for digital growth, known for our
-                    creativity, technology and results-driven approach.
+                    To become the digital partner businesses trust most, recognised for clear thinking, creative work and dependable results.
                   </p>
                 </div>
               </motion.div>

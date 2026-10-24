@@ -147,25 +147,24 @@ export default function AboutWorkspace() {
 
             {/* Headline */}
             <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-black text-[#0A1024] leading-[1.12] tracking-tight font-heading">
-              A Place Where <br />
+              Where Great <br />
               <span className="text-[#FF0055] drop-shadow-[0_2px_18px_rgba(255,0,85,0.25)]">
-                Ideas Come to Life
+                Work Happens
               </span>
             </h2>
 
             {/* Description */}
             <p className="mt-5 sm:mt-6 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed text-gray-700 font-sans font-normal max-w-[500px]">
-              We believe a great workspace brings out better ideas. Our space is
-              designed to encourage creativity, collaboration and focus.
+              We designed our space for focus and fresh thinking. It’s where discussions turn into plans and plans turn into products, all without leaving the room.
             </p>
 
-            {/* CTA Button: Explore */}
+            {/* CTA Button: Take a Look */}
             <div className="mt-7 sm:mt-8 flex items-center gap-4">
               <button
                 onClick={handleOpenConsultation}
                 className="group inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border-2 border-[#FF0055] text-[#FF0055] bg-transparent hover:bg-gradient-to-r hover:from-[#80002A] hover:to-[#FF0055] hover:text-white hover:border-[#FF3377] text-[15px] sm:text-[15px] md:text-[15px] lg:text-[15px] xl:text-[16px] 2xl:text-[16px] font-semibold tracking-wide transition-all duration-300 font-heading cursor-pointer shadow-sm hover:shadow-none active:scale-95"
               >
-                <span>Explore</span>
+                <span>Take a Look</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>

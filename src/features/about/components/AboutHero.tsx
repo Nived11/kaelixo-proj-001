@@ -66,10 +66,10 @@ export default function AboutHero() {
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-[38px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-extrabold text-white tracking-tight font-heading leading-[1.08] max-w-[950px] mx-auto"
         >
-          A Digital Team <br />
-          Driven by{" "}
+          Smart Thinking. <br />
+          Strong Builds. <br />
           <span className="text-[#FF0055] drop-shadow-[0_0_35px_rgba(255,0,85,0.5)]">
-            Impact
+            Real Growth.
           </span>
         </motion.h1>
 
@@ -80,7 +80,7 @@ export default function AboutHero() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-5 sm:mt-6 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-white/80 max-w-[640px] mx-auto leading-relaxed font-normal font-sans"
         >
-          Kaelixo IT Company brings together web development, UI/UX design, software, CRM and growth marketing under one roof. Whether you’re a young startup or an established brand, we begin by learning how your business truly works, so everything we create is made to fit it.
+          Kaelixo IT Company starts with understanding your business, shapes what it learns into working digital solutions, and stays beside you while the results grow.
         </motion.p>
 
         {/* CTA Buttons: Our Story → & Meet Our Team */}
@@ -97,11 +97,11 @@ export default function AboutHero() {
           >
             <div className="flex flex-col h-[22px] sm:h-[24px] overflow-hidden">
               <div className="flex items-center gap-2.5 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[22px] sm:h-[24px]">
-                <span className="leading-[22px] sm:leading-[24px] text-[15px] sm:text-[16px]">Our Story</span>
+                <span className="leading-[22px] sm:leading-[24px] text-[15px] sm:text-[16px]">Read Our Story</span>
                 <ArrowRight className="w-4 h-4" />
               </div>
               <div className="flex items-center gap-2.5 transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[22px] sm:h-[24px]">
-                <span className="leading-[22px] sm:leading-[24px] text-[15px] sm:text-[16px]">Our Story</span>
+                <span className="leading-[22px] sm:leading-[24px] text-[15px] sm:text-[16px]">Read Our Story</span>
                 <ArrowRight className="w-4 h-4" />
               </div>
             </div>
@@ -114,10 +114,10 @@ export default function AboutHero() {
           >
             <div className="flex flex-col h-[22px] sm:h-[24px] overflow-hidden">
               <div className="flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[22px] sm:h-[24px]">
-                <span className="leading-[22px] sm:leading-[24px] text-[15px] sm:text-[16px]">Meet Our Team</span>
+                <span className="leading-[22px] sm:leading-[24px] text-[15px] sm:text-[16px]">See Who We Are</span>
               </div>
               <div className="flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-full h-[22px] sm:h-[24px]">
-                <span className="leading-[22px] sm:leading-[24px] text-[15px] sm:text-[16px]">Meet Our Team</span>
+                <span className="leading-[22px] sm:leading-[24px] text-[15px] sm:text-[16px]">See Who We Are</span>
               </div>
             </div>
           </Link>

@@ -59,21 +59,21 @@ const impactStats: StatItem[] = [
   {
     id: "projects",
     icon: <FileText className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[2.2]" />,
-    value: 120,
+    value: 100,
     suffix: "+",
     label: "Projects Delivered",
   },
   {
     id: "businesses",
     icon: <Users className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[2.2]" />,
-    value: 50,
+    value: 100,
     suffix: "+",
     label: "Businesses Served",
   },
   {
     id: "clients",
     icon: <Handshake className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[2.2]" />,
-    value: 95,
+    value: 90,
     suffix: "%",
     label: "Long-Term Clients",
   },
@@ -112,15 +112,13 @@ export default function AboutImpact() {
 
             {/* Headline */}
             <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-black text-[#0A1024] leading-[1.12] tracking-tight font-heading">
-              Building Long-Term <br />
-              <span className="text-[#FF0055]">Partnerships</span>
+              Partnerships That <br />
+              <span className="text-[#FF0055]">Keep Growing</span>
             </h2>
 
             {/* Description */}
             <p className="mt-5 sm:mt-6 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed text-gray-700 font-sans font-normal max-w-[500px]">
-              We are proud to have worked with startups, small businesses and
-              established brands, helping them build digital solutions that create
-              real value.
+              Startups, small businesses and established brands have trusted us with their digital growth, and most stay as they scale. At Kaelixo IT Company, the work is done when our clients can see the difference, not when the site goes live.
             </p>
           </motion.div>
 
