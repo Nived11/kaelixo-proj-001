@@ -2,8 +2,84 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+
+// ============================================================
+// MOBILE PARALLAX STACKING CARDS COMPONENT
+// ============================================================
+function MobileParallaxDeck() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 80px", "end 80px"],
+  });
+
+  // Card 1 scales down subtly as Card 2 slides over it
+  const card1Scale = useTransform(scrollYProgress, [0, 0.45], [1, 0.95]);
+
+  // Card 2 scales down subtly as Card 3 slides over it
+  const card2Scale = useTransform(scrollYProgress, [0.45, 0.85], [1, 0.97]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="block sm:hidden relative w-full pt-1 pb-0"
+    >
+      {/* 1. First Card: Kaelixo Headquarters */}
+      <div className="sticky top-20 z-10">
+        <motion.div
+          style={{
+            scale: card1Scale,
+            transformOrigin: "top center",
+          }}
+          className="relative w-full aspect-[16/10] rounded-[22px] overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.12)] border-2 border-white bg-slate-100"
+        >
+          <Image
+            src="/images/about/kaelixo-building.webp"
+            alt="Kaelixo Headquarters Building"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </motion.div>
+      </div>
+
+      {/* 2. Second Card: Creative Team (slides over Card 1) */}
+      <div className="sticky top-24 z-20 mt-3.5">
+        <motion.div
+          style={{
+            scale: card2Scale,
+            transformOrigin: "top center",
+          }}
+          className="relative w-full aspect-[16/10] rounded-[22px] overflow-hidden shadow-[0_-6px_25px_rgba(0,0,0,0.14),0_16px_32px_rgba(0,0,0,0.16)] border-2 border-white bg-slate-100"
+        >
+          <Image
+            src="/images/about/kaelixo-team.webp"
+            alt="Kaelixo Creative Minds in Discussion"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </motion.div>
+      </div>
+
+      {/* 3. Third Card: Digital Experiences (slides over Card 2) */}
+      <div className="relative z-30 mt-3.5">
+        <motion.div className="relative w-full aspect-[16/10] rounded-[22px] overflow-hidden shadow-[0_-6px_25px_rgba(0,0,0,0.16),0_20px_38px_rgba(0,0,0,0.2)] border-2 border-white bg-slate-100">
+          <Image
+            src="/images/about/about-experience.jpg"
+            alt="Kaelixo Digital Product Designer Creating Experiences"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </motion.div>
+      </div>
+    </div>
+  );
+}
 
 export default function AboutWhoWeAre() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -22,7 +98,7 @@ export default function AboutWhoWeAre() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-20 w-full bg-white py-16 sm:py-20 lg:py-28 overflow-hidden"
+      className="relative z-20 w-full bg-white py-20 sm:py-20 lg:py-28 overflow-x-clip"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 xl:gap-16 items-center">
@@ -94,76 +170,82 @@ export default function AboutWhoWeAre() {
             {/* Ambient Pink Glow behind right section */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] bg-[#FF0055]/10 rounded-full blur-[100px] pointer-events-none" />
 
-            {/* 1. Top Element: Kaelixo Headquarters Building (Animates First) */}
-            <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.96 }}
-              animate={
-                isInView
-                  ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 0, y: 30, scale: 0.96 }
-              }
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full aspect-[16/9.5] rounded-[22px] sm:rounded-[26px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.1)] border-2 sm:border-[3px] border-white bg-slate-100"
-            >
-              <Image
-                src="/images/about/kaelixo-building.webp"
-                alt="Kaelixo Headquarters Building"
-                fill
-                priority
-                className="object-cover"
-                sizes="(min-width: 1024px) 45vw, 100vw"
-              />
-            </motion.div>
+            {/* ── MOBILE ONLY: Sticky Parallax Stacking Cards ── */}
+            <MobileParallaxDeck />
 
-            {/* 2. Bottom Row: Team Image & Experience Card */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7 lg:gap-8 -mt-4 sm:-mt-12 lg:-mt-16 xl:-mt-20 -mx-2 sm:-mx-6 lg:-mx-8 xl:-mx-9 relative z-10">
-              {/* Bottom-Left: Team Photo (Animates in from the Left) */}
+            {/* ── DESKTOP & TABLET ONLY: Collage Layout ── */}
+            <div className="hidden sm:block">
+              {/* 1. Top Element: Kaelixo Headquarters Building */}
               <motion.div
-                initial={{ opacity: 0, x: -60, y: 20 }}
+                initial={{ opacity: 0, y: 30, scale: 0.96 }}
                 animate={
                   isInView
-                    ? { opacity: 1, x: 0, y: 0 }
-                    : { opacity: 0, x: -60, y: 20 }
+                    ? { opacity: 1, y: 0, scale: 1 }
+                    : { opacity: 0, y: 30, scale: 0.96 }
                 }
-                transition={{
-                  duration: 0.75,
-                  delay: 0.25,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="relative aspect-[4/3] rounded-[18px] sm:rounded-[20px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.16)] border-2 sm:border-[2.5px] border-white bg-slate-100"
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="relative w-full aspect-[16/9.5] rounded-[22px] sm:rounded-[26px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.1)] border-2 sm:border-[3px] border-white bg-slate-100"
               >
                 <Image
-                  src="/images/about/kaelixo-team.webp"
-                  alt="Kaelixo Creative Minds in Discussion"
+                  src="/images/about/kaelixo-building.webp"
+                  alt="Kaelixo Headquarters Building"
                   fill
+                  priority
                   className="object-cover"
-                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  sizes="(min-width: 1024px) 45vw, 100vw"
                 />
               </motion.div>
 
-              {/* Bottom-Right: Experience Image (Animates in from the Right) */}
-              <motion.div
-                initial={{ opacity: 0, x: 60, y: 20 }}
-                animate={
-                  isInView
-                    ? { opacity: 1, x: 0, y: 0 }
-                    : { opacity: 0, x: 60, y: 20 }
-                }
-                transition={{
-                  duration: 0.75,
-                  delay: 0.35,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="relative aspect-[4/3] rounded-[18px] sm:rounded-[20px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.18)] border-2 sm:border-[2.5px] border-white bg-slate-100"
-              >
-                <Image
-                  src="/images/about/about-experience.jpg"
-                  alt="Kaelixo Digital Product Designer Creating Experiences"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 25vw, 50vw"
-                />
-              </motion.div>
+              {/* 2. Bottom Row: Team Image & Experience Card */}
+              <div className="grid grid-cols-2 gap-6 sm:gap-7 lg:gap-8 -mt-4 sm:-mt-12 lg:-mt-16 xl:-mt-20 -mx-2 sm:-mx-6 lg:-mx-8 xl:-mx-9 relative z-10">
+                {/* Bottom-Left: Team Photo */}
+                <motion.div
+                  initial={{ opacity: 0, x: -60, y: 20 }}
+                  animate={
+                    isInView
+                      ? { opacity: 1, x: 0, y: 0 }
+                      : { opacity: 0, x: -60, y: 20 }
+                  }
+                  transition={{
+                    duration: 0.75,
+                    delay: 0.25,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="relative aspect-[4/3] rounded-[18px] sm:rounded-[20px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.16)] border-2 sm:border-[2.5px] border-white bg-slate-100"
+                >
+                  <Image
+                    src="/images/about/kaelixo-team.webp"
+                    alt="Kaelixo Creative Minds in Discussion"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 25vw, 50vw"
+                  />
+                </motion.div>
+
+                {/* Bottom-Right: Experience Image */}
+                <motion.div
+                  initial={{ opacity: 0, x: 60, y: 20 }}
+                  animate={
+                    isInView
+                      ? { opacity: 1, x: 0, y: 0 }
+                      : { opacity: 0, x: 60, y: 20 }
+                  }
+                  transition={{
+                    duration: 0.75,
+                    delay: 0.35,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="relative aspect-[4/3] rounded-[18px] sm:rounded-[20px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.18)] border-2 sm:border-[2.5px] border-white bg-slate-100"
+                >
+                  <Image
+                    src="/images/about/about-experience.jpg"
+                    alt="Kaelixo Digital Product Designer Creating Experiences"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 25vw, 50vw"
+                  />
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>

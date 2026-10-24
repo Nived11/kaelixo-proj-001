@@ -58,21 +58,21 @@ function AnimatedCounter({
 const impactStats: StatItem[] = [
   {
     id: "projects",
-    icon: <FileText className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[2]" />,
+    icon: <FileText className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[2.2]" />,
     value: 120,
     suffix: "+",
     label: "Projects Delivered",
   },
   {
     id: "businesses",
-    icon: <Users className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[2]" />,
+    icon: <Users className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[2.2]" />,
     value: 50,
     suffix: "+",
     label: "Businesses Served",
   },
   {
     id: "clients",
-    icon: <Handshake className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[2]" />,
+    icon: <Handshake className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 stroke-[2.2]" />,
     value: 95,
     suffix: "%",
     label: "Long-Term Clients",
@@ -86,7 +86,7 @@ export default function AboutImpact() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-20 w-full bg-white py-16 sm:py-20 lg:py-24 overflow-hidden text-[#0A1024] border-t border-slate-100"
+      className="relative z-20 w-full bg-white py-20 sm:py-20 lg:py-24 overflow-hidden text-[#0A1024]"
     >
       {/* Soft Ambient Glow */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[380px] h-[380px] bg-[#FF0055]/05 rounded-full blur-[100px] pointer-events-none" />
@@ -104,20 +104,20 @@ export default function AboutImpact() {
           >
             {/* Eyebrow: OUR IMPACT + Pink Dash */}
             <div className="flex items-center gap-3 mb-4 sm:mb-5">
-              <span className="text-[12px] sm:text-[14px] font-bold tracking-[0.22em] text-[#0A1024] uppercase font-heading">
+              <span className="text-[14px] sm:text-[14px] lg:text-[18px] xl:text-[18px] font-bold tracking-[0.2em] text-[#0A1024] uppercase">
                 OUR IMPACT
               </span>
               <span className="inline-block w-8 sm:w-10 h-[2px] bg-[#FF0055] rounded-full" />
             </div>
 
             {/* Headline */}
-            <h2 className="text-[34px] sm:text-[42px] md:text-[46px] lg:text-[46px] xl:text-[52px] font-extrabold text-[#0A1024] leading-[1.12] tracking-tight font-heading">
+            <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-black text-[#0A1024] leading-[1.12] tracking-tight font-heading">
               Building Long-Term <br />
               <span className="text-[#FF0055]">Partnerships</span>
             </h2>
 
             {/* Description */}
-            <p className="mt-5 sm:mt-6 text-[15px] sm:text-[16px] lg:text-[16.5px] leading-relaxed text-slate-600 font-sans font-normal max-w-[500px]">
+            <p className="mt-5 sm:mt-6 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed text-gray-700 font-sans font-normal max-w-[500px]">
               We are proud to have worked with startups, small businesses and
               established brands, helping them build digital solutions that create
               real value.
@@ -135,22 +135,22 @@ export default function AboutImpact() {
                 : { opacity: 0, y: 30, scale: 0.98 }
             }
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 flex justify-center lg:justify-end"
+            className="lg:col-span-7 flex justify-center lg:justify-end w-full"
           >
-            <div className="w-full bg-white rounded-[24px] sm:rounded-[30px] border border-slate-100 shadow-[0_15px_45px_rgba(0,0,0,0.06)] p-6 sm:p-8 lg:p-10">
-              <div className="grid grid-cols-3 divide-x divide-slate-100">
+            <div className="w-full bg-transparent sm:bg-white rounded-[14px] sm:rounded-[18px] border-0 sm:border border-slate-100 shadow-none sm:shadow-[0_15px_45px_rgba(0,0,0,0.06)] p-0 sm:p-8 lg:p-10">
+              <div className="grid grid-cols-3 divide-x divide-slate-200/80 sm:divide-slate-100">
                 {impactStats.map((stat) => (
                   <div
                     key={stat.id}
                     className="flex flex-col items-center text-center px-2 sm:px-4 lg:px-6 group"
                   >
-                    {/* Pink Icon Circle */}
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#FF0055]/10 flex items-center justify-center text-[#FF0055] mb-3.5 sm:mb-5 group-hover:scale-110 group-hover:bg-[#FF0055]/15 transition-all duration-300">
+                    {/* Pink Gradient Icon Circle */}
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-tr from-[#FF0055] via-[#FF2670] to-[#FF6699] border border-[#FF85B3]/40 flex items-center justify-center text-white mb-3.5 sm:mb-5 shadow-[0_4px_16px_rgba(255,0,85,0.28)] group-hover:scale-110 group-hover:shadow-[0_6px_22px_rgba(255,0,85,0.45)] transition-all duration-300">
                       {stat.icon}
                     </div>
 
                     {/* Stat Number with Counter */}
-                    <div className="text-[24px] sm:text-[34px] lg:text-[40px] font-extrabold text-[#0A1024] tracking-tight font-heading leading-tight">
+                    <div className="text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[23px] 2xl:text-[32px] font-extrabold text-[#0A1024] tracking-tight font-heading leading-tight">
                       <AnimatedCounter
                         to={stat.value}
                         suffix={stat.suffix}
@@ -159,7 +159,7 @@ export default function AboutImpact() {
                     </div>
 
                     {/* Stat Label */}
-                    <div className="text-[11px] sm:text-[13px] lg:text-[14px] font-medium text-slate-500 font-sans mt-1 sm:mt-2 text-center leading-snug">
+                    <div className="text-[14px] lg:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-medium text-gray-600 font-sans mt-1 sm:mt-2 text-center leading-snug">
                       {stat.label}
                     </div>
                   </div>

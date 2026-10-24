@@ -10,9 +10,19 @@ export default function AboutHero() {
   return (
     <section className="relative min-h-[100svh] lg:h-screen lg:min-h-[720px] flex items-center justify-center pt-[100px] sm:pt-[110px] lg:pt-[70px] pb-16 sm:pb-20 overflow-hidden bg-[#020205]">
       {/* ============================================================ */}
-      {/* BACKGROUND GRAPHIC (GLASSMORPHIC NEON PLATES & AMBIENT GLOW) */}
-      {/* ============================================================ */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0">
+        {/* Mobile Background Image (Vertical Phone Optimized with Reduced Opacity) */}
+        <Image
+          src="/images/about/aboutheromobilebg.png"
+          alt="Kaelixo About Hero Mobile Background"
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          className="sm:hidden object-cover object-center opacity-35"
+        />
+
+        {/* Desktop & Tablet Background Image */}
         <Image
           src="/images/about/aboutherobg.png"
           alt="Kaelixo About Hero Background"
@@ -20,7 +30,7 @@ export default function AboutHero() {
           priority
           quality={95}
           sizes="100vw"
-          className="object-cover object-center"
+          className="hidden sm:block object-cover object-center"
         />
 
         {/* Subtle Top Header Transition Fade */}

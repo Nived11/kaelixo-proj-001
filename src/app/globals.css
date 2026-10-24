@@ -529,8 +529,23 @@ body,
 }
 
 /* Lenis already interpolates desktop scrolling; native smooth scrolling must not compete. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
 html.lenis {
   scroll-behavior: auto;
+}
+
+/* Prevent nested scrollable containers, modals, and extensions from chaining scroll to background window */
+[data-lenis-prevent],
+.overflow-y-auto,
+.overflow-x-auto,
+.overflow-auto,
+dialog,
+[role="dialog"] {
+  overscroll-behavior: contain;
 }
 
 @media (prefers-reduced-motion: reduce) {

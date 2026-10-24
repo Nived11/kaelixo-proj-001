@@ -36,11 +36,11 @@ const timelineData: TimelineItem[] = [
   },
 ];
 
-// Activation ranges for each milestone based on scroll progress (0 to 1)
+// Activation ranges: nodes strictly ONLY illuminate when the line reaches them
 const MILESTONE_RANGES: [number, number][] = [
-  [0.0, 0.16],  // 2025: Activates at the start
-  [0.36, 0.52], // 2026: Activates around the middle
-  [0.72, 0.88], // 2026+: Activates near the end
+  [0.02, 0.14], // 2025: At top of track (activates as user enters)
+  [0.48, 0.58], // 2026: At middle of track (~50%, activates only when line arrives)
+  [0.90, 0.98], // 2026+: At bottom of track (~100%, activates only when line arrives)
 ];
 
 interface TimelineNodeItemProps {
@@ -54,7 +54,7 @@ function TimelineNodeItem({ item, idx, progress, nodeRef }: TimelineNodeItemProp
   const [rangeStart, rangeEnd] = MILESTONE_RANGES[idx] || [0, 1];
   const midRange = (rangeStart + rangeEnd) / 2;
 
-  // Elastic pop on node circle when bead arrives
+  // Elastic pop on node circle when line arrives
   const nodeScale = useTransform(
     progress,
     [rangeStart, midRange, rangeEnd],
@@ -100,23 +100,25 @@ function TimelineNodeItem({ item, idx, progress, nodeRef }: TimelineNodeItemProp
         style={{ scale: nodeScale }}
       >
         {/* Outer Circle Container */}
-        <div className="w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] rounded-full bg-[#0a0a14] border border-white/15 flex items-center justify-center relative overflow-visible transition-colors duration-300">
-          {/* Active Blooming Halo Ring */}
+        <div className="w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] rounded-full bg-[#07070d] border border-white/10 flex items-center justify-center relative overflow-visible transition-colors duration-300">
+          {/* Active Blooming Halo Ring (illuminates strictly when line touches node) */}
           <motion.div
             className="absolute -inset-[1px] rounded-full bg-[#FF0055]/20 border border-[#FF0055] shadow-[0_0_22px_rgba(255,0,85,0.7)] pointer-events-none"
             style={{ opacity: haloGlow }}
           />
 
-          {/* Inner Center Dot Container */}
-          <div className="w-[14px] h-[14px] sm:w-[16px] sm:h-[16px] rounded-full bg-white/15 flex items-center justify-center relative overflow-hidden">
-            {/* Active Glowing Dot */}
-            <motion.div
-              className="absolute inset-0 rounded-full bg-gradient-to-br from-[#FF0055] to-[#ff2b70] shadow-[0_0_10px_#FF0055]"
-              style={{ opacity: haloGlow }}
-            />
-            {/* Center White Core Pip */}
-            <div className="w-1.5 h-1.5 rounded-full bg-white relative z-10 shadow-[0_0_4px_rgba(255,255,255,0.85)]" />
-          </div>
+          {/* Inactive Center Dot (subtle unlit state before line arrives) */}
+          <div className="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] rounded-full bg-white/10 flex items-center justify-center relative" />
+
+          {/* Active Inner Center Dot (ignites vibrant neon pink when line arrives) */}
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+            style={{ opacity: haloGlow }}
+          >
+            <div className="w-[14px] h-[14px] sm:w-[16px] sm:h-[16px] rounded-full bg-gradient-to-br from-[#FF0055] to-[#ff2b70] shadow-[0_0_10px_#FF0055] flex items-center justify-center">
+              <div className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_4px_rgba(255,255,255,0.85)]" />
+            </div>
+          </motion.div>
         </div>
       </motion.div>
 
@@ -193,8 +195,6 @@ export default function AboutStory() {
 
   // Clamped progress values to prevent overshoot
   const lineScaleY = useTransform(smoothProgress, (v) => Math.max(0, Math.min(1, v)));
-  const beadTop = useTransform(smoothProgress, (v) => `${Math.max(0, Math.min(1, v)) * 100}%`);
-  const beadOpacity = useTransform(smoothProgress, [0.0, 0.04], [0, 1]);
 
   // Dynamic measurement of line track between first and last node centers
   const [lineTrack, setLineTrack] = useState({ top: 20, height: 260 });
@@ -348,22 +348,6 @@ export default function AboutStory() {
                     scaleY: lineScaleY,
                   }}
                 />
-
-                {/* Traveling Glowing Head / Bead (Glides along line tip) */}
-                <motion.div
-                  className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20 flex items-center justify-center"
-                  style={{
-                    top: beadTop,
-                    opacity: beadOpacity,
-                  }}
-                >
-                  {/* Pulsing Neon Glow Halo */}
-                  <div className="absolute w-7 h-7 rounded-full bg-[#FF0055]/35 blur-[5px] animate-pulse" />
-                  {/* Illuminated Bead Body */}
-                  <div className="w-3.5 h-3.5 rounded-full bg-gradient-to-br from-white via-[#FF0055] to-[#ff2b70] border border-white flex items-center justify-center shadow-[0_0_12px_#FF0055,0_0_24px_rgba(255,0,85,0.9)]">
-                    <div className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_4px_#ffffff]" />
-                  </div>
-                </motion.div>
               </div>
 
               {/* Timeline Items */}
