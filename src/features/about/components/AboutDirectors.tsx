@@ -61,13 +61,13 @@ export default function AboutDirectors() {
 
           {/* Headline */}
           <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-extrabold tracking-tight text-[#0A1024] leading-[1.12] mb-2 sm:mb-3">
-            The Person <br />
-            Behind <span className="text-[#FF0055]">Kaelixo</span>
+            The Mind <br />
+            Steering <span className="text-[#FF0055]">Kaelixo</span>
           </h2>
 
           {/* Subtitle / Tagline */}
           <p className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-gray-700 font-normal">
-            Guided by vision. Focused on impact.
+            Clear vision. Lasting impact.
           </p>
         </motion.div>
 
@@ -101,7 +101,7 @@ export default function AboutDirectors() {
                 >
                   <Image
                     src="/images/about/director-dummy.jpg"
-                    alt="Director - Kaelixo"
+                    alt="Jineesh Sojan - Director, Kaelixo"
                     fill
                     priority
                     className="object-cover object-center "
@@ -150,13 +150,13 @@ export default function AboutDirectors() {
 
               {/* 2. Headline */}
               <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-extrabold tracking-tight text-[#0A1024] leading-[1.12] mb-2 sm:mb-3">
-                The Person <br />
-                Behind <span className="text-[#FF0055]">Kaelixo</span>
+                The Mind <br />
+                Steering <span className="text-[#FF0055]">Kaelixo</span>
               </h2>
 
               {/* 3. Subtitle / Tagline */}
               <p className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-gray-700 font-normal ">
-                Guided by vision. Focused on impact.
+                Clear vision. Lasting impact.
               </p>
             </div>
 
@@ -166,7 +166,7 @@ export default function AboutDirectors() {
             {/* 5. Director Name & Role */}
             <div className="mb-3 sm:mb-4">
               <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1024] tracking-tight">
-                Name
+                Jineesh Sojan
               </h3>
               <p className="text-base sm:text-lg font-semibold text-[#FF0055] mt-0.5">
                 Director
@@ -175,7 +175,7 @@ export default function AboutDirectors() {
 
             {/* 6. Bio Description */}
             <p className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-gray-700 leading-relaxed max-w-xl mb-6 sm:mb-8">
-              Leads the agency&apos;s vision, builds strong client relationships, and drives digital strategy to create meaningful impact. Focused on delivering innovative solutions and long-term growth for businesses.
+              Jineesh sets the direction for Kaelixo, from technology and product vision to business growth. He keeps every project rooted in careful thinking, carries it through the build and stays close until the results are clear. His focus is on building client relationships that last and solutions that keep growing with the businesses they serve.
             </p>
 
             {/* 7. Social Links */}
