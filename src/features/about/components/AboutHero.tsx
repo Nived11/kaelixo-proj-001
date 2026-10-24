@@ -80,8 +80,7 @@ export default function AboutHero() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-5 sm:mt-6 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-white/80 max-w-[640px] mx-auto leading-relaxed font-normal font-sans"
         >
-          We&apos;re a team of thinkers, designers and developers passionate about
-          building digital experiences that create real value for businesses.
+          Kaelixo IT Company brings together web development, UI/UX design, software, CRM and growth marketing under one roof. Whether you’re a young startup or an established brand, we begin by learning how your business truly works, so everything we create is made to fit it.
         </motion.p>
 
         {/* CTA Buttons: Our Story → & Meet Our Team */}

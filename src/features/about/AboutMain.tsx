@@ -4,6 +4,7 @@ import AboutHero from "./components/AboutHero";
 import AboutStats from "./components/AboutStats";
 import AboutWhoWeAre from "./components/AboutWhoWeAre";
 import AboutStory from "./components/AboutStory";
+import AboutDirectors from "./components/AboutDirectors";
 import AboutMissionValues from "./components/AboutMissionValues";
 import AboutTeam from "./components/AboutTeam";
 import AboutWorkspace from "./components/AboutWorkspace";
@@ -17,6 +18,7 @@ export default function AboutMain() {
       <AboutStats />
       <AboutWhoWeAre />
       <AboutStory />
+      <AboutDirectors />
       <AboutMissionValues />
       <AboutTeam />
       <AboutWorkspace />
