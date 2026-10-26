@@ -93,7 +93,13 @@ export default function AboutStats() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-20 w-full bg-white py-8 sm:py-10 lg:py-12"
+      className="relative z-20 -mt-8 overflow-hidden rounded-t-[32px] sm:rounded-t-[40px] border-t border-[#e9eef7] bg-white py-8 sm:py-10 lg:py-12 shadow-[0_-12px_32px_rgba(0,0,0,0.12)] text-[#07080c] max-md:rounded-t-[28px]"
+      style={{
+        transform: 'translate3d(0, 0, 0)',
+        WebkitTransform: 'translate3d(0, 0, 0)',
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden',
+      }}
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-6 xl:px-12">
         <motion.div

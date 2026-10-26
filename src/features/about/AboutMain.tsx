@@ -14,16 +14,25 @@ import AboutCTA from "./components/AboutCTA";
 export default function AboutMain() {
   return (
     <HomeAnimationActivity>
-      <AboutHero />
-      <AboutStats />
-      <AboutWhoWeAre />
-      <AboutStory />
-      <AboutDirectors />
-      <AboutMissionValues />
-      <AboutTeam />
-      <AboutWorkspace />
-      <AboutImpact />
-      <AboutCTA />
+      <div className="relative w-full font-sans pt-[96px] bg-[#020205]">
+        {/* Hero & Stats Parallax Container */}
+        <div className="relative w-full">
+          <AboutHero />
+          <AboutStats />
+          <AboutWhoWeAre />
+        </div>
+
+        {/* Subsequent Sections in solid elevated stacking context */}
+        <div className="relative z-20">
+          <AboutStory />
+          <AboutDirectors />
+          <AboutMissionValues />
+          <AboutTeam />
+          <AboutWorkspace />
+          <AboutImpact />
+          <AboutCTA />
+        </div>
+      </div>
     </HomeAnimationActivity>
   );
 }

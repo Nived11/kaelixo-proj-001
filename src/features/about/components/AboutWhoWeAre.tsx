@@ -56,10 +56,10 @@ function MobileParallaxDeck() {
           className="relative w-full aspect-[16/10] rounded-[22px] overflow-hidden shadow-[0_-6px_25px_rgba(0,0,0,0.14),0_16px_32px_rgba(0,0,0,0.16)] border-2 border-white bg-slate-100"
         >
           <Image
-            src="/images/about/kaelixo-team.webp"
+            src="/images/about/Creative-Team.jpg"
             alt="Kaelixo Creative Minds in Discussion"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             sizes="100vw"
           />
         </motion.div>
@@ -69,10 +69,10 @@ function MobileParallaxDeck() {
       <div className="relative z-30 mt-3.5">
         <motion.div className="relative w-full aspect-[16/10] rounded-[22px] overflow-hidden shadow-[0_-6px_25px_rgba(0,0,0,0.16),0_20px_38px_rgba(0,0,0,0.2)] border-2 border-white bg-slate-100">
           <Image
-            src="/images/about/about-experience.jpg"
+            src="/images/about/Digital-Experience.jpg"
             alt="Kaelixo Digital Product Designer Creating Experiences"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             sizes="100vw"
           />
         </motion.div>
@@ -211,10 +211,10 @@ export default function AboutWhoWeAre() {
                   className="relative aspect-[4/3] rounded-[18px] sm:rounded-[20px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.16)] border-2 sm:border-[2.5px] border-white bg-slate-100"
                 >
                   <Image
-                    src="/images/about/kaelixo-team.webp"
+                    src="/images/about/Creative-Team.jpg"
                     alt="Kaelixo Creative Minds in Discussion"
                     fill
-                    className="object-cover"
+                    className="object-cover object-center"
                     sizes="(min-width: 1024px) 25vw, 50vw"
                   />
                 </motion.div>
@@ -235,10 +235,10 @@ export default function AboutWhoWeAre() {
                   className="relative aspect-[4/3] rounded-[18px] sm:rounded-[20px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.18)] border-2 sm:border-[2.5px] border-white bg-slate-100"
                 >
                   <Image
-                    src="/images/about/about-experience.jpg"
+                    src="/images/about/Digital-Experience.jpg"
                     alt="Kaelixo Digital Product Designer Creating Experiences"
                     fill
-                    className="object-cover"
+                    className="object-cover object-center"
                     sizes="(min-width: 1024px) 25vw, 50vw"
                   />
                 </motion.div>
