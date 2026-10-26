@@ -36,11 +36,11 @@ function MobileParallaxDeck() {
           className="relative w-full aspect-[16/10] rounded-[22px] overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.12)] border-2 border-white bg-slate-100"
         >
           <Image
-            src="/images/about/kaelixo-building.webp"
+            src="/images/about/Kaelixo-Building.jpg"
             alt="Kaelixo Headquarters Building"
             fill
             priority
-            className="object-cover"
+            className="object-cover object-center"
             sizes="100vw"
           />
         </motion.div>
@@ -184,11 +184,11 @@ export default function AboutWhoWeAre() {
                 className="relative w-full aspect-[16/9.5] rounded-[22px] sm:rounded-[26px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.1)] border-2 sm:border-[3px] border-white bg-slate-100"
               >
                 <Image
-                  src="/images/about/kaelixo-building.webp"
+                  src="/images/about/Kaelixo-Building.jpg"
                   alt="Kaelixo Headquarters Building"
                   fill
                   priority
-                  className="object-cover"
+                  className="object-cover object-center"
                   sizes="(min-width: 1024px) 45vw, 100vw"
                 />
               </motion.div>

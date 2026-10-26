@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import AboutTeamModal from "./AboutTeamModal";
 
 // ============================================================
 // MOBILE PARALLAX STACKING CARDS COMPONENT
@@ -102,6 +103,7 @@ function TeamMobileParallaxDeck() {
 export default function AboutTeam() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.25 });
+  const [isTeamModalOpen, setIsTeamModalOpen] = useState(false);
 
   const handleOpenConsultation = () => {
     if (typeof window !== "undefined") {
@@ -165,7 +167,7 @@ export default function AboutTeam() {
             {/* CTA Button: Meet Everyone */}
             <div className="mt-8 sm:mt-9 flex items-center gap-4">
               <button
-                onClick={handleOpenConsultation}
+                onClick={() => setIsTeamModalOpen(true)}
                 className="group inline-flex items-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[15px] sm:text-[15px] md:text-[15px] lg:text-[15px] xl:text-[16px] 2xl:text-[16px] font-semibold tracking-wide shadow-sm hover:shadow-none active:scale-95 transition-all duration-300 font-heading cursor-pointer"
               >
                 <span>Meet Everyone</span>
@@ -248,6 +250,12 @@ export default function AboutTeam() {
           </motion.div>
         </div>
       </div>
+
+      {/* Interactive Black Glass Team Slider Modal */}
+      <AboutTeamModal
+        isOpen={isTeamModalOpen}
+        onClose={() => setIsTeamModalOpen(false)}
+      />
     </section>
   );
 }
