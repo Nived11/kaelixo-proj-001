@@ -86,7 +86,7 @@ export default function AboutDirectors() {
               {/* -------------------------------------------------------- */}
               {/* KAELIXO BRAND LOGO SHAPE (Behind Director Portrait)      */}
               {/* -------------------------------------------------------- */}
-              <div className="absolute top-[8%] sm:top-[7%] lg:top-[6%] left-1/2 -translate-x-1/2 w-[76%] sm:w-[80%] lg:w-[82%] aspect-square pointer-events-none select-none z-0">
+              <div className="absolute top-[8%] sm:top-[7%] lg:top-[6%] left-1/2 -translate-x-1/2 w-[76%] sm:w-[80%] lg:w-[82%] aspect-square pointer-events-none select-none z-0 opacity-70">
                 <Image
                   src="/images/brand/kaelixo-logo.png"
                   alt="Kaelixo Brand Emblem"

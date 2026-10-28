@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import HomeAnimationActivity from "@/components/ui/HomeAnimationActivity";
 import AboutHero from "./components/AboutHero";
@@ -10,8 +12,26 @@ import AboutTeam from "./components/AboutTeam";
 import AboutWorkspace from "./components/AboutWorkspace";
 import AboutImpact from "./components/AboutImpact";
 import AboutCTA from "./components/AboutCTA";
+import AboutTeamModal from "./components/AboutTeamModal";
 
 export default function AboutMain() {
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const hash = window.location.hash;
+      const target = document.querySelector(hash);
+      if (target) {
+        setTimeout(() => {
+          const lenis = (window as unknown as { __lenis?: { scrollTo: (t: string | HTMLElement, opts?: { offset?: number }) => void } }).__lenis;
+          if (lenis) {
+            lenis.scrollTo(hash, { offset: -90 });
+          } else {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 250);
+      }
+    }
+  }, []);
+
   return (
     <HomeAnimationActivity>
       <div className="relative w-full font-sans pt-[96px] bg-[#020205]">
@@ -33,6 +53,10 @@ export default function AboutMain() {
           <AboutCTA />
         </div>
       </div>
+
+      {/* Team Modal rendered outside section stack */}
+      <AboutTeamModal />
     </HomeAnimationActivity>
   );
 }
+

@@ -3,9 +3,17 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { FaLinkedinIn, FaYoutube, FaInstagram, FaFacebookF, FaXTwitter, FaBehance, FaThreads, FaWhatsapp } from "react-icons/fa6";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  // Hide footer on dedicated full-screen /about/team page
+  if (pathname === "/about/team") {
+    return null;
+  }
+
   return (
     <footer className="bg-[#050914] text-slate-400 font-sans border-t border-white/5 relative z-10">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 pt-16 pb-8">
