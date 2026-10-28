@@ -67,6 +67,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
+
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PDJBMCF7RD"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PDJBMCF7RD');`,
+          }}
+        />
+        {/* End Google Analytics */}
       </head>
       <body className="min-h-screen flex flex-col bg-[#020205] text-slate-100 antialiased font-sans custom-scrollbar selection:bg-[#FF0055] selection:text-white">
         {/* Google Tag Manager (noscript) */}

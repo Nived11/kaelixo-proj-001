@@ -136,19 +136,59 @@ export default function AboutTeamModal({ isOpen: controlledIsOpen, onClose }: Ab
     }
   };
 
-  // Convert vertical mouse wheel into horizontal scroll (cards move right to left on scroll down)
+  // Convert vertical mouse wheel into smooth horizontal momentum scrolling
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container || !isOpen) return;
 
+    let targetScroll = container.scrollLeft;
+    let animId: number | null = null;
+    let snapTimeout: NodeJS.Timeout | null = null;
+
+    const smoothScrollLoop = () => {
+      const current = container.scrollLeft;
+      const diff = targetScroll - current;
+
+      if (Math.abs(diff) > 0.5) {
+        container.scrollLeft = current + diff * 0.12;
+        animId = requestAnimationFrame(smoothScrollLoop);
+      } else {
+        container.scrollLeft = targetScroll;
+        animId = null;
+      }
+    };
+
     const onWheel = (e: WheelEvent) => {
+      // Allow native smooth trackpad horizontal swipe
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 0) {
+        targetScroll = container.scrollLeft;
+        return;
+      }
+
       e.preventDefault();
-      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
-      container.scrollLeft += delta * 1.3;
+      const delta = e.deltaY !== 0 ? e.deltaY : e.deltaX;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+
+      targetScroll = Math.max(0, Math.min(maxScroll, targetScroll + delta * 1.15));
+
+      // Temporarily soften snap during active wheeling
+      container.style.scrollSnapType = "none";
+      if (snapTimeout) clearTimeout(snapTimeout);
+      snapTimeout = setTimeout(() => {
+        container.style.scrollSnapType = "x proximity";
+      }, 250);
+
+      if (!animId) {
+        animId = requestAnimationFrame(smoothScrollLoop);
+      }
     };
 
     container.addEventListener("wheel", onWheel, { passive: false });
-    return () => container.removeEventListener("wheel", onWheel);
+    return () => {
+      container.removeEventListener("wheel", onWheel);
+      if (animId) cancelAnimationFrame(animId);
+      if (snapTimeout) clearTimeout(snapTimeout);
+    };
   }, [isOpen]);
 
   // Prevent background scrolling when modal is open, pause Lenis smooth scroll
@@ -239,7 +279,7 @@ export default function AboutTeamModal({ isOpen: controlledIsOpen, onClose }: Ab
                 {/* Eyebrow: — OUR TEAM — */}
                 <div className="flex items-center justify-center gap-2.5 mb-1">
                   <span className="w-8 sm:w-10 h-[1.5px] bg-[#FF0055]" />
-                  <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.25em] text-white/80 uppercase font-heading">
+                  <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-bold tracking-[0.25em] text-white/80 uppercase font-heading">
                     OUR TEAM
                   </span>
                   <span className="w-8 sm:w-10 h-[1.5px] bg-[#FF0055]" />
@@ -251,7 +291,7 @@ export default function AboutTeamModal({ isOpen: controlledIsOpen, onClose }: Ab
                 </h2>
 
                 {/* Tagline */}
-                <p className="text-[11px] sm:text-[12.5px] text-gray-300/85 font-normal mt-0.5 max-w-md mx-auto">
+                <p className="text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] text-gray-300/85 font-normal mt-0.5 max-w-md mx-auto">
                   Passionate people building solutions for a better tomorrow.
                 </p>
               </div>
@@ -311,7 +351,7 @@ export default function AboutTeamModal({ isOpen: controlledIsOpen, onClose }: Ab
                       initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.35, delay: idx * 0.05 }}
-                      className="group relative w-[275px] sm:w-[290px] min-w-[275px] sm:min-w-[290px] h-[415px] sm:h-[435px] rounded-[24px] sm:rounded-[28px] transition-all duration-300 flex flex-col justify-between overflow-hidden snap-center shrink-0 cursor-pointer select-none bg-gradient-to-b from-[#180512]/60 via-[#0B0208]/85 to-[#040106]/95 shadow-[0_15px_40px_rgba(0,0,0,0.7)] hover:shadow-[0_0_25px_rgba(255,0,85,0.25)]"
+                      className="group relative w-[310px] sm:w-[335px] md:w-[350px] lg:w-[360px] min-w-[310px] sm:min-w-[335px] md:min-w-[350px] lg:min-w-[360px] h-[445px] sm:h-[475px] md:h-[490px] rounded-[24px] sm:rounded-[28px] transition-all duration-300 flex flex-col justify-between overflow-hidden snap-center shrink-0 cursor-pointer select-none bg-gradient-to-b from-[#180512]/60 via-[#0B0208]/85 to-[#040106]/95 shadow-[0_15px_40px_rgba(0,0,0,0.7)] hover:shadow-[0_0_25px_rgba(255,0,85,0.25)]"
                     >
                       {/* Static Base Border - on top of content */}
                       <div className="absolute inset-0 rounded-[24px] sm:rounded-[28px] border border-white/10 pointer-events-none z-30" />
@@ -334,7 +374,7 @@ export default function AboutTeamModal({ isOpen: controlledIsOpen, onClose }: Ab
                       {/* ==================================================== */}
                       {/* 1. TOP & MIDDLE: SUBTLE LOGO + PERSON PORTRAIT       */}
                       {/* ==================================================== */}
-                      <div className="relative w-full flex-1 min-h-[220px] sm:min-h-[240px] flex items-end justify-center overflow-hidden">
+                      <div className="relative w-full flex-1 min-h-[235px] sm:min-h-[260px] md:min-h-[275px] flex items-end justify-center overflow-hidden">
                         {/* Kaelixo Brand Logo Shape behind portrait - subtle opacity */}
                         <div className="absolute top-[12%] sm:top-[14%] left-1/2 -translate-x-1/2 w-[74%] sm:w-[78%] aspect-square pointer-events-none select-none z-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
                           <Image
@@ -346,17 +386,19 @@ export default function AboutTeamModal({ isOpen: controlledIsOpen, onClose }: Ab
                           />
                         </div>
 
-                        {/* Foreground Cutout Character (extends down behind the glass card) */}
-                        <div className="relative z-10 w-full h-[250px] sm:h-[275px] flex items-end justify-center pointer-events-none select-none pb-1">
-                          <Image
-                            src={member.image}
-                            alt={member.name}
-                            fill
-                            quality={95}
-                            priority={idx < 4}
-                            className="object-contain object-bottom group-hover:scale-104 transition-transform duration-500 ease-out"
-                            sizes="300px"
-                          />
+                        {/* Foreground Cutout Character (extends down behind the glass card with hover translate) */}
+                        <div className="relative z-10 w-full h-[270px] sm:h-[305px] md:h-[320px] flex items-end justify-center pointer-events-none select-none pb-1">
+                          <div className={`relative w-full h-full flex items-end justify-center ${member.id === '1' ? 'scale-[0.91] origin-bottom' : ''}`}>
+                            <Image
+                              src={member.image}
+                              alt={member.name}
+                              fill
+                              quality={95}
+                              priority={idx < 4}
+                              className="object-contain object-bottom group-hover:scale-106 group-hover:-translate-y-3.5 transition-transform duration-500 ease-out"
+                              sizes="(max-width: 640px) 310px, 360px"
+                            />
+                          </div>
                         </div>
                       </div>
 
@@ -364,7 +406,7 @@ export default function AboutTeamModal({ isOpen: controlledIsOpen, onClose }: Ab
                       {/* 2. PURE TRANSLUCENT FROSTED GLASS CONTENT CARD       */}
                       {/* ==================================================== */}
                       <div
-                        className="relative z-20 -mt-11 p-3.5 sm:p-4 pt-3.5 rounded-t-[22px] rounded-b-[22px] sm:rounded-b-[26px] backdrop-blur-2xl border-t border-t-white/35 border-x border-white/15 border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.35),inset_0_1px_1px_0_rgba(255,255,255,0.2)] shrink-0 transition-all duration-300"
+                        className="relative z-20 -mt-12 p-4 sm:p-4.5 pt-3.5 rounded-t-[22px] rounded-b-[22px] sm:rounded-b-[26px] backdrop-blur-2xl border-t border-t-white/35 border-x border-white/15 border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.35),inset_0_1px_1px_0_rgba(255,255,255,0.2)] shrink-0 transition-all duration-300"
                         style={{
                           background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 5, 20, 0.28) 100%)',
                         }}
@@ -373,25 +415,25 @@ export default function AboutTeamModal({ isOpen: controlledIsOpen, onClose }: Ab
                         <div className="absolute top-0 inset-x-4 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none rounded-t-[22px]" />
 
                         {/* Member Name */}
-                        <h4 className="text-[17px] sm:text-[18px] font-bold text-white tracking-tight font-heading leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                        <h4 className="text-[16px] sm:text-[16px] lg:text-[17px] xl:text-[18px] font-bold text-white tracking-tight font-heading leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                           {member.name}
                         </h4>
 
-                        {/* Role in Signature Pink */}
-                        <p className="text-[10px] sm:text-[10.5px] font-bold text-[#FF0055] uppercase tracking-wider mt-0.5 font-heading line-clamp-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+                        {/* Role in Signature Pink - fits fully without ellipsis */}
+                        <p className="text-[14px] sm:text-[14px] lg:text-[15px] xl:text-[16px] font-bold text-[#FF0055] uppercase tracking-wide mt-1 font-heading line-clamp-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
                           {member.role}
                         </p>
 
                         {/* Pink Accent Underline (matching design mockup) */}
-                        <div className="w-7 h-[1.5px] bg-[#FF0055] rounded-full my-1.5 shadow-[0_0_8px_rgba(255,0,85,0.6)]" />
+                        <div className="w-7 h-[1.5px] bg-[#FF0055] rounded-full my-2 shadow-[0_0_8px_rgba(255,0,85,0.6)]" />
 
                         {/* Bio / Description - 2 lines clean, NO ellipsis (...) */}
-                        <p className="text-[11px] sm:text-[11.5px] leading-[1.4] text-gray-200 font-sans">
+                        <p className="text-[14px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-[1.45] text-gray-200 font-sans">
                           {member.bio}
                         </p>
 
                         {/* Action Buttons Row (Department tag removed) */}
-                        <div className="flex items-center gap-2 mt-2 pt-2 border-t border-white/15">
+                        <div className="flex items-center gap-2 mt-2.5 pt-2.5 border-t border-white/15">
                           {/* Social Icons */}
                           <a
                             href={member.linkedin}
@@ -431,11 +473,10 @@ export default function AboutTeamModal({ isOpen: controlledIsOpen, onClose }: Ab
                   type="button"
                   onClick={() => setActiveCardId(member.id)}
                   aria-label={`Select ${member.name}`}
-                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    member.id === activeCardId
-                      ? "w-6 bg-gradient-to-r from-[#FF0055] to-[#ff2b70] shadow-[0_0_10px_rgba(255,0,85,0.7)]"
-                      : "w-1.5 bg-white/25 hover:bg-white/50"
-                  }`}
+                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${member.id === activeCardId
+                    ? "w-6 bg-gradient-to-r from-[#FF0055] to-[#ff2b70] shadow-[0_0_10px_rgba(255,0,85,0.7)]"
+                    : "w-1.5 bg-white/25 hover:bg-white/50"
+                    }`}
                 />
               ))}
             </div>
