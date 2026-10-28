@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -83,7 +83,19 @@ function MobileParallaxDeck() {
 
 export default function AboutWhoWeAre() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const showContent = isMobile || isInView;
 
   const handleOpenConsultation = () => {
     if (typeof window !== "undefined") {
@@ -98,7 +110,7 @@ export default function AboutWhoWeAre() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-20 w-full bg-white py-20 sm:py-20 lg:py-28 overflow-x-clip"
+      className="relative z-20 w-full bg-white pt-10 sm:pt-20 pb-16 sm:pb-20 lg:py-28 overflow-x-clip"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 xl:gap-16 items-center">
@@ -108,8 +120,8 @@ export default function AboutWhoWeAre() {
           <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center">
             {/* Eyebrow: WHO WE ARE + Pink Accent Dash */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              initial={isMobile ? false : { opacity: 0, y: 20 }}
+              animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-3 mb-4 sm:mb-5"
             >
@@ -121,8 +133,8 @@ export default function AboutWhoWeAre() {
 
             {/* Headline */}
             <motion.h2
-              initial={{ opacity: 0, y: 25 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
+              initial={isMobile ? false : { opacity: 0, y: 25 }}
+              animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-black text-[#0A1024] leading-[1.12] tracking-tight font-heading"
             >
@@ -135,8 +147,8 @@ export default function AboutWhoWeAre() {
 
             {/* Description Text */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              initial={isMobile ? false : { opacity: 0, y: 20 }}
+              animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="mt-5 sm:mt-6 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed text-gray-600 max-w-[540px]"
             >
@@ -145,8 +157,8 @@ export default function AboutWhoWeAre() {
 
             {/* CTA Button: Discover More */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              initial={isMobile ? false : { opacity: 0, y: 20 }}
+              animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="mt-8 sm:mt-9 flex items-center gap-4"
             >

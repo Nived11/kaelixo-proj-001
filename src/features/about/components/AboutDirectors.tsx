@@ -13,16 +13,29 @@ export default function AboutDirectors() {
       className="relative z-20 w-full bg-[#020205] py-16 sm:py-20 lg:py-24 overflow-hidden text-white"
     >
       {/* ============================================================ */}
-      {/* SUBTLE BACKGROUND BLUSH ACCENTS (Deep Ambient Glows)         */}
+      {/* BACKGROUND GRAPHIC (aboutdirector-bg.png)                    */}
       {/* ============================================================ */}
-      <div className="absolute -top-24 right-0 w-[500px] lg:w-[700px] h-[500px] lg:h-[700px] bg-gradient-to-br from-[#FF0055]/[0.10] via-transparent to-transparent rounded-full blur-3xl pointer-events-none select-none z-0" />
-      <div className="absolute -bottom-24 left-10 w-[400px] lg:w-[600px] h-[400px] lg:h-[600px] bg-gradient-to-tr from-[#FF0055]/[0.08] via-transparent to-transparent rounded-full blur-3xl pointer-events-none select-none z-0" />
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0">
+        <Image
+          src="/images/about/aboutdirector-bg.png"
+          alt="Leadership Section Background"
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          className="object-cover object-center opacity-60"
+        />
+
+        {/* Top & Bottom Section Transition Fades */}
+        <div className="absolute top-0 inset-x-0 h-20 sm:h-24 bg-gradient-to-b from-[#020205] to-transparent pointer-events-none z-[1]" />
+        <div className="absolute bottom-0 inset-x-0 h-20 sm:h-24 bg-gradient-to-t from-[#020205] to-transparent pointer-events-none z-[1]" />
+      </div>
 
       {/* ============================================================ */}
       {/* SECTION CONTENT CONTAINER                                    */}
       {/* ============================================================ */}
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        
+
         {/* ============================================================ */}
         {/* MOBILE HEADING (Visible on screens < lg, above the portrait) */}
         {/* ============================================================ */}
@@ -56,43 +69,43 @@ export default function AboutDirectors() {
         {/* ============================================================ */}
         {/* MAIN TWO-COLUMN GRID                                         */}
         {/* ============================================================ */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 xl:gap-8 items-center">
+
           {/* ============================================================ */}
           {/* LEFT COLUMN: KAELIXO LOGO EMBLEM + FOREGROUND PORTRAIT       */}
           {/* ============================================================ */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-6 xl:col-span-6 w-full flex items-center justify-center lg:justify-start"
           >
-            <div className="relative w-full max-w-[360px] sm:max-w-[400px] lg:max-w-[430px] xl:max-w-[450px] mx-auto lg:mx-0 flex items-center justify-center">
-              
+            <div className="relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[390px] xl:max-w-[400px] mx-auto lg:mx-0 flex items-center justify-center">
+
               {/* -------------------------------------------------------- */}
               {/* KAELIXO BRAND LOGO SHAPE (Behind Director Portrait)      */}
               {/* -------------------------------------------------------- */}
-              <div className="absolute top-[8%] sm:top-[6%] lg:top-[5%] left-1/2 -translate-x-1/2 w-[82%] sm:w-[86%] lg:w-[90%] aspect-square pointer-events-none select-none z-0">
+              <div className="absolute top-[8%] sm:top-[7%] lg:top-[6%] left-1/2 -translate-x-1/2 w-[76%] sm:w-[80%] lg:w-[82%] aspect-square pointer-events-none select-none z-0">
                 <Image
                   src="/images/brand/kaelixo-logo.png"
                   alt="Kaelixo Brand Emblem"
                   fill
                   priority
-                  className="object-contain drop-shadow-[0_0_45px_rgba(255,0,85,0.4)]"
+                  className="object-contain drop-shadow-[0_0_35px_rgba(255,0,85,0.35)]"
                 />
               </div>
 
               {/* -------------------------------------------------------- */}
               {/* FOREGROUND DIRECTOR PORTRAIT (Z-20, ON TOP OF SHAPE)     */}
-              {/* 100% solid body, soft blend ONLY at the very bottom cut  */}
+              {/* Smooth transparent gradient fade at bottom without black overlay */}
               {/* -------------------------------------------------------- */}
-              <div className="relative z-20 w-full h-[440px] sm:h-[490px] lg:h-[530px] xl:h-[560px] flex items-end justify-center pointer-events-none select-none">
+              <div className="relative z-20 w-full h-[390px] sm:h-[440px] lg:h-[480px] xl:h-[500px] flex items-end justify-center pointer-events-none select-none">
                 <div
                   className="relative w-full h-full flex items-end justify-center"
                   style={{
-                    maskImage: "linear-gradient(to bottom, black 90%, black 95%, transparent 100%)",
-                    WebkitMaskImage: "linear-gradient(to bottom, black 90%, black 95%, transparent 100%)",
+                    maskImage: "linear-gradient(to bottom, black 0%, black 78%, transparent 98%)",
+                    WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 78%, transparent 98%)",
                   }}
                 >
                   <Image
@@ -105,9 +118,6 @@ export default function AboutDirectors() {
                     sizes="(min-width: 1024px) 50vw, 100vw"
                   />
                 </div>
-
-                {/* Subtle edge blend right at the very bottom cut */}
-                <div className="absolute inset-x-0 bottom-0 h-4 sm:h-5 bg-gradient-to-t from-[#020205] to-transparent pointer-events-none z-30" />
               </div>
             </div>
           </motion.div>
@@ -169,16 +179,16 @@ export default function AboutDirectors() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
-                className="group w-11 h-11 rounded-full flex items-center justify-center bg-white/[0.05] border border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:border-[#FF0055] hover:bg-[#FF0055] hover:shadow-[0_0_24px_rgba(255,0,85,0.5)] hover:-translate-y-0.5 transition-all duration-300"
+                className="group w-11 h-11 rounded-full flex items-center justify-center bg-[#FF0055] border border-white/30 text-white shadow-[0_4px_16px_rgba(255,0,85,0.35)] hover:bg-[#e0004b] hover:border-white/60 hover:shadow-[0_0_24px_rgba(255,0,85,0.65)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
               >
-                <FaLinkedinIn className="w-4 h-4 text-white group-hover:text-white transition-colors" />
+                <FaLinkedinIn className="w-4 h-4 text-white transition-transform duration-300 group-hover:scale-110" />
               </a>
               <a
                 href="mailto:contact@kaelixo.com"
                 aria-label="Email Director"
-                className="group w-11 h-11 rounded-full flex items-center justify-center bg-white/[0.05] border border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:border-[#FF0055] hover:bg-[#FF0055] hover:shadow-[0_0_24px_rgba(255,0,85,0.5)] hover:-translate-y-0.5 transition-all duration-300"
+                className="group w-11 h-11 rounded-full flex items-center justify-center bg-[#FF0055] border border-white/30 text-white shadow-[0_4px_16px_rgba(255,0,85,0.35)] hover:bg-[#e0004b] hover:border-white/60 hover:shadow-[0_0_24px_rgba(255,0,85,0.65)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
               >
-                <Mail className="w-4 h-4 text-[#FF0055] group-hover:text-white group-hover:scale-110 transition-all" />
+                <Mail className="w-4 h-4 text-white transition-transform duration-300 group-hover:scale-110" />
               </a>
             </div>
           </motion.div>

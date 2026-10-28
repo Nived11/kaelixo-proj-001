@@ -111,13 +111,12 @@ export default function AboutStats() {
           {statsData.map((stat, idx) => (
             <div
               key={stat.id}
-              className={`flex items-center gap-2 sm:gap-2.5 md:gap-3 lg:gap-2.5 xl:gap-3.5 2xl:gap-4 justify-start ${
-                idx === 0
+              className={`flex items-center gap-2 sm:gap-2.5 md:gap-3 lg:gap-2.5 xl:gap-3.5 2xl:gap-4 justify-start ${idx === 0
                   ? "lg:pl-0 lg:pr-2.5 xl:pr-6 2xl:pr-8"
                   : idx === statsData.length - 1
-                  ? "lg:pl-2.5 xl:pl-6 2xl:pl-8 lg:pr-0"
-                  : "lg:px-2.5 xl:px-6 2xl:px-8"
-              }`}
+                    ? "lg:pl-2.5 xl:pl-6 2xl:pl-8 lg:pr-0"
+                    : "lg:px-2.5 xl:px-6 2xl:px-8"
+                }`}
             >
               {/* Circular Icon with vibrant Kaelixo Pink Gradient & soft halo */}
               <div className="relative group shrink-0">

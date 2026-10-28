@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 export default function AboutHero() {
   return (
     <section 
-      className="sticky top-[96px] z-0 w-full flex items-center justify-center overflow-hidden
-        h-[290px] sm:h-[300px] md:h-[320px] lg:h-[350px] xl:h-[450px] 2xl:h-[480px] [@media(min-width:1920px)]:h-[500px]"
+      className="sticky top-0 sm:top-[96px] -mt-[96px] sm:mt-0 pt-[96px] sm:pt-0 z-0 w-full flex items-center justify-center overflow-hidden
+        h-[380px] sm:h-[300px] md:h-[320px] lg:h-[350px] xl:h-[450px] 2xl:h-[480px] [@media(min-width:1920px)]:h-[500px]"
       style={{
         transform: 'translate3d(0, 0, 0)',
         WebkitTransform: 'translate3d(0, 0, 0)',
@@ -19,22 +19,37 @@ export default function AboutHero() {
     >
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0 bg-[#020205]">
-        {/* Desktop & Tablet Background Image */}
-        <Image
-          src="/images/about/aboutherobg.png"
-          alt="Kaelixo About Hero Background"
-          fill
-          priority
-          quality={95}
-          sizes="100vw"
-          className="object-cover object-center opacity-85"
-        />
+        {/* Mobile Background Image (< sm) */}
+        <div className="block sm:hidden absolute inset-0">
+          <Image
+            src="/images/about/aboutheromobilebg.png"
+            alt="Kaelixo About Hero Mobile Background"
+            fill
+            priority
+            quality={95}
+            sizes="100vw"
+            className="object-cover object-top opacity-70"
+          />
+        </div>
 
-        {/* Subtle Top Header Transition Fade */}
-        <div className="absolute top-0 inset-x-0 h-16 sm:h-20 bg-gradient-to-b from-[#020205]/80 via-[#020205]/20 to-transparent pointer-events-none z-[1]" />
+        {/* Desktop & Tablet Background Image (>= sm) */}
+        <div className="hidden sm:block absolute inset-0">
+          <Image
+            src="/images/about/aboutherobg.png"
+            alt="Kaelixo About Hero Background"
+            fill
+            priority
+            quality={95}
+            sizes="100vw"
+            className="object-cover object-center opacity-85"
+          />
+        </div>
+
+        {/* Top Header Transition Fade (Dark near header) */}
+        <div className="absolute top-0 inset-x-0 h-28 sm:h-24 bg-gradient-to-b from-[#020205] via-[#020205]/75 to-transparent pointer-events-none z-[1]" />
 
         {/* Subtle Bottom Transition Blend */}
-        <div className="absolute inset-x-0 bottom-0 h-12 sm:h-16 bg-gradient-to-t from-[#020205] via-[#020205]/40 to-transparent pointer-events-none z-[1]" />
+        <div className="absolute inset-x-0 bottom-0 h-8 sm:h-16 bg-gradient-to-t from-[#020205]/70 via-transparent to-transparent pointer-events-none z-[1]" />
       </div>
 
       {/* ============================================================ */}
