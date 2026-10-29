@@ -44,6 +44,9 @@ export const metadata: Metadata = {
     "Software Development Company Kerala",
     "Custom CRM Development"
   ],
+  verification: {
+    google: "iRbPrSlbvLNatdX0Vc43PYFhhW4QOog2QT6ZUwJj7wI",
+  },
 };
 
 export default function RootLayout({
@@ -54,6 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${spaceGrotesk.variable} ${inter.variable} ${caveat.variable} dark`}>
       <head>
+        <meta name="google-site-verification" content="iRbPrSlbvLNatdX0Vc43PYFhhW4QOog2QT6ZUwJj7wI" />
         {/* Google Tag Manager */}
         <Script
           id="google-tag-manager"
