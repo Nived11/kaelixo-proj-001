@@ -1,15 +1,25 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import { usePageReady } from '@/components/ui/PageLoader';
+import { usePathname } from 'next/navigation';
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   const isReady = usePageReady();
+  const pathname = usePathname();
+  const lenisRef = useRef<Lenis | null>(null);
+
   useEffect(() => {
+    // Disable native browser automatic scroll restoration to avoid clashing with Lenis
+    if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
     // Touch devices keep native scrolling and do not need a continuous Lenis RAF.
     if (!isReady || !window.matchMedia('(hover: hover) and (pointer: fine)').matches ||
         window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const lenis = new Lenis({
       lerp: 0.08, // Inertia-based smoothing
       wheelMultiplier: 1,
@@ -88,6 +98,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       },
     });
 
+    lenisRef.current = lenis;
     (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
 
     let rafId: number;
@@ -102,9 +113,45 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      lenisRef.current = null;
       delete (window as unknown as { __lenis?: Lenis }).__lenis;
     };
   }, [isReady]);
+
+  // Reset scroll position to top whenever route (pathname) changes, unless a hash is targeted
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // If navigating to an in-page section with an anchor hash (e.g. /#services, /about#team), skip resetting
+    if (window.location.hash) {
+      return;
+    }
+
+    const resetScrollToTop = () => {
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(0, { immediate: true });
+      } else {
+        const globalLenis = (window as unknown as { __lenis?: { scrollTo: (target: number, opts?: { immediate?: boolean }) => void } }).__lenis;
+        if (globalLenis) {
+          globalLenis.scrollTo(0, { immediate: true });
+        }
+      }
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+
+    resetScrollToTop();
+
+    // Catch late layout / DOM updates on subsequent frames
+    const rafId = requestAnimationFrame(resetScrollToTop);
+    const timer = setTimeout(resetScrollToTop, 60);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      clearTimeout(timer);
+    };
+  }, [pathname]);
 
   return <>{children}</>;
 }

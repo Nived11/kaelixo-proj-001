@@ -103,7 +103,8 @@ function TeamMobileParallaxDeck() {
 export default function AboutTeam() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.25 });
-  const handleOpenTeamModal = () => {
+  const handleOpenTeamModal = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
     if (typeof window !== "undefined") {
       window.dispatchEvent(new CustomEvent("open-team-modal"));
     }
@@ -170,13 +171,14 @@ export default function AboutTeam() {
 
             {/* CTA Button: Meet Our Team */}
             <div className="mt-8 sm:mt-9 flex items-center gap-4">
-              <Link
-                href="/about/team"
+              <a
+                href="#team-modal"
+                onClick={handleOpenTeamModal}
                 className="group inline-flex items-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[15px] sm:text-[15px] md:text-[15px] lg:text-[15px] xl:text-[16px] 2xl:text-[16px] font-semibold tracking-wide shadow-sm hover:shadow-none active:scale-95 transition-all duration-300 font-heading cursor-pointer"
               >
                 <span>Meet Our Team</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+              </a>
             </div>
           </motion.div>
 

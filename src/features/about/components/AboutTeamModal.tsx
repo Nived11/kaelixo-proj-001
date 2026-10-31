@@ -99,9 +99,16 @@ export default function AboutTeamModal({ isOpen: controlledIsOpen, onClose }: Ab
     }
   }, [isControlled, onClose]);
 
-  // Sync with URL hash #team-modal
+  // Listen for open-team-modal event and sync with URL hash #team-modal
   useEffect(() => {
     if (isControlled) return;
+
+    const handleCustomOpen = () => {
+      setInternalOpen(true);
+      if (typeof window !== "undefined" && window.location.hash !== "#team-modal") {
+        window.history.pushState(null, "", window.location.pathname + "#team-modal");
+      }
+    };
 
     const checkHash = () => {
       if (typeof window !== "undefined") {
@@ -115,7 +122,12 @@ export default function AboutTeamModal({ isOpen: controlledIsOpen, onClose }: Ab
 
     checkHash();
     window.addEventListener("hashchange", checkHash);
-    return () => window.removeEventListener("hashchange", checkHash);
+    window.addEventListener("open-team-modal", handleCustomOpen);
+
+    return () => {
+      window.removeEventListener("hashchange", checkHash);
+      window.removeEventListener("open-team-modal", handleCustomOpen);
+    };
   }, [isControlled]);
 
   // Keyboard navigation & ESC to close
@@ -258,7 +270,7 @@ export default function AboutTeamModal({ isOpen: controlledIsOpen, onClose }: Ab
                 alt="About Team Background Glow"
                 fill
                 priority
-                className="object-cover object-center"
+                className="object-cover object-center opacity-25"
               />
             </div>
 

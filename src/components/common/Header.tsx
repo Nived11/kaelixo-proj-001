@@ -75,6 +75,39 @@ export default function Header() {
     };
   }, []);
 
+  const handleNavClick = (linkHref: string, linkName: string) => {
+    setActiveLink(linkName);
+
+    // If navigating to an in-page section hash (e.g. /#services, /#products)
+    if (linkHref.includes('#')) {
+      const hash = linkHref.substring(linkHref.indexOf('#'));
+      const isCurrentPage = pathname === '/' || linkHref.startsWith(pathname);
+      if (isCurrentPage) {
+        const target = document.querySelector(hash);
+        if (target) {
+          const lenis = (window as unknown as { __lenis?: { scrollTo: (t: string | HTMLElement, opts?: { offset?: number }) => void } }).__lenis;
+          if (lenis) {
+            lenis.scrollTo(hash, { offset: -90 });
+          } else {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }
+      return;
+    }
+
+    // If clicking current page without hash, smooth scroll to top
+    const isCurrentPage = linkHref === pathname || (linkHref === '/' && pathname === '/');
+    if (isCurrentPage) {
+      const lenis = (window as unknown as { __lenis?: { scrollTo: (t: number, opts?: { immediate?: boolean }) => void } }).__lenis;
+      if (lenis) {
+        lenis.scrollTo(0, { immediate: false });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  };
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -97,7 +130,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           
           {/* Brand Logo - Full Image */}
-          <Link href="/" className="block group" onClick={() => setActiveLink("Home")}>
+          <Link href="/" className="block group" onClick={() => handleNavClick("/", "Home")}>
             <Image 
               src="/images/brand/kaelixo-logo.webp" 
               alt="Kaelixo Logo" 
@@ -122,7 +155,7 @@ export default function Header() {
                 >
                   <Link
                     href={link.href}
-                    onClick={() => setActiveLink(link.name)}
+                    onClick={() => handleNavClick(link.href, link.name)}
                     className={`relative text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] tracking-normal transition-colors duration-200 group py-2 ${
                       isActive
                         ? "text-[#FF0055] font-medium"
@@ -216,8 +249,8 @@ export default function Header() {
                   key={link.name}
                   href={link.href}
                   onClick={() => {
-                    setActiveLink(link.name);
                     setMobileMenuOpen(false);
+                    handleNavClick(link.href, link.name);
                   }}
                   className={`py-2 text-base ${
                     isActive ? "text-[#FF0055] text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-semibold" : "text-white/80 hover:text-white"

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Mail, ArrowLeft } from "lucide-react";
@@ -76,11 +77,7 @@ export default function AboutTeamView() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const handleBack = () => {
-    if (typeof window !== "undefined" && window.history.length > 1) {
-      window.history.back();
-    } else {
-      router.push("/about#team");
-    }
+    router.push("/about#team");
   };
 
   // Scroll navigation helpers
@@ -162,7 +159,7 @@ export default function AboutTeamView() {
           alt="Team Background Glow"
           fill
           priority
-          className="object-cover object-center opacity-30"
+          className="object-cover object-center opacity-25"
         />
       </div>
 
@@ -176,15 +173,14 @@ export default function AboutTeamView() {
       <div className="relative z-30 w-full pt-1 sm:pt-2 pb-1 px-4 sm:px-8 lg:px-12 flex flex-col sm:flex-row sm:items-center sm:justify-between shrink-0 gap-2 sm:gap-0">
         {/* LEFT / TOP: Back Button */}
         <div className="w-full sm:w-auto sm:flex-1 flex items-center justify-start">
-          <button
-            type="button"
-            onClick={handleBack}
+          <Link
+            href="/about#team"
             aria-label="Go back to team section"
             className="group inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/[0.06] hover:bg-[#FF0055] border border-white/15 hover:border-[#FF0055] text-white/90 hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 shadow-md active:scale-95 cursor-pointer font-heading"
           >
             <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:-translate-x-1" />
             <span>Back</span>
-          </button>
+          </Link>
         </div>
 
         {/* CENTER: Exact Eyebrow, Headline & Description matching other site pages */}

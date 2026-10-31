@@ -16,20 +16,40 @@ import AboutTeamModal from "./components/AboutTeamModal";
 
 export default function AboutMain() {
   React.useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hash) {
-      const hash = window.location.hash;
+    if (typeof window === "undefined" || !window.location.hash) return;
+    const hash = window.location.hash;
+
+    const scrollToHash = (immediate: boolean = false) => {
       const target = document.querySelector(hash);
       if (target) {
-        setTimeout(() => {
-          const lenis = (window as unknown as { __lenis?: { scrollTo: (t: string | HTMLElement, opts?: { offset?: number }) => void } }).__lenis;
-          if (lenis) {
-            lenis.scrollTo(hash, { offset: -90 });
-          } else {
-            target.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 250);
+        const lenis = (window as unknown as { __lenis?: { scrollTo: (t: string | HTMLElement, opts?: { offset?: number; immediate?: boolean }) => void } }).__lenis;
+        if (lenis) {
+          lenis.scrollTo(hash, { offset: -90, immediate });
+        } else {
+          target.scrollIntoView({ behavior: immediate ? "instant" : "smooth" });
+        }
+        return true;
       }
-    }
+      return false;
+    };
+
+    // Scroll immediately on mount
+    scrollToHash(true);
+
+    // Re-verify after layout and hydration
+    const t1 = setTimeout(() => scrollToHash(true), 80);
+    const t2 = setTimeout(() => scrollToHash(true), 250);
+
+    const handleHashChange = () => {
+      scrollToHash(false);
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      window.removeEventListener("hashchange", handleHashChange);
+    };
   }, []);
 
   return (
