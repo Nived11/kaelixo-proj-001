@@ -175,19 +175,19 @@ export default function ContactMainSection() {
             <div className="lg:col-span-6 xl:col-span-6 bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 lg:p-9 shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
               {/* Eyebrow */}
               <div className="flex items-center gap-3 mb-2.5">
-                <span className="text-[13px] sm:text-[14px] font-bold text-[#FF0055] tracking-[0.2em] uppercase font-heading">
+                <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] font-bold text-[#FF0055] tracking-[0.2em] uppercase font-heading">
                   SEND A MESSAGE
                 </span>
                 <span className="w-8 sm:w-10 h-[2px] bg-[#FF0055] rounded-full inline-block" />
               </div>
 
               {/* Headline */}
-              <h2 className="text-[26px] sm:text-[30px] lg:text-[34px] font-extrabold text-[#0A1024] tracking-tight font-heading leading-tight mb-2">
+              <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-extrabold text-[#0A1024] tracking-tight font-heading leading-tight mb-2">
                 Tell Us About <span className="text-[#FF0055]">Your Project</span>
               </h2>
 
               {/* Subtitle */}
-              <p className="text-gray-500 text-[14px] sm:text-[15px] font-normal leading-relaxed mb-6 sm:mb-7 font-sans">
+              <p className="text-gray-500 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-normal leading-relaxed mb-6 sm:mb-7 font-sans">
                 Fill in the details below and our team will connect with you soon.
               </p>
 
@@ -514,13 +514,13 @@ export default function ContactMainSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050106] via-[#050106]/70 to-transparent pointer-events-none" />
 
                 <div className="relative z-10 max-w-md">
-                  <span className="text-[11px] sm:text-[12px] font-bold text-white/80 tracking-[0.22em] uppercase font-heading mb-1 inline-block">
+                  <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] font-bold text-white/80 tracking-[0.22em] uppercase font-heading mb-1 inline-block">
                     LET&apos;S CREATE
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-heading leading-tight mb-2">
+                  <h3 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-extrabold text-white font-heading leading-tight mb-2">
                     Ideas Into <span className="text-[#FF0055]">Impact.</span>
                   </h3>
-                  <p className="text-gray-300 text-xs sm:text-sm font-normal leading-relaxed font-sans">
+                  <p className="text-gray-300 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-normal leading-relaxed font-sans">
                     Whether you&apos;re a startup, an established business or just exploring ideas, we&apos;re here to turn your vision into reality.
                   </p>
                 </div>
@@ -531,12 +531,12 @@ export default function ContactMainSection() {
                 {/* Left Info */}
                 <div className="flex-1 w-full">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-[11px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
+                    <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
                       FIND US HERE
                     </span>
                     <span className="w-5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
                   </div>
-                  <h4 className="text-lg sm:text-xl font-bold text-slate-900 font-heading mb-3">
+                  <h4 className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] font-bold text-slate-900 font-heading mb-3">
                     Our Office
                   </h4>
                   <div className="flex items-start gap-3 text-slate-600 mb-4">
@@ -544,11 +544,11 @@ export default function ContactMainSection() {
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div className="leading-snug">
-                      <strong className="font-bold text-slate-900 block text-sm mb-0.5">
+                      <strong className="font-bold text-slate-900 block text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] mb-0.5">
                         Kaelixo Pvt. Ltd.
                       </strong>
-                      <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
-                        1st Floor, Maveli Arcade, Metro Pillar No. 800,<br />
+                      <p className="text-slate-600 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed">
+                        1st Floor, Maveli Arcade, Metro Pillar No. 800,
                         S A Road, Kadavanthra, Kochi – 682020
                       </p>
                     </div>
@@ -557,7 +557,7 @@ export default function ContactMainSection() {
                     href="https://www.google.com/maps?q=9.967592,76.303050"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-[#FF0055]/30 hover:border-[#FF0055] bg-pink-50/50 hover:bg-[#FF0055] text-[#FF0055] hover:text-white text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer font-heading"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-[#FF0055]/30 hover:border-[#FF0055] bg-pink-50/50 hover:bg-[#FF0055] text-[#FF0055] hover:text-white text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-semibold tracking-wide transition-all duration-300 cursor-pointer font-heading"
                   >
                     <span>Get Directions</span>
                     <ExternalLink className="w-3 h-3" />
@@ -589,14 +589,14 @@ export default function ContactMainSection() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 mb-1.5">
-                      <span className="text-[12px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
+                      <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
                         Email Us
                       </span>
                       <span className="w-3.5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
                     </div>
-                    <div className="space-y-1 text-xs">
+                    <div className="space-y-1 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px]">
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[11px] text-slate-700 font-semibold shrink-0">General:</span>
+                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">General:</span>
                         <a
                           href="mailto:info@kaelixo.com"
                           className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
@@ -605,8 +605,8 @@ export default function ContactMainSection() {
                         </a>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[11px] text-slate-700 font-semibold shrink-0">Response:</span>
-                        <span className="text-slate-700 font-medium truncate">Within 24 business hours</span>
+                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">Response:</span>
+                        <span className="text-slate-700 font-medium truncate">Within 24  hours</span>
                       </div>
                     </div>
                   </div>
@@ -619,14 +619,14 @@ export default function ContactMainSection() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 mb-1.5">
-                      <span className="text-[12px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
+                      <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
                         Call Us
                       </span>
                       <span className="w-3.5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
                     </div>
-                    <div className="space-y-1 text-xs">
+                    <div className="space-y-1 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px]">
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[11px] text-slate-700 font-semibold shrink-0">General:</span>
+                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">General:</span>
                         <a
                           href="tel:+919037235832"
                           className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
@@ -635,7 +635,7 @@ export default function ContactMainSection() {
                         </a>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[11px] text-slate-700 font-semibold shrink-0">Sales:</span>
+                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">Sales:</span>
                         <a
                           href="tel:+918086370404"
                           className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
@@ -665,7 +665,7 @@ export default function ContactMainSection() {
               >
                 {/* Eyebrow */}
                 <div className="mb-3 sm:mb-4">
-                  <span className="text-gray-700 font-[750] text-[13px] sm:text-[14px] md:text-[14px] lg:text-[16px] xl:text-[17px] tracking-[0.2em] uppercase font-heading">
+                  <span className="text-gray-700 font-[750] text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] tracking-[0.2em] uppercase font-heading">
                     FREQUENTLY ASKED{" "}
                     <span className="inline-flex items-center gap-3 whitespace-nowrap">
                       QUESTIONS
@@ -675,13 +675,13 @@ export default function ContactMainSection() {
                 </div>
 
                 {/* Headline */}
-                <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[42px] font-[750] leading-[1.16] tracking-tight mb-4 sm:mb-5 font-heading">
+                <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px]  font-[750] leading-[1.16] tracking-tight mb-4 sm:mb-5 font-heading">
                   <span className="block sm:inline">Got Questions? </span>
                   <span className="block text-[#FF0055]">We&apos;ve Got Answers.</span>
                 </h2>
 
                 {/* Description - Tailored for Contacting Kaelixo */}
-                <p className="text-gray-600 text-[14px] sm:text-[15px] md:text-[16px] leading-[1.6] max-w-xl mb-7 sm:mb-8 xl:mb-10 font-sans">
+                <p className="text-gray-600 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.6] max-w-xl mb-7 sm:mb-8 xl:mb-10 font-sans">
                   Everything you need to know about getting in touch, project estimates, and starting your collaboration with Kaelixo.
                 </p>
 
@@ -700,11 +700,11 @@ export default function ContactMainSection() {
                         <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-[#FF0055] to-[#FF6699] flex items-center justify-center text-white shrink-0 shadow-[0_2px_8px_rgba(255,0,85,0.25)] ring-2 ring-pink-100">
                           <feature.icon size={18} strokeWidth={2.5} />
                         </div>
-                        <h4 className="text-[15px] sm:text-[16px] lg:text-[17px] xl:text-[18px] font-bold text-[#030C25] leading-tight font-heading">
+                        <h4 className="text-[16px] sm:text-[16px] lg:text-[17px] xl:text-[18px] font-bold text-[#030C25] leading-tight font-heading">
                           {feature.title}
                         </h4>
                       </div>
-                      <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-relaxed text-gray-600 font-medium pl-12 sm:pl-[52px] font-sans">
+                      <p className="text-[14px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed text-gray-600 font-medium pl-12 sm:pl-[52px] font-sans">
                         {feature.desc}
                       </p>
                     </motion.div>
@@ -753,7 +753,7 @@ export default function ContactMainSection() {
 
                           {/* Question Text */}
                           <h3
-                            className={`text-[15px] sm:text-[16px] lg:text-[17px] font-bold transition-colors font-heading ${
+                            className={`text-[16px] sm:text-[16px] lg:text-[17px] xl:text-[18px] font-bold transition-colors font-heading ${
                               isOpen ? "text-[#030C25]" : "text-[#030C25]"
                             }`}
                           >
@@ -787,7 +787,7 @@ export default function ContactMainSection() {
                             className="overflow-hidden"
                           >
                             <div className="pb-5 sm:pb-6 pt-0 pl-[56px] sm:pl-[60px] pr-4 sm:pr-6">
-                              <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-relaxed text-[#475569] font-medium font-sans">
+                              <p className="text-[14px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed text-[#475569] font-medium font-sans">
                                 {faq.answer}
                               </p>
                             </div>

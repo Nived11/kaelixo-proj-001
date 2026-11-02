@@ -64,7 +64,7 @@ export default function ContactHero() {
           className="flex items-center justify-center gap-2.5 sm:gap-3 mb-2 sm:mb-3"
         >
           <span className="inline-block w-6 sm:w-9 h-[2px] bg-[#FF0055] rounded-full" />
-          <span className="text-[12px] sm:text-[13px] md:text-[14px] font-bold tracking-[0.24em] text-white/90 uppercase font-heading">
+          <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] font-bold tracking-[0.24em] text-white/90 uppercase font-heading">
             CONTACT US
           </span>
           <span className="inline-block w-6 sm:w-9 h-[2px] bg-[#FF0055] rounded-full" />
@@ -75,7 +75,7 @@ export default function ContactHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-white text-[28px] sm:text-[34px] md:text-[42px] lg:text-[50px] xl:text-[60px] 2xl:text-[66px] font-extrabold tracking-tight font-heading leading-[1.12] max-w-[950px] mx-auto mb-2.5 sm:mb-4 drop-shadow-[0_2px_25px_rgba(0,0,0,0.8)]"
+          className="text-white text-[38px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-extrabold tracking-tight font-heading leading-[1.12] max-w-[950px] mx-auto mb-2.5 sm:mb-4 drop-shadow-[0_2px_25px_rgba(0,0,0,0.8)]"
         >
           Let&apos;s Build Something <br className="hidden sm:inline" />
           <span className="text-[#FF0055] drop-shadow-[0_0_35px_rgba(255,0,85,0.5)]">
@@ -88,7 +88,7 @@ export default function ContactHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-white/80 text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[20px] max-w-2xl mx-auto font-medium leading-relaxed font-sans"
+          className="text-white/80text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[24px] max-w-2xl mx-auto font-medium leading-relaxed font-sans"
         >
           Have a project in mind or just want to say hello? We&apos;d love to hear from you.
         </motion.p>

@@ -106,14 +106,14 @@ export default function ContactCTA() {
         <div className="max-w-2xl mb-8 sm:mb-10">
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-2.5">
-            <span className="text-[12px] sm:text-[13px] font-bold text-slate-300 tracking-[0.22em] uppercase font-heading">
+            <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-bold text-gray-300 tracking-[0.22em] uppercase font-heading">
               STAY CONNECTED
             </span>
             <span className="w-8 sm:w-10 h-[2px] bg-[#FF0055] rounded-full inline-block" />
           </div>
 
           {/* Headline */}
-          <h2 className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] font-extrabold tracking-tight font-heading leading-[1.12] text-white mb-3">
+          <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-extrabold tracking-tight font-heading leading-[1.12] text-white mb-3">
             Connect Across <br />
             <span className="text-[#FF0055] drop-shadow-[0_0_35px_rgba(255,0,85,0.5)]">
               Our Channels.
@@ -121,16 +121,16 @@ export default function ContactCTA() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-slate-300 text-xs sm:text-sm font-normal leading-relaxed max-w-xl font-sans">
-            Prefer a direct message or want to follow our journey? Reach us on WhatsApp
-            <br className="hidden sm:inline" /> or connect across our digital networks.
+          <p className="text-gray-300 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] font-normal leading-relaxed max-w-xl font-sans">
+            Prefer a direct message or want to follow our journey?  <br className="hidden sm:inline" />Reach us on WhatsApp
+            or connect across our digital networks.
           </p>
         </div>
 
         {/* ============================================================ */}
-        {/* 4x2 INTERACTIVE CHANNELS GRID                                */}
+        {/* INTERACTIVE CHANNELS GRID (3 cols on 1024px laptop)          */}
         {/* ============================================================ */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 lg:gap-4.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5 sm:gap-4 lg:gap-4.5">
           {SOCIAL_CARDS.map((item, idx) => {
             const Icon = item.icon;
             return (
@@ -159,7 +159,7 @@ export default function ContactCTA() {
                     <h4 className="text-sm sm:text-[15px] font-bold text-white group-hover:text-[#FF0055] transition-colors font-heading leading-snug truncate">
                       {item.name}
                     </h4>
-                    <p className="text-[11px] sm:text-xs text-slate-400 font-normal font-sans leading-tight mt-0.5 truncate">
+                    <p className="text-[15px] sm:text-[15px] md:text-[14px] lg:text-[12px] xl:text-[14px] 2xl:text-[14px] [@media(min-width:1920px)]:text-[14px]  text-gray-300 font-normal font-sans leading-tight mt-0.5 truncate">
                       {item.description}
                     </p>
                   </div>
