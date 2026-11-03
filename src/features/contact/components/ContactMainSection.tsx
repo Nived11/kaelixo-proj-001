@@ -525,125 +525,122 @@ export default function ContactMainSection() {
                 </div>
               </div>
 
-              {/* 2. VISIT OR REACH US CARD (Unified Office, Map, Email & Call Details) */}
-              <div className="rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col gap-5">
-                {/* Top Row: Our Office & Real Map Embed */}
-                <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
-                  {/* Left Info */}
-                  <div className="flex-1 w-full">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
-                        VISIT OR REACH US
-                      </span>
-                      <span className="w-5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
-                    </div>
-                    <h4 className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] font-bold text-slate-900 font-heading mb-3">
-                      Our Office
-                    </h4>
-                    <div className="flex items-start gap-3 text-slate-600 mb-4">
-                      <div className="w-8 h-8 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center shrink-0 text-[#FF0055] mt-0.5">
-                        <MapPin className="w-4 h-4" />
-                      </div>
-                      <div className="leading-snug">
-                        <strong className="font-bold text-slate-900 block text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] mb-0.5">
-                          Kaelixo Pvt. Ltd.
-                        </strong>
-                        <p className="text-slate-600 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed">
-                          1st Floor, Maveli Arcade, Metro Pillar No. 800,
-                          S A Road, Kadavanthra, Kochi – 682020
-                        </p>
-                      </div>
-                    </div>
-                    <a
-                      href="https://www.google.com/maps?q=9.967592,76.303050"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-[#FF0055]/30 hover:border-[#FF0055] bg-pink-50/50 hover:bg-[#FF0055] text-[#FF0055] hover:text-white text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-semibold tracking-wide transition-all duration-300 cursor-pointer font-heading"
-                    >
-                      <span>View on Map</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
+              {/* 2. MIDDLE CARD: Our Office with Real Map Embed */}
+              <div className="rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col md:flex-row gap-6 items-center justify-between">
+                {/* Left Info */}
+                <div className="flex-1 w-full">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
+                      VISIT OR REACH US
+                    </span>
+                    <span className="w-5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
                   </div>
+                  <h4 className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] font-bold text-slate-900 font-heading mb-3">
+                    Our Office
+                  </h4>
+                  <div className="flex items-start gap-3 text-slate-600 mb-4">
+                    <div className="w-8 h-8 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center shrink-0 text-[#FF0055] mt-0.5">
+                      <MapPin className="w-4 h-4" />
+                    </div>
+                    <div className="leading-snug">
+                      <strong className="font-bold text-slate-900 block text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] mb-0.5">
+                        Kaelixo Pvt. Ltd.
+                      </strong>
+                      <p className="text-slate-600 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed">
+                        1st Floor, Maveli Arcade, Metro Pillar No. 800,
+                        S A Road, Kadavanthra, Kochi – 682020
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href="https://www.google.com/maps?q=9.967592,76.303050"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-[#FF0055]/30 hover:border-[#FF0055] bg-pink-50/50 hover:bg-[#FF0055] text-[#FF0055] hover:text-white text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-semibold tracking-wide transition-all duration-300 cursor-pointer font-heading"
+                  >
+                    <span>View on Map</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
 
-                  {/* Right Real Google Map Embed */}
-                  <div className="w-full md:w-[240px] lg:w-[260px] h-[165px] rounded-xl overflow-hidden border border-slate-200 shadow-xs shrink-0 bg-slate-100">
-                    <iframe
-                      title="Kaelixo Office Location"
-                      src="https://maps.google.com/maps?q=9.967592,76.303050&hl=en&z=16&output=embed"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen={false}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      className="w-full h-full"
-                    />
+                {/* Right Real Google Map Embed */}
+                <div className="w-full md:w-[240px] lg:w-[260px] h-[165px] rounded-xl overflow-hidden border border-slate-200 shadow-xs shrink-0 bg-slate-100">
+                  <iframe
+                    title="Kaelixo Office Location"
+                    src="https://maps.google.com/maps?q=9.967592,76.303050&hl=en&z=16&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={false}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="w-full h-full"
+                  />
+                </div>
+              </div>
+
+              {/* 3. BOTTOM ROW: Write to Us & Speak to Us Quick Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Email Card */}
+                <div className="rounded-xl border border-slate-200/80 bg-white p-4 sm:p-4.5 flex items-start gap-3.5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-[#FF0055]/40 transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-pink-100/70 border border-pink-200/80 text-[#FF0055] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+                    <Mail className="w-4.5 h-4.5" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 mb-1.5">
+                      <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
+                        Write to Us
+                      </span>
+                      <span className="w-3.5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
+                    </div>
+                    <div className="space-y-1 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px]">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">General:</span>
+                        <a
+                          href="mailto:info@kaelixo.com"
+                          className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
+                        >
+                          info@kaelixo.com
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        {/* <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">Reply time:</span> */}
+                        <span className="text-slate-700 font-medium truncate">Reply Within one working day</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Bottom Row: Write to Us & Speak to Us */}
-                <div className="pt-5 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                  {/* Write to Us */}
-                  <div className="flex items-start gap-3.5">
-                    <div className="w-8 h-8 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center shrink-0 text-[#FF0055] mt-0.5">
-                      <Mail className="w-4 h-4" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5 mb-1.5">
-                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
-                          Write to Us
-                        </span>
-                        <span className="w-3.5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
-                      </div>
-                      <div className="space-y-1 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px]">
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">General:</span>
-                          <a
-                            href="mailto:info@kaelixo.com"
-                            className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
-                          >
-                            info@kaelixo.com
-                          </a>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">Reply time:</span>
-                          <span className="text-slate-700 font-medium truncate">Within one working day</span>
-                        </div>
-                      </div>
-                    </div>
+                {/* Call Us Card */}
+                <div className="rounded-xl border border-slate-200/80 bg-white p-4 sm:p-4.5 flex items-start gap-3.5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-[#FF0055]/40 transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-pink-100/70 border border-pink-200/80 text-[#FF0055] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+                    <Phone className="w-4.5 h-4.5" />
                   </div>
-
-                  {/* Speak to Us */}
-                  <div className="flex items-start gap-3.5">
-                    <div className="w-8 h-8 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center shrink-0 text-[#FF0055] mt-0.5">
-                      <Phone className="w-4 h-4" />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 mb-1.5">
+                      <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
+                        Speak to Us
+                      </span>
+                      <span className="w-3.5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5 mb-1.5">
-                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
-                          Speak to Us
-                        </span>
-                        <span className="w-3.5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
+                    <div className="space-y-1 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px]">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">General:</span>
+                        <a
+                          href="tel:+919037235832"
+                          className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
+                        >
+                          +91 90372 35832
+                        </a>
                       </div>
-                      <div className="space-y-1 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px]">
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">General:</span>
-                          <a
-                            href="tel:+919037235832"
-                            className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
-                          >
-                            +91 90372 35832
-                          </a>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">Sales:</span>
-                          <a
-                            href="tel:+918086370404"
-                            className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
-                          >
-                            +91 80863 70404
-                          </a>
-                        </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">Sales:</span>
+                        <a
+                          href="tel:+918086370404"
+                          className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
+                        >
+                          +91 80863 70404
+                        </a>
                       </div>
                     </div>
                   </div>
