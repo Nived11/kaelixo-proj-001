@@ -17,7 +17,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     title: "Travel Hope",
     description: "A complete travel platform with booking, packages and enquiry management.",
     category: "Web & Booking Platform",
-    image: "/images/portfolio/travelhope.png",
+    image: "/images/portfolio/Travelhope.png",
     tags: ["Next.js", "Booking Engine", "UI/UX", "Payment Gateway"],
     client: "Travel Hope Tourism",
     year: "2024",
