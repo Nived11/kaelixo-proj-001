@@ -35,42 +35,42 @@ const SERVICES_LIST = [
 
 const FAQ_FEATURES = [
   {
-    title: "Quick Response",
-    desc: "We typically reply within 24 hours.",
+    title: "Prompt Replies",
+    desc: "Expect to hear from us within a working day.",
     icon: MessageSquare,
   },
   {
-    title: "Free Consultation",
-    desc: "No commitment, clear initial guidance.",
+    title: "Open First Chat",
+    desc: "Your first conversation carries no cost or obligation.",
     icon: ShieldCheck,
   },
   {
-    title: "Transparent Proposals",
-    desc: "Honest pricing and realistic timelines.",
+    title: "Clear Quotes",
+    desc: "Straightforward pricing with timelines we can keep.",
     icon: Users,
   },
 ];
 
 const FAQS_LIST = [
   {
-    question: "How quickly will your team respond to my inquiry?",
+    question: "How soon will someone get back to me?",
     answer:
-      "Our team reviews all incoming inquiries promptly. You will typically hear back from a dedicated project lead within 24 hours (or the next business day) to discuss your requirements or schedule a brief discovery call.",
+      "Every enquiry goes to a team member who reads it in full. You can expect a reply within one working day, usually with a few questions or an invitation to a short call.",
   },
   {
-    question: "How do you provide a project quotation or estimate?",
+    question: "How is a project quote prepared?",
     answer:
-      "Once we understand your goals, target audience, and scope of work, we prepare a transparent proposal detailing deliverables, architecture, milestones, and realistic timelines tailored to your budget.",
+      "We start by thinking through your goals, users and must-have features, usually over a brief call. From there, we prepare a written proposal covering how we’ll build it, the scope, deliverables, timeline and cost, plus how the product can grow after launch, so there are no surprises.",
   },
   {
-    question: "Do you collaborate with international clients?",
+    question: "Do you take on clients outside India?",
     answer:
-      "Yes, absolutely. We work with startups and growing brands across the Middle East, Europe, North America, and India with reliable async workflows, clear updates, and structured milestone reviews.",
+      "Yes. We work with clients across time zones through video calls, shared project boards and regular written updates. For international projects, we can share estimates in your local currency on request.",
   },
   {
-    question: "Can we sign an NDA before sharing project details?",
+    question: "Can we sign an NDA first?",
     answer:
-      "Yes. We take client confidentiality and intellectual property seriously. We are always glad to review and execute a mutual Non-Disclosure Agreement before discussing any proprietary ideas.",
+      "Of course. If your idea is sensitive, tell us up front and we’ll sign a non-disclosure agreement before you share any project details.",
   },
 ];
 
@@ -176,19 +176,19 @@ export default function ContactMainSection() {
               {/* Eyebrow */}
               <div className="flex items-center gap-3 mb-2.5">
                 <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] font-bold text-[#FF0055] tracking-[0.2em] uppercase font-heading">
-                  SEND A MESSAGE
+                   START THE CONVERSATION
                 </span>
                 <span className="w-8 sm:w-10 h-[2px] bg-[#FF0055] rounded-full inline-block" />
               </div>
 
               {/* Headline */}
               <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-extrabold text-[#0A1024] tracking-tight font-heading leading-tight mb-2">
-                Tell Us About <span className="text-[#FF0055]">Your Project</span>
+                Share What You  <span className="text-[#FF0055]">Have in Mind</span>
               </h2>
 
               {/* Subtitle */}
               <p className="text-gray-500 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-normal leading-relaxed mb-6 sm:mb-7 font-sans">
-                Fill in the details below and our team will connect with you soon.
+                A few quick details are enough. We’ll come back with questions, ideas and a sensible next step.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-4.5">
@@ -204,7 +204,7 @@ export default function ContactMainSection() {
                   {/* Name Input */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-heading">
-                      Your Name <span className="text-[#FF0055]">*</span>
+                       Full Name <span className="text-[#FF0055]">*</span>
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#FF0055]">
@@ -229,7 +229,7 @@ export default function ContactMainSection() {
                   {/* Email Input */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-heading">
-                      Your Email <span className="text-[#FF0055]">*</span>
+                      Work Email <span className="text-[#FF0055]">*</span>
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#FF0055]">
@@ -257,7 +257,7 @@ export default function ContactMainSection() {
                   {/* Phone Input with Country Code */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-heading">
-                      Phone Number <span className="text-[#FF0055]">*</span>
+                      Contact Number <span className="text-[#FF0055]">*</span>
                     </label>
                     <div className="relative international-phone-wrapper z-40">
                       <style
@@ -388,7 +388,7 @@ export default function ContactMainSection() {
                   {/* Service Dropdown */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-heading">
-                      Service Interested In <span className="text-[#FF0055]">*</span>
+                      What Do You Need Help with? <span className="text-[#FF0055]">*</span>
                     </label>
                     <div className="relative z-30" ref={dropdownRef}>
                       <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#FF0055] z-10">
@@ -403,7 +403,7 @@ export default function ContactMainSection() {
                       >
                         {formData.service
                           ? SERVICES_LIST.find((s) => s.id === formData.service)?.label
-                          : "Select a Service *"}
+                          : "Choose a service"}
                       </button>
 
                       <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400 z-10">
@@ -451,7 +451,7 @@ export default function ContactMainSection() {
                 {/* Row 3: Message Textarea */}
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-heading">
-                    Your Message <span className="text-[#FF0055]">*</span>
+                    Project Details <span className="text-[#FF0055]">*</span>
                   </label>
                   <div className="relative">
                     <div className="absolute top-3.5 left-3.5 pointer-events-none text-[#FF0055]">
@@ -459,12 +459,12 @@ export default function ContactMainSection() {
                     </div>
                     <textarea
                       required
-                      rows={4}
+                      rows={5}
                       maxLength={500}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us about your project, goals or any questions..."
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/60 focus:bg-white text-slate-900 text-sm placeholder:text-slate-600 placeholder:font-medium focus:outline-none focus:border-[#FF0055] focus:ring-2 focus:ring-[#FF0055]/10 transition-all resize-none font-sans"
+                      placeholder="Describe your goals, timeline or anything you’d like us to know."
+                      className="w-full h-[150px] pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/60 focus:bg-white text-slate-900 text-sm placeholder:text-slate-600 placeholder:font-medium focus:outline-none focus:border-[#FF0055] focus:ring-2 focus:ring-[#FF0055]/10 transition-all resize-none font-sans"
                     />
                     <div className="absolute bottom-2.5 right-3 text-[11px] text-slate-400 font-medium">
                       {formData.message.length}/500
@@ -484,13 +484,13 @@ export default function ContactMainSection() {
                     disabled={isSubmitting}
                     className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[15px] font-semibold tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.35)] hover:shadow-[0_0_30px_rgba(255,0,85,0.55)] active:scale-95 transition-all duration-300 cursor-pointer font-heading disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
+                    <span>{isSubmitting ? "Submitting..." : "Submit Enquiry"}</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
 
                   <div className="flex items-center gap-1.5 text-xs text-slate-500 font-sans">
                     <Lock className="w-3.5 h-3.5 text-[#FF0055]" />
-                    <span>Your information is safe with us.</span>
+                    <span>We use your details only to respond to your enquiry.</span>
                   </div>
                 </div>
               </form>
@@ -515,133 +515,135 @@ export default function ContactMainSection() {
 
                 <div className="relative z-10 max-w-md">
                   <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] font-bold text-white/80 tracking-[0.22em] uppercase font-heading mb-1 inline-block">
-                    LET&apos;S CREATE
+                    WORK WITH US
                   </span>
                   <h3 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] font-extrabold text-white font-heading leading-tight mb-2">
-                    Ideas Into <span className="text-[#FF0055]">Impact.</span>
+                    From First Thought to <span className="text-[#FF0055]">Finished Product.</span>
                   </h3>
                   <p className="text-gray-300 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-normal leading-relaxed font-sans">
-                    Whether you&apos;re a startup, an established business or just exploring ideas, we&apos;re here to turn your vision into reality.
-                  </p>
+                    Start with a rough sketch, a half-formed plan, or a fully scoped brief. We’ll think the problem through with you, build what fits, and help it grow once it’s live.                  </p>
                 </div>
               </div>
 
-              {/* 2. MIDDLE CARD: Our Office with Real Map Embed */}
-              <div className="rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col md:flex-row gap-6 items-center justify-between">
-                {/* Left Info */}
-                <div className="flex-1 w-full">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
-                      FIND US HERE
-                    </span>
-                    <span className="w-5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
+              {/* 2. VISIT OR REACH US CARD (Unified Office, Map, Email & Call Details) */}
+              <div className="rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col gap-5">
+                {/* Top Row: Our Office & Real Map Embed */}
+                <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
+                  {/* Left Info */}
+                  <div className="flex-1 w-full">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
+                        VISIT OR REACH US
+                      </span>
+                      <span className="w-5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
+                    </div>
+                    <h4 className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] font-bold text-slate-900 font-heading mb-3">
+                      Our Office
+                    </h4>
+                    <div className="flex items-start gap-3 text-slate-600 mb-4">
+                      <div className="w-8 h-8 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center shrink-0 text-[#FF0055] mt-0.5">
+                        <MapPin className="w-4 h-4" />
+                      </div>
+                      <div className="leading-snug">
+                        <strong className="font-bold text-slate-900 block text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] mb-0.5">
+                          Kaelixo Pvt. Ltd.
+                        </strong>
+                        <p className="text-slate-600 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed">
+                          1st Floor, Maveli Arcade, Metro Pillar No. 800,
+                          S A Road, Kadavanthra, Kochi – 682020
+                        </p>
+                      </div>
+                    </div>
+                    <a
+                      href="https://www.google.com/maps?q=9.967592,76.303050"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-[#FF0055]/30 hover:border-[#FF0055] bg-pink-50/50 hover:bg-[#FF0055] text-[#FF0055] hover:text-white text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-semibold tracking-wide transition-all duration-300 cursor-pointer font-heading"
+                    >
+                      <span>View on Map</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
-                  <h4 className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] font-bold text-slate-900 font-heading mb-3">
-                    Our Office
-                  </h4>
-                  <div className="flex items-start gap-3 text-slate-600 mb-4">
+
+                  {/* Right Real Google Map Embed */}
+                  <div className="w-full md:w-[240px] lg:w-[260px] h-[165px] rounded-xl overflow-hidden border border-slate-200 shadow-xs shrink-0 bg-slate-100">
+                    <iframe
+                      title="Kaelixo Office Location"
+                      src="https://maps.google.com/maps?q=9.967592,76.303050&hl=en&z=16&output=embed"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen={false}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+
+                {/* Bottom Row: Write to Us & Speak to Us */}
+                <div className="pt-5 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  {/* Write to Us */}
+                  <div className="flex items-start gap-3.5">
                     <div className="w-8 h-8 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center shrink-0 text-[#FF0055] mt-0.5">
-                      <MapPin className="w-4 h-4" />
+                      <Mail className="w-4 h-4" />
                     </div>
-                    <div className="leading-snug">
-                      <strong className="font-bold text-slate-900 block text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] mb-0.5">
-                        Kaelixo Pvt. Ltd.
-                      </strong>
-                      <p className="text-slate-600 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] leading-relaxed">
-                        1st Floor, Maveli Arcade, Metro Pillar No. 800,
-                        S A Road, Kadavanthra, Kochi – 682020
-                      </p>
-                    </div>
-                  </div>
-                  <a
-                    href="https://www.google.com/maps?q=9.967592,76.303050"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-[#FF0055]/30 hover:border-[#FF0055] bg-pink-50/50 hover:bg-[#FF0055] text-[#FF0055] hover:text-white text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-semibold tracking-wide transition-all duration-300 cursor-pointer font-heading"
-                  >
-                    <span>Get Directions</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-
-                {/* Right Real Google Map Embed */}
-                <div className="w-full md:w-[240px] lg:w-[260px] h-[165px] rounded-xl overflow-hidden border border-slate-200 shadow-xs shrink-0 bg-slate-100">
-                  <iframe
-                    title="Kaelixo Office Location"
-                    src="https://maps.google.com/maps?q=9.967592,76.303050&hl=en&z=16&output=embed"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen={false}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="w-full h-full"
-                  />
-                </div>
-              </div>
-
-              {/* 3. BOTTOM ROW: Email Us & Call Us Quick Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Email Card */}
-                <div className="rounded-xl border border-slate-200/80 bg-white p-4 sm:p-4.5 flex items-start gap-3.5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-[#FF0055]/40 transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-pink-100/70 border border-pink-200/80 text-[#FF0055] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
-                    <Mail className="w-4.5 h-4.5" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-1.5 mb-1.5">
-                      <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
-                        Email Us
-                      </span>
-                      <span className="w-3.5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
-                    </div>
-                    <div className="space-y-1 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px]">
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">General:</span>
-                        <a
-                          href="mailto:info@kaelixo.com"
-                          className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
-                        >
-                          info@kaelixo.com
-                        </a>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 mb-1.5">
+                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
+                          Write to Us
+                        </span>
+                        <span className="w-3.5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
                       </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">Response:</span>
-                        <span className="text-slate-700 font-medium truncate">Within 24  hours</span>
+                      <div className="space-y-1 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px]">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">General:</span>
+                          <a
+                            href="mailto:info@kaelixo.com"
+                            className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
+                          >
+                            info@kaelixo.com
+                          </a>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">Reply time:</span>
+                          <span className="text-slate-700 font-medium truncate">Within one working day</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Call Us Card */}
-                <div className="rounded-xl border border-slate-200/80 bg-white p-4 sm:p-4.5 flex items-start gap-3.5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-[#FF0055]/40 transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-pink-100/70 border border-pink-200/80 text-[#FF0055] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
-                    <Phone className="w-4.5 h-4.5" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-1.5 mb-1.5">
-                      <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
-                        Call Us
-                      </span>
-                      <span className="w-3.5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
+                  {/* Speak to Us */}
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-8 h-8 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center shrink-0 text-[#FF0055] mt-0.5">
+                      <Phone className="w-4 h-4" />
                     </div>
-                    <div className="space-y-1 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px]">
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">General:</span>
-                        <a
-                          href="tel:+919037235832"
-                          className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
-                        >
-                          +91 90372 35832
-                        </a>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 mb-1.5">
+                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
+                          Speak to Us
+                        </span>
+                        <span className="w-3.5 h-[1.5px] bg-[#FF0055] rounded-full inline-block" />
                       </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">Sales:</span>
-                        <a
-                          href="tel:+918086370404"
-                          className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
-                        >
-                          +91 80863 70404
-                        </a>
+                      <div className="space-y-1 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px]">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">General:</span>
+                          <a
+                            href="tel:+919037235832"
+                            className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
+                          >
+                            +91 90372 35832
+                          </a>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">Sales:</span>
+                          <a
+                            href="tel:+918086370404"
+                            className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
+                          >
+                            +91 80863 70404
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -666,7 +668,7 @@ export default function ContactMainSection() {
                 {/* Eyebrow */}
                 <div className="mb-3 sm:mb-4">
                   <span className="text-gray-700 font-[750] text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] tracking-[0.2em] uppercase font-heading">
-                    FREQUENTLY ASKED{" "}
+                    COMMON{" "}
                     <span className="inline-flex items-center gap-3 whitespace-nowrap">
                       QUESTIONS
                       <span className="inline-block w-8 h-[2px] bg-[#FF0055] shrink-0" />
@@ -675,14 +677,14 @@ export default function ContactMainSection() {
                 </div>
 
                 {/* Headline */}
-                <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px]  font-[750] leading-[1.16] tracking-tight mb-4 sm:mb-5 font-heading">
-                  <span className="block sm:inline">Got Questions? </span>
-                  <span className="block text-[#FF0055]">We&apos;ve Got Answers.</span>
+                <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.16] tracking-tight mb-4 sm:mb-5 font-heading">
+                  <span className="text-[#07080c]">Before You </span>
+                  <span className="text-[#FF0055]">Reach Out</span>
                 </h2>
 
                 {/* Description - Tailored for Contacting Kaelixo */}
                 <p className="text-gray-600 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.6] max-w-xl mb-7 sm:mb-8 xl:mb-10 font-sans">
-                  Everything you need to know about getting in touch, project estimates, and starting your collaboration with Kaelixo.
+                  Quick answers on how we respond, how we price and how we begin.
                 </p>
 
                 {/* Features List */}

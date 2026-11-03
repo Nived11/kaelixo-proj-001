@@ -18,7 +18,7 @@ import { motion } from "framer-motion";
 const SOCIAL_CARDS = [
   {
     name: "WhatsApp",
-    description: "Quick queries & chat",
+    description: "Chat with us directly",
     href: "https://wa.me/919037235832",
     icon: FaWhatsapp,
     iconWrapperClass: "bg-[#25D366] text-white shadow-[0_0_15px_rgba(37,211,102,0.4)]",
@@ -26,7 +26,7 @@ const SOCIAL_CARDS = [
   },
   {
     name: "LinkedIn",
-    description: "Company updates & careers",
+    description: "Company news and openings",
     href: "https://www.linkedin.com/company/kaelixo/",
     icon: FaLinkedinIn,
     iconWrapperClass: "bg-[#0A66C2] text-white shadow-[0_0_15px_rgba(10,102,194,0.4)]",
@@ -34,7 +34,7 @@ const SOCIAL_CARDS = [
   },
   {
     name: "Instagram",
-    description: "Behind the scenes & culture",
+    description: "Life inside the studio",
     href: "https://www.instagram.com/kaelixo_/",
     icon: FaInstagram,
     iconWrapperClass:
@@ -43,7 +43,7 @@ const SOCIAL_CARDS = [
   },
   {
     name: "Behance",
-    description: "UI/UX & brand showcases",
+    description: "Design and brand work",
     href: "https://www.behance.net/kaelixotech",
     icon: FaBehance,
     iconWrapperClass: "bg-[#0057FF] text-white shadow-[0_0_15px_rgba(0,87,255,0.4)]",
@@ -51,7 +51,7 @@ const SOCIAL_CARDS = [
   },
   {
     name: "YouTube",
-    description: "Demos & tutorials",
+    description: "Walkthroughs and demos",
     href: "https://www.youtube.com/@kaeli_xo",
     icon: FaYoutube,
     iconWrapperClass: "bg-[#FF0000] text-white shadow-[0_0_15px_rgba(255,0,0,0.4)]",
@@ -59,7 +59,7 @@ const SOCIAL_CARDS = [
   },
   {
     name: "X (Twitter)",
-    description: "Real-time news & insights",
+    description: "Quick updates and thoughts",
     href: "https://x.com/Kaelixotbg",
     icon: FaXTwitter,
     iconWrapperClass: "bg-black border border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.15)]",
@@ -67,7 +67,7 @@ const SOCIAL_CARDS = [
   },
   {
     name: "Threads",
-    description: "Daily thoughts & updates",
+    description: "Everyday conversations",
     href: "https://www.threads.com/@kaelixo_?igshid=NTc4MTIwNjQ2YQ%3D%3D",
     icon: FaThreads,
     iconWrapperClass: "bg-black border border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.15)]",
@@ -75,7 +75,7 @@ const SOCIAL_CARDS = [
   },
   {
     name: "Facebook",
-    description: "Events & stories",
+    description: "Events and community stories",
     href: "https://www.facebook.com/kaelixotbt",
     icon: FaFacebookF,
     iconWrapperClass: "bg-[#1877F2] text-white shadow-[0_0_15px_rgba(24,119,242,0.4)]",
@@ -107,23 +107,22 @@ export default function ContactCTA() {
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-2.5">
             <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-bold text-gray-300 tracking-[0.22em] uppercase font-heading">
-              STAY CONNECTED
+              STAY IN TOUCH
             </span>
             <span className="w-8 sm:w-10 h-[2px] bg-[#FF0055] rounded-full inline-block" />
           </div>
 
           {/* Headline */}
           <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-extrabold tracking-tight font-heading leading-[1.12] text-white mb-3">
-            Connect Across <br />
+            Find Us Where <br />
             <span className="text-[#FF0055] drop-shadow-[0_0_35px_rgba(255,0,85,0.5)]">
-              Our Channels.
+              You Already Are.
             </span>
           </h2>
 
           {/* Subtitle */}
           <p className="text-gray-300 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] font-normal leading-relaxed max-w-xl font-sans">
-            Prefer a direct message or want to follow our journey?  <br className="hidden sm:inline" />Reach us on WhatsApp
-            or connect across our digital networks.
+            Want a quicker chat, or a look at how we work day to day? Message us on WhatsApp or follow along on our social channels.
           </p>
         </div>
 

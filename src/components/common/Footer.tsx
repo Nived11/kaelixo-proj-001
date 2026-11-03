@@ -33,7 +33,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[15px] sm:text-[15px] md:text-[14px] lg:text-[16px] xl:text-[16px] text-gray-400 font-medium tracking-wide">
-              Think clearly. Build intelligently. Grow confidently. A technology and growth marketing agency that turns bold ideas into real, measurable impact, together, always.
+              Think clearly. Build intelligently. Grow confidently. A technology company that turns ideas into digital products, with clarity and care.
             </p>
           </div>
 

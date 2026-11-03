@@ -38,7 +38,7 @@ export default function PortfolioGridSection() {
                 >
                   {/* Image Container with Floating Overlap Badge (Half on Image, Half Below) */}
                   <div className="relative w-full">
-                    <div className="relative aspect-[16/9.6] w-full overflow-hidden rounded-[16px] bg-[#f8fafc] border border-slate-100/90">
+                    <div className="relative aspect-[2/1] w-full overflow-hidden rounded-[16px] bg-[#f8fafc] border border-slate-100/90">
                       <Image
                         src={project.image}
                         alt={project.title}

@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import ContactMain from "@/features/contact/ContactMain";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Kaelixo - Let's Build Something Great Together",
+  title: "Contact Kaelixo | Websites, Software and CRM Solutions in Kochi",
   description:
-    "Have a project in mind or just want to say hello? Get in touch with Kaelixo for intelligent websites, custom software, CRM solutions and growth marketing.",
+    "Planning a website, app, CRM, or software build? Kaelixo in Kochi helps you think it through, build it right, and grow with confidence. Share your idea today.",
   openGraph: {
-    title: "Contact Us | Kaelixo",
+    title: "Contact Kaelixo | Websites, Software and CRM Solutions in Kochi",
     description:
-      "Let's Build Something Great Together. Have a project in mind or just want to say hello? We'd love to hear from you.",
+      "Planning a website, app, CRM, or software build? Kaelixo in Kochi helps you think it through, build it right, and grow with confidence. Share your idea today.",
     images: ["/images/about/aboutherobg.png"],
   },
 };
