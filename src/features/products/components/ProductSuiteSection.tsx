@@ -27,6 +27,28 @@ import {
   Compass,
 } from "lucide-react";
 
+function RobotAvatar({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <line x1="12" y1="2" x2="12" y2="6" />
+      <circle cx="12" cy="1.8" r="0.8" fill="currentColor" />
+      <rect x="4.5" y="6" width="15" height="13" rx="3.5" />
+      <line x1="2" y1="12.5" x2="4.5" y2="12.5" />
+      <line x1="19.5" y1="12.5" x2="22" y2="12.5" />
+      <circle cx="9" cy="12.5" r="1.1" fill="currentColor" stroke="none" />
+      <circle cx="15" cy="12.5" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export default function ProductSuiteSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.1 });
@@ -45,17 +67,21 @@ export default function ProductSuiteSection() {
           <div>
             {/* Eyebrow */}
             <div className="flex items-center gap-2.5 sm:gap-3 mb-2.5">
-              <span className="text-[13px] sm:text-[14px] font-bold text-[#FF0055] tracking-[0.22em] uppercase font-heading">
+              <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-bold text-[#FF0055] tracking-[0.22em] uppercase font-heading">
                 OUR PRODUCTS
               </span>
               <span className="inline-block w-8 sm:w-10 h-[2px] bg-[#FF0055] rounded-full" />
             </div>
 
             {/* Headline */}
-            <h2 className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] font-extrabold text-[#0A1024] tracking-tight font-heading leading-tight">
+             <h2 className="text-[#020205] m-0 font-sans text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.16] tracking-[-1.3px] mb-4">
               Explore the Kaelixo{" "}
               <span className="text-[#FF0055]">Product Suite</span>
             </h2>
+
+             <p className="text-gray-700 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.6] mb-8 max-w-[480px]">
+              Most web development companies start building right away. As a Web Development Company, we start by thinking it through — who this brand is, and who they're really speaking to. 
+            </p>
           </div>
         </div>
 
@@ -66,7 +92,7 @@ export default function ProductSuiteSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#FFF5F8] via-[#FFF1F6] to-[#FFEAF2] border border-[#FFD8E6] shadow-[0_12px_44px_rgba(255,0,85,0.06)] overflow-hidden transition-all duration-300 hover:shadow-[0_20px_56px_rgba(255,0,85,0.09)] mb-10 sm:mb-14"
+          className="relative rounded-[28px] sm:rounded-[36px] bg-white border border-slate-200/80 shadow-[0_12px_44px_rgba(0,0,0,0.04)] overflow-hidden transition-all duration-300 hover:shadow-[0_20px_56px_rgba(0,0,0,0.07)] mb-10 sm:mb-14"
         >
           {/* Upper Section: Content + Laptop + Blended Mountain Scenery (Both Left & Right Bottom Rounded) */}
           <div className="relative rounded-b-[24px] sm:rounded-b-[32px] overflow-hidden p-6 sm:p-8 lg:p-10 xl:p-12 pb-6 sm:pb-8 lg:pb-10">
@@ -102,12 +128,12 @@ export default function ProductSuiteSection() {
               >
                 <path
                   d="M 0,0 A 32,32 0 0,0 32,32 L 0,32 Z"
-                  fill="rgba(255, 255, 255, 0.4)"
+                  fill="#F8FAFC"
                 />
                 <path
                   d="M 0,0 A 32,32 0 0,0 32,32"
-                  stroke="#FFDCE8"
-                  strokeOpacity="0.45"
+                  stroke="#E2E8F0"
+                  strokeOpacity="0.6"
                   strokeWidth="1.2"
                   fill="none"
                 />
@@ -125,12 +151,12 @@ export default function ProductSuiteSection() {
               >
                 <path
                   d="M 32,0 A 32,32 0 0,1 0,32 L 32,32 Z"
-                  fill="rgba(255, 255, 255, 0.4)"
+                  fill="#F8FAFC"
                 />
                 <path
                   d="M 32,0 A 32,32 0 0,1 0,32"
-                  stroke="#FFDCE8"
-                  strokeOpacity="0.45"
+                  stroke="#E2E8F0"
+                  strokeOpacity="0.6"
                   strokeWidth="1.2"
                   fill="none"
                 />
@@ -139,7 +165,7 @@ export default function ProductSuiteSection() {
 
             {/* Top Badges Row */}
             <div className="relative z-10 flex items-center justify-between gap-3 mb-6 sm:mb-8">
-              <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/90 border border-[#FFD0E0] text-[12px] sm:text-[13px] font-bold text-[#FF0055] tracking-wider uppercase font-heading shadow-xs">
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-pink-50/80 border border-pink-200/80 text-[12px] sm:text-[13px] font-bold text-[#FF0055] tracking-wider uppercase font-heading shadow-xs">
                 TRAVEL CRM
               </span>
             </div>
@@ -200,8 +226,8 @@ export default function ProductSuiteSection() {
               </div>
 
               {/* Right: Mockup Laptop Image (Over blended mountain scenery, no boxed div) */}
-              <div className="lg:col-span-6 relative z-10 flex items-center justify-center lg:justify-end py-2 lg:py-0">
-                <div className="relative w-full max-w-[540px] xl:max-w-[580px] transition-transform duration-500 hover:scale-[1.02]">
+              <div className="lg:col-span-6 relative z-10 flex items-end justify-center lg:justify-start self-end pt-4 lg:pt-8">
+                <div className="relative w-full max-w-[600px] xl:max-w-[660px] lg:-ml-6 xl:-ml-10">
                   <Image
                     src="/images/products/productcrmlap.png"
                     alt="Way We Go Travel CRM Dashboard Laptop Mockup"
@@ -216,7 +242,7 @@ export default function ProductSuiteSection() {
           </div>
 
           {/* Bottom 4 Feature Items Strip (Inside the same card, nerathethe pole thanne) */}
-          <div className="relative z-10 px-6 sm:px-8 lg:px-10 xl:px-12 py-6 sm:py-7 border-t border-[#FFDCE8]/35 bg-white/40 backdrop-blur-[2px]">
+          <div className="relative z-10 px-6 sm:px-8 lg:px-10 xl:px-12 py-6 sm:py-7 border-t border-slate-100 bg-slate-50/70">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
               {[
                 {
@@ -241,7 +267,7 @@ export default function ProductSuiteSection() {
                 },
               ].map((f, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-white/90 border border-[#FFD5E5] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <div className="w-9 h-9 rounded-xl bg-white border border-slate-200/80 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                     {f.icon}
                   </div>
                   <div>
@@ -322,7 +348,7 @@ export default function ProductSuiteSection() {
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
               {/* Left on desktop: Mockup Image */}
               <div className="lg:col-span-6 relative z-10 flex items-center justify-center lg:justify-start py-2 lg:py-0 order-2 lg:order-1">
-                <div className="relative w-full max-w-[540px] xl:max-w-[580px] transition-transform duration-500 hover:scale-[1.02]">
+                <div className="relative w-full max-w-[540px] xl:max-w-[580px]">
                   <Image
                     src="/images/products/producteduloombg.png"
                     alt="EduLoom Learning Platform Dashboard Laptop Mockup"
@@ -453,139 +479,197 @@ export default function ProductSuiteSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-[28px] sm:rounded-[36px] bg-white border border-[#FFE8F0] shadow-[0_8px_36px_rgba(255,0,85,0.05)] overflow-hidden transition-all duration-300 hover:shadow-[0_16px_48px_rgba(255,0,85,0.09)] p-6 sm:p-8 lg:p-10 xl:p-12"
+          className="relative rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#FFF5F8] via-[#FFF1F6] to-[#FFEAF2] border border-[#FFD8E6] shadow-[0_12px_44px_rgba(255,0,85,0.06)] overflow-hidden transition-all duration-300 hover:shadow-[0_20px_56px_rgba(255,0,85,0.09)]"
         >
-          {/* Top Badge */}
-          <div className="flex items-center justify-between gap-3 mb-6 sm:mb-8">
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-pink-50 border border-pink-200/80 text-[12px] sm:text-[13px] font-bold text-[#FF0055] tracking-wider uppercase font-heading">
-              AI BUSINESS ASSISTANT
-            </span>
-          </div>
+          {/* Upper Section: Content (Left) + Chatbot Mockup (Right) */}
+          <div className="relative rounded-b-[24px] sm:rounded-b-[32px] overflow-hidden p-6 sm:p-8 lg:p-10 xl:p-12 pb-6 sm:pb-8 lg:pb-10">
+            {/* Ambient Glow */}
+            <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[420px] sm:w-[520px] h-[420px] bg-[#FF0055]/10 blur-[100px] rounded-full pointer-events-none z-0" />
 
-          {/* Main 2-Column: Content (Left) & Chatbot Interactive Mockup (Right) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
-            {/* Left: Product Info */}
-            <div className="lg:col-span-6 flex flex-col items-start">
-              {/* Product Logo / Name */}
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#80002A] to-[#FF0055] text-white flex items-center justify-center shadow-xs">
-                  <Bot className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
-                </div>
-                <h3 className="font-heading font-black text-[22px] sm:text-[25px] text-[#0A1024]">
-                  AI Chat Bot
-                </h3>
-              </div>
-
-              {/* Headline */}
-              <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] font-extrabold text-[#0A1024] font-heading leading-tight mt-4">
-                Your 24/7 Intelligent <br />
-                <span className="text-[#FF0055]">Business Assistant.</span>
-              </h4>
-
-              {/* Description */}
-              <p className="text-slate-600 font-sans text-[14px] sm:text-[15px] leading-relaxed mt-3 max-w-xl">
-                An AI-powered chatbot that handles customer queries, automates support,
-                captures leads and delivers instant, accurate responses across your digital channels.
-              </p>
-
-              {/* 2-Column Checklist */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 mt-6 w-full max-w-xl">
-                {[
-                  "Instant & accurate responses",
-                  "Works across web & WhatsApp",
-                  "Automated customer support",
-                  "Custom knowledge base (FAQs, docs)",
-                  "Lead capture & qualification",
-                  "Human handoff (when needed)",
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-[13px] sm:text-[13.5px] text-slate-700 font-medium font-sans">
-                    <CheckCircle2 className="w-4 h-4 text-[#FF0055] shrink-0 fill-pink-50" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-3.5 mt-8">
-                <a
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[14px] font-semibold tracking-wide transition-all duration-300 active:scale-95 cursor-pointer font-heading"
-                >
-                  <span>Learn More</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
-                </a>
-                <a
-                  href="#demo"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-slate-50 border border-slate-200 hover:border-pink-300 text-slate-800 hover:text-[#FF0055] text-[14px] font-semibold transition-all duration-300 cursor-pointer font-sans shadow-xs"
-                >
-                  <Play className="w-3.5 h-3.5 text-[#FF0055] fill-[#FF0055]" />
-                  <span>See It in Action</span>
-                </a>
-              </div>
+            {/* Left Bottom Rounded Corner Transition */}
+            <div className="absolute bottom-0 left-0 w-6 h-6 sm:w-8 sm:h-8 pointer-events-none z-20 overflow-hidden">
+              <svg
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-full h-full"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M 0,0 A 32,32 0 0,0 32,32 L 0,32 Z"
+                  fill="rgba(255, 255, 255, 0.4)"
+                />
+                <path
+                  d="M 0,0 A 32,32 0 0,0 32,32"
+                  stroke="#FFD8E6"
+                  strokeOpacity="0.45"
+                  strokeWidth="1.2"
+                  fill="none"
+                />
+              </svg>
             </div>
 
-            {/* Right: Realistic Chatbot Mockup Widget (Space reserved for final image) */}
-            <div className="lg:col-span-6 relative">
-              <div className="w-full max-w-md mx-auto rounded-3xl overflow-hidden border border-slate-200/90 shadow-[0_16px_48px_rgba(0,0,0,0.1)] bg-slate-50 flex flex-col">
-                {/* Chat Header */}
-                <div className="bg-[#6B154E] px-5 py-3.5 flex items-center justify-between text-white">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">
-                      <Bot className="w-4.5 h-4.5 text-white" />
+            {/* Right Bottom Rounded Corner Transition */}
+            <div className="absolute bottom-0 right-0 w-6 h-6 sm:w-8 sm:h-8 pointer-events-none z-20 overflow-hidden">
+              <svg
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-full h-full"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M 32,0 A 32,32 0 0,1 0,32 L 32,32 Z"
+                  fill="rgba(255, 255, 255, 0.4)"
+                />
+                <path
+                  d="M 32,0 A 32,32 0 0,1 0,32"
+                  stroke="#FFD8E6"
+                  strokeOpacity="0.45"
+                  strokeWidth="1.2"
+                  fill="none"
+                />
+              </svg>
+            </div>
+
+            {/* Main 2-Column: Content (Left) & Chatbot Mockup (Right) */}
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
+              {/* Left on desktop: Product Info */}
+              <div className="lg:col-span-6 flex flex-col items-start">
+                {/* Top Badge */}
+                <div className="flex items-center gap-3 mb-4 sm:mb-5">
+                  <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/90 border border-[#FFD8E6] text-[12px] sm:text-[13px] font-bold text-[#FF0055] tracking-wider uppercase font-heading shadow-xs">
+                    AI BUSINESS ASSISTANT
+                  </span>
+                </div>
+
+                {/* Product Logo / Name */}
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#80002A] to-[#FF0055] text-white flex items-center justify-center shadow-xs">
+                    <RobotAvatar className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
+                  </div>
+                  <h3 className="font-heading font-black text-[22px] sm:text-[25px] text-[#0A1024]">
+                    AI Chat Bot
+                  </h3>
+                </div>
+
+                {/* Headline */}
+                <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] font-extrabold text-[#0A1024] font-heading leading-tight mt-4">
+                  Your 24/7 Intelligent <br />
+                  <span className="text-[#FF0055]">Business Assistant.</span>
+                </h4>
+
+                {/* Description */}
+                <p className="text-slate-600 font-sans text-[14px] sm:text-[15px] leading-relaxed mt-3 max-w-xl">
+                  An AI-powered chatbot that handles customer queries, automates support,
+                  captures leads and delivers instant, accurate responses across your digital channels.
+                </p>
+
+                {/* 2-Column Checklist */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 mt-6 w-full max-w-xl">
+                  {[
+                    "Instant & accurate responses",
+                    "Works across web & WhatsApp",
+                    "Automated customer support",
+                    "Custom knowledge base (FAQs, docs)",
+                    "Lead capture & qualification",
+                    "Human handoff (when needed)",
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-[13px] sm:text-[13.5px] text-slate-700 font-medium font-sans">
+                      <CheckCircle2 className="w-4 h-4 text-[#FF0055] shrink-0 fill-pink-50" />
+                      <span>{item}</span>
                     </div>
-                    <div>
-                      <h6 className="font-heading font-bold text-xs sm:text-sm leading-tight text-white">
-                        Kaelixo AI Assistant
-                      </h6>
-                      <div className="flex items-center gap-1.5 mt-0.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                        <span className="text-[11px] text-emerald-200 font-sans">Online</span>
+                  ))}
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-wrap items-center gap-3.5 mt-8">
+                  <a
+                    href="/contact"
+                    className="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[14px] font-semibold tracking-wide transition-all duration-300 active:scale-95 cursor-pointer font-heading"
+                  >
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Right on desktop: Realistic Chatbot Mockup Widget */}
+              <div className="lg:col-span-6 relative flex items-center justify-center lg:justify-end py-4 lg:py-0">
+                <div className="relative w-full max-w-[440px] xl:max-w-[460px]">
+                  {/* Chat Window Frame */}
+                  <div className="w-full rounded-[26px] sm:rounded-[30px] overflow-hidden border border-white/90 shadow-[0_20px_50px_rgba(255,0,85,0.08)] bg-white flex flex-col">
+                    {/* Chat Header */}
+                    <div className="bg-gradient-to-r from-[#6B0F43] via-[#7F1451] to-[#600A3A] px-5 sm:px-6 py-3.5 sm:py-4 flex items-center justify-between text-white">
+                      <div className="flex items-center gap-3">
+                        {/* Glowing Pink Header Avatar (As in uploaded image 4) */}
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-[#FF0066] to-[#E6004C] flex items-center justify-center text-white shadow-[0_0_14px_rgba(255,0,85,0.55)] border border-white/30 shrink-0">
+                          <RobotAvatar className="w-5 h-5 text-white stroke-[2.2]" />
+                        </div>
+                        <div>
+                          <h6 className="font-heading font-bold text-xs sm:text-sm leading-tight text-white">
+                            Kaelixo AI Assistant
+                          </h6>
+                          <div className="flex items-center gap-1.5 mt-0.5">
+                            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                            <span className="text-[11px] text-pink-200/90 font-sans">Online</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="text-white/60 text-xs">— ✕</div>
-                </div>
 
-                {/* Chat Messages Body */}
-                <div className="p-4 sm:p-5 flex flex-col gap-3 font-sans text-xs sm:text-sm">
-                  {/* Bot Message 1 */}
-                  <div className="self-start max-w-[85%] rounded-2xl rounded-tl-sm bg-white p-3 border border-slate-200/80 shadow-xs text-slate-800 leading-relaxed">
-                    Hi! How can I help you today?
-                  </div>
+                    {/* Chat Messages Body */}
+                    <div className="p-4 sm:p-5 flex flex-col gap-3 font-sans text-xs sm:text-[13px] bg-[#FAF8FA]">
+                      {/* Bot Message 1 */}
+                      <div className="flex items-start gap-2 self-start max-w-[90%]">
+                        <div className="w-6 h-6 rounded-full bg-pink-100 border border-pink-200 text-[#FF0055] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                          <RobotAvatar className="w-3.5 h-3.5 stroke-[2.2]" />
+                        </div>
+                        <div className="rounded-2xl rounded-tl-xs bg-white p-3 border border-slate-200/70 shadow-xs text-slate-800 leading-relaxed">
+                          Hi! How can I help you today?
+                        </div>
+                      </div>
 
-                  {/* User Message */}
-                  <div className="self-end max-w-[85%] rounded-2xl rounded-tr-sm bg-gradient-to-r from-[#80002A] to-[#FF0055] p-3 text-white shadow-xs leading-relaxed">
-                    Can you help me with a travel package to Ooty for 3 days?
-                  </div>
+                      {/* User Message */}
+                      <div className="self-end max-w-[85%] rounded-2xl rounded-tr-xs bg-gradient-to-r from-[#80002A] to-[#FF0055] p-3 text-white shadow-xs leading-relaxed text-right">
+                        Can you help me with a travel package to Ooty for 3 days?
+                      </div>
 
-                  {/* Bot Message 2 */}
-                  <div className="self-start max-w-[85%] rounded-2xl rounded-tl-sm bg-white p-3 border border-slate-200/80 shadow-xs text-slate-800 leading-relaxed">
-                    Sure! I can help with that. Here are a few Ooty packages for you. Would you like to see the details?
-                  </div>
+                      {/* Bot Message 2 */}
+                      <div className="flex items-start gap-2 self-start max-w-[90%]">
+                        <div className="w-6 h-6 rounded-full bg-pink-100 border border-pink-200 text-[#FF0055] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                          <RobotAvatar className="w-3.5 h-3.5 stroke-[2.2]" />
+                        </div>
+                        <div className="rounded-2xl rounded-tl-xs bg-white p-3 border border-slate-200/70 shadow-xs text-slate-800 leading-relaxed">
+                          Sure! I can help with that. Here are a few Ooty packages for you. Would you like to see the details?
+                        </div>
+                      </div>
 
-                  {/* Quick Action Chips */}
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {["View Packages", "Customize Trip", "Talk to Agent"].map((chip, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 rounded-full bg-white border border-pink-200 text-[#FF0055] hover:bg-pink-50 text-[11.5px] font-medium shadow-xs cursor-pointer transition-colors"
-                      >
-                        {chip}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                      {/* Quick Action Chips */}
+                      <div className="flex flex-wrap gap-1.5 pt-1 pl-8">
+                        {["View Packages", "Customize Trip", "Talk to Agent"].map((chip, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 rounded-full bg-white border border-slate-200/90 text-slate-700 hover:text-[#FF0055] hover:border-pink-300 text-[11px] sm:text-[11.5px] font-medium shadow-2xs cursor-pointer transition-colors"
+                          >
+                            {chip}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
-                {/* Chat Input Bar */}
-                <div className="p-3 bg-white border-t border-slate-200/80 flex items-center gap-2">
-                  <input
-                    type="text"
-                    disabled
-                    placeholder="Type a message..."
-                    className="flex-1 px-3.5 py-2 text-xs sm:text-sm bg-slate-50 rounded-xl border border-slate-200 text-slate-500 focus:outline-none"
-                  />
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] flex items-center justify-center text-white shrink-0 shadow-xs">
-                    <Send className="w-3.5 h-3.5" />
+                    {/* Chat Input Bar */}
+                    <div className="p-3 sm:p-3.5 bg-white border-t border-slate-100 flex items-center gap-2.5">
+                      <input
+                        type="text"
+                        disabled
+                        placeholder="Type a message..."
+                        className="flex-1 px-3.5 py-2 text-xs sm:text-[13px] bg-slate-50/80 rounded-xl border border-slate-200/80 text-slate-500 focus:outline-none"
+                      />
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] flex items-center justify-center text-white shrink-0 shadow-xs hover:scale-105 transition-transform cursor-pointer">
+                        <Send className="w-3.5 h-3.5" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -593,43 +677,45 @@ export default function ProductSuiteSection() {
           </div>
 
           {/* Bottom 4 Feature Items Strip */}
-          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
-            {[
-              {
-                icon: <Zap className="w-4.5 h-4.5 text-[#FF0055]" />,
-                title: "Automate Support",
-                desc: "Handle common queries instantly.",
-              },
-              {
-                icon: <Layers className="w-4.5 h-4.5 text-[#FF0055]" />,
-                title: "Capture Leads",
-                desc: "Collect and qualify potential customers.",
-              },
-              {
-                icon: <Globe className="w-4.5 h-4.5 text-[#FF0055]" />,
-                title: "Multi-Channel",
-                desc: "Works on web, WhatsApp and other platforms.",
-              },
-              {
-                icon: <Sliders className="w-4.5 h-4.5 text-[#FF0055]" />,
-                title: "Customizable",
-                desc: "Train with your business data and FAQs.",
-              },
-            ].map((f, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center shrink-0 mt-0.5">
-                  {f.icon}
+          <div className="relative z-10 px-6 sm:px-8 lg:px-10 xl:px-12 py-6 sm:py-7 border-t border-[#FFD8E6]/50 bg-white/40 backdrop-blur-[2px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+              {[
+                {
+                  icon: <Zap className="w-4.5 h-4.5 text-[#FF0055]" />,
+                  title: "Automate Support",
+                  desc: "Handle common queries instantly.",
+                },
+                {
+                  icon: <Layers className="w-4.5 h-4.5 text-[#FF0055]" />,
+                  title: "Capture Leads",
+                  desc: "Collect and qualify potential customers.",
+                },
+                {
+                  icon: <Globe className="w-4.5 h-4.5 text-[#FF0055]" />,
+                  title: "Multi-Channel",
+                  desc: "Works on web, WhatsApp and other platforms.",
+                },
+                {
+                  icon: <Sliders className="w-4.5 h-4.5 text-[#FF0055]" />,
+                  title: "Customizable",
+                  desc: "Train with your business data and FAQs.",
+                },
+              ].map((f, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-white/90 border border-[#FFD8E6] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                    {f.icon}
+                  </div>
+                  <div>
+                    <h5 className="font-bold text-[#0A1024] font-heading text-[14px] leading-snug">
+                      {f.title}
+                    </h5>
+                    <p className="text-slate-500 font-sans text-[12.5px] leading-relaxed mt-0.5">
+                      {f.desc}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h5 className="font-bold text-[#0A1024] font-heading text-[14px] leading-snug">
-                    {f.title}
-                  </h5>
-                  <p className="text-slate-500 font-sans text-[12.5px] leading-relaxed mt-0.5">
-                    {f.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

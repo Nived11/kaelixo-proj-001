@@ -10,8 +10,9 @@ import { PORTFOLIO_PROJECTS } from "../data/portfolioProjects";
 export default function PortfolioGridSection() {
   const [showAll, setShowAll] = useState(false);
 
-  // Initial view shows first 15 cards; clicking View More shows all 18 cards
-  const visibleProjects = showAll ? PORTFOLIO_PROJECTS : PORTFOLIO_PROJECTS.slice(0, 15);
+  // Initial view shows first 12 cards (4 complete rows of 3); clicking View More shows all cards
+  const INITIAL_COUNT = 12;
+  const visibleProjects = showAll ? PORTFOLIO_PROJECTS : PORTFOLIO_PROJECTS.slice(0, INITIAL_COUNT);
 
   return (
     <section
@@ -88,16 +89,18 @@ export default function PortfolioGridSection() {
         {/* ============================================================ */}
         {/* SIGNATURE GRADIENT VIEW MORE / SHOW LESS BUTTON              */}
         {/* ============================================================ */}
-        {PORTFOLIO_PROJECTS.length > 15 && (
+        {PORTFOLIO_PROJECTS.length > INITIAL_COUNT && (
           <div className="mt-12 sm:mt-16 flex justify-center">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="group inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 h-[48px] sm:h-[52px] rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide shadow-[0_0_20px_rgba(255,0,85,0.4)] hover:shadow-[0_0_30px_rgba(255,0,85,0.6)] transition-all duration-300 active:scale-95 cursor-pointer"
+              className="group inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 h-[48px] sm:h-[52px] rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide transition-all duration-300 active:scale-95 cursor-pointer"
             >
               <span>{showAll ? "Show Less" : "View More"}</span>
               <ArrowDown
                 className={`w-4 h-4 transition-transform duration-300 ${
-                  showAll ? "rotate-180" : "group-hover:translate-y-0.5"
+                  showAll
+                    ? "rotate-180 group-hover:-translate-y-1.5"
+                    : "group-hover:translate-y-1.5"
                 }`}
               />
             </button>

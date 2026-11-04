@@ -168,11 +168,11 @@ export default function ContactMainSection() {
           {/* ============================================================ */}
           {/* TOP ROW: FORM (LEFT) & OFFICE / CREATIVE CARDS (RIGHT)        */}
           {/* ============================================================ */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-start mb-20 sm:mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,47.5%)_minmax(0,1fr)] gap-8 lg:gap-10 xl:gap-12 items-start mb-20 sm:mb-24">
             {/* ============================================================ */}
             {/* LEFT COLUMN: SEND A MESSAGE FORM CARD                        */}
             {/* ============================================================ */}
-            <div className="lg:col-span-6 xl:col-span-6 bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 lg:p-9 shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
+            <div className="w-full bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 lg:p-8 xl:p-9 shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
               {/* Eyebrow */}
               <div className="flex items-center gap-3 mb-2.5">
                 <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] font-bold text-[#FF0055] tracking-[0.2em] uppercase font-heading">
@@ -499,7 +499,7 @@ export default function ContactMainSection() {
             {/* ============================================================ */}
             {/* RIGHT COLUMN: IDEAS CARD, OFFICE MAP & CONTACT DETAILS       */}
             {/* ============================================================ */}
-            <div className="lg:col-span-6 xl:col-span-6 flex flex-col gap-6">
+            <div className="w-full flex flex-col gap-6">
               {/* 1. TOP CARD: Ideas Into Impact (Dark Card with Workspace Photo) */}
               <div className="relative rounded-2xl overflow-hidden bg-[#0a040b] border border-white/10 p-7 sm:p-8 text-white min-h-[210px] flex flex-col justify-end shadow-[0_15px_35px_rgba(0,0,0,0.18)] group">
                 {/* Workspace Background Image */}
@@ -583,8 +583,8 @@ export default function ContactMainSection() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Email Card */}
                 <div className="rounded-xl border border-slate-200/80 bg-white p-4 sm:p-4.5 flex items-start gap-3.5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-[#FF0055]/40 transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-pink-100/70 border border-pink-200/80 text-[#FF0055] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
-                    <Mail className="w-4.5 h-4.5" />
+                  <div className="w-8 h-8 rounded-lg bg-pink-100/70 border border-pink-200/80 text-[#FF0055] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+                    <Mail className="w-4 h-4" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 mb-1.5">
@@ -598,14 +598,14 @@ export default function ContactMainSection() {
                         <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">General:</span>
                         <a
                           href="mailto:info@kaelixo.com"
-                          className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
+                          className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans"
                         >
                           info@kaelixo.com
                         </a>
                       </div>
                       <div className="flex items-center gap-1.5">
                         {/* <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">Reply time:</span> */}
-                        <span className="text-slate-700 font-medium truncate">Reply Within one working day</span>
+                        <span className="text-slate-700 font-medium">Reply Within one working day</span>
                       </div>
                     </div>
                   </div>
@@ -613,8 +613,8 @@ export default function ContactMainSection() {
 
                 {/* Call Us Card */}
                 <div className="rounded-xl border border-slate-200/80 bg-white p-4 sm:p-4.5 flex items-start gap-3.5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-[#FF0055]/40 transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-pink-100/70 border border-pink-200/80 text-[#FF0055] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
-                    <Phone className="w-4.5 h-4.5" />
+                  <div className="w-8 h-8 rounded-lg bg-pink-100/70 border border-pink-200/80 text-[#FF0055] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+                    <Phone className="w-4 h-4" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 mb-1.5">
@@ -628,7 +628,7 @@ export default function ContactMainSection() {
                         <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">General:</span>
                         <a
                           href="tel:+919037235832"
-                          className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
+                          className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans"
                         >
                           +91 90372 35832
                         </a>
@@ -637,7 +637,7 @@ export default function ContactMainSection() {
                         <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] text-slate-700 font-semibold shrink-0">Sales:</span>
                         <a
                           href="tel:+918086370404"
-                          className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans truncate"
+                          className="font-bold text-[#0A1024] hover:text-[#FF0055] transition-colors font-sans"
                         >
                           +91 80863 70404
                         </a>

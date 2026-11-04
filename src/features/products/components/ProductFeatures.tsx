@@ -79,10 +79,10 @@ export default function ProductFeatures() {
 
               {/* Title & Description */}
               <div className="min-w-0">
-                <h3 className="font-bold text-[#0A1024] font-heading text-[15px] sm:text-[16px] xl:text-[17px] leading-snug">
+                <h3 className="font-bold text-[#0A1024] font-heading text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[18px] leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-slate-500 font-sans text-[13px] sm:text-[13.5px] leading-relaxed mt-0.5">
+                <p className="text-gray-600 font-sanstext-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed mt-0.5">
                   {item.description}
                 </p>
               </div>
