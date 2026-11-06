@@ -1,5 +1,6 @@
+import Image from "next/image";
 import React from "react";
-import { TrendingUp } from "lucide-react";
+import { ChartNoAxesColumnIncreasing, Clock, TrendingUp, Users } from "lucide-react";
 
 interface StatItem {
   stat: string;
@@ -22,72 +23,62 @@ interface ProjectResultsProps {
   results: ResultsData;
 }
 
-export default function ProjectResults({
-  projectTitle,
-  results,
-}: ProjectResultsProps) {
-  return (
-    <section className="relative z-20 bg-[#03040B] text-white py-20 sm:py-28 overflow-hidden border-t border-white/5">
-      {/* Glowing Trajectory Arc with Ambient Light */}
-      <div className="absolute top-0 right-0 w-[600px] h-[300px] bg-[#FF0055]/10 blur-[140px] pointer-events-none" />
+const resultIcons = [Users, ChartNoAxesColumnIncreasing, Clock, TrendingUp];
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
-        {/* Eyebrow & Header */}
-        <div className="mb-14 sm:mb-16">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-6 h-[2px] bg-[#FF0055]" />
-            <span className="text-xs sm:text-[13px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
-              RESULTS & BUSINESS IMPACT
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-heading tracking-tight text-white leading-tight">
-            {results.headline.prefix} <br />
-            <span className="bg-gradient-to-r from-[#FF0055] via-pink-400 to-[#FF3377] bg-clip-text text-transparent">
+export default function ProjectResults({ projectTitle, results }: ProjectResultsProps) {
+  return (
+    <section className="relative isolate z-20 overflow-hidden border-t border-white/5 bg-[#060713] py-16 text-white sm:py-24">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_95%_28%,#ff00551f,transparent_34%),radial-gradient(ellipse_at_bottom_left,#ff005529,transparent_32%),radial-gradient(ellipse_at_bottom_right,#ff00551f,transparent_24%)]" />
+
+      <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div aria-hidden="true" className="pointer-events-none absolute -top-4 right-4 sm:right-6 lg:right-8 xl:right-12 -z-10 aspect-[1524/1032] w-[76%] max-w-[640px] [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_48%,transparent)] sm:w-[56%] lg:w-[47%]">
+          <Image
+            src="/images/portfolio/businessimpact-travelhope.png"
+            alt=""
+            fill
+            sizes="(min-width: 1400px) 640px, (min-width: 1024px) 47vw, (min-width: 640px) 56vw, 76vw"
+            className="object-contain object-right-top [mask-image:linear-gradient(to_right,transparent,black_30%,black_86%,transparent)]"
+          />
+        </div>
+        <header className="mb-8 max-w-3xl sm:mb-10">
+          <p className="mb-3 flex items-center gap-3 font-heading text-[10px] font-semibold uppercase tracking-[.26em] text-white/70 sm:text-xs">
+            <span className="h-[3px] w-7 bg-[#ff2679]" />
+            Results &amp; Business Impact
+          </p>
+          <h2 className="font-heading text-[clamp(2.25rem,5.2vw,4.6rem)] leading-[.98] font-black tracking-tight">
+            {results.headline.prefix}
+            <span className="block text-[#ff0055]">
               {results.headline.highlight}
             </span>
           </h2>
-          <p className="text-white/60 text-sm sm:text-base max-w-2xl mt-3 font-sans">
-            {results.subtitle}
-          </p>
-        </div>
+          <p className="mt-3 max-w-xl text-sm leading-snug text-white/75 sm:text-lg">{results.subtitle}</p>
+        </header>
 
-        {/* 4 Glowing Stat Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-16">
-          {results.stats.map((item, idx) => (
-            <div
-              key={idx}
-              className="p-6 sm:p-7 rounded-[26px] bg-[#0A0D1E]/80 backdrop-blur-md border border-[#FF0055]/25 shadow-[0_10px_35px_rgba(255,0,85,0.08)] hover:border-[#FF0055] hover:shadow-[0_15px_45px_rgba(255,0,85,0.18)] transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-9 h-9 rounded-xl bg-[#FF0055]/15 border border-[#FF0055]/30 flex items-center justify-center text-[#FF0055]">
-                    <TrendingUp className="w-4.5 h-4.5" />
-                  </div>
-                </div>
-                <span className="text-4xl sm:text-5xl font-black font-heading text-white block mb-2 tracking-tight">
-                  {item.stat}
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
+          {results.stats.map((item, index) => {
+            const Icon = resultIcons[index % resultIcons.length];
+
+            return (
+              <li key={item.label} className="rounded-2xl border border-[#fa438b]/35 bg-[#090c18] p-5 shadow-[inset_0_-5px_18px_rgba(255,24,111,.13),0_10px_24px_rgba(0,0,0,.2)] xl:px-6">
+                <span className="mb-2 grid size-14 place-items-center rounded-full border border-[#ff5a9b]/70 bg-[#140819] text-[#ff0055] shadow-[0_0_12px_#ff247866,inset_0_0_8px_#ff247866] sm:size-16">
+                  <Icon aria-hidden="true" className="size-7" strokeWidth={2} />
                 </span>
-                <h4 className="font-heading font-bold text-base sm:text-lg text-white mb-2 leading-snug">
-                  {item.label}
-                </h4>
-                <p className="text-white/60 text-xs sm:text-[13px] leading-relaxed font-sans">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+                <span className="block w-fit text-[#ff0055] font-heading text-4xl leading-none font-black tracking-tight sm:text-5xl xl:text-6xl">{item.stat}</span>
+                <h3 className="mt-1 font-heading text-base leading-tight font-bold sm:text-lg">{item.label}</h3>
+                <p className="mt-2 text-sm leading-snug text-white/75">{item.desc}</p>
+              </li>
+            );
+          })}
+        </ul>
 
-        {/* Footer Client Tagline Accent Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-heading font-bold text-white/50 tracking-widest uppercase">
-          <div>
-            <span className="text-[#FF0055] mr-2">—</span>
-            <span>{projectTitle.toUpperCase()}</span>
-          </div>
-          <div>{results.footerTagline || "PEOPLE | POSSIBILITIES"}</div>
+        <div className="mt-7 flex flex-wrap items-center justify-between gap-3 border-t border-white/25 pt-5 font-heading text-[10px] font-medium uppercase tracking-[.24em] text-white/65 sm:text-xs">
+          <span className="flex items-center gap-3">
+            <span className="h-[3px] w-7 bg-[#ff2679]" />
+            {projectTitle}
+          </span>
+          <span>{results.footerTagline || "PEOPLE | POSSIBILITIES"}</span>
         </div>
       </div>
     </section>
   );
 }
-

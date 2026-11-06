@@ -56,7 +56,7 @@ export default function ProjectStrategy({
   strategy,
 }: ProjectStrategyProps) {
   return (
-    <section className="relative z-20 bg-[#060713] text-white py-16 sm:py-24 border-t border-b border-white/5 overflow-hidden">
+    <section className="relative z-20 bg-black text-white py-16 sm:py-24 border-t border-b border-white/5 overflow-hidden">
       {/* Keyframe Animations for Dual-Beam on Cards & Single-Beam on Icons */}
       <style>{`
         @keyframes dualBeamSpin {
@@ -116,17 +116,17 @@ export default function ProjectStrategy({
         <div className="mb-12 sm:mb-16">
           <div className="flex items-center gap-2.5 mb-3">
             <span className="w-6 h-[2px] bg-[#FF0055]" />
-            <span className="text-[11px] sm:text-[12px] font-bold text-slate-400 tracking-[0.2em] uppercase font-mono">
+            <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-[750] tracking-[.2em] text-slate-200">
               OUR STRATEGY / SOLUTION
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black font-heading tracking-tight text-white leading-[1.12]">
+          <h2 className=" text-white text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.16] tracking-[-1.3px]  mb-4">
             A Smarter Path from <br />
             <span className="text-[#FF0055]">Challenge</span>{" "}
             <span className="text-white">to</span>{" "}
             <span className="text-[#FF0055]">Solution</span>
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base max-w-2xl mt-4 leading-relaxed font-sans">
+          <p className="text-slate-200 text-sm sm:text-base max-w-2xl mt-4 leading-relaxed font-sans">
             Kaelixo combined UX, structure, CRM thinking, SEO and digital marketing support to transform {projectTitle} into a more effective travel platform.
           </p>
         </div>
@@ -151,10 +151,10 @@ export default function ProjectStrategy({
                       !
                     </div>
                     <div>
-                      <h3 className="font-heading font-black text-xl sm:text-[22px] text-white">
+                      <h3 className="text-white text-[18px] sm:text-[18px] md:text-[18px] lg:text-[18px] xl:text-[24px] font-bold leading-tight mb-0.5">
                         Challenge
                       </h3>
-                      <span className="text-[10.5px] sm:text-[11px] font-bold text-slate-400 tracking-[0.14em] uppercase font-mono">
+                      <span className="text-[11px] sm:text-[11px] lg:text-[12px] xl:text-[12px] 2xl:text-[12px] [@media(min-width:1920px)]:text-[15px] font-bold text-slate-400 tracking-[0.14em] uppercase font-mono">
                         UNDERSTANDING THE PROBLEM
                       </span>
                     </div>
@@ -165,7 +165,7 @@ export default function ProjectStrategy({
                     {strategy.challengePoints.map((pt, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-3">
                         <span className="w-2 h-2 rounded-full bg-[#FF0055] mt-2 shrink-0 shadow-[0_0_8px_#FF0055]" />
-                        <span className="text-[16px] leading-[1.6] text-white/90 font-sans">
+                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[15px] xl:text-[16px] 2xl:text-[16px] leading-[1.6] text-white/90 font-sans">
                           {pt}
                         </span>
                       </li>
@@ -199,10 +199,10 @@ export default function ProjectStrategy({
                       <FaChessKnight className="w-6 h-6 text-[#FF0055]" />
                     </div>
                     <div>
-                      <h3 className="font-heading font-black text-xl sm:text-[22px] text-white">
+                      <h3 className="text-white text-[18px] sm:text-[18px] md:text-[18px] lg:text-[18px] xl:text-[24px] font-bold leading-tight mb-0.5">
                         Strategy
                       </h3>
-                      <span className="text-[10.5px] sm:text-[11px] font-bold text-slate-400 tracking-[0.14em] uppercase font-mono">
+                      <span className="text-[11px] sm:text-[11px] lg:text-[12px] xl:text-[12px] 2xl:text-[12px] [@media(min-width:1920px)]:text-[15px] font-bold text-slate-400 tracking-[0.14em] uppercase font-mono">
                         A CLEAR PLAN FOR PROGRESS
                       </span>
                     </div>
@@ -213,7 +213,7 @@ export default function ProjectStrategy({
                     {strategy.strategyPoints.map((pt, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-3">
                         <span className="w-2 h-2 rounded-full bg-[#FF0055] mt-2 shrink-0 shadow-[0_0_8px_#FF0055]" />
-                        <span className="text-[16px] leading-[1.6] text-white/90 font-sans">
+                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[15px] xl:text-[16px] 2xl:text-[16px] leading-[1.6] text-white/90 font-sans">
                           {pt}
                         </span>
                       </li>
@@ -247,10 +247,10 @@ export default function ProjectStrategy({
                       <Check className="w-6 h-6 text-[#FF0055]" strokeWidth={3} />
                     </div>
                     <div>
-                      <h3 className="font-heading font-black text-xl sm:text-[22px] text-white">
+                      <h3 className="text-white text-[18px] sm:text-[18px] md:text-[18px] lg:text-[18px] xl:text-[24px] font-bold leading-tight mb-0.5">
                         Solution
                       </h3>
-                      <span className="text-[10.5px] sm:text-[11px] font-bold text-slate-400 tracking-[0.14em] uppercase font-mono">
+                      <span className="text-[11px] sm:text-[11px] lg:text-[12px] xl:text-[12px] 2xl:text-[12px] [@media(min-width:1920px)]:text-[15px] font-bold text-slate-400 tracking-[0.14em] uppercase font-mono">
                         REAL IMPACT, LASTING GROWTH
                       </span>
                     </div>
@@ -261,7 +261,7 @@ export default function ProjectStrategy({
                     {strategy.solutionPoints.map((pt, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-3">
                         <span className="w-2 h-2 rounded-full bg-[#FF0055] mt-2 shrink-0 shadow-[0_0_8px_#FF0055]" />
-                        <span className="text-[16px] leading-[1.6] text-white/90 font-sans">
+                        <span className="text-[15px] sm:text-[15px] md:text-[15px] lg:text-[15px] xl:text-[16px] 2xl:text-[16px] leading-[1.6] text-white/90 font-sans">
                           {pt}
                         </span>
                       </li>
@@ -290,7 +290,7 @@ export default function ProjectStrategy({
               {strategy.processSteps.map((step, sIdx) => (
                 <div key={sIdx} className="flex flex-col items-center relative">
                   {/* Glowing Pink Node Dot on the line (Static, no hover scale or cutoff) */}
-                  <div className="w-3.5 h-3.5 rounded-full bg-[#FF0055] shadow-[0_0_10px_#FF0055] ring-[2.5px] ring-[#060713] mb-5 sm:mb-6 z-10 shrink-0" />
+                  <div className="w-3.5 h-3.5 rounded-full bg-[#FF0055] shadow-[0_0_10px_#FF0055] ring-[2.5px] ring-black mb-5 sm:mb-6 z-10 shrink-0" />
 
                   {/* Circular Icon Container with Refined Animated Rotating Line */}
                   <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full p-[1.5px] overflow-hidden group shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
@@ -307,7 +307,7 @@ export default function ProjectStrategy({
                   </div>
 
                   {/* Step Label */}
-                  <span className="text-[12.5px] sm:text-[14px] font-bold text-white text-center leading-tight mt-3 font-heading max-w-[120px]">
+                  <span className="text-[16px] sm:text-[16px] md:text-[16px] lg:text-[16px] xl:text-[18px] 2xl:text-[18px] font-bold text-white text-center leading-tight mt-3 font-heading max-w-[120px]">
                     {step.label}
                   </span>
                 </div>

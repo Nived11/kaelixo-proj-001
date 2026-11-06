@@ -1,5 +1,8 @@
-import React from "react";
-import { Zap, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import {
+  ChartNoAxesColumnIncreasing, Cloud, CodeXml, Database, Headset,
+  MonitorSmartphone, PieChart, Server, Settings, ShieldCheck, Users, Zap,
+} from "lucide-react";
 
 interface TechItem {
   name: string;
@@ -17,74 +20,95 @@ interface TechStackData {
   guarantees: GuaranteeItem[];
 }
 
-interface ProjectTechStackProps {
-  techStack: TechStackData;
-}
+const technologyIcons: Record<string, typeof CodeXml> = {
+  Python: CodeXml,
+  MySQL: Database,
+  PostgreSQL: Database,
+  "CRM Integration": Users,
+  "APIs & Integrations": Settings,
+  "Responsive Design": MonitorSmartphone,
+  "SEO Structure": ChartNoAxesColumnIncreasing,
+  Analytics: PieChart,
+  Hosting: Cloud,
+  "Google Analytics 4": PieChart,
+  "Tailwind CSS": MonitorSmartphone,
+};
 
-export default function ProjectTechStack({ techStack }: ProjectTechStackProps) {
+const guaranteeIcons = [ShieldCheck, Server, Zap, Headset];
+
+export default function ProjectTechStack({ techStack }: { techStack: TechStackData }) {
   return (
-    <section className="relative z-20 bg-white text-[#0A1024] py-16 sm:py-24">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-        {/* Eyebrow & Header */}
-        <div className="mb-10 sm:mb-14">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-6 h-[2px] bg-[#FF0055]" />
-            <span className="text-xs sm:text-[13px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
-              TECHNOLOGY & SERVICES USED
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[#0A1024]">
-            Built with the Right <span className="text-[#FF0055]">Technology</span>
-          </h2>
-          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mt-2 font-sans">
-            {techStack.subtitle}
-          </p>
-        </div>
-
-        {/* 3x3 Grid of Tech Stack */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-12">
-          {techStack.technologies.map((tech, tIdx) => (
-            <div
-              key={tIdx}
-              className="p-5 sm:p-6 rounded-[22px] bg-[#FAFBFD] border border-slate-200/80 shadow-xs hover:border-pink-300 hover:shadow-sm transition-all flex items-start gap-4"
-            >
-              <div className="w-10 h-10 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-[#FF0055] shrink-0 mt-0.5">
-                <Zap className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="font-heading font-black text-base text-[#0A1024] mb-1">
-                  {tech.name}
-                </h4>
-                <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed font-sans">
-                  {tech.desc}
-                </p>
+    <section className="relative z-20 isolate overflow-hidden bg-[#fafafa] py-16 text-[#080e1e] sm:py-24">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,#fff0f6,transparent_30%),radial-gradient(ellipse_at_bottom_left,#ffedf5,transparent_34%)]" />
+      <svg aria-hidden="true" viewBox="0 0 240 110" fill="none" className="pointer-events-none absolute right-0 top-0 -z-10 w-52 text-pink-300">
+        <path d="M0 0C100 24 175 88 240 104M75 0C144 18 192 77 240 83M128 0C178 24 199 53 240 57" stroke="currentColor" strokeOpacity=".65" />
+      </svg>
+      <div className="relative mx-auto max-w-[1400px] px-4 sm:px-8 xl:px-12">
+        <div className="grid gap-5 lg:grid-cols-[2fr_3fr] lg:gap-4">
+          <div className="flex min-w-0 flex-col">
+            <p className="flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-600 sm:text-xs">
+              <span className="h-0.5 w-10 shrink-0 bg-[#ff0055]" />
+              Technology &amp; Services Used
+            </p>
+            <h2 className="mt-5 font-heading text-[clamp(2rem,4vw,3.6rem)] leading-[1.02] font-black tracking-tight">
+              Built with the Right
+              <span className="block text-[#ff0055]">Technology</span>
+            </h2>
+            <p className="mt-4 max-w-md text-sm leading-snug text-slate-700 sm:text-base">
+              {techStack.subtitle}
+            </p>
+            <div className="pointer-events-none relative mt-5 min-h-52 flex-1 overflow-hidden sm:min-h-64 [mask-image:linear-gradient(to_bottom,transparent,black_8%,black_88%,transparent)]">
+              <div className="absolute inset-x-0 top-0 aspect-square -translate-y-[29%]">
+                <Image
+                  src="/images/portfolio/global-travel.png"
+                  alt=""
+                  fill
+                  sizes="(min-width: 1400px) 520px, (min-width: 1024px) 40vw, 100vw"
+                  className="object-contain [mask-image:linear-gradient(to_right,transparent,black_12%,black_85%,transparent)]"
+                />
               </div>
             </div>
-          ))}
+          </div>
+
+          <ul className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 md:grid-cols-3 lg:pt-3">
+            {techStack.technologies.map((tech) => {
+              const Icon = technologyIcons[tech.name] || (tech.name.includes("SEO") ? ChartNoAxesColumnIncreasing : tech.name.includes("Cloud") ? Cloud : tech.name.includes("CMS") ? Database : CodeXml);
+
+              return (
+                <li key={tech.name} className="rounded-xl border border-slate-900/[.06] bg-white/75 px-4 py-3 shadow-[0_4px_24px_rgba(15,23,42,.035)] xl:px-5 xl:py-4">
+                  <div aria-hidden="true" className="mb-2 grid h-13 w-15 place-items-center rounded-xl bg-[#ff0055]/[.055] text-[#ff0055]">
+                    {tech.name === "Django" ? (
+                      <span className="text-3xl font-black tracking-tighter text-[#00836c]">dj</span>
+                    ) : (
+                      <Icon className={`size-8 ${tech.name === "Python" || tech.name === "MySQL" ? "text-sky-600" : ""}`} strokeWidth={1.65} />
+                    )}
+                  </div>
+                  <h3 className="font-heading text-sm font-bold leading-tight sm:text-[15px]">{tech.name}</h3>
+                  <p className="mt-1 text-xs leading-snug text-slate-600 sm:text-[13px]">{tech.desc}</p>
+                </li>
+              );
+            })}
+          </ul>
         </div>
 
-        {/* Bottom 4 Guarantee Badges */}
-        <div className="p-5 sm:p-6 rounded-[24px] bg-slate-50 border border-slate-200">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center sm:text-left">
-            {techStack.guarantees.map((item, gIdx) => (
-              <div key={gIdx} className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center text-[#FF0055] shrink-0">
-                  <CheckCircle2 className="w-4.5 h-4.5" />
-                </div>
+        <ul className="relative mt-3 grid grid-cols-1 gap-y-3 rounded-xl border border-[#ff0055]/10 bg-[#fff6fa]/85 p-3 shadow-[0_8px_25px_rgba(255,0,85,.035)] min-[480px]:grid-cols-2 lg:grid-cols-4 lg:px-0">
+          {techStack.guarantees.map((item, index) => {
+            const Icon = guaranteeIcons[index] || ShieldCheck;
+
+            return (
+              <li key={item.title} className="flex items-center gap-3 px-3 lg:px-5 lg:[&+li]:border-l lg:[&+li]:border-pink-200">
+                <span className="grid size-12 shrink-0 place-items-center rounded-full bg-[#ff0055]/[.045] text-[#ff0055]">
+                  <Icon aria-hidden="true" className="size-7" strokeWidth={1.8} />
+                </span>
                 <div>
-                  <h5 className="font-heading font-bold text-xs sm:text-sm text-slate-900 leading-snug">
-                    {item.title}
-                  </h5>
-                  <p className="text-[11px] text-slate-500 font-sans">
-                    {item.desc}
-                  </p>
+                  <h3 className="font-heading text-xs font-bold leading-tight sm:text-sm">{item.title}</h3>
+                  <p className="mt-1 text-xs leading-tight text-slate-600">{item.desc}</p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );
 }
-

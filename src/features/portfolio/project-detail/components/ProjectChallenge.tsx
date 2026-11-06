@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import {
   BarChart3,
@@ -25,7 +27,63 @@ interface ProjectChallengeProps {
   challenges: ChallengeData;
 }
 
+const badgeSlots = [
+  {
+    icon: Globe,
+    position: "left-[var(--badge-edge)] [--badge-top:2.75rem] [--badge-edge:-0.75rem] sm:[--badge-edge:-2.25rem]",
+    landing: "origin-bottom-left [--land-x:calc(-1cqw_-_var(--badge-edge))] [--land-y:6.25rem] [--land-tilt:-4deg]",
+  },
+  {
+    icon: Mail,
+    position: "right-[var(--badge-edge)] [--badge-top:-1.75rem] [--badge-edge:0rem] sm:[--badge-edge:-0.5rem]",
+    landing: "origin-bottom-right [--land-x:calc(var(--badge-edge)_+_1cqw)] [--land-y:5.85rem] [--land-tilt:4deg]",
+  },
+  {
+    icon: Users,
+    position: "left-[var(--badge-edge)] [--badge-top:54cqh] [--badge-edge:-0.75rem] sm:[--badge-edge:-2rem]",
+    landing: "origin-bottom-left [--land-x:calc(-2cqw_-_var(--badge-edge))] [--land-y:0.75rem] [--land-tilt:2deg]",
+  },
+  {
+    icon: Settings,
+    position: "right-[var(--badge-edge)] [--badge-top:43cqh] [--badge-edge:-0.75rem] sm:[--badge-edge:-2.25rem]",
+    landing: "origin-bottom-right [--land-x:calc(var(--badge-edge)_+_2cqw)] [--land-y:1.1rem] [--land-tilt:-2deg]",
+  },
+];
+
 export default function ProjectChallenge({ challenges }: ProjectChallengeProps) {
+  const [droppedBadges, setDroppedBadges] = useState<number[]>([]);
+
+  function dropBadge(index: number) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    setDroppedBadges((current) => current.includes(index) ? current : [...current, index]);
+  }
+
+  function nudgeBadge(event: React.PointerEvent<HTMLDivElement>) {
+    if (event.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const badge = event.currentTarget;
+    const animations = badge.getAnimations();
+    const drop = animations.find(
+      (animation) => animation instanceof CSSAnimation && animation.animationName === "challenge-badge-drop",
+    );
+    const time = drop?.currentTime;
+    if (typeof time !== "number" || time < 700 || time >= 4700) return;
+    if (animations.some((animation) => animation.id === "challenge-badge-nudge")) return;
+
+    const bounds = badge.getBoundingClientRect();
+    const direction = Math.sign(event.movementX) || (event.clientX < bounds.left + bounds.width / 2 ? 1 : -1);
+    badge.animate(
+      [
+        { translate: "0 0", rotate: "0deg" },
+        { translate: `${direction * 22}px -9px`, rotate: `${direction * 8}deg`, offset: 0.35 },
+        { translate: `${direction * 9}px 2px`, rotate: `${direction * 3}deg`, offset: 0.72 },
+        { translate: "0 0", rotate: "0deg" },
+      ],
+      { id: "challenge-badge-nudge", duration: 460, easing: "ease-out" },
+    );
+  }
+
   const challengeIcons: Record<string, React.ReactNode> = {
     "Limited Online Presence": <BarChart3 className="w-5 h-5 stroke-[2]" />,
     "Operational Inefficiencies": <Settings className="w-5 h-5 stroke-[2]" />,
@@ -35,19 +93,36 @@ export default function ProjectChallenge({ challenges }: ProjectChallengeProps) 
 
   return (
     <section className="relative z-20 bg-[#f8faff] text-[#0A1024] py-16 sm:py-24 border-t border-slate-200/60 overflow-hidden">
+      <style>{`
+        @keyframes challenge-badge-float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-9px); }
+        }
+        @keyframes challenge-badge-drop {
+          0% { transform: translateY(-4px); animation-timing-function: cubic-bezier(.55, .02, .85, .7); }
+          13.207547%, 88.679245% {
+            transform: translate(var(--land-x), calc(100cqh - var(--badge-top) - 100% - var(--land-y))) rotate(var(--land-tilt));
+            animation-timing-function: ease-in-out;
+          }
+          100% { transform: translateY(0); }
+        }
+        .challenge-badge-dropped {
+          animation: challenge-badge-drop 5.3s both;
+        }
+      `}</style>
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Eyebrow & Header */}
         <div className="mb-10 sm:mb-12">
           <div className="flex items-center gap-2 mb-2">
             <span className="w-6 h-[2.5px] bg-[#FF0055]" />
-            <span className="text-xs sm:text-[13px] font-bold text-slate-400 tracking-[0.2em] uppercase font-heading">
+            <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-[750] tracking-[.2em] text-gray-700">
               THE CHALLENGE
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[#0A1024]">
+          <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.16] tracking-[-1.3px] text-[#0A1024] mb-4">
             Challenges Before <span className="text-[#FF0055]">Kaelixo</span>
           </h2>
-          <p className="text-slate-500 text-sm sm:text-[15px] max-w-2xl mt-2 font-sans leading-relaxed">
+          <p className="text-gray-700 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.6] mb-8 max-w-[550px]">
             {challenges.subtitle}
           </p>
         </div>
@@ -61,21 +136,20 @@ export default function ProjectChallenge({ challenges }: ProjectChallengeProps) 
               {challenges.items.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-5 sm:p-6 rounded-[22px] sm:rounded-[24px] bg-white border border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-pink-200 transition-all flex items-start gap-4"
+                  className="p-5 sm:p-6 rounded-[22px] sm:rounded-[24px] bg-white border border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-pink-200 transition-all"
                 >
-                  {/* Pink circular badge icon */}
-                  <div className="w-11 h-11 rounded-full bg-[#FEEBF2] flex items-center justify-center text-[#FF0055] shrink-0 mt-0.5 shadow-2xs">
-                    {challengeIcons[item.title] ||
-                      renderIcon(item.icon, "w-5 h-5 stroke-[2]")}
-                  </div>
-                  <div>
-                    <h4 className="font-heading font-bold text-[15px] sm:text-base text-[#0A1024] mb-1.5 leading-snug">
+                  <div className="mb-3 flex items-center gap-4">
+                    <div aria-hidden="true" className="flex size-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-[#FF0055] to-[#FF6699] text-white shadow-[0_2px_8px_rgba(255,0,85,0.25)] ring-2 ring-pink-100">
+                      {challengeIcons[item.title] ||
+                        renderIcon(item.icon, "w-5 h-5 stroke-[2]")}
+                    </div>
+                    <h4 className="text-[#020205] text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[18px] font-bold leading-tight">
                       {item.title}
                     </h4>
-                    <p className="text-slate-500 text-xs sm:text-[13.5px] leading-relaxed font-sans">
-                      {item.desc}
-                    </p>
                   </div>
+                  <p className="text-gray-700 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -83,7 +157,7 @@ export default function ProjectChallenge({ challenges }: ProjectChallengeProps) 
             {/* Bottom Accent Banner (Matches Reference Mockup) */}
             <div className="flex items-stretch gap-3.5 mt-6 sm:mt-8 pl-1">
               <div className="w-1 bg-[#FF0055] rounded-full shrink-0" />
-              <p className="text-slate-600 font-sans text-xs sm:text-[13.5px] leading-relaxed max-w-xl py-0.5">
+              <p className="text-gray-700 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed max-w-xl py-0.5">
                 {challenges.summaryBanner}
               </p>
             </div>
@@ -95,9 +169,9 @@ export default function ProjectChallenge({ challenges }: ProjectChallengeProps) 
             <div className="absolute -top-10 -right-10 w-[320px] sm:w-[400px] h-[320px] sm:h-[400px] rounded-full bg-gradient-to-br from-pink-100/70 via-pink-50/40 to-transparent blur-3xl pointer-events-none -z-0" />
 
             {/* Main Composition Wrapper */}
-            <div className="relative w-full max-w-[460px] mx-auto">
+            <div className="relative mx-auto h-[360px] w-full max-w-[460px] [container-type:size] sm:h-[385px] lg:h-[395px] xl:h-[405px]">
               {/* Central Photo of Stressed Person working on Laptop (Height equal to left 4-cards grid) */}
-              <div className="relative w-full h-[360px] sm:h-[385px] lg:h-[395px] xl:h-[405px] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-slate-200/80 bg-white">
+              <div className="relative h-full w-full rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-slate-200/80 bg-white">
                 <Image
                   src="/images/portfolio/pf-in-chal.png"
                   alt="Challenges faced before Kaelixo"
@@ -107,65 +181,36 @@ export default function ProjectChallenge({ challenges }: ProjectChallengeProps) 
                 />
               </div>
 
-              {/* Floating Pill 1: Top Right - Multiple enquiries across channels */}
-              <div className="absolute -top-4 right-3 sm:right-6 z-20 bg-white/95 backdrop-blur-md rounded-xl sm:rounded-[14px] border border-slate-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.08)] px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center gap-2.5 sm:gap-3 hover:translate-y-[-2px] transition-transform duration-200">
-                <div className="w-8 h-8 rounded-lg bg-[#FEEBF2] flex items-center justify-center text-[#FF0055] shrink-0 shadow-2xs">
-                  <Mail className="w-4 h-4 stroke-[2]" />
-                </div>
-                <div>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight block">
-                    Multiple enquiries
-                  </span>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight block">
-                    across channels
-                  </span>
-                </div>
-              </div>
+              {challenges.floatingBadges.slice(0, badgeSlots.length).map((label, index) => {
+                const { icon: Icon, position, landing } = badgeSlots[index];
+                const isDropped = droppedBadges.includes(index);
 
-              {/* Floating Pill 2: Top Left - Outdated website design */}
-              <div className="absolute top-8 -left-3 sm:-left-6 z-20 bg-white/95 backdrop-blur-md rounded-xl sm:rounded-[14px] border border-slate-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.08)] px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center gap-2.5 sm:gap-3 hover:translate-y-[-2px] transition-transform duration-200">
-                <div className="w-8 h-8 rounded-lg bg-[#FEEBF2] flex items-center justify-center text-[#FF0055] shrink-0 shadow-2xs">
-                  <Globe className="w-4 h-4 stroke-[2]" />
-                </div>
-                <div>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight block">
-                    Outdated website
-                  </span>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight block">
-                    design
-                  </span>
-                </div>
-              </div>
-
-              {/* Floating Pill 3: Bottom Left - Low conversion rate */}
-              <div className="absolute bottom-10 -left-3 sm:-left-6 z-20 bg-white/95 backdrop-blur-md rounded-xl sm:rounded-[14px] border border-slate-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.08)] px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center gap-2.5 sm:gap-3 hover:translate-y-[-2px] transition-transform duration-200">
-                <div className="w-8 h-8 rounded-lg bg-[#FEEBF2] flex items-center justify-center text-[#FF0055] shrink-0 shadow-2xs">
-                  <Users className="w-4 h-4 stroke-[2]" />
-                </div>
-                <div>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight block">
-                    Low conversion
-                  </span>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight block">
-                    rate
-                  </span>
-                </div>
-              </div>
-
-              {/* Floating Pill 4: Middle/Bottom Right - Difficult content management (Moved up, no 3-dots) */}
-              <div className="absolute bottom-14 -right-3 sm:-right-6 z-20 bg-white/95 backdrop-blur-md rounded-xl sm:rounded-[14px] border border-slate-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.08)] px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center gap-2.5 sm:gap-3 hover:translate-y-[-2px] transition-transform duration-200">
-                <div className="w-8 h-8 rounded-lg bg-[#FEEBF2] flex items-center justify-center text-[#FF0055] shrink-0 shadow-2xs">
-                  <Settings className="w-4 h-4 stroke-[2]" />
-                </div>
-                <div>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight block">
-                    Difficult content
-                  </span>
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight block">
-                    management
-                  </span>
-                </div>
-              </div>
+                return (
+                  <div
+                    key={index}
+                    onPointerEnter={(event) => {
+                      if (event.pointerType === "mouse") dropBadge(index);
+                    }}
+                    className={`absolute top-[var(--badge-top)] max-w-[calc(50%+0.25rem)] sm:max-w-[49%] ${isDropped ? "z-30" : "z-20"} ${position}`}
+                  >
+                    <div
+                      style={{ "--badge-delay": `${-index * 1.1}s` } as React.CSSProperties}
+                      onPointerMove={isDropped ? nudgeBadge : undefined}
+                      onAnimationEnd={(event) => {
+                        if (event.animationName === "challenge-badge-drop") {
+                          setDroppedBadges((current) => current.filter((badge) => badge !== index));
+                        }
+                      }}
+                      className={`flex items-center gap-2 rounded-xl border border-slate-200/90 bg-white/95 px-2.5 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.08)] backdrop-blur-md sm:gap-3 sm:rounded-[14px] sm:px-4 sm:py-2.5 ${landing} ${isDropped ? "challenge-badge-dropped" : "pointer-events-none motion-safe:animate-[challenge-badge-float_6s_ease-in-out_var(--badge-delay)_infinite]"}`}
+                    >
+                      <span aria-hidden="true" className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-[#FEEBF2] text-[#FF0055] shadow-2xs">
+                        <Icon className="size-4 stroke-[2]" />
+                      </span>
+                      <span className="text-[14px] leading-tight font-bold text-slate-800 [overflow-wrap:anywhere]">{label}</span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

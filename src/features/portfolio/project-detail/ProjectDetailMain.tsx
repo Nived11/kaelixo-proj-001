@@ -1,5 +1,5 @@
 import React from "react";
-import { ProjectItem } from "@/features/portfolio/data/portfolioProjects";
+import { TRAVEL_HOPE_HERO_ASSETS, type ProjectItem } from "@/features/portfolio/data/portfolioProjects";
 import HeroAtAGlanceInteractive from "./components/HeroAtAGlanceInteractive";
 import ProjectChallenge from "./components/ProjectChallenge";
 import ProjectStrategy from "./components/ProjectStrategy";
@@ -7,13 +7,22 @@ import ProjectShowcase from "./components/ProjectShowcase";
 import ProjectTechStack from "./components/ProjectTechStack";
 import ProjectFeatures from "./components/ProjectFeatures";
 import ProjectResults from "./components/ProjectResults";
-import ProjectCTA from "./components/ProjectCTA";
+import CTASection from "@/features/services/web-development/components/CTASection";
+import EnquirySection from "@/features/services/web-development/components/EnquirySection";
 
 interface ProjectDetailMainProps {
   project: ProjectItem;
 }
 
 export default function ProjectDetailMain({ project }: ProjectDetailMainProps) {
+  const heroProject = {
+    ...project,
+    heroBgImage: project.heroBgImage || TRAVEL_HOPE_HERO_ASSETS.heroBgImage,
+    heroMobileBgImage:
+      project.heroMobileBgImage || project.heroBgImage || TRAVEL_HOPE_HERO_ASSETS.heroMobileBgImage,
+    heroMockupImage: project.heroMockupImage || TRAVEL_HOPE_HERO_ASSETS.heroMockupImage,
+  };
+
   // Computed fallbacks and defaults
   const heroHeadline = project.heroHeadline || {
     prefix: `${project.title} — Building a Smarter`,
@@ -280,7 +289,7 @@ export default function ProjectDetailMain({ project }: ProjectDetailMainProps) {
     <div className="min-h-screen bg-[#03040B] text-white selection:bg-[#FF0055] selection:text-white">
       {/* 1 & 2. HERO & AT A GLANCE (Scroll-Synced Mockup Flight Experience) */}
       <HeroAtAGlanceInteractive
-        project={project}
+        project={heroProject}
         heroHeadline={heroHeadline}
         heroSubtitle={heroSubtitle}
         projectType={projectType}
@@ -299,6 +308,7 @@ export default function ProjectDetailMain({ project }: ProjectDetailMainProps) {
       <ProjectShowcase
         projectTitle={project.title}
         projectImage={project.image}
+        heroMockupImage={project.heroMockupImage}
         showcase={showcase}
       />
 
@@ -311,8 +321,10 @@ export default function ProjectDetailMain({ project }: ProjectDetailMainProps) {
       {/* 8. RESULTS & BUSINESS IMPACT */}
       <ProjectResults projectTitle={project.title} results={results} />
 
-      {/* 9. BOTTOM CALL TO ACTION */}
-      <ProjectCTA />
+      <div className="relative z-20">
+        <EnquirySection />
+        <CTASection />
+      </div>
     </div>
   );
 }

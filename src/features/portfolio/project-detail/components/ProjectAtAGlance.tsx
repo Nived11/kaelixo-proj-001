@@ -44,6 +44,7 @@ export default function ProjectAtAGlance({
   snapshot,
   targetSlotRef,
 }: ProjectAtAGlanceProps) {
+  const statColumns = ["lg:grid-cols-1", "lg:grid-cols-2", "lg:grid-cols-3", "lg:grid-cols-4"];
   const statIcons = [
     <BarChart3 key="0" className="w-4 h-4 sm:w-[18px] sm:h-[18px] stroke-[2.2]" />,
     <TrendingUp key="1" className="w-4 h-4 sm:w-[18px] sm:h-[18px] stroke-[2.2]" />,
@@ -70,22 +71,23 @@ export default function ProjectAtAGlance({
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Eyebrow & Section Header */}
         <div className="mb-10 sm:mb-12">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-6 h-[2px] bg-[#FF0055]" />
-            <span className="text-[12px] sm:text-[13px] font-bold text-slate-400 tracking-[0.2em] uppercase font-heading">
-              PROJECT SNAPSHOT
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[#0A1024]">
+         <div className="flex items-center gap-2 mb-6">
+              <span className="w-5 h-[2px] bg-[#FF0055]" />
+              <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-[750] tracking-[.2em] text-gray-700">
+                PROJECT SNAPSHOT
+              </span>
+            </div>
+
+          <h2 className="text-[#020205] m-0 font-sans text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.16] tracking-[-1.3px] mb-4">
             At a <span className="text-[#FF0055]">Glance</span>
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base max-w-2xl mt-2 font-sans leading-relaxed">
+          <p className="text-gray-700 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-[1.6] mb-8 max-w-[550px]">
             Key details about the {project.title} project, from goals to outcomes —<br className="hidden sm:inline" /> a quick look at what we built together.
           </p>
         </div>
 
         {/* Card 1: Main Project Details Card (Logo | 2-Col Grid | Image Preview) */}
-        <div className="rounded-[24px] sm:rounded-[28px] bg-white border border-slate-200/80 p-6 sm:p-8 lg:p-9 shadow-[0_4px_24px_rgba(0,0,0,0.03)] mb-6">
+        <div className="relative isolate mb-6 overflow-hidden rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-[0_4px_24px_rgba(0,0,0,0.03)] before:pointer-events-none before:absolute before:-top-16 before:-left-9 before:-z-10 before:size-36 before:rounded-full before:bg-[#ff0055]/[.055] before:content-[''] after:pointer-events-none after:absolute after:-right-9 after:-bottom-16 after:-z-10 after:size-36 after:rounded-full after:bg-[#ff0055]/[.055] sm:rounded-[28px] sm:p-8 lg:p-9">
           <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-6">
             {/* Left Zone: Client Logo Box (Neat & Compact, Space & Gap Reduced) */}
             <div className="w-full lg:w-[160px] xl:w-[175px] shrink-0 flex flex-col items-center justify-center lg:border-r lg:border-slate-200/80 lg:pr-5 py-1">
@@ -111,13 +113,13 @@ export default function ProjectAtAGlance({
               {/* 1. Client */}
               <div className="flex items-start gap-3.5">
                 <div className="w-11 h-11 rounded-full bg-[#F0F4FA] border border-[#E2E8F2] flex items-center justify-center text-slate-800 shrink-0 mt-0.5 shadow-2xs">
-                  <Building2 className="w-5 h-5 stroke-[1.8]" />
+                  <Building2 className="w-5 h-5 stroke-[2]" />
                 </div>
                 <div>
-                  <span className="text-[14px] sm:text-[15px] font-bold text-black font-heading block leading-snug">
+                  <span className="text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[18px] font-bold mb-1 leading-tight">
                     Client
                   </span>
-                  <span className="text-[16px] text-gray-700 font-sans font-normal block">
+                  <span className="text-gray-700 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed pr-2 block">
                     {project.client || project.title}
                   </span>
                 </div>
@@ -126,13 +128,13 @@ export default function ProjectAtAGlance({
               {/* 2. Platform */}
               <div className="flex items-start gap-3.5">
                 <div className="w-11 h-11 rounded-full bg-[#F0F4FA] border border-[#E2E8F2] flex items-center justify-center text-slate-800 shrink-0 mt-0.5 shadow-2xs">
-                  <Monitor className="w-5 h-5 stroke-[1.8]" />
+                  <Monitor className="w-5 h-5 stroke-[2]" />
                 </div>
                 <div>
-                  <span className="text-[14px] sm:text-[15px] font-bold text-black font-heading block leading-snug">
+                  <span className="text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[18px] font-bold mb-1 leading-tight">
                     Platform
                   </span>
-                  <span className="text-[16px] text-gray-700 font-sans font-normal block">
+                  <span className="text-gray-700 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed pr-2 block">
                     {snapshot.platform}
                   </span>
                 </div>
@@ -144,10 +146,10 @@ export default function ProjectAtAGlance({
                   <Briefcase className="w-5 h-5 stroke-[1.8]" />
                 </div>
                 <div>
-                  <span className="text-[14px] sm:text-[15px] font-bold text-black font-heading block leading-snug">
+                  <span className="text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[18px] font-bold mb-1 leading-tight">
                     Industry
                   </span>
-                  <span className="text-[16px] text-gray-700 font-sans font-normal block">
+                  <span className="text-gray-700 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed pr-2 block">
                     {snapshot.industry || project.category}
                   </span>
                 </div>
@@ -159,10 +161,10 @@ export default function ProjectAtAGlance({
                   <Calendar className="w-5 h-5 stroke-[1.8]" />
                 </div>
                 <div>
-                  <span className="text-[14px] sm:text-[15px] font-bold text-black font-heading block leading-snug">
+                  <span className="text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[18px] font-bold mb-1 leading-tight">
                     Project Duration
                   </span>
-                  <span className="text-[16px] text-gray-700 font-sans font-normal block">
+                  <span className="text-gray-700 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed pr-2 block">
                     {snapshot.duration}
                   </span>
                 </div>
@@ -174,10 +176,10 @@ export default function ProjectAtAGlance({
                   <Settings className="w-5 h-5 stroke-[1.8]" />
                 </div>
                 <div>
-                  <span className="text-[14px] sm:text-[15px] font-bold text-black font-heading block leading-snug">
+                  <span className="text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[18px] font-bold mb-1 leading-tight">
                     Services
                   </span>
-                  <span className="text-[16px] text-gray-700 font-sans font-normal block leading-snug sm:leading-relaxed whitespace-pre-line">
+                  <span className="text-gray-700 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed pr-2 block leading-snug sm:leading-relaxed whitespace-pre-line">
                     {snapshot.services}
                   </span>
                 </div>
@@ -189,10 +191,10 @@ export default function ProjectAtAGlance({
                   <MapPin className="w-5 h-5 stroke-[1.8]" />
                 </div>
                 <div>
-                  <span className="text-[14px] sm:text-[15px] font-bold text-black font-heading block leading-snug">
+                  <span className="text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[18px] font-bold mb-1 leading-tight">
                     Location
                   </span>
-                  <span className="text-[16px] text-gray-700 font-sans font-normal block">
+                  <span className="text-gray-700 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed pr-2 block">
                     {snapshot.location}
                   </span>
                 </div>
@@ -209,29 +211,29 @@ export default function ProjectAtAGlance({
           </div>
         </div>
 
-        {/* Card 2: Key Results Card (Headline & Subtitle on Left | 4 Stats on Right) */}
-        <div className="rounded-[24px] sm:rounded-[28px] bg-white border border-slate-200/80 p-6 sm:p-8 lg:p-9 shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
+        {/* Card 2: Key Results Card (Headline & Subtitle on Left | Stats on Right) */}
+        <div className="relative isolate overflow-hidden rounded-[24px] sm:rounded-[28px] bg-white border border-slate-200/80 p-6 sm:p-8 lg:p-9 shadow-[0_4px_24px_rgba(0,0,0,0.03)] before:pointer-events-none before:absolute before:-top-16 before:-right-9 before:-z-10 before:size-36 before:rounded-full before:bg-[#ff0055]/[.055] after:pointer-events-none after:absolute after:-bottom-16 after:-left-9 after:-z-10 after:size-36 after:rounded-full after:bg-[#ff0055]/[.055]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left Column: Heading & Tagline */}
-            <div className="lg:col-span-4 lg:border-r lg:border-slate-200/80 lg:pr-8">
+            <div className="lg:col-span-4 lg:border-r lg:border-slate-200 lg:pr-8">
               <div className="flex items-center gap-2 mb-2">
-                <span className="w-5 h-[2px] bg-[#FF0055]" />
-                <span className="text-[11px] font-bold text-slate-400 tracking-[0.2em] uppercase font-heading">
+               <span className="w-5 h-[2px] bg-[#FF0055]" />
+                <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-[750] tracking-[.2em] text-gray-700">
                   KEY RESULTS
                 </span>
               </div>
-              <h3 className="font-heading font-black text-2xl sm:text-[28px] text-[#0A1024] leading-tight">
+              <h3 className="text-[#020205] m-0 font-sans text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.16] tracking-[-1.3px] ">
                 Real Growth. <br />
                 <span className="text-[#FF0055]">Measurable Impact.</span>
               </h3>
-              <p className="text-slate-500 text-xs sm:text-[13px] font-sans mt-2">
+              <p className="text-gray-700 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed mt-2">
                 The results speak louder than words.
               </p>
             </div>
 
-            {/* Right Column: 4 Stat Items Separated by Subtle Borders */}
+            {/* Right Column: Stat Items Separated by Subtle Borders */}
             <div className="lg:col-span-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+              <div className={`grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 ${statColumns[snapshot.quickStats.length - 1] ?? "lg:grid-cols-4"}`}>
                 {snapshot.quickStats.map((item, idx) => (
                   <div
                     key={idx}
@@ -241,21 +243,21 @@ export default function ProjectAtAGlance({
                   >
                     {/* Row: Pink Icon Badge on Left + Big Stat Number on Right */}
                     <div className="flex items-center gap-3 mb-2 sm:mb-2.5">
-                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FEEBF2] flex items-center justify-center text-[#FF0055] shrink-0">
-                        {statIcons[idx] || <Star className="w-4 h-4" />}
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-[#FF0055] to-[#FF6699] flex items-center justify-center text-white shrink-0 shadow-[0_2px_8px_rgba(255,0,85,0.25)] ring-2 ring-pink-100">
+                        {statIcons[idx] || <Star className="w-6 h-6" />}
                       </div>
-                      <span className="text-2xl sm:text-[28px] lg:text-[32px] font-black font-heading text-[#0A1024] tracking-tight leading-none">
+                      <span className="text-[20px] sm:text-[20px] md:text-[23px] lg:text-[23px] xl:text-[32px] 2xl:text-[32px] [@media(min-width:1920px)]:text-[32px] font-black font-heading text-[#0A1024] tracking-tight leading-none">
                         {item.stat}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h4 className="font-heading font-bold text-xs sm:text-[14px] text-[#0A1024] mb-1 leading-snug">
+                    <h4 className="text-[#020205] text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[18px] font-bold mb-1 leading-tight">
                       {item.label}
                     </h4>
 
                     {/* Desc */}
-                    <p className="text-[11px] sm:text-xs text-slate-500 font-sans leading-relaxed">
+                    <p className="text-gray-700 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[16px] leading-relaxed pr-2 ">
                       {item.desc}
                     </p>
                   </div>

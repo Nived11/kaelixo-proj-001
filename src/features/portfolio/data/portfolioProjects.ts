@@ -106,6 +106,12 @@ export interface ProjectItem {
   };
 }
 
+export const TRAVEL_HOPE_HERO_ASSETS = {
+  heroBgImage: "/images/portfolio/travelhopebg.png",
+  heroMobileBgImage: "/images/portfolio/travelhopemobilebg.png",
+  heroMockupImage: "/images/portfolio/travelhopeimg.png",
+};
+
 export const PORTFOLIO_PROJECTS: ProjectItem[] = [
 
 
@@ -194,6 +200,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "Algolia Search", desc: "Instant predictive search across 5,000+ furniture items." },
         { name: "Cloudinary CDN", desc: "High-resolution zoom into upholstery fabric textures." },
         { name: "Google Analytics 4", desc: "Tracking customer purchase funnels across all 7 Emirates." },
+        { name: "Dimension Customizer", desc: "Configure furniture dimensions." },
+        { name: "Showroom Locator", desc: "Find nearby UAE showrooms." },
+        { name: "Click & Collect", desc: "Select showroom pickup at checkout." },
       ],
       guarantees: [
         { title: "Free Assembly", desc: "Professional installation included." },
@@ -315,6 +324,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "Image Tiling Engine", desc: "High-resolution flyer zoom without massive bandwidth consumption." },
         { name: "Bilingual i18n", desc: "Instant toggle between English and Arabic layouts." },
         { name: "Google Analytics 4", desc: "Deep tracking of top-performing flyer categories and deals." },
+        { name: "Store Directory", desc: "Find stores and branches from the mall portal." },
+        { name: "Mobile Web App", desc: "Browse digital flyers and weekly deals on a phone." },
+        { name: "SEO", desc: "Improve discovery of branch and promotion pages." },
       ],
       guarantees: [
         { title: "Peak Surge Ready", desc: "Handles millions of weekend shoppers." },
@@ -436,6 +448,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "WhatsApp Cloud API", desc: "Sends custom itinerary PDFs directly to customer phones." },
         { name: "Cloudinary CDN", desc: "Adaptive image compression for high-res photography." },
         { name: "Google Analytics 4", desc: "Tracking campaign conversions from domestic and GCC travelers." },
+        { name: "WordPress", desc: "Manage travel content and seasonal offers." },
+        { name: "Itinerary Builder", desc: "Organise trips into day-by-day plans." },
+        { name: "SEO", desc: "Improve discovery of holiday packages." },
       ],
       guarantees: [
         { title: "Fast Media Delivery", desc: "Sub-second image rendering." },
@@ -557,6 +572,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "AWS S3 & CloudFront", desc: "Secure multi-gigabyte blueprint and project media storage." },
         { name: "WhatsApp Business API", desc: "Direct VIP link connecting clients with Senior Project Directors." },
         { name: "Google Analytics 4", desc: "Tracking luxury real estate and commercial contractor leads." },
+        { name: "Portfolio CMS", desc: "Manage commercial and residential project content." },
+        { name: "RFP Intake", desc: "Collect project details from prospective clients." },
+        { name: "SEO", desc: "Improve discovery of fitout and portfolio pages." },
       ],
       guarantees: [
         { title: "Turnkey Assurance", desc: "Full Dubai municipal authority approvals." },
@@ -678,6 +696,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "WhatsApp Business API", desc: "Immediate connection with 24/7 Fleet Dispatchers." },
         { name: "Google Analytics 4", desc: "Tracking luxury wedding and corporate event mobility demand." },
         { name: "Vercel Edge", desc: "Guaranteed 99.99% uptime across all regional inquiries." },
+        { name: "Fleet Logistics CMS", desc: "Manage fleet listings and travel content." },
+        { name: "VIP Booking Engine", desc: "Capture private transfer and vehicle hire requests." },
+        { name: "SEO", desc: "Improve discovery of fleet and transfer services." },
       ],
       guarantees: [
         { title: "Pristine Vehicles", desc: "Showroom-condition sanitized fleet." },
@@ -799,6 +820,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "Clinic CRM Sync", desc: "Direct integration into doctor consultation calendars." },
         { name: "International Phone Auth", desc: "Country-code selector with SMS OTP verification." },
         { name: "Cloudflare SSL", desc: "End-to-end encryption safeguarding sensitive medical inquiries." },
+        { name: "Healthcare CMS", desc: "Manage treatment and clinic information." },
+        { name: "Balding Assessment", desc: "Guide visitors through the interactive assessment." },
+        { name: "Consultation Booking", desc: "Capture appointment requests across branches." },
       ],
       guarantees: [
         { title: "Strict Privacy", desc: "Encrypted patient data storage." },
@@ -920,6 +944,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "Tender Pipeline CRM", desc: "Automatic routing of inquiries to Senior Structural Estimators." },
         { name: "WhatsApp Business API", desc: "Immediate communication channel for site engineers and project managers." },
         { name: "Cloudflare Security", desc: "Bank-grade SSL protecting commercial contractor tender documents." },
+        { name: "Engineering Tender CMS", desc: "Manage portfolios and technical specifications." },
+        { name: "Blueprint Upload Portal", desc: "Let contractors submit drawings with enquiries." },
+        { name: "SEO", desc: "Improve discovery of structural engineering services." },
       ],
       guarantees: [
         { title: "Dubai Certified", desc: "Approved by Dubai Municipality & Civil Defence." },
@@ -1041,6 +1068,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "Counselor CRM Sync", desc: "Instant assignment of student leads to branch counselors." },
         { name: "WhatsApp Business API", desc: "Automatic delivery of course syllabus and fee structures." },
         { name: "Cloudflare CDN", desc: "Fast reliable loading even on slow 3G/4G mobile networks." },
+        { name: "Academic Enrollment CMS", desc: "Manage course and admissions content." },
+        { name: "Syllabus Explorer", desc: "Help prospective students compare courses." },
+        { name: "Placement Tracker", desc: "Showcase graduate placements and career pathways." },
       ],
       guarantees: [
         { title: "AWS Accredited", desc: "International welding certifications recognized worldwide." },
@@ -1162,6 +1192,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "WhatsApp Business API", desc: "Direct instant confirmation from on-site houseboat harbor managers." },
         { name: "Interactive Cruise Maps", desc: "Visual map highlighting Alleppey, Kumarakom, and Vembanad Lake routes." },
         { name: "Google Analytics 4", desc: "Tracking luxury traveler inquiries from GCC, North India, and Europe." },
+        { name: "Cruise Booking Engine", desc: "Capture cabin and cruise reservations." },
+        { name: "Event Packages", desc: "Showcase weddings and events aboard the fleet." },
+        { name: "SEO", desc: "Improve discovery of houseboat cruises." },
       ],
       guarantees: [
         { title: "Direct Best Rate", desc: "Book direct with zero broker commission." },
@@ -1227,9 +1260,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "Building a Smarter Digital Travel Experience",
     },
     heroSubtitle: "A modern, conversion-focused platform that improved clarity, engagement and travel enquiries.",
-    heroBgImage: "/images/portfolio/travelhopebg.png",
-    heroMobileBgImage: "/images/portfolio/travelhopemobilebg.png",
-    heroMockupImage: "/images/portfolio/travelhopeimg.png",
+    ...TRAVEL_HOPE_HERO_ASSETS,
     snapshot: {
       platform: "Django (Custom CMS)",
       duration: "3 Months",
@@ -1241,7 +1272,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { stat: "3x", label: "More Enquiries", desc: "Significant increase in qualified leads" },
         { stat: "60%", label: "Higher Organic Traffic", desc: "Stronger visibility across search engines" },
         { stat: "45%", label: "Better Conversion Rate", desc: "More enquiries turned into bookings" },
-        { stat: "2x", label: "Brand Engagement", desc: "Higher interaction across digital channels" },
+        // { stat: "2x", label: "Brand Engagement", desc: "Higher interaction across digital channels" },
       ],
     },
     challenges: {
@@ -1456,6 +1487,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "PostgreSQL", desc: "Reliable product catalog and inventory database." },
         { name: "Stripe & Razorpay", desc: "Dual payment gateways for domestic and global NRI transactions." },
         { name: "Cloudflare CDN", desc: "Global edge caching delivering sub-second load times." },
+        { name: "Shopify Headless", desc: "Power the storefront through a separate commerce backend." },
+        { name: "Product Photography UI", desc: "Present spice products with clear visual detail." },
+        { name: "Performance SEO", desc: "Support fast storefront pages and search visibility." },
       ],
       guarantees: [
         { title: "100% Uptime", desc: "Reliable edge architecture." },
@@ -1577,6 +1611,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "Admissions CRM API", desc: "Real-time sync feeding leads directly into counselor call queues." },
         { name: "WhatsApp Business API", desc: "Instant automated delivery of brochures and batch dates." },
         { name: "Vercel Edge Network", desc: "High-speed hosting with 99.99% guaranteed uptime." },
+        { name: "Custom LMS", desc: "Support course and student workflows." },
+        { name: "Course Catalog", desc: "Help students browse and compare courses." },
+        { name: "Placement Showcase", desc: "Present graduate placements and career outcomes." },
       ],
       guarantees: [
         { title: "High Scalability", desc: "Handles concurrent admissions rushes." },
@@ -1698,6 +1735,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "Multilingual i18n", desc: "Seamless German and English language switching." },
         { name: "GDPR Privacy Suite", desc: "Full European privacy and cookie compliance." },
         { name: "Vercel Edge", desc: "High-uptime European hosting infrastructure." },
+        { name: "Multilingual CMS", desc: "Manage storefront content in German and English." },
+        { name: "Product Catalog", desc: "Organise groceries into browsable categories." },
+        { name: "Franchise Enquiries", desc: "Collect enquiries from prospective partners." },
       ],
       guarantees: [
         { title: "GDPR Compliant", desc: "Strict European data privacy standards." },
@@ -1819,6 +1859,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "Hospital CRM Sync", desc: "Direct integration into doctor consultation schedules." },
         { name: "WhatsApp Clinical Desk", desc: "Immediate communication channel for patient caregivers." },
         { name: "Cloudflare Edge", desc: "Fast worldwide loading for GCC and European medical tourists." },
+        { name: "Treatment CMS", desc: "Manage departments and therapy guides." },
+        { name: "Appointment System", desc: "Capture doctor appointment requests." },
+        { name: "Medical SEO", desc: "Improve discovery of hospital and treatment pages." },
       ],
       guarantees: [
         { title: "HIPAA Compliant", desc: "Confidential handling of medical history." },
@@ -1940,6 +1983,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "Interactive React Calculator", desc: "Real-time client estimate generator based on word count." },
         { name: "WhatsApp Business API", desc: "Direct project brief submission to Senior Managing Editors." },
         { name: "Google Analytics 4", desc: "Tracking organic keyword rankings and content conversions." },
+        { name: "Content Management Hub", desc: "Manage service pages and editorial content." },
+        { name: "Sample Library", desc: "Organise writing samples by industry and service." },
+        { name: "Client Onboarding", desc: "Collect details for new writing engagements." },
       ],
       guarantees: [
         { title: "100% Original", desc: "Turnitin and Copyscape plagiarism-free." },
@@ -2061,6 +2107,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
         { name: "Corporate CRM Sync", desc: "Immediate routing of investor inquiries to licensed advisors." },
         { name: "Calendly Integration", desc: "Seamless scheduling of 1-on-1 Zoom advisory sessions." },
         { name: "Cloudflare Edge", desc: "Ultra-fast global access for founders in Europe, Asia, and the Americas." },
+        { name: "Jurisdiction & License Guide", desc: "Help founders explore licensing options." },
+        { name: "Visa Advisory Funnels", desc: "Capture enquiries for investor visa services." },
+        { name: "Multilingual SEO", desc: "Support discovery of advisory services across languages." },
       ],
       guarantees: [
         { title: "100% Foreign Ownership", desc: "Full ownership options across Mainland & Free Zones." },

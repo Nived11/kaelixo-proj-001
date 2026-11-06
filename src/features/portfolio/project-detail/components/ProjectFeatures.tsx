@@ -20,20 +20,26 @@ export default function ProjectFeatures({
   featuresDelivered,
 }: ProjectFeaturesProps) {
   return (
-    <section className="relative z-20 bg-[#FAFBFD] text-[#0A1024] py-16 sm:py-24 border-t border-slate-200/80">
+    <section className="relative isolate z-20 overflow-hidden border-t border-pink-100/60 bg-[#fcfafb] py-16 text-[#080e24] sm:py-24">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-[radial-gradient(ellipse_at_top,#fff,transparent_65%),radial-gradient(ellipse_at_bottom_right,#fdf0f6,transparent_65%)]">
+        <div className="absolute -top-44 -left-24 size-80 rounded-full bg-[#ff0055]/[.035]" />
+        <div className="absolute top-8 -left-28 size-52 rounded-full bg-[#ff0055]/[.025]" />
+        <div className="absolute -right-40 -bottom-52 size-[28rem] rounded-full bg-[#ff0055]/[.035]" />
+      </div>
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Eyebrow & Header */}
-        <div className="mb-10 sm:mb-14">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-6 h-[2px] bg-[#FF0055]" />
-            <span className="text-xs sm:text-[13px] font-bold text-[#FF0055] tracking-widest uppercase font-heading">
+        <div className="mb-8 text-center sm:mb-10">
+          <div className="mb-5 flex items-center justify-center gap-4">
+            <span className="h-px w-8 bg-[#ff0055]/55 sm:w-10" />
+            <span className="font-heading text-[10px] font-bold uppercase tracking-[.24em] text-[#ff0055] sm:text-xs">
               KEY FEATURES DELIVERED
             </span>
+            <span className="h-px w-8 bg-[#ff0055]/55 sm:w-10" />
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[#0A1024]">
-            Key Features <span className="text-[#FF0055]">Delivered</span>
+            Key Features Delivered
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mt-2 font-sans">
+          <p className="mx-auto mt-4 max-w-2xl font-sans text-sm leading-relaxed text-slate-600 sm:text-base">
             {featuresDelivered.subtitle}
           </p>
         </div>
@@ -43,15 +49,15 @@ export default function ProjectFeatures({
           {featuresDelivered.items.map((feat, fIdx) => (
             <div
               key={fIdx}
-              className="p-6 rounded-[22px] bg-white border border-slate-200/80 shadow-xs hover:border-pink-300 hover:shadow-md transition-all flex flex-col justify-start"
+              className="rounded-xl border border-[#ff0055]/[.085] bg-white/75 px-6 py-5 transition-colors hover:border-pink-300"
             >
-              <div className="w-10 h-10 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-[#FF0055] mb-4">
-                {renderIcon(feat.icon, "w-5 h-5")}
+              <div className="mb-3 grid size-16 place-items-center rounded-full bg-[#ff0055]/[.065] text-[#f82569]">
+                {renderIcon(feat.icon, "size-8 stroke-[1.8]")}
               </div>
-              <h4 className="font-heading font-black text-base sm:text-lg text-[#0A1024] mb-2 leading-snug">
+              <h3 className="mb-1.5 font-heading text-base leading-snug font-bold">
                 {feat.title}
-              </h4>
-              <p className="text-slate-500 text-xs sm:text-[13.5px] leading-relaxed font-sans">
+              </h3>
+              <p className="font-sans text-sm leading-snug text-slate-600">
                 {feat.desc}
               </p>
             </div>
