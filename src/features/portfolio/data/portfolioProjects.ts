@@ -273,6 +273,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     ],
     heroTagline: "CASE STUDY",
     clientLogoText: "Safari Mall",
+    clientLogoImage: "/images/portfolio/safari-mall.svg",
+    heroLogoScale: 0.9,
+    clientLogoImageDark: "/images/portfolio/safari-mall.svg",
     clientLogoTagline: "A MALL FOR ALL",
     projectType: "Retail Hypermarket & Regional Mall Digital Experience",
     heroHeadline: {
@@ -280,6 +283,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "Retail & Hypermarket Digital Portal",
     },
     heroSubtitle: "A high-performance digital hub unifying millions of shoppers across Qatar and the UAE with interactive weekly promotion flyers, store directories and mall deals.",
+    heroBgImage: "/images/portfolio/safari-mall-bg.png",
+    heroMobileBgImage: "/images/portfolio/safari-mall-bg.png",
+    heroMockupImage: "/images/portfolio/safari-mall-laptop.png",
     snapshot: {
       platform: "Next.js & Cloud Edge",
       duration: "4 Months",
@@ -404,6 +410,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "Kerala Travel & Houseboat Escapes",
     },
     heroSubtitle: "An inspirational travel portal turning vacation dreams into personalized holiday packages, luxury houseboat stays, and hill-station tours.",
+    heroBgImage: "/images/portfolio/dreamholiday-bg.png",
+    heroMobileBgImage: "/images/portfolio/dreamholiday-bg.png",
+    heroMockupImage: "/images/portfolio/dreamholiday-laptop.png",
     snapshot: {
       platform: "WordPress & Custom React Components",
       duration: "2 Months",
@@ -521,6 +530,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     ],
     heroTagline: "CASE STUDY",
     clientLogoText: "DATs Interior",
+    clientLogoImage: "/images/portfolio/dats-logo.svg",
+    heroLogoScale: 0.88,
+    clientLogoImageDark: "/images/portfolio/dats-logo.svg",
     clientLogoTagline: "DUBAI FIT-OUT EXCELLENCE",
     projectType: "Luxury Interior Architecture & Turnkey Fit-Out Portfolio",
     heroHeadline: {
@@ -528,6 +540,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "For UAE's Premier Commercial & Residential Spaces",
     },
     heroSubtitle: "A sophisticated architectural portfolio showcasing world-class turnkey interior fit-outs, bespoke joinery, and luxury villa transformations across Dubai.",
+    heroBgImage: "/images/portfolio/dats-bg.png",
+    heroMobileBgImage: "/images/portfolio/dats-bg.png",
+    heroMockupImage: "/images/portfolio/dats-laptop.png",
     snapshot: {
       platform: "Next.js & High-End Portfolio CMS",
       duration: "3 Months",
@@ -2160,8 +2175,14 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
 ];
 
 export function getProjectBySlug(slug: string): ProjectItem | undefined {
+  const s = slug.toLowerCase();
   return PORTFOLIO_PROJECTS.find(
-    (p) => p.id.toLowerCase() === slug.toLowerCase()
+    (p) =>
+      p.id.toLowerCase() === s ||
+      (p.id === "dream-holidays-kerala" &&
+        ["dream-holidays", "dreamholiday", "dreamholidays"].includes(s)) ||
+      (p.id === "dats-interiors" &&
+        ["dats-interior", "dats", "datsinterior", "datsinteriors"].includes(s))
   );
 }
 

@@ -4,10 +4,14 @@ import { ProjectItem } from "@/features/portfolio/data/portfolioProjects";
 export function renderClientBrandLogo(
   project: ProjectItem,
   clientLogoText: string,
-  clientLogoTagline: string
+  clientLogoTagline: string,
+  theme: "dark" | "light" = "dark"
 ) {
   const pid = project.id.toLowerCase();
   const cat = project.category.toLowerCase();
+  const isLight = theme === "light";
+  const textColor = isLight ? "text-slate-900" : "text-white";
+  const tagColor = isLight ? "text-slate-500" : "text-white/50";
 
   // Travel Hope or Travel projects: Sun + Coconut Palms SVG
   if (pid.includes("travel-hope") || (cat.includes("travel") && !pid.includes("finexx"))) {
@@ -21,10 +25,10 @@ export function renderClientBrandLogo(
             <path d="M 18,25 Q 19,16 18,12" stroke="#B45309" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </div>
-        <span className="font-serif italic font-bold text-sm sm:text-[15px] text-white tracking-tight leading-none block">
+        <span className={`font-serif italic font-bold text-sm sm:text-[15px] ${textColor} tracking-tight leading-none block`}>
           {clientLogoText}
         </span>
-        <span className="text-[7.5px] sm:text-[8px] text-white/50 tracking-[0.22em] uppercase font-sans font-semibold mt-1 block">
+        <span className={`text-[7.5px] sm:text-[8px] ${tagColor} tracking-[0.22em] uppercase font-sans font-semibold mt-1 block`}>
           {clientLogoTagline}
         </span>
       </div>
@@ -39,11 +43,11 @@ export function renderClientBrandLogo(
           <div className="w-5 h-5 rounded bg-gradient-to-br from-[#FF0055] to-[#80002A] border border-[#FF3377]/40 flex items-center justify-center text-white text-[11px] font-black shadow-xs">
             S
           </div>
-          <span className="font-heading font-black text-xs sm:text-[13px] text-white uppercase tracking-wider leading-none">
+          <span className={`font-heading font-black text-xs sm:text-[13px] ${textColor} uppercase tracking-wider leading-none`}>
             SAFARI FURNITURE
           </span>
         </div>
-        <span className="text-[7px] sm:text-[7.5px] text-white/50 tracking-[0.2em] uppercase font-sans font-semibold block">
+        <span className={`text-[7px] sm:text-[7.5px] ${tagColor} tracking-[0.2em] uppercase font-sans font-semibold block`}>
           HOME & OFFICE EXCELLENCE
         </span>
       </div>
@@ -58,11 +62,11 @@ export function renderClientBrandLogo(
           <div className="w-5 h-5 rounded bg-gradient-to-br from-amber-500 to-rose-600 border border-amber-400/40 flex items-center justify-center text-white text-[11px] font-black shadow-xs">
             S
           </div>
-          <span className="font-heading font-black text-xs sm:text-[13px] text-white uppercase tracking-wider leading-none">
+          <span className={`font-heading font-black text-xs sm:text-[13px] ${textColor} uppercase tracking-wider leading-none`}>
             SAFARI MALL
           </span>
         </div>
-        <span className="text-[7px] sm:text-[7.5px] text-white/50 tracking-[0.2em] uppercase font-sans font-semibold block">
+        <span className={`text-[7px] sm:text-[7.5px] ${tagColor} tracking-[0.2em] uppercase font-sans font-semibold block`}>
           HYPERMARKET & MALL
         </span>
       </div>
@@ -77,11 +81,11 @@ export function renderClientBrandLogo(
           <div className="w-5 h-5 rounded-full bg-gradient-to-br from-rose-500 to-[#FF0055] flex items-center justify-center text-white text-[10px] font-bold shadow-xs">
             H
           </div>
-          <span className="font-heading font-black text-xs sm:text-[13px] text-white uppercase tracking-wider leading-none">
+          <span className={`font-heading font-black text-xs sm:text-[13px] ${textColor} uppercase tracking-wider leading-none`}>
             HAIR O CRAFT
           </span>
         </div>
-        <span className="text-[7px] sm:text-[7.5px] text-white/50 tracking-[0.2em] uppercase font-sans font-semibold block">
+        <span className={`text-[7px] sm:text-[7.5px] ${tagColor} tracking-[0.2em] uppercase font-sans font-semibold block`}>
           HAIR & SKIN CLINIC
         </span>
       </div>
@@ -96,11 +100,11 @@ export function renderClientBrandLogo(
           <div className="w-5 h-5 rounded bg-gradient-to-br from-red-600 to-amber-500 flex items-center justify-center text-white text-[10px] font-black shadow-xs">
             A
           </div>
-          <span className="font-heading font-black text-xs sm:text-[13px] text-white uppercase tracking-wider leading-none">
+          <span className={`font-heading font-black text-xs sm:text-[13px] ${textColor} uppercase tracking-wider leading-none`}>
             ASIAN AVENUE
           </span>
         </div>
-        <span className="text-[7px] sm:text-[7.5px] text-white/50 tracking-[0.2em] uppercase font-sans font-semibold block">
+        <span className={`text-[7px] sm:text-[7.5px] ${tagColor} tracking-[0.2em] uppercase font-sans font-semibold block`}>
           SUPERMARKET & FOODS
         </span>
       </div>
@@ -115,11 +119,11 @@ export function renderClientBrandLogo(
           <div className="w-5 h-5 rounded bg-[#101426] border border-amber-500/50 flex items-center justify-center text-amber-400 text-[10px] font-bold shadow-xs">
             D
           </div>
-          <span className="font-heading font-black text-xs sm:text-[13px] text-white uppercase tracking-wider leading-none">
+          <span className={`font-heading font-black text-xs sm:text-[13px] ${textColor} uppercase tracking-wider leading-none`}>
             DATS INTERIORS
           </span>
         </div>
-        <span className="text-[7px] sm:text-[7.5px] text-white/50 tracking-[0.2em] uppercase font-sans font-semibold block">
+        <span className={`text-[7px] sm:text-[7.5px] ${tagColor} tracking-[0.2em] uppercase font-sans font-semibold block`}>
           LUXURY ARCHITECTURE
         </span>
       </div>
@@ -134,11 +138,11 @@ export function renderClientBrandLogo(
           <div className="w-5 h-5 rounded bg-gradient-to-br from-emerald-600 to-teal-500 flex items-center justify-center text-white text-[10px] font-black shadow-xs">
             N
           </div>
-          <span className="font-heading font-black text-xs sm:text-[13px] text-white uppercase tracking-wider leading-none">
+          <span className={`font-heading font-black text-xs sm:text-[13px] ${textColor} uppercase tracking-wider leading-none`}>
             NEUROBASE
           </span>
         </div>
-        <span className="text-[7px] sm:text-[7.5px] text-white/50 tracking-[0.2em] uppercase font-sans font-semibold block">
+        <span className={`text-[7px] sm:text-[7.5px] ${tagColor} tracking-[0.2em] uppercase font-sans font-semibold block`}>
           AYURVEDA SPECIALITY
         </span>
       </div>
@@ -153,11 +157,11 @@ export function renderClientBrandLogo(
           <div className="w-5 h-5 rounded bg-gradient-to-br from-[#FF0055] to-purple-800 flex items-center justify-center text-white text-[10px] font-black shadow-xs">
             F
           </div>
-          <span className="font-heading font-black text-xs sm:text-[13px] text-white uppercase tracking-wider leading-none">
+          <span className={`font-heading font-black text-xs sm:text-[13px] ${textColor} uppercase tracking-wider leading-none`}>
             FINEXX TRAVELS
           </span>
         </div>
-        <span className="text-[7px] sm:text-[7.5px] text-white/50 tracking-[0.2em] uppercase font-sans font-semibold block">
+        <span className={`text-[7px] sm:text-[7.5px] ${tagColor} tracking-[0.2em] uppercase font-sans font-semibold block`}>
           VIP TRAVEL & LOGISTICS
         </span>
       </div>
@@ -171,11 +175,11 @@ export function renderClientBrandLogo(
         <div className="w-5 h-5 rounded bg-gradient-to-br from-[#FF0055] to-[#80002A] flex items-center justify-center text-white text-[10px] font-black shadow-xs">
           {clientLogoText.charAt(0)}
         </div>
-        <span className="font-heading font-black text-xs sm:text-[13px] text-white uppercase tracking-wider leading-none">
+        <span className={`font-heading font-black text-xs sm:text-[13px] ${textColor} uppercase tracking-wider leading-none`}>
           {clientLogoText}
         </span>
       </div>
-      <span className="text-[7px] sm:text-[7.5px] text-white/50 tracking-[0.2em] uppercase font-sans font-semibold block">
+      <span className={`text-[7px] sm:text-[7.5px] ${tagColor} tracking-[0.2em] uppercase font-sans font-semibold block`}>
         {clientLogoTagline}
       </span>
     </div>

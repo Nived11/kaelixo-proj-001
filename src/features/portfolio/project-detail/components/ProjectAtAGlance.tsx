@@ -55,7 +55,7 @@ export default function ProjectAtAGlance({
   const logoSrc =
     project.clientLogoImageDark ||
     project.clientLogoImage ||
-    "/images/portfolio/travelhopelogo-dark.webp";
+    null;
 
   return (
     <section
@@ -103,7 +103,7 @@ export default function ProjectAtAGlance({
                     />
                   </div>
                 ) : (
-                  renderClientBrandLogo(project, clientLogoText, clientLogoTagline)
+                  renderClientBrandLogo(project, clientLogoText, clientLogoTagline, "light")
                 )}
               </div>
             </div>
