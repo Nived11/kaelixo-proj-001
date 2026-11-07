@@ -95,6 +95,7 @@ export default function ProjectDetailHero({
                       alt={`${clientLogoText} Logo`}
                       fill
                       priority
+                      style={{ transform: `scale(${project.heroLogoScale ?? 1})` }}
                       className="object-contain object-center"
                     />
                   </div>

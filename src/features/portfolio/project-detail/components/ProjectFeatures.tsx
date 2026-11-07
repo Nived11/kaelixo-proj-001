@@ -31,15 +31,15 @@ export default function ProjectFeatures({
         <div className="mb-8 text-center sm:mb-10">
           <div className="mb-5 flex items-center justify-center gap-4">
             <span className="h-px w-8 bg-[#ff0055]/55 sm:w-10" />
-            <span className="font-heading text-[10px] font-bold uppercase tracking-[.24em] text-[#ff0055] sm:text-xs">
+            <span className="font-heading text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-bold uppercase tracking-[0.25em] text-[#ff0055]">
               KEY FEATURES DELIVERED
             </span>
             <span className="h-px w-8 bg-[#ff0055]/55 sm:w-10" />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[#0A1024]">
+          <h2 className="text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] leading-[1.05] tracking-tight mb-4 font-heading">
             Key Features Delivered
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl font-sans text-sm leading-relaxed text-slate-600 sm:text-base">
+          <p className="mx-auto mt-4 max-w-2xl font-sans text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px]  leading-relaxed text-slate-600 ">
             {featuresDelivered.subtitle}
           </p>
         </div>
@@ -54,10 +54,10 @@ export default function ProjectFeatures({
               <div className="mb-3 grid size-16 place-items-center rounded-full bg-[#ff0055]/[.065] text-[#f82569]">
                 {renderIcon(feat.icon, "size-8 stroke-[1.8]")}
               </div>
-              <h3 className="mb-1.5 font-heading text-base leading-snug font-bold">
+              <h3 className="mb-1.5 font-heading text-[16px] sm:text-[16px] lg:text-[17px] xl:text-[18px] leading-snug font-bold">
                 {feat.title}
               </h3>
-              <p className="font-sans text-sm leading-snug text-slate-600">
+              <p className="font-sans text-[14px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-snug text-slate-600">
                 {feat.desc}
               </p>
             </div>

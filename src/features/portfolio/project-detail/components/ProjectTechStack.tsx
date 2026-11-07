@@ -15,6 +15,7 @@ interface GuaranteeItem {
 }
 
 interface TechStackData {
+  image?: string;
   subtitle: string;
   technologies: TechItem[];
   guarantees: GuaranteeItem[];
@@ -46,21 +47,21 @@ export default function ProjectTechStack({ techStack }: { techStack: TechStackDa
       <div className="relative mx-auto max-w-[1400px] px-4 sm:px-8 xl:px-12">
         <div className="grid gap-5 lg:grid-cols-[2fr_3fr] lg:gap-4">
           <div className="flex min-w-0 flex-col">
-            <p className="flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-600 sm:text-xs">
+            <p className="flex  items-center gap-4 text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-[750] uppercase tracking-[0.24em] text-slate-600 sm:text-xs">
               <span className="h-0.5 w-10 shrink-0 bg-[#ff0055]" />
               Technology &amp; Services Used
             </p>
-            <h2 className="mt-5 font-heading text-[clamp(2rem,4vw,3.6rem)] leading-[1.02] font-black tracking-tight">
+            <h2 className="mt-5 text-[28px] sm:text-[28px] md:text-[36px] lg:text-[36px] xl:text-[42px] 2xl:text-[42px] [@media(min-width:1920px)]:text-[42px] font-[750] text-[clamp(2rem,4vw,3.6rem)] leading-[1.02] font-black tracking-tight">
               Built with the Right
               <span className="block text-[#ff0055]">Technology</span>
             </h2>
-            <p className="mt-4 max-w-md text-sm leading-snug text-slate-700 sm:text-base">
+            <p className="mt-4 max-w-md text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] leading-snug text-slate-700 sm:text-base">
               {techStack.subtitle}
             </p>
             <div className="pointer-events-none relative mt-5 min-h-52 flex-1 overflow-hidden sm:min-h-64 [mask-image:linear-gradient(to_bottom,transparent,black_8%,black_88%,transparent)]">
               <div className="absolute inset-x-0 top-0 aspect-square -translate-y-[29%]">
                 <Image
-                  src="/images/portfolio/global-travel.png"
+                  src={techStack.image || "/images/portfolio/global-travel.png"}
                   alt=""
                   fill
                   sizes="(min-width: 1400px) 520px, (min-width: 1024px) 40vw, 100vw"
@@ -83,8 +84,8 @@ export default function ProjectTechStack({ techStack }: { techStack: TechStackDa
                       <Icon className={`size-8 ${tech.name === "Python" || tech.name === "MySQL" ? "text-sky-600" : ""}`} strokeWidth={1.65} />
                     )}
                   </div>
-                  <h3 className="font-heading text-sm font-bold leading-tight sm:text-[15px]">{tech.name}</h3>
-                  <p className="mt-1 text-xs leading-snug text-slate-600 sm:text-[13px]">{tech.desc}</p>
+                  <h3 className="font-heading text-[16px] sm:text-[16px] lg:text-[17px] xl:text-[18px] font-bold leading-tight ">{tech.name}</h3>
+                  <p className="mt-1 text-[14px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-snug text-slate-600 ">{tech.desc}</p>
                 </li>
               );
             })}
@@ -101,8 +102,8 @@ export default function ProjectTechStack({ techStack }: { techStack: TechStackDa
                   <Icon aria-hidden="true" className="size-7" strokeWidth={1.8} />
                 </span>
                 <div>
-                  <h3 className="font-heading text-xs font-bold leading-tight sm:text-sm">{item.title}</h3>
-                  <p className="mt-1 text-xs leading-tight text-slate-600">{item.desc}</p>
+                  <h3 className="font-heading text-[16px] sm:text-[16px] lg:text-[17px] xl:text-[18px] font-bold leading-tight ">{item.title}</h3>
+                  <p className="mt-1 text-[14px] sm:text-[14px] lg:text-[15px] xl:text-[16px] leading-tight text-slate-600">{item.desc}</p>
                 </div>
               </li>
             );

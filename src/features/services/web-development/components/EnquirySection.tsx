@@ -120,7 +120,7 @@ export default function EnquirySection() {
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="lg:col-span-5 flex flex-col items-start pt-2"
             >
@@ -143,7 +143,7 @@ export default function EnquirySection() {
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.45, delay: 0.1 }}
                   className="flex items-start gap-3"
                 >
@@ -158,7 +158,7 @@ export default function EnquirySection() {
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.45, delay: 0.2 }}
                   className="flex items-start gap-3"
                 >
@@ -173,7 +173,7 @@ export default function EnquirySection() {
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.45, delay: 0.3 }}
                   className="flex items-start gap-3"
                 >
@@ -190,13 +190,7 @@ export default function EnquirySection() {
             </motion.div>
 
             {/* RIGHT COLUMN: Form Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.65, ease: "easeOut" }}
-              className="lg:col-span-6 lg:col-start-7 relative"
-            >
+            <div className="lg:col-span-6 lg:col-start-7 relative">
 
               <div className="bg-white rounded-[24px] p-5 sm:p-7 lg:p-8 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] border border-gray-100 relative z-20">
 
@@ -464,7 +458,7 @@ export default function EnquirySection() {
                 </form>
               </div>
 
-            </motion.div>
+            </div>
           </div>
 
         </div>

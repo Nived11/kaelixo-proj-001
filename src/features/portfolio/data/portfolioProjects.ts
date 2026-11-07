@@ -57,6 +57,7 @@ export interface ProjectItem {
   clientLogoText?: string;
   clientLogoTagline?: string;
   clientLogoImage?: string;
+  heroLogoScale?: number;
   clientLogoImageDark?: string;
   heroBgImage?: string;
   heroMobileBgImage?: string;
@@ -88,6 +89,7 @@ export interface ProjectItem {
   };
 
   techStack?: {
+    image?: string;
     subtitle: string;
     technologies: TechItem[];
     guarantees: { title: string; desc: string }[];
@@ -99,6 +101,8 @@ export interface ProjectItem {
   };
 
   results?: {
+    imageOffsetY?: number;
+    image?: string;
     headline: { prefix: string; highlight: string };
     subtitle: string;
     stats: CaseStudyStat[];
@@ -136,6 +140,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     ],
     heroTagline: "CASE STUDY",
     clientLogoText: "Safari Furniture",
+    clientLogoImage: "/images/portfolio/safari-furniture-logo.svg",
+    heroLogoScale: 0.82,
+    clientLogoImageDark: "/images/portfolio/safari-furniture-logo.svg",
     clientLogoTagline: "HOME & OFFICE EXCELLENCE",
     projectType: "Furniture E-Commerce & Showroom Platform",
     heroHeadline: {
@@ -143,6 +150,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "Across the UAE with Digital Convenience",
     },
     heroSubtitle: "A comprehensive furniture e-commerce platform showcasing ergonomic home office setups, luxury living collections, in-house manufacturing, and all-UAE delivery.",
+    heroBgImage: "/images/portfolio/safari-furniture-bg.png",
+    heroMobileBgImage: "/images/portfolio/safari-furniture-bg.png",
+    heroMockupImage: "/images/portfolio/safari-furniture-laptop.png",
     snapshot: {
       platform: "Shopify Plus & Next.js Headless",
       duration: "3.5 Months",
@@ -192,6 +202,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/safari-furniture-tech.png",
       subtitle: "Engineered with resilient e-commerce tech capable of handling massive seasonal furniture sales promotions.",
       technologies: [
         { name: "Next.js & React", desc: "Sub-second product filtering by room, material, and price range." },
@@ -225,6 +236,8 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     results: {
+      image: "/images/portfolio/safari-furniture-Resultsbg.png",
+      imageOffsetY: -88,
       headline: { prefix: "Measurable Impact.", highlight: "Modern Living." },
       subtitle: "How digital commerce expanded Safari Furniture from a showroom staple into an all-UAE household name.",
       stats: [

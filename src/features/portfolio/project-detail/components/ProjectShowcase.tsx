@@ -87,22 +87,20 @@ export default function ProjectShowcase({
         </div>
 
         <div className="relative isolate mt-6 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[.09] via-white/[.045] to-[#ff2470]/[.06] backdrop-blur-xl lg:mt-0">
-          <svg aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 size-full text-[#ff0055] motion-reduce:hidden">
-            <rect
-              x="0.5"
-              y="0.5"
-              rx="15"
-              style={{ width: "calc(100% - 1px)", height: "calc(100% - 1px)" }}
-              pathLength="100"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeWidth="0.7"
-              strokeDasharray="4.5 45.5"
-            >
-              <animate attributeName="stroke-dashoffset" from="0" to="-100" dur="7s" repeatCount="indefinite" />
-            </rect>
-          </svg>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-10 overflow-hidden rounded-[15px] p-px motion-reduce:hidden"
+            style={{
+              maskImage: "linear-gradient(white, white), linear-gradient(white, white)",
+              maskClip: "content-box, border-box",
+              maskComposite: "exclude",
+              WebkitMaskImage: "linear-gradient(white, white), linear-gradient(white, white)",
+              WebkitMaskClip: "content-box, border-box",
+              WebkitMaskComposite: "xor",
+            }}
+          >
+            <div className="absolute inset-[-140%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_5deg,#FF0055_25deg,transparent_45deg,transparent_180deg,transparent_185deg,#FF0055_205deg,transparent_225deg,transparent_360deg)] animate-dual-beam" />
+          </div>
           <ul className="relative grid w-full grid-cols-2 gap-x-3 gap-y-5 p-3 sm:p-4 lg:grid-cols-[repeat(4,minmax(0,1fr))_minmax(0,.48fr)]">
             {showcase.screens.map((screen, index) => {
               const mobile = index === showcase.screens.length - 1;
