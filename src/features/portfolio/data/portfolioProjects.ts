@@ -39,6 +39,7 @@ export interface ProjectItem {
   title: string;
   description: string;
   category: string;
+  industryIcon?: string;
   image: string;
   tags: string[];
   client: string;
@@ -62,6 +63,8 @@ export interface ProjectItem {
   heroBgImage?: string;
   heroMobileBgImage?: string;
   heroMockupImage?: string;
+  heroBgOverlay?: string;
+  heroMobileBgOverlay?: string;
 
   snapshot?: {
     platform: string;
@@ -667,6 +670,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "For Celebrities, VIPs & Corporate Summits",
     },
     heroSubtitle: "A world-class luxury fleet portal showcasing exotic supercars, vintage classics, corporate coaches, and discreet celebrity protection transit across Kerala and Bangalore.",
+    heroBgImage: "/images/portfolio/finex-bg.png",
+    heroMobileBgImage: "/images/portfolio/finex-bg.png",
+    heroMockupImage: "/images/portfolio/finex-laptop.png",
     snapshot: {
       platform: "Next.js & Fleet Logistics CMS",
       duration: "2.5 Months",
@@ -791,6 +797,11 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "For Leading Hair Restoration Clinics",
     },
     heroSubtitle: "A trusted medical aesthetic portal connecting patients with certified specialists, interactive balding grade tools, and seamless appointment scheduling across South India.",
+    heroBgImage: "/images/portfolio/hairocraft-bg.png",
+    heroMobileBgImage: "/images/portfolio/hairocraft-bg.png",
+    heroMockupImage: "/images/portfolio/hairocraft-laptop.png",
+    heroBgOverlay: "bg-gradient-to-r from-[#03040B]/35 via-[#03040B]/10 to-transparent",
+    heroMobileBgOverlay: "bg-gradient-to-b from-[#03040B]/30 via-transparent to-[#03040B]/50",
     snapshot: {
       platform: "Next.js & Custom Healthcare CMS",
       duration: "3.5 Months",
@@ -807,7 +818,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     challenges: {
       subtitle: "Hair restoration is a sensitive medical decision; patients struggled with anxiety, lack of clear procedure details, and cumbersome appointment booking across multiple city branches.",
       items: [
-        { title: "Patient Hesitation & Fear", desc: "Users lacked understanding of painless FUE procedures and recovery timelines.", icon: "HelpCircle" },
+      { title: "Patient Hesitation & Fear", desc: "Users lacked understanding of painless FUE procedures and recovery timelines.", icon: "HelpCircle" },
         { title: "Manual Triage Overload", desc: "Clinic receptionists spent hours evaluating patient photos over random messaging apps.", icon: "PhoneCall" },
         { title: "Multi-Branch Routing", desc: "Patients in Calicut, Trivandrum, or Bangalore often booked the wrong branch schedules.", icon: "MapPin" },
         { title: "Sensitive Data Security", desc: "Patient contact numbers and private scalp photos needed encrypted, HIPAA-conscious handling.", icon: "Lock" },
@@ -915,6 +926,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "Warehouses & Structural Steel Across the UAE",
     },
     heroSubtitle: "An authoritative industrial engineering web platform presenting structural steel framing, warehouse construction, mezzanine floors, and Dubai Municipality certified contracting.",
+    heroBgImage: "/images/portfolio/insafe-bg.png",
+    heroMobileBgImage: "/images/portfolio/insafe-bg.png",
+    heroMockupImage: "/images/portfolio/insafe-laptop.png",
     snapshot: {
       platform: "Next.js & Engineering Tender CMS",
       duration: "3 Months",
@@ -1039,6 +1053,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "Oil & Gas, AWS Welding & Global Careers",
     },
     heroSubtitle: "A high-conversion technical training academy platform connecting young aspirants with accredited Oil & Gas, welding certifications, practical workshops, and direct placements in the Gulf.",
+    heroBgImage: "/images/portfolio/unigrant-bg.png",
+    heroMobileBgImage: "/images/portfolio/unigrant-bg.png",
+    heroMockupImage: "/images/portfolio/unigrant-laptop.png",
     snapshot: {
       platform: "Next.js & Academic Enrollment CMS",
       duration: "3 Months",
@@ -1163,6 +1180,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "With Premier Luxury Houseboat Cruises",
     },
     heroSubtitle: "An exquisite backwater hospitality platform presenting Kerala's largest luxury houseboat fleet — from private romantic suites to grand 11-bedroom floating celebration venues in Alleppey.",
+    heroBgImage: "/images/portfolio/ivaansh-bg.png",
+    heroMobileBgImage: "/images/portfolio/ivaansh-bg.png",
+    heroMockupImage: "/images/portfolio/ivaansh-laptop.png",
     snapshot: {
       platform: "Next.js & Hospitality Experience Hub",
       duration: "2 Months",
@@ -1458,6 +1478,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "Directly to Consumers Worldwide",
     },
     heroSubtitle: "A modern organic e-commerce storefront delivering rapid WhatsApp checkout, verified spice origin stories and international shipping.",
+    heroBgImage: "/images/portfolio/ayurgreen-bg.png",
+    heroMobileBgImage: "/images/portfolio/ayurgreen-bg.png",
+    heroMockupImage: "/images/portfolio/ayurgreen-laptop.png",
     snapshot: {
       platform: "Next.js & Shopify Headless",
       duration: "2.5 Months",
@@ -1582,6 +1605,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "Modern EdTech & Admission Funnels",
     },
     heroSubtitle: "A high-conversion educational platform connecting aspiring tech professionals with industry-ready certifications, demo classes and direct counselor admissions.",
+    heroBgImage: "/images/portfolio/dsoft-bg.png",
+    heroMobileBgImage: "/images/portfolio/dsoft-bg.png",
+    heroMockupImage: "/images/portfolio/dsoft-laptop.png",
     snapshot: {
       platform: "Next.js & Custom LMS",
       duration: "3 Months",
@@ -1706,6 +1732,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "To Supermarket Shoppers Across Germany",
     },
     heroSubtitle: "A contemporary culinary and retail portal celebrating Asian, African, and Indian groceries with store locators, partner online ordering, and franchise expansion in Europe.",
+    heroBgImage: "/images/portfolio/asianavenue-bg.png",
+    heroMobileBgImage: "/images/portfolio/asianavenue-bg.png",
+    heroMockupImage: "/images/portfolio/asianavenue-laptop.png",
     snapshot: {
       platform: "Next.js & Multilingual CMS",
       duration: "2.5 Months",
@@ -1830,6 +1859,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "For Neurological & Spine Rehabilitation",
     },
     heroSubtitle: "A compassionate, authoritative hospital portal providing specialized Ayurvedic neurological treatments, stroke rehabilitation guidance, and online doctor consultations.",
+    heroBgImage: "/images/portfolio/neurobase-bg.png",
+    heroMobileBgImage: "/images/portfolio/neurobase-bg.png",
+    heroMockupImage: "/images/portfolio/neurobase-laptop.png",
     snapshot: {
       platform: "Next.js & Custom Healthcare Portal",
       duration: "3 Months",
@@ -1954,6 +1986,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "That Inspires Audiences & Drives Conversions",
     },
     heroSubtitle: "A sleek, conversion-focused digital agency platform showcasing business copywriting, SEO blogs, technical whitepapers, and international university SOP admissions writing.",
+    heroBgImage: "/images/portfolio/infig-bg.png",
+    heroMobileBgImage: "/images/portfolio/infig-bg.png",
+    heroMockupImage: "/images/portfolio/infig-laptop.png",
     snapshot: {
       platform: "Next.js & Content Management Hub",
       duration: "2 Months",
@@ -2078,6 +2113,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       highlight: "For Global Entrepreneurs & Investors",
     },
     heroSubtitle: "A premier corporate advisory portal demystifying UAE mainland and free zone incorporation, corporate bank accounts, golden visas, and government PRO services.",
+    heroBgImage: "/images/portfolio/phoenix-bg.png",
+    heroMobileBgImage: "/images/portfolio/phoenix-bg.png",
+    heroMockupImage: "/images/portfolio/phoenix-laptop.png",
     snapshot: {
       platform: "Next.js & Corporate Advisory Funnel",
       duration: "2.5 Months",
@@ -2182,7 +2220,29 @@ export function getProjectBySlug(slug: string): ProjectItem | undefined {
       (p.id === "dream-holidays-kerala" &&
         ["dream-holidays", "dreamholiday", "dreamholidays"].includes(s)) ||
       (p.id === "dats-interiors" &&
-        ["dats-interior", "dats", "datsinterior", "datsinteriors"].includes(s))
+        ["dats-interior", "dats", "datsinterior", "datsinteriors"].includes(s)) ||
+      (p.id === "finexx-travels" &&
+        ["finexx", "finex", "finexx-travel", "finex-travel", "finexx-travels", "finex-travels"].includes(s)) ||
+      (p.id === "hair-o-craft" &&
+        ["hairocraft", "hair-o-craft", "hairocraft-clinic", "hair-o-craft-clinics"].includes(s)) ||
+      (p.id === "insafe-steel" &&
+        ["insafe", "insafe-steel", "insafesteel"].includes(s)) ||
+      (p.id === "unigrant-academy" &&
+        ["unigrant", "unigrant-academy", "unigrantacademy"].includes(s)) ||
+      (p.id === "ivaansh-international" &&
+        ["ivaansh", "ivaansh-international", "ivaanshinternational"].includes(s)) ||
+      (p.id === "ayurgreen-spices" &&
+        ["ayurgreen", "ayurgreen-spices", "ayurgreenspices"].includes(s)) ||
+      (p.id === "dsoft-institute" &&
+        ["dsoft", "d-soft", "dsoft-institute", "d-soft-institute"].includes(s)) ||
+      (p.id === "infig-content-hub" &&
+        ["infig", "infig-content-hub", "infigcontenthub"].includes(s)) ||
+      (p.id === "asian-avenue" &&
+        ["asian-avenue", "asianavenue"].includes(s)) ||
+      (p.id === "neurobase-ayurveda" &&
+        ["neurobase", "neurobase-ayurveda", "neurobaseayurveda"].includes(s)) ||
+      (p.id === "phoenix-flow" &&
+        ["phoenix", "phoenix-flow", "phoenixflow", "phoenix-flow-global"].includes(s))
   );
 }
 

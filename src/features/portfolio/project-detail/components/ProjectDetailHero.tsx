@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { Briefcase, Laptop } from "lucide-react";
+import { Layers } from "lucide-react";
 import { ProjectItem } from "@/features/portfolio/data/portfolioProjects";
 import { renderClientBrandLogo } from "./renderClientBrandLogo";
+import { getIndustryIcon } from "./renderIcon";
 
 interface ProjectDetailHeroProps {
   project: ProjectItem;
@@ -49,7 +50,7 @@ export default function ProjectDetailHero({
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center hidden sm:block opacity-90"
+            className="object-cover object-center hidden sm:block opacity-100"
           />
           {/* Mobile Background */}
           <Image
@@ -58,11 +59,21 @@ export default function ProjectDetailHero({
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center block sm:hidden opacity-90"
+            className="object-cover object-center block sm:hidden opacity-100"
           />
           {/* Dark gradient overlay for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#03040B]/85 via-[#03040B]/40 to-transparent hidden sm:block" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#03040B]/80 via-[#03040B]/30 to-[#03040B]/90 sm:hidden block" />
+          <div
+            className={`absolute inset-0 ${
+              project.heroBgOverlay ||
+              "bg-gradient-to-r from-[#03040B]/70 via-[#03040B]/25 to-transparent"
+            } hidden sm:block`}
+          />
+          <div
+            className={`absolute inset-0 ${
+              project.heroMobileBgOverlay ||
+              "bg-gradient-to-b from-[#03040B]/60 via-transparent to-[#03040B]/80"
+            } sm:hidden block`}
+          />
         </div>
       ) : (
         <>
@@ -86,8 +97,8 @@ export default function ProjectDetailHero({
 
             {/* Client Logo Card & Stacked Metadata Row (Locked Side-by-Side, Never Wraps) */}
             <div className="flex items-center gap-4 sm:gap-6 mb-7 sm:mb-8 w-full max-w-full">
-              {/* Client Logo Box */}
-              <div className="relative rounded-[16px] bg-[#0A0D18]/90 border border-white/12 px-4 py-3 flex flex-col items-center justify-center shrink-0 w-[170px] sm:w-[190px] h-[78px] sm:h-[84px] shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+              {/* Client Logo Box (Glassmorphism Frosted Glass) */}
+              <div className="relative rounded-[16px] bg-white/[0.06] backdrop-blur-xl border border-white/20 px-4 py-3 flex flex-col items-center justify-center shrink-0 w-[170px] sm:w-[190px] h-[78px] sm:h-[84px] shadow-[0_8px_32px_rgba(0,0,0,0.25)] hover:border-white/30 transition-all duration-300">
                 {project.clientLogoImage ? (
                   <div className="relative w-full h-full max-h-[54px] sm:max-h-[58px]">
                     <Image
@@ -109,7 +120,7 @@ export default function ProjectDetailHero({
                 {/* Industry Item */}
                 <div className="flex items-center gap-2.5">
                   <div className="w-10 h-10 rounded-lg border border-white/15 bg-white/[0.04] flex items-center justify-center text-[#FF0055] shrink-0 shadow-xs">
-                    <Briefcase className="w-5 h-5 stroke-[1.8]" />
+                    {getIndustryIcon(project.category, project.industryIcon, "w-5 h-5 stroke-[1.8]")}
                   </div>
                   <div className="min-w-0">
                     <span className="text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[16px] font-semibold text-white/45 uppercase tracking-wider block font-heading leading-tight">
@@ -124,7 +135,7 @@ export default function ProjectDetailHero({
                 {/* Project Type Item */}
                 <div className="flex items-center gap-2.5">
                   <div className="w-10 h-10 rounded-lg border border-white/15 bg-white/[0.04] flex items-center justify-center text-[#FF0055] shrink-0 shadow-xs">
-                    <Laptop className="w-5 h-5 stroke-[1.8]" />
+                    <Layers className="w-5 h-5 stroke-[1.8]" />
                   </div>
                   <div className="min-w-0">
                     <span className="text-[16px] sm:text-[16px] lg:text-[18px] xl:text-[16px] font-semibold text-white/45 uppercase tracking-wider block font-heading leading-tight">
