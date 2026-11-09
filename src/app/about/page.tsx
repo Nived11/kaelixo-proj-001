@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import AboutMain from "@/features/about/AboutMain";
 
 export const metadata: Metadata = {
-  title: "About Us | Kaelixo - People Behind Digital Impact",
+  title: "About Kaelixo | Web, Software & Growth Marketing, Kochi",
   description:
-    "We are a team of creative thinkers, developers and problem-solvers on a mission to build digital experiences that create real value for businesses.",
+    "Kaelixo is a Kochi-based growth marketing company combining web development, UI/UX, software, CRM, and growth marketing to build solutions that fit your business.",
   openGraph: {
-    title: "About Us | Kaelixo",
+    title: "About Kaelixo | Web, Software & Growth Marketing, Kochi",
     description:
-      "People Behind Digital Impact. We build digital experiences that create real value for businesses.",
+      "Kaelixo is a Kochi-based growth marketing company combining web development, UI/UX, software, CRM, and growth marketing to build solutions that fit your business.",
     images: ["/images/about/hero-office-bg.webp"],
   },
 };

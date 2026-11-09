@@ -172,7 +172,13 @@ export default function ContactMainSection() {
             {/* ============================================================ */}
             {/* LEFT COLUMN: SEND A MESSAGE FORM CARD                        */}
             {/* ============================================================ */}
-            <div className="w-full bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 lg:p-8 xl:p-9 shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 lg:p-8 xl:p-9 shadow-[0_4px_24px_rgba(0,0,0,0.03)]"
+            >
               {/* Eyebrow */}
               <div className="flex items-center gap-3 mb-2.5">
                 <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] font-bold text-[#FF0055] tracking-[0.2em] uppercase font-heading">
@@ -494,14 +500,20 @@ export default function ContactMainSection() {
                   </div>
                 </div>
               </form>
-            </div>
+            </motion.div>
 
             {/* ============================================================ */}
             {/* RIGHT COLUMN: IDEAS CARD, OFFICE MAP & CONTACT DETAILS       */}
             {/* ============================================================ */}
             <div className="w-full flex flex-col gap-6">
               {/* 1. TOP CARD: Ideas Into Impact (Dark Card with Workspace Photo) */}
-              <div className="relative rounded-2xl overflow-hidden bg-[#0a040b] border border-white/10 p-7 sm:p-8 text-white min-h-[210px] flex flex-col justify-end shadow-[0_15px_35px_rgba(0,0,0,0.18)] group">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="relative rounded-2xl overflow-hidden bg-[#0a040b] border border-white/10 p-7 sm:p-8 text-white min-h-[210px] flex flex-col justify-end shadow-[0_15px_35px_rgba(0,0,0,0.18)] group"
+              >
                 {/* Workspace Background Image */}
                 <Image
                   src="/images/about/team-workspace.webp"
@@ -523,10 +535,16 @@ export default function ContactMainSection() {
                   <p className="text-gray-300 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-normal leading-relaxed font-sans">
                     Start with a rough sketch, a half-formed plan, or a fully scoped brief. We’ll think the problem through with you, build what fits, and help it grow once it’s live.                  </p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* 2. MIDDLE CARD: Our Office with Real Map Embed */}
-              <div className="rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col md:flex-row gap-6 items-center justify-between">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col md:flex-row gap-6 items-center justify-between"
+              >
                 {/* Left Info */}
                 <div className="flex-1 w-full">
                   <div className="flex items-center gap-2 mb-2">
@@ -577,12 +595,18 @@ export default function ContactMainSection() {
                     className="w-full h-full"
                   />
                 </div>
-              </div>
+              </motion.div>
 
               {/* 3. BOTTOM ROW: Write to Us & Speak to Us Quick Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Email Card */}
-                <div className="rounded-xl border border-slate-200/80 bg-white p-4 sm:p-4.5 flex items-start gap-3.5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-[#FF0055]/40 transition-all">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.5, delay: 0.26, ease: [0.22, 1, 0.36, 1] }}
+                  className="rounded-xl border border-slate-200/80 bg-white p-4 sm:p-4.5 flex items-start gap-3.5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-[#FF0055]/40 transition-all"
+                >
                   <div className="w-8 h-8 rounded-lg bg-pink-100/70 border border-pink-200/80 text-[#FF0055] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
                     <Mail className="w-4 h-4" />
                   </div>
@@ -609,10 +633,16 @@ export default function ContactMainSection() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Call Us Card */}
-                <div className="rounded-xl border border-slate-200/80 bg-white p-4 sm:p-4.5 flex items-start gap-3.5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-[#FF0055]/40 transition-all">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.5, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
+                  className="rounded-xl border border-slate-200/80 bg-white p-4 sm:p-4.5 flex items-start gap-3.5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-[#FF0055]/40 transition-all"
+                >
                   <div className="w-8 h-8 rounded-lg bg-pink-100/70 border border-pink-200/80 text-[#FF0055] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
                     <Phone className="w-4 h-4" />
                   </div>
@@ -644,7 +674,7 @@ export default function ContactMainSection() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -658,8 +688,8 @@ export default function ContactMainSection() {
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="xl:col-span-5 flex flex-col items-start w-full"
               >
                 {/* Eyebrow */}
@@ -691,8 +721,8 @@ export default function ContactMainSection() {
                       key={idx}
                       initial={{ opacity: 0, y: 15 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false, amount: 0.2 }}
-                      transition={{ duration: 0.45, delay: idx * 0.1 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
                       className="flex flex-col items-start gap-1.5"
                     >
                       <div className="flex items-center gap-3">
@@ -715,8 +745,8 @@ export default function ContactMainSection() {
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.15 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="xl:col-span-7 flex flex-col gap-3 w-full"
               >
                 {FAQS_LIST.map((faq, index) => {
@@ -728,8 +758,8 @@ export default function ContactMainSection() {
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false, amount: 0.1 }}
-                      transition={{ duration: 0.45, delay: index * 0.05 }}
+                      viewport={{ once: true, amount: 0.1 }}
+                      transition={{ duration: 0.45, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
                       onClick={() => toggleFAQ(index)}
                       className={`border rounded-2xl cursor-pointer transition-all duration-300 overflow-hidden ${
                         isOpen

@@ -103,7 +103,13 @@ export default function ContactCTA() {
         {/* ============================================================ */}
         {/* HEADER AREA: STAY CONNECTED & HEADLINE                        */}
         {/* ============================================================ */}
-        <div className="max-w-2xl mb-8 sm:mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-2xl mb-8 sm:mb-10"
+        >
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-2.5">
             <span className="text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] [@media(min-width:1920px)]:text-[18px] font-bold text-gray-300 tracking-[0.22em] uppercase font-heading">
@@ -124,7 +130,7 @@ export default function ContactCTA() {
           <p className="text-gray-300 text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] [@media(min-width:1920px)]:text-[16px] font-normal leading-relaxed max-w-xl font-sans">
             Want a quicker chat, or a look at how we work day to day? Message us on WhatsApp or follow along on our social channels.
           </p>
-        </div>
+        </motion.div>
 
         {/* ============================================================ */}
         {/* INTERACTIVE CHANNELS GRID (3 cols on 1024px laptop)          */}
@@ -138,10 +144,10 @@ export default function ContactCTA() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.04 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.45, delay: idx * 0.05, ease: [0.22, 1, 0.36, 1] }}
                 className="group relative rounded-2xl border border-[#FF0055]/30 hover:border-[#FF0055] bg-black/50 hover:bg-black/70 backdrop-blur-md p-3.5 sm:p-4 flex items-center justify-between gap-3.5 transition-all duration-300 hover:-translate-y-1 shadow-[0_0_20px_rgba(255,0,85,0.08)] hover:shadow-[0_0_30px_rgba(255,0,85,0.28)] cursor-pointer"
               >
                 {/* Left: Icon + Text */}
