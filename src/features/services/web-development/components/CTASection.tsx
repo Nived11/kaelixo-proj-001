@@ -30,7 +30,7 @@ export default function CTASection() {
         />
       </motion.div>
 
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* LEFT COLUMN: Heading (4 Cols) */}
@@ -101,7 +101,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-            className="lg:col-span-3 flex flex-col items-start lg:items-center xl:items-end lg:pr-8 xl:pr-12 justify-center pt-4 lg:pt-0"
+            className="lg:col-span-3 flex flex-col items-start lg:items-center xl:items-end justify-center pt-4 lg:pt-0"
           >
             <div className="flex flex-col gap-3.5 w-full max-w-[250px] items-center">
               <button className="group w-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white font-bold text-[16px] py-3.5 rounded-full flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer hover:scale-[1.02] shadow-[0_4px_16px_rgba(255,0,85,0.25)]">

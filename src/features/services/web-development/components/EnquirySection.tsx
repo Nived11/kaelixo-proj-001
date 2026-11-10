@@ -95,32 +95,40 @@ export default function EnquirySection() {
 
   return (
     <>
-      <div id="contact" className="relative bg-[#fafbfe] text-[#030C25] py-16 sm:py-20 lg:py-20 xl:py-24 overflow-hidden border-t border-gray-100 scroll-mt-24">
+      <div id="contact" className="relative bg-white text-[#030C25] py-16 sm:py-20 lg:py-20 xl:py-24 overflow-hidden border-t border-gray-100 scroll-mt-24">
 
-        {/* Background Desk Image - Clean photo, shifted left to showcase the laptop desk setup */}
-        <div className="absolute top-0 left-0 w-full lg:w-[68%] xl:w-[72%] h-full opacity-65 sm:opacity-75 lg:opacity-100 pointer-events-none z-0 overflow-hidden">
-          {/* Blend to white ONLY at the right edge of the image */}
-          <div className="absolute top-0 right-0 w-[32%] lg:w-[35%] h-full bg-gradient-to-r from-transparent via-[#fafbfe]/50 to-[#fafbfe] z-10 hidden lg:block" />
-
-          {/* Mobile overlay for text readability */}
-          <div className="absolute inset-0 bg-[#fafbfe]/75 lg:hidden z-10" />
-
+        {/* Full-width Desk Background Image across the entire section (no right-side blend) */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
           <img
             src="/images/services/web-dev/webdev-contactbg.webp"
             alt="Workspace Desk"
-            className="w-full h-full object-cover object-[62%_center] lg:object-[58%_center]"
-            style={{ objectPosition: '62% center' }}
+            className="w-full h-full object-cover object-[52%_center]"
           />
         </div>
 
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        {/* Desktop Left White Slash Cutting Shape: Solid pure white background behind the text, cutting diagonally to reveal the desk image */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none z-0 hidden lg:block bg-white"
+          style={{
+            clipPath: 'polygon(0 0, max(35%, calc(50% - 180px)) 0, max(22%, calc(50% - 250px)) 100%, 0 100%)'
+          }}
+        />
+
+        {/* Mobile white overlay for readability on smaller stacked screens */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-white/90 lg:hidden z-0 pointer-events-none"
+        />
+
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center mb-0">
 
             {/* LEFT COLUMN: Content & Features */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="lg:col-span-5 flex flex-col items-start pt-2"
             >
@@ -143,7 +151,7 @@ export default function EnquirySection() {
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: false, amount: 0.2 }}
                   transition={{ duration: 0.45, delay: 0.1 }}
                   className="flex items-start gap-3"
                 >
@@ -158,7 +166,7 @@ export default function EnquirySection() {
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: false, amount: 0.2 }}
                   transition={{ duration: 0.45, delay: 0.2 }}
                   className="flex items-start gap-3"
                 >
@@ -173,7 +181,7 @@ export default function EnquirySection() {
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: false, amount: 0.2 }}
                   transition={{ duration: 0.45, delay: 0.3 }}
                   className="flex items-start gap-3"
                 >
@@ -192,7 +200,7 @@ export default function EnquirySection() {
             {/* RIGHT COLUMN: Form Card */}
             <div className="lg:col-span-6 lg:col-start-7 relative">
 
-              <div className="bg-white rounded-[24px] p-5 sm:p-7 lg:p-8 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] border border-gray-100 relative z-20">
+              <div className="bg-white rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 lg:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-100 relative z-20 w-full max-w-[560px] mx-auto lg:ml-auto">
 
                 <div className="mb-6">
                   <span className="text-[#FF0055] font-bold text-[10px] sm:text-[11px] tracking-widest uppercase mb-1.5 block">

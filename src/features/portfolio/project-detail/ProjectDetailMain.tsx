@@ -309,6 +309,7 @@ export default function ProjectDetailMain({ project }: ProjectDetailMainProps) {
         projectTitle={project.title}
         projectImage={project.image}
         heroMockupImage={project.heroMockupImage}
+        websiteImage={project.websiteImage}
         showcase={showcase}
       />
 

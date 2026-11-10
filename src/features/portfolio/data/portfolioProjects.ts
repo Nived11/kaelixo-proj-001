@@ -63,6 +63,7 @@ export interface ProjectItem {
   heroBgImage?: string;
   heroMobileBgImage?: string;
   heroMockupImage?: string;
+  websiteImage?: string;
   heroBgOverlay?: string;
   heroMobileBgOverlay?: string;
 
@@ -117,6 +118,7 @@ export const TRAVEL_HOPE_HERO_ASSETS = {
   heroBgImage: "/images/portfolio/travel-hope/travelhopebg.png",
   heroMobileBgImage: "/images/portfolio/travel-hope/travelhopemobilebg.png",
   heroMockupImage: "/images/portfolio/travel-hope/travelhopeimg.png",
+  websiteImage: "/images/portfolio/travel-hope/travelhope-website.png",
 };
 
 export const PORTFOLIO_PROJECTS: ProjectItem[] = [
@@ -156,6 +158,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/safari-furniture/safari-furniture-bg.png",
     heroMobileBgImage: "/images/portfolio/safari-furniture/safari-furniture-bg.png",
     heroMockupImage: "/images/portfolio/safari-furniture/safari-furniture-laptop.png",
+    websiteImage: "/images/portfolio/safari-furniture/safarifurniture-website.png",
     snapshot: {
       platform: "Shopify Plus & Next.js Headless",
       duration: "3.5 Months",
@@ -289,6 +292,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/safari-mall/safari-mall-bg.png",
     heroMobileBgImage: "/images/portfolio/safari-mall/safari-mall-bg.png",
     heroMockupImage: "/images/portfolio/safari-mall/safari-mall-laptop.png",
+    websiteImage: "/images/portfolio/safari-mall/safarimall-website.png",
     snapshot: {
       platform: "Next.js & Cloud Edge",
       duration: "4 Months",
@@ -338,6 +342,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/safari-mall/safari-mall-techbg.png",
       subtitle: "Built to handle massive surges of hundreds of thousands of concurrent visitors when weekend promotion flyers drop.",
       technologies: [
         { name: "Next.js 14", desc: "Incremental static regeneration for lightning-fast flyer updates." },
@@ -406,6 +411,9 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     ],
     heroTagline: "CASE STUDY",
     clientLogoText: "Dream Holidays",
+    clientLogoImage: "/images/portfolio/dream-holidays/dreamholidays-logo.svg",
+    clientLogoImageDark: "/images/portfolio/dream-holidays/dreamholidays-logo.svg",
+    heroLogoScale: 0.88,
     clientLogoTagline: "EXPLORE GOD'S OWN COUNTRY",
     projectType: "Destination Tourism Portal & Itinerary Planner",
     heroHeadline: {
@@ -416,6 +424,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/dream-holidays/dreamholiday-bg.png",
     heroMobileBgImage: "/images/portfolio/dream-holidays/dreamholiday-bg.png",
     heroMockupImage: "/images/portfolio/dream-holidays/dreamholiday-laptop.png",
+    websiteImage: "/images/portfolio/dream-holidays/dreamholidays-website.png",
     snapshot: {
       platform: "WordPress & Custom React Components",
       duration: "2 Months",
@@ -465,6 +474,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/dream-holidays/dreamholidays-techbg.png",
       subtitle: "Engineered with optimized content management and lightning-fast image loading to handle heavy visual media.",
       technologies: [
         { name: "React & Next.js", desc: "Fluid frontend transitions with interactive package filters." },
@@ -546,6 +556,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/dats-interiors/dats-bg.png",
     heroMobileBgImage: "/images/portfolio/dats-interiors/dats-bg.png",
     heroMockupImage: "/images/portfolio/dats-interiors/dats-laptop.png",
+    websiteImage: "/images/portfolio/dats-interiors/dats-website.png",
     snapshot: {
       platform: "Next.js & High-End Portfolio CMS",
       duration: "3 Months",
@@ -595,6 +606,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/dats-interiors/dats-techbg.png",
       subtitle: "Built with bleeding-edge web technology ensuring fluid animations and instant high-res photo delivery across the GCC.",
       technologies: [
         { name: "Next.js", desc: "High-performance framework delivering smooth page transitions." },
@@ -676,6 +688,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/finexx-travels/finex-bg.png",
     heroMobileBgImage: "/images/portfolio/finexx-travels/finex-bg.png",
     heroMockupImage: "/images/portfolio/finexx-travels/finex-laptop.png",
+    websiteImage: "/images/portfolio/finexx-travels/finexx-website.png",
     snapshot: {
       platform: "Next.js & Fleet Logistics CMS",
       duration: "2.5 Months",
@@ -725,6 +738,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/finexx-travels/finexx-techbg.png",
       subtitle: "Built with high-speed modern technologies delivering rich automotive photography without loading lag.",
       technologies: [
         { name: "Next.js", desc: "Blazing fast page loads with instant image transitions." },
@@ -806,6 +820,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/hair-o-craft/hairocraft-bg.png",
     heroMobileBgImage: "/images/portfolio/hair-o-craft/hairocraft-bg.png",
     heroMockupImage: "/images/portfolio/hair-o-craft/hairocraft-laptop.png",
+    websiteImage: "/images/portfolio/hair-o-craft/hairocraft-website.png",
     heroBgOverlay: "bg-gradient-to-r from-[#03040B]/35 via-[#03040B]/10 to-transparent",
     heroMobileBgOverlay: "bg-gradient-to-b from-[#03040B]/30 via-transparent to-[#03040B]/50",
     snapshot: {
@@ -857,6 +872,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/hair-o-craft/hairocraft-techbg.png",
       subtitle: "Constructed with ultra-reliable web standards ensuring total patient privacy, speed, and smooth multi-branch synchronization.",
       technologies: [
         { name: "Next.js", desc: "Fast server rendering delivering high Google search authority for healthcare queries." },
@@ -938,6 +954,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/insafe-steel/insafe-bg.png",
     heroMobileBgImage: "/images/portfolio/insafe-steel/insafe-bg.png",
     heroMockupImage: "/images/portfolio/insafe-steel/insafe-laptop.png",
+    websiteImage: "/images/portfolio/insafe-steel/insafe-website.png",
     snapshot: {
       platform: "Next.js & Engineering Tender CMS",
       duration: "3 Months",
@@ -987,6 +1004,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/insafe-steel/insafe-techbg.png",
       subtitle: "Constructed with heavy-duty cloud infrastructure ensuring high availability and secure handling of confidential architectural plans.",
       technologies: [
         { name: "Next.js", desc: "Server-rendered speed optimized for Middle Eastern engineering search." },
@@ -1068,6 +1086,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/unigrant-academy/unigrant-bg.png",
     heroMobileBgImage: "/images/portfolio/unigrant-academy/unigrant-bg.png",
     heroMockupImage: "/images/portfolio/unigrant-academy/unigrant-laptop.png",
+    websiteImage: "/images/portfolio/unigrant-academy/unigrant-website.png",
     snapshot: {
       platform: "Next.js & Academic Enrollment CMS",
       duration: "3 Months",
@@ -1117,6 +1136,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/unigrant-academy/unigrant-techbg.png",
       subtitle: "Built with fast modern web tech ensuring rapid loading for students in rural and semi-urban Kerala.",
       technologies: [
         { name: "Next.js", desc: "Rapid server rendering delivering high discoverability across Kerala." },
@@ -1198,6 +1218,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/ivaansh-international/ivaansh-bg.png",
     heroMobileBgImage: "/images/portfolio/ivaansh-international/ivaansh-bg.png",
     heroMockupImage: "/images/portfolio/ivaansh-international/ivaansh-laptop.png",
+    websiteImage: "/images/portfolio/ivaansh-international/ivaansh-website.png",
     snapshot: {
       platform: "Next.js & Hospitality Experience Hub",
       duration: "2 Months",
@@ -1247,6 +1268,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/ivaansh-international/ivaansh-techbg.png",
       subtitle: "Engineered with modern, fluid web technologies delivering stunning high-resolution video and photography at lightning speeds.",
       technologies: [
         { name: "Next.js", desc: "Fast server rendering for high global visibility across luxury travelers." },
@@ -1418,6 +1440,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/travel-hope/travelhope-techbg.png",
       subtitle: "We used a focused stack and growth services to build a fast, scalable, conversion-friendly digital travel platform for Travel Hope.",
       technologies: [
         { name: "Django", desc: "Robust backend for dynamic content and enquiry management." },
@@ -1499,6 +1522,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/ayurgreen-spices/ayurgreen-bg.png",
     heroMobileBgImage: "/images/portfolio/ayurgreen-spices/ayurgreen-bg.png",
     heroMockupImage: "/images/portfolio/ayurgreen-spices/ayurgreen-laptop.png",
+    websiteImage: "/images/portfolio/ayurgreen-spices/ayurgreen-website.png",
     snapshot: {
       platform: "Next.js & Shopify Headless",
       duration: "2.5 Months",
@@ -1548,6 +1572,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/ayurgreen-spices/ayurgreen-techbg.png",
       subtitle: "Constructed with modern headless e-commerce tech for zero-latency browsing and instant WhatsApp sync.",
       technologies: [
         { name: "Next.js", desc: "High-performance React framework for server-rendered storefronts." },
@@ -1629,6 +1654,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/dsoft-institute/dsoft-bg.png",
     heroMobileBgImage: "/images/portfolio/dsoft-institute/dsoft-bg.png",
     heroMockupImage: "/images/portfolio/dsoft-institute/dsoft-laptop.png",
+    websiteImage: "/images/portfolio/dsoft-institute/dsoftinstitute-website.png",
     snapshot: {
       platform: "Next.js & Custom LMS",
       duration: "3 Months",
@@ -1678,6 +1704,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/dsoft-institute/dsoft-techbg.png",
       subtitle: "Engineered with resilient modern technologies to handle heavy seasonal traffic during college graduation intakes.",
       technologies: [
         { name: "Next.js & React", desc: "Fast server-side rendering for optimal SEO and rapid student navigation." },
@@ -1759,6 +1786,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/asian-avenue/asianavenue-bg.png",
     heroMobileBgImage: "/images/portfolio/asian-avenue/asianavenue-bg.png",
     heroMockupImage: "/images/portfolio/asian-avenue/asianavenue-laptop.png",
+    websiteImage: "/images/portfolio/asian-avenue/asianavenue-website.png",
     snapshot: {
       platform: "Next.js & Multilingual CMS",
       duration: "2.5 Months",
@@ -1808,6 +1836,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/asian-avenue/asianavenue-techbg.png",
       subtitle: "Engineered with GDPR-compliant European web standards ensuring lightning performance across all EU devices.",
       technologies: [
         { name: "Next.js", desc: "Ultra-fast server-rendered storefront optimized for German local search." },
@@ -1889,6 +1918,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/neurobase-ayurveda/neurobase-bg.png",
     heroMobileBgImage: "/images/portfolio/neurobase-ayurveda/neurobase-bg.png",
     heroMockupImage: "/images/portfolio/neurobase-ayurveda/neurobase-laptop.png",
+    websiteImage: "/images/portfolio/neurobase-ayurveda/neurobase-website.png",
     snapshot: {
       platform: "Next.js & Custom Healthcare Portal",
       duration: "3 Months",
@@ -1938,6 +1968,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/neurobase-ayurveda/neurobase-techbg.png",
       subtitle: "Built to stringent healthcare security and privacy standards ensuring patient medical records remain strictly confidential.",
       technologies: [
         { name: "Next.js", desc: "Fast server-side rendering for optimal search discoverability." },
@@ -2019,6 +2050,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/infig-content-hub/infig-bg.png",
     heroMobileBgImage: "/images/portfolio/infig-content-hub/infig-bg.png",
     heroMockupImage: "/images/portfolio/infig-content-hub/infig-laptop.png",
+    websiteImage: "/images/portfolio/infig-content-hub/infig-website.png",
     snapshot: {
       platform: "Next.js & Content Management Hub",
       duration: "2 Months",
@@ -2068,6 +2100,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/infig-content-hub/infig-techbg.png",
       subtitle: "Constructed with lightweight modern web standards ensuring pristine typography and instant file sample downloads.",
       technologies: [
         { name: "Next.js", desc: "High-speed rendering for optimal article discoverability." },
@@ -2149,6 +2182,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     heroBgImage: "/images/portfolio/phoenix-flow/phoenix-bg.png",
     heroMobileBgImage: "/images/portfolio/phoenix-flow/phoenix-bg.png",
     heroMockupImage: "/images/portfolio/phoenix-flow/phoenix-laptop.png",
+    websiteImage: "/images/portfolio/phoenix-flow/phoenix-website.png",
     snapshot: {
       platform: "Next.js & Corporate Advisory Funnel",
       duration: "2.5 Months",
@@ -2198,6 +2232,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       ],
     },
     techStack: {
+      image: "/images/portfolio/phoenix-flow/phoenix-techbg.png",
       subtitle: "Constructed with enterprise-grade web technology ensuring swift performance for international investors worldwide.",
       technologies: [
         { name: "Next.js", desc: "Blazing fast server rendering for global international discoverability." },
