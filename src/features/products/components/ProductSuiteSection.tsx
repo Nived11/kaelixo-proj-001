@@ -21,7 +21,6 @@ import {
   Layers,
   Sliders,
   Send,
-  CalendarCheck,
   GraduationCap,
   Play,
   Compass,
@@ -216,7 +215,9 @@ export default function ProductSuiteSection() {
                 {/* CTA Button */}
                 <div className="flex flex-wrap items-center gap-3.5 mt-8">
                   <a
-                    href="/contact"
+                    href="https://www.waywego.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-[#80002A] to-[#FF0055] border border-[#FF3377] hover:border-[#FF6699] text-white text-[14px] font-semibold tracking-wide transition-all duration-300 active:scale-95 cursor-pointer font-heading"
                   >
                     <span>Learn More</span>
@@ -408,7 +409,7 @@ export default function ProductSuiteSection() {
                   ))}
                 </div>
 
-                {/* CTA Buttons */}
+                {/* CTA Button */}
                 <div className="flex flex-wrap items-center gap-3.5 mt-8">
                   <a
                     href="/contact"
@@ -417,13 +418,6 @@ export default function ProductSuiteSection() {
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
                   </a>
-                  <button
-                    onClick={() => window.dispatchEvent(new CustomEvent('open-consultation-modal', { detail: { type: 'demo' } }))}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-slate-50 border border-slate-200 hover:border-pink-300 text-slate-800 hover:text-[#FF0055] text-[14px] font-semibold transition-all duration-300 cursor-pointer font-sans shadow-xs active:scale-95"
-                  >
-                    <CalendarCheck className="w-4 h-4 text-[#FF0055]" />
-                    <span>Request a Demo</span>
-                  </button>
                 </div>
               </div>
             </div>
