@@ -17,6 +17,16 @@ export interface StrategyWorkflow {
   processSteps: { label: string; icon: string }[];
 }
 
+export interface ShowcaseCardItem {
+  id: string;
+  title: string;
+  desc: string;
+  icon?: string;
+  type?: "website" | "iframe" | "iframe-mobile" | "seo" | "social" | "crm" | "image";
+  url?: string;
+  image?: string;
+}
+
 export interface ShowcaseScreen {
   name: string;
   desc: string;
@@ -89,7 +99,9 @@ export interface ProjectItem {
   showcase?: {
     subtitle: string;
     pills: string[];
-    screens: ShowcaseScreen[];
+    websiteUrl?: string;
+    cards?: ShowcaseCardItem[];
+    screens?: ShowcaseScreen[];
   };
 
   techStack?: {
@@ -863,6 +875,41 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     showcase: {
       subtitle: "A clean, clinical aesthetic built on reassuring calm tones, medical authority, and patient-first transparency.",
       pills: ["Balding Grade Selector", "Multi-City Branch Picker", "Verified Results Gallery", "Direct Doctor Q&A", "Confidential Photo Consultation"],
+      websiteUrl: "https://www.hairocraft.com/",
+      cards: [
+        {
+          id: "website",
+          title: "Live Website",
+          desc: "Modern, responsive and patient-centric healthcare platform.",
+          icon: "Monitor",
+          type: "iframe",
+          url: "https://www.hairocraft.com/",
+        },
+        {
+          id: "treatment",
+          title: "Hair Transplant Page",
+          desc: "Specialized clinical procedures, FUE hair transplants & doctor credentials.",
+          icon: "Sparkles",
+          type: "iframe",
+          url: "https://www.hairocraft.com/hair-transplant",
+        },
+        {
+          id: "about",
+          title: "About Us Page",
+          desc: "Clinic legacy, medical team credentials & brand journey across South India.",
+          icon: "Globe",
+          type: "iframe",
+          url: "https://www.hairocraft.com/about",
+        },
+        {
+          id: "mobile",
+          title: "Mobile Responsive",
+          desc: "Fast, frictionless mobile consultation booking across all devices.",
+          icon: "Smartphone",
+          type: "iframe-mobile",
+          url: "https://www.hairocraft.com/",
+        },
+      ],
       screens: [
         { name: "Clinical Home", desc: "Welcoming introduction to hair & skin treatments" },
         { name: "Balding Assessment", desc: "Interactive grade I-VII visual stage selector" },
