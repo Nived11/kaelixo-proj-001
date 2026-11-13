@@ -162,6 +162,15 @@ function ScaledIframe({
   const [hasError, setHasError] = useState<boolean>(false);
 
   useEffect(() => {
+    // Safety timer: external sites have heavy GTM/analytics scripts that delay window.onload.
+    // Reveal the preview within 1.2s so the user is never stuck waiting.
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, [url]);
+
+  useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
@@ -196,13 +205,10 @@ function ScaledIframe({
         />
       )}
 
-      {/* Loading Skeleton */}
+      {/* Subtle top progress bar while initial connection streams */}
       {!isLoaded && !hasError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-100/80 backdrop-blur-xs z-10 pointer-events-none">
-          <div className="flex items-center gap-1 text-[8px] font-semibold text-slate-500">
-            <span className="size-1.5 rounded-full bg-[#ff0055] animate-ping" />
-            Loading live preview...
-          </div>
+        <div className="absolute top-0 left-0 right-0 h-[2px] z-10 overflow-hidden bg-slate-200 pointer-events-none">
+          <div className="h-full w-full bg-gradient-to-r from-pink-500 via-[#ff0055] to-purple-500 animate-pulse" />
         </div>
       )}
 
@@ -210,7 +216,7 @@ function ScaledIframe({
         <iframe
           src={url}
           title={title}
-          loading="lazy"
+          loading="eager"
           scrolling="yes"
           onLoad={() => setIsLoaded(true)}
           onError={() => setHasError(true)}
