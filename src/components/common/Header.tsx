@@ -4,16 +4,18 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Search, ArrowRight, Menu, X, Layers, UserCircle, Code, BarChart } from "lucide-react";
+import { Search, ArrowRight, Menu, X, Layers, UserCircle, Code, BarChart, LayoutGrid } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import FullscreenMenu from "@/components/common/FullscreenMenu";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [fullscreenMenuOpen, setFullscreenMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [isServicesHovered, setIsServicesHovered] = useState(false);
   const pathname = usePathname();
-  
+
   // Use a ref for timeout to prevent memory leaks or clearing wrong timeouts
   const hoverTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
@@ -27,7 +29,7 @@ export default function Header() {
       setIsServicesHovered(false);
     }, 150); // 150ms buffer to move mouse from header to mega menu
   };
-  
+
   // State to track the currently active link
   const [activeLink, setActiveLink] = useState("Home");
 
@@ -120,20 +122,19 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${isScrolled
           ? "bg-[#020205]/95 backdrop-blur-md py-3 sm:py-4 shadow-none border-b border-transparent"
           : "bg-transparent py-5 sm:py-6 border-b border-transparent shadow-none"
-      }`}
+        }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-6 xl:px-12">
         <div className="flex items-center justify-between">
-          
+
           {/* Brand Logo - Full Image */}
           <Link href="/" className="block group" onClick={() => handleNavClick("/", "Home")}>
-            <Image 
-              src="/images/brand/kaelixo-logo.webp" 
-              alt="Kaelixo Logo" 
+            <Image
+              src="/images/brand/kaelixo-logo.webp"
+              alt="Kaelixo Logo"
               width={150}
               height={41}
               className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
@@ -145,9 +146,9 @@ export default function Header() {
             {navLinks.map((link) => {
               const isActive = activeLink === link.name;
               const isServices = link.name === "Services";
-              
+
               return (
-                <div 
+                <div
                   key={link.name}
                   className="relative flex items-center"
                   onMouseEnter={isServices ? handleMouseEnter : undefined}
@@ -156,14 +157,13 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => handleNavClick(link.href, link.name)}
-                    className={`relative text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] tracking-normal transition-colors duration-200 group py-2 ${
-                      isActive
+                    className={`relative text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] tracking-normal transition-colors duration-200 group py-2 ${isActive
                         ? "text-[#FF0055] font-medium"
                         : "text-white/80 hover:text-white font-normal"
-                    }`}
+                      }`}
                   >
                     {link.name}
-                    
+
                     {/* Sliding Active Line using Framer Motion */}
                     {isActive ? (
                       <motion.div
@@ -194,6 +194,16 @@ export default function Header() {
             </button>
             */}
 
+            {/* Normal Menu Icon Trigger Button (No background div, no border, just normal menu icon) */}
+            <button
+              onClick={() => setFullscreenMenuOpen(true)}
+              className="hidden lg:flex items-center justify-center p-2 text-white hover:text-[#FF0055] transition-colors cursor-pointer group active:scale-95"
+              aria-label="Explore Kaelixo"
+              title="Explore Kaelixo"
+            >
+              <Menu className="w-6 h-6 stroke-[1.8] transition-transform duration-200 group-hover:scale-105" />
+            </button>
+
             {/* Book a Demo Pill Button (Desktop only) */}
             <button
               onClick={() => window.dispatchEvent(new CustomEvent('open-consultation-modal', { detail: { type: 'demo' } }))}
@@ -211,10 +221,20 @@ export default function Header() {
               </div>
             </button>
 
-            {/* Mobile Hamburger Toggle (Tablet/Mobile only) */}
+            {/* Mobile Fullscreen Menu Trigger (To the left of mobile drawer toggle) */}
+            <button
+              onClick={() => setFullscreenMenuOpen(true)}
+              className="p-2 text-white hover:text-[#FF0055] hover:bg-white/10 rounded-lg lg:hidden flex items-center justify-center cursor-pointer active:scale-95 transition-colors"
+              aria-label="Explore Menu"
+              title="Explore Menu"
+            >
+              <LayoutGrid className="w-6 h-6 stroke-[1.8]" />
+            </button>
+
+            {/* Mobile Hamburger Toggle (Tablet/Mobile only) - replaced by 3-line menu */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-white hover:bg-white/10 lg:hidden flex items-center justify-center"
+              className="p-2 rounded-lg text-white hover:bg-white/10 lg:hidden flex items-center justify-center cursor-pointer"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -252,9 +272,8 @@ export default function Header() {
                     setMobileMenuOpen(false);
                     handleNavClick(link.href, link.name);
                   }}
-                  className={`py-2 text-base ${
-                    isActive ? "text-[#FF0055] text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-semibold" : "text-white/80 hover:text-white"
-                  }`}
+                  className={`py-2 text-base ${isActive ? "text-[#FF0055] text-[15px] sm:text-[15px] md:text-[16px] lg:text-[16px] xl:text-[16px] 2xl:text-[16px] font-semibold" : "text-white/80 hover:text-white"
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -290,7 +309,7 @@ export default function Header() {
             onMouseLeave={handleMouseLeave}
           >
             <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-12 relative flex gap-12 xl:gap-16">
-              
+
               {/* Bottom Left Glow */}
               <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#FF0055]/15 rounded-full blur-[80px] pointer-events-none" />
               {/* Top Right Glow */}
@@ -317,7 +336,7 @@ export default function Header() {
 
               {/* Right Columns (Links) */}
               <div className="w-[70%] grid grid-cols-4 gap-6 xl:gap-8 relative z-10">
-                
+
                 {/* Branding */}
                 <div>
                   <Link href="/#branding" onClick={() => setIsServicesHovered(false)} className="flex items-center gap-2 text-white font-semibold text-[14px] sm:text-[14px] md:text-[14px] lg:text-[18px] xl:text-[18px] mb-6 group hover:text-[#FF0055] transition-colors">
@@ -370,8 +389,8 @@ export default function Header() {
                   <ul className="space-y-3.5">
                     {["Web Development", "Mobile App Development", "Custom Software", "Cloud Services", "Cyber Security", "AI & Automation", "Data & Analytics"].map((item) => (
                       <li key={item}>
-                        <Link 
-                          href={item === "Web Development" ? "/services/web-development" : `/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`} 
+                        <Link
+                          href={item === "Web Development" ? "/services/web-development" : `/#${item.toLowerCase().replace(/ /g, "-").replace("&-", "")}`}
                           onClick={() => setIsServicesHovered(false)}
                           className="text-slate-400 text-[15px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[16px] hover:text-white transition-colors"
                         >
@@ -401,12 +420,18 @@ export default function Header() {
                     ))}
                   </ul>
                 </div>
-                
+
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Fullscreen 100dvh Menu Overlay */}
+      <FullscreenMenu
+        isOpen={fullscreenMenuOpen}
+        onClose={() => setFullscreenMenuOpen(false)}
+      />
 
     </header>
   );
